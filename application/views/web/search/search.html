@@ -1,0 +1,59 @@
+<div id="banner">
+    <div class="search">
+        <div class="search_main">
+            <div class="search_right">
+                <form action='search' id='searchform' method='post'>
+                    <input type="text" name="search" id="search" value="请输入关键词"  onfocus="javascript:this.value=''"/>
+                    <input type='submit' id='jssearchbtn' value=' ' style='width:20px;cursor:pointer;margin-left:0px;' />
+                       <a href="index.php/service/index/30" target="_blank" style='margin-left:45px;'>联系我们</a>
+                </form>
+                <script>
+                    $(document).ready(function(){
+                        $('#jssearchbtn').click(function(){
+                            var searchText = $('#search').val();
+                            if(searchText != '' && searchText != '请输入关键词')
+                            {
+                                $('#searchform').submit();
+                            }else{alert('请输入搜索关键字');}
+                        });
+                    });
+                </script>
+            </div>
+            <div class="search_r"></div>
+        </div>
+    </div>
+    <div class="banner_img">
+        <img src="images/banner_zxzx.jpg" alt="走进友山" />
+    </div>
+</div>
+<style>
+    .gsc-results-wrapper-nooverlay{width:988px;}
+    .gsc-input,.gsc-search-button,.gsc-clear-button{display:none;}
+</style>
+<script  type="text/javascript" src="javascript/googleapi.js" ></script>
+<script  type="text/javascript" src="javascript/googlesearch.js" ></script>
+<script>
+    $(document).ready(function(){
+        var obj = {
+            'defaultkey':'<?php if(isset($key)) {echo $key;}?>'
+        }
+        var mygs = new GoogleSearch(obj);
+        mygs.create({
+            'input':'search',
+            'btn':'jssearchbtn',
+            'container':'searchcontrol'
+        });
+    });
+</script>
+<div id="main">
+    <div class="clear"></div>
+    <div class="search">
+        <div class="break">当前位置：<a href="#">首页</a><span>></span><span class="current">搜索结果</span></div>
+    </div>
+    <div class="search_title">
+        <p class="sslb">搜索列表</p>
+    </div>
+    <div class="list"  id="searchcontrol">
+
+    </div>
+</div>
