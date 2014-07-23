@@ -20,28 +20,29 @@ img{border:none}
 .header{ height:290px; text-align: center;position: relative;} 
 .ad {width: 980px;height: 240px;}
 .nav {width: 980px;height: 50px;background-color: #29A7E1}
-.banner {width: 980px;height: 350px;border:1px solid #CCCCCC;position: relative;margin-top: 1px}
-
+.banner {width: 980px;height: 350px;position: relative;margin-top: 1px}
+.news {height: 150px;overflow: hidden;}
+.news ul{width: 1450px;margin: 0 auto}
+.news ul li{width: 198px;height: 110px;padding: 20px;margin-right: 10px;float: left;}
+.news .title {font-size: 20px;color:black}
+.news img{width: 198px;}
 
 .centers {width: 980px;height: 500px;border: 1px solid #cccccc;margin-top: 1px;position: relative;overflow: hidden;} 
 .centers .c_left{ float:left;height: 400px ;width:700px;background:#F0F0F0; position: absolute;} 
 .centers .c_right{ float:left;height: 400px; width:280px;background:#F7F7F7;position: absolute;left: 700px}
 .centers .c_banner {height: 95px;width: 100%;background-color:red;position: absolute;top:400px;margin-top: 5px}
 
-.kanfangtuan {width: 980px;height: 400px;border: 1px solid #cccccc;margin-top: 1px;position: relative;overflow: hidden;}
-.kanfangtuan .c_left{ float:left;height: 400px ;width:480px;background:#F0F0F0; position: absolute;margin: 5px} 
-.kanfangtuan .c_right{ float:left;height: 400px; width:480px;background:#F7F7F7;position: absolute;left: 490px;margin: 5px}
-.c_top {height: 300px;width: 100%;background-color:green}
-.c_bottom{height: 50px;width: 100%;background-color: yellow;position: absolute;top: 300px;margin-top: 10px}
-
-.c_bottom ul{width:400px;margin: 0px;}
-.c_bottom ul li {width: 100px;background-color: red;float: right;height: 50px;line-height: 50px;
-border-right:#000 1px solid; 
-border-bottom: #000 1px solid; 
-text-align: center; }
-
-.footer{height: 50px; border:1px solid #CCCCCC; background:#34B3D4;margin-top: 1px} 
+.kanfangtuan {width: 980px;height: 400px;margin-top: 1px;position: relative;overflow: hidden;}
+.kanfangtuan .c_left{ float:left;height: 400px ;width:480px; position: absolute;margin: 5px} 
+.kanfangtuan .c_right{ float:left;height: 400px; width:480px;position: absolute;left: 490px;margin: 5px}
 .kanfangtuan  img{width: 480px;height: 300px}
+
+.c_top {height: 300px;width: 100%;background-color:green}
+.c_bottom{height: 50px;width: 480px;position: absolute;top: 300px;margin-top: 10px;overflow: hidden;}
+.c_bottom ul{width:550px;}
+.c_bottom ul li {width:108px;margin-right:16px;background-color:#98A4A4;float:left;height:40px;line-height: 40px;border-radius:5px;margin-top: 5px}
+.c_bottom .current{background-color:#34B3D4 }
+.footer{height: 50px;  background:#34B3D4;margin-top: 1px;color: white;font-size: 12px;text-align: left;padding-top: 20px} 
 
 
 

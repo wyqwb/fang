@@ -116,11 +116,11 @@
 				height: 8px;
 				margin: 0 5px 0 0;
 			}
-			#carousel .pager a.selected {
+		/*	#carousel .pager a.selected {
 				background: transparent url(/images/carousel_control.png) no-repeat -12px -32px;
 				text-decoration: underline;				
 			}
-			
+			*/
 			#source {
 				text-align: center;
 				width: 100%;
@@ -271,7 +271,7 @@ $(function() {
 				<div class="clearfix"></div>
 				<a id="prev" class="prev" href="#">&lt;</a>
 				<a id="next" class="next" href="#">&gt;</a>
-				<div id="pager" class="pager"></div>
+				<!-- <div id="pager" class="pager"></div> -->
 			</div>
 		</div>
 	</div>
@@ -290,7 +290,7 @@ $(function() {
 				<div class="clearfix"></div>
 				<a id="prev" class="prev" href="#">&lt;</a>
 				<a id="next" class="next" href="#">&gt;</a>
-				<div id="pager" class="pager"></div>
+				<!-- <div id="pager" class="pager"></div> -->
 			</div>
 		</div>		
 
@@ -307,31 +307,62 @@ $(function() {
 			<div class="c_top"><img src="/images/fang1.png"></div>
 			<div class="c_bottom">
 				<ul>
-					<li>dd</li>
-					<li>dddd</li>
-					<li>ddddddd</li>
-					<li>d</li>
+					<li class="current">查看详情</li>
+					<li>我要出价</li>
+					<li>看房团</li>
+					<li>移民优势</li>
 				</ul>
 			</div>
 		</div> 
 		<div class="c_right">
 			<div class="c_top"><img src="/images/fang2.png"></div>
-			<div class="c_bottom"></div>
+			<div class="c_bottom">				
+				<ul>
+					<li>查看详情</li>
+					<li>我要出价</li>
+					<li class="current">看房团</li>
+					<li>移民优势</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<div class="kanfangtuan">
 		<div class="c_left">
 			<div class="c_top"><img src="/images/fang3.png"></div>
-			<div class="c_bottom"></div>
+			<div class="c_bottom">
+			<ul>
+					<li>查看详情</li>
+					<li>我要出价</li>
+					<li>看房团</li>
+					<li class="current">移民优势</li>
+				</ul>
+			</div>
 		</div> 
 		<div class="c_right">
 			<div class="c_top"><img src="/images/fang4.png"></div>
-			<div class="c_bottom"></div>			
+			<div class="c_bottom">
+				<ul>
+					<li>查看详情</li>
+					<li>我要出价</li>
+					<li>看房团</li>
+					<li>移民优势</li>
+				</ul>
+			</div>			
 		</div>
 	</div>
 
+	<div class="banner"><img src="/images/pg.png"></div>
 
-	
-    <div class="footer"></div> 
+	<div class="banner news">
+				<ul>
+					<li class="title">Consultin news
+					<img src="/images/news.png"></li>
+					<li>afafafafsf</li>
+					<li>adfasffdsaf</li>
+					<li>affafdfsfd</li>
+				</ul>
+	</div>
+
+    <div class="footer">2013 modulesversion</div> 
 </body> 
 </html>
