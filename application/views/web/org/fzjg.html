@@ -1,0 +1,51 @@
+<div id="banner" class="banner_child">
+    <div class="search">
+        <div class="search_main">
+            <div class="search_right">
+                <form action='search' id='searchform' method='post'>
+                    <input type="text" name="search" id="search" value="请输入关键词"  onfocus="javascript:this.value=''"/>
+                    <input type='submit' id='jssearchbtn' value=' ' style='width:20px;cursor:pointer;margin-left:0px;' />
+                       <a href="index.php/service/index/30" target="_blank" style='margin-left:45px;'>联系我们</a>
+                </form>
+                <script>
+                    $(document).ready(function(){
+                        $('#jssearchbtn').click(function(){
+                            var searchText = $('#search').val();
+                            if(searchText != '' && searchText != '请输入关键词')
+                            {
+                                $('#searchform').submit();
+                            }else{alert('请输入搜索关键字');}
+                        });
+                    });
+                </script>
+            </div>
+            <div class="search_r"></div>
+        </div>
+    </div>
+  <div class="banner_img">
+   <img src="images/banner_fzjg.jpg"  alt="走进友山" />
+  </div>
+</div>
+<div id="main">
+  <div class="left fl">
+     <div class="menu"> 
+       <div class="title">分支机构</div>
+       <dl>
+      	<?php foreach($navList as $item):?>
+         <dt <?php if ($id==$item['id']) {?> class="current" <?php }?> ><a href="index.php/org/index/<?php echo $item['id'];?>"><?php echo $item['title'];?></a></dt>
+        <?php endforeach;?>   
+      </dl>
+     </div>
+     <!--<a href="#"><img src="images/img_l.png" width="249" height="139" alt="金友汇专区" /></a>-->
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2226488136&amp;site=qq&amp;menu=yes"><img src="images/kf.png" width="250" height="96" alt="客服" /></a>
+  
+  </div>
+  <div class="content fr">
+    <div class="break">当前位置：<a href="index.php">首页</a><span>></span><a href="index.php/org/">分支机构</a><span>></span><span class="current"><?php echo $content['title'];?></span></div>
+    <div class="article">
+      <div class="yshan zjys"><?php echo $content['content'];?></div>
+    </div>
+    </div>
+  
+</div>
+<div class="clear"></div>

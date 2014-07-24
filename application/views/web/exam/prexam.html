@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base href="<?php echo base_url();?>" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name='keywords' content='' />
+        <meta name='description' content='' />
+        <title>上海致上信息科技有限公司</title>
+        <link href="css/common.css" rel="stylesheet" type="text/css" />
+        <link href="css/base.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="css/vipstyle.css" rel="stylesheet" type="text/css" />
+        <script charset="utf-8" type="text/javascript" src="javascript/jquery-1.8.3.min.js" ></script>
+        <script charset="utf-8" type="text/javascript" src="javascript/global.js" ></script>
+    </head>
+
+    <body>
+<div style="text-align: center;margin-top:20px;line-height:80px;width:980px;margin:0 auto">
+ 	<div style="font-size:30px">品牌赏析测试</div>
+  <div style="font-size:20px">欢迎进入品牌赏析的测试，共100题，本次考试共有60分钟回答时间。</div>
+  <div style="text-align:right;margin-right:200px">
+  <form id="examfrom">
+  <input type="submit" id="startexam" value="开始测试" style="width:100px;height:25px" />
+  <input type="button" onClick="history.go(-1);" value="返回"  style="width:100px;height:25px"/>
+  </form>
+  </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		$("#startexam").click(function() {
+    	 $("#examfrom").attr("action", "/exam/startexam/");
+    		$("#examfrom").submit();
+		});
+	});
+</script>>

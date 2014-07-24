@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录</title>
+<base href="<?php echo base_url();?>">
+<link type="text/css" href="css/adminstyle.css" rel="stylesheet" />
+</head>
+
+<body style="background-color:#FBFBFB;">
+<div class="login">
+	<div class="loginlogo"></div>
+	
+	<div class="logincon">
+	<form action="index.php/admin/adminlogin/index" method="post">
+		<div><div>用户名</div><input type="text" name="name" /></div>
+		<div><div>密码</div><input type="password" name="password" /></div>
+		<div class="loginsub"><span class="lfloat"><input class="lfloat" style='visibility:hidden;' type="checkbox" /> <label class="lfloat" style='visibility:hidden;'> 记住我的登录信息</label></span><input type="submit" name="sub" value="登陆" class="subbg" /></div>
+	</form>
+	</div>
+</div>
+
+</body>
+</html>

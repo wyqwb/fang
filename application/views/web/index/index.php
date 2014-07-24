@@ -248,11 +248,11 @@ $(function() {
 	<div class="banner">
 		<div id="focus">
 			<ul>
-				<li><a href="" target="_blank"><img src="/images/banner1.png" alt="QQ商城焦点图效果下载" /></a></li>
-				<li><a href="" target="_blank"><img src="/images/lunbo/02.jpg" alt="QQ商城焦点图效果教程" /></a></li>
-				<li><a href="" target="_blank"><img src="/images/lunbo/03.jpg" alt="jquery商城焦点图效果" /></a></li>
-				<li><a href="" target="_blank"><img src="/images/lunbo/04.jpg" alt="jquery商城焦点图代码" /></a></li>
-				<li><a href="" target="_blank"><img src="/images/lunbo/05.jpg" alt="jquery商城焦点图源码" /></a></li>
+				<li><a href="" target="_blank"><img src="/images/lunbo/banner1.png" alt="QQ商城焦点图效果下载" /></a></li>
+				<li><a href="" target="_blank"><img src="/images/lunbo/banner2.png" alt="QQ商城焦点图效果教程" /></a></li>
+				<li><a href="" target="_blank"><img src="/images/lunbo/banner3.png" alt="jquery商城焦点图效果" /></a></li>
+				<li><a href="" target="_blank"><img src="/images/lunbo/banner4.png" alt="jquery商城焦点图代码" /></a></li>
+				<li><a href="" target="_blank"><img src="/images/lunbo/banner5.png" alt="jquery商城焦点图源码" /></a></li>
 			</ul>
 		</div><!--focus end-->
 	</div>
@@ -261,12 +261,11 @@ $(function() {
 		<div id="wrapper">
 			<div id="carousel">
 				<ul>
-					<li><img src="images/up1.jpg" alt="" /><span>sadfasfasdfadfsfasffasd</span></li>
-					<li><img src="images/up2.jpg" alt="" /><span>Image2</span></li>
-					<li><img src="images/up3.jpg" alt="" /><span>Image3</span></li>
-					<li><img src="images/up4.jpg" alt="" /><span>Image4</span></li>
-					<li><img src="images/up5.jpg" alt="" /><span>Image5</span></li>
-					<li><img src="images/up6.jpg" alt="" /><span>Image6</span></li>					
+					<li><img src="images/tz.png" alt="" /><span>Image1</span></li>
+					<li><img src="images/ym.png" alt="" /><span>Image2</span></li>
+					<li><img src="images/jy.png" alt="" /><span>Image3</span></li>
+					<li><img src="images/yl.png" alt="" /><span>Image4</span></li>
+					<li><img src="images/dj.png" alt="" /><span>Image5</span></li>
 				</ul>
 				<div class="clearfix"></div>
 				<a id="prev" class="prev" href="#">&lt;</a>
@@ -280,12 +279,11 @@ $(function() {
 		<div id="wrapper">
 			<div id="carousel">
 				<ul>
-					<li><img src="images/up1.jpg" alt="" /><span>Image1</span></li>
-					<li><img src="images/up2.jpg" alt="" /><span>Image2</span></li>
-					<li><img src="images/up3.jpg" alt="" /><span>Image3</span></li>
-					<li><img src="images/up4.jpg" alt="" /><span>Image4</span></li>
-					<li><img src="images/up5.jpg" alt="" /><span>Image5</span></li>
-					<li><img src="images/up6.jpg" alt="" /><span>Image6</span></li>					
+					<li><img src="images/mg.png" alt="" /><span>Image1</span></li>
+					<li><img src="images/adly.png" alt="" /><span>Image2</span></li>
+					<li><img src="images/jnd.png" alt="" /><span>Image3</span></li>
+					<li><img src="images/mlxy.png" alt="" /><span>Image4</span></li>
+					<li><img src="images/dj.png" alt="" /><span>Image5</span></li>
 				</ul>
 				<div class="clearfix"></div>
 				<a id="prev" class="prev" href="#">&lt;</a>
@@ -297,9 +295,22 @@ $(function() {
 	</div>
 
 	<div class="centers"> 
-		<div class="c_left">我是中的左</div> 
-		<div class="c_right">我是中的右</div>		
-		<!-- <div class="c_banner">df</div> -->
+		<div class="c_left">
+			<div class="c_l"><img src="images/d.png"><img src="images/p.png"></div>
+			<div class="c_r"><img src="images/cbanner.png">
+			<ul>
+					<li >查看详情</li>
+					<li>我要出价</li>
+					<li class="current">看房团</li>
+					<li>移民优势</li>
+			</ul>
+			</div>
+			<div class="line"></div>
+		</div> 
+		<div class="c_right">
+			<div class="banner">banner</div>
+			<div class="banner">banner</div>
+		</div>		
 	</div> 
 
 	<div class="kanfangtuan">

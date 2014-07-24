@@ -1,0 +1,52 @@
+<div id="banner" class="banner_child">
+    <div class="search">
+        <div class="search_main">
+            <div class="search_right">
+                <form action='search' id='searchform' method='post'>
+                    <input type="text" name="search" id="search" value="请输入关键词"  onfocus="javascript:this.value=''"/>
+                    <input type='submit' id='jssearchbtn' value=' ' style='width:20px;cursor:pointer;margin-left:0px;' />
+                       <a href="index.php/service/index/30" target="_blank" style='margin-left:45px;'>联系我们</a>
+                </form>
+                <script>
+                    $(document).ready(function(){
+                        $('#jssearchbtn').click(function(){
+                            var searchText = $('#search').val();
+                            if(searchText != '' && searchText != '请输入关键词')
+                            {
+                                $('#searchform').submit();
+                            }else{alert('请输入搜索关键字');}
+                        });
+                    });
+                </script>
+            </div>
+            <div class="search_r"></div>
+        </div>
+    </div>
+    <div class="banner_img">
+        <img src="images/banner_cpzq.jpg" alt="走进友山" />
+    </div>
+</div>
+<div id="main" style='overflow:hidden;'>
+    <div class="left fl">
+        <div class="menu">
+            <div class="title">产品专区</div>
+            <dl>
+                <dt class="current"><a href="index.php/products/">募集中产品</a></dt>
+                <dt><a href="index.php/products/">已成立产品</a></dt>
+                <dt><a href="index.php/products/">已兑付产品</a></dt>
+            </dl>
+        </div>
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2226488136&amp;site=qq&amp;menu=yes"><img src="images/kf.png" width="250" height="96" alt="客服" /></a>
+
+    </div>
+    <div class="content fr">
+        <div class="break">当前位置：<a href="index.php">首页</a><span>></span><a href="index.php/products/">产品专区</a><span>></span><span class="current"> 募集中产品</span></div>
+        <div class="cpzq" style='padding:0px;'>
+            <?php if($which == '1'){?>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2226488136&amp;site=qq&amp;menu=yes"><img src='/images/products_01.jpg' /></a>
+            <?php }else{ ?>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2226488136&amp;site=qq&amp;menu=yes"><img src='/images/products_02.jpg' /></a>
+            <?php } ?>
+        </div>
+    </div>
+</div>

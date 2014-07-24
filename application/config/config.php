@@ -430,18 +430,18 @@ $config['choice'] ="1";
 $config['judge'] = "2";
 
 /* the industryinfo config  */
-$config['brandinfo'] ="1";
-$config['desigeinfo'] ="2";
-$config['fashionindustry'] ="3";
-$config['digitaltech'] ="4";
-$config['fashionmedia'] ="5";
-$config['fashionbloger'] ="6";
-$config['fashionbuyer'] ="7";
-$config['fashionelectric'] ="8";
+$config['brandinfo'] ="6";
+$config['desigeinfo'] ="7";
+$config['fashionindustry'] ="8";
+$config['digitaltech'] ="9";
+$config['fashionmedia'] ="10";
+$config['fashionbloger'] ="11";
+$config['fashionbuyer'] ="12";
+$config['fashionelectric'] ="13";
 
 /* the Cooper config  */
-$config['coope_teacher'] ="1";
-$config['coope_orgnization'] ="2";
+$config['coope_teacher'] ="3";
+$config['coope_orgnization'] ="4";
 $config['cooper_inner'] ="a";
 $config['cooper_overseas'] ="b";
 $config['cooper_man'] ="1";

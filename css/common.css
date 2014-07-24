@@ -1,0 +1,106 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0; padding:0; border:0;}
+body{ font-family:"Microsoft YaHei", "微软雅黑"; font-size:12px; line-height:1.5em; color:#727272; background-color:#fff; }
+html, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td { margin: 0; padding: 0; }
+img { border: 0 none; vertical-align: top; }
+ul { list-style-type:none;}
+li { list-style-type:inhert; }
+h1{font-size:20px}
+h2{font-size:18px}
+h3{font-size:16px}
+h4{font-size:14px}
+h5{font-size:12px}
+h6{font-size:10px}
+button { cursor: pointer; }
+a, a:link {  text-decoration: none; color:#727272; }
+a:active, a:hover { text-decoration: none; color:#0e9adf; }
+a:focus { outline: none; }
+.fixed:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+.fixed { display: block; min-height: 1%; }
+_html .fixed { height: 1%; }
+.clear { display: block!important; float: none!important; clear: both; overflow: hidden; width: auto!important; height: 0!important; margin: 0 auto!important; padding: 0!important; font-size: 0; line-height: 0; }
+.fl, .fr { display: inline; float: left; }
+.fr { float: right; }
+.font{ font-family:"Microsoft YaHei", "微软雅黑"; font-size:13px;}
+
+.clearfix:after{font-size: 0;content: " ";height: 0;clear: both;display: block;visibility: hidden;}
+.clearfix{*zoom: 1;}
+
+
+#header_bg{background-color:#fff; width:100%;}
+#header{ width:990px; height:80px; margin:0 auto;}
+#banner{  width:100%; overflow:hidden;}/*height:530px;*/
+#main{ width:990px; margin:0 auto; min-height:500px; padding-bottom:20px;}
+
+#header .hlogin{ margin:10px; text-align:right; font-size:13px;margin-right:30px;}
+#header .hlogin a{ text-decoration:underline; padding:0 5px; color:#0e9adf;}
+#header .hlogin a:hover{ text-decoration:none;}
+#header .nav { margin-right:16px;}
+/* 0421 */#header .nav li{ float:left; font-size:16px; background:url(../images/h_libg.jpg) no-repeat left center; padding:0px 15px; line-height:35px; height:35px; }
+#header .nav li.current{border-bottom:6px solid #0093dd;}
+#header .nav li.current a{color:#0e9adf;}
+
+
+/*--------search--------------*/
+#banner{ position:relative;}
+#banner .banner_img{ margin:0 auto; text-align:center; z-index:1;width:100%; }
+#banner .search{ width:100%; height:33px; z-index: 3; background:url(../images/nav_bg.png) repeat-x; top:0px; position:absolute;}
+.search_main{width:960px; margin:0 auto; position:relative;}
+.search .search_right{ background:url(../images/search_bg.png) no-repeat; width:273px; height:33px; float:right; line-height:33px;   }
+.search .search_right input{font-family:"Microsoft YaHei", "微软雅黑"; margin-left:30px; margin-top:6px; width:100px; height:20px; background:none; color:#fff;  }
+.search .search_right a.submit_search{ padding:10px;margin-left:0px;}
+.search .search_right a{margin-left:65px; color:#fff;font-family:"Microsoft YaHei", "微软雅黑"; font-size:13px;  }
+.search_r{ background:#0C91D5;height:33px; width:600px; line-height:33px; float:right; position:absolute; left:960px;}
+.banner_img{ width:100%; overflow:hidden;}
+
+
+
+
+
+
+
+/*--------footer--------------*/
+#footer{ width:100%;background:url(../images/bottom_bg.png) repeat-x;height:300px; color:#FFF; border-top:7px solid #0371af;background-color:#33a9e4;}
+#footer .main{width:990px; margin:0 auto; padding-top:10px; height:200px;}
+#footer .main ul li{ float:left; height:150px; width:100px; text-align:left; }
+#footer .main ul li span{ font-size:16px; line-height:30px;}
+#footer .main ul li p{ font-size:12px; line-height:1.7em;}
+#footer .address{ font-size:12px;width:260px; line-height:1.7em; float:right; text-align:left; padding-right:10px;}
+#footer a{ color:#fff;}
+#footer .ad_li span{ padding:5px;}
+#footer .ad_li a{ padding:5px;}
+#footer .ad_li a:hover{text-decoration:underline;}
+#footer .ad_li a.cur{ background:url(../images/address_bg.png) no-repeat 2px 6px; color:#159adf; text-decoration:none;}
+#footer a:hover{ text-decoration:underline;}
+#footer .bottom{ clear:both; border-top:1px solid #77c5ec; text-align:center; line-height:30px; padding-top:20px;}
+#footer .bottom a{ text-decoration:underline;}
+#footer .bottom span{ padding:10px;}
+#footer .coina{ float:right; width:200px; margin-right:400px;} 
+#footer .coinus div.jiathis_style{ height:25px; }
+#footer .jiathis_style a{padding:0px 10px;width:20px; height:27px; float:right;}
+#footer .jiathis_style img{ margin-top:-10px;}
+#footer .jiathis_style .jtico{ height: 20px!important; padding-left: 5px!important; background:none;}
+#footer .jiathis_style .jiathis_separator{ margin:0;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

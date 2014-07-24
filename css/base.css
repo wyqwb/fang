@@ -27,10 +27,19 @@ img{border:none}
 .news .title {font-size: 20px;color:black}
 .news img{width: 198px;}
 
-.centers {width: 980px;height: 500px;border: 1px solid #cccccc;margin-top: 1px;position: relative;overflow: hidden;} 
-.centers .c_left{ float:left;height: 400px ;width:700px;background:#F0F0F0; position: absolute;} 
-.centers .c_right{ float:left;height: 400px; width:280px;background:#F7F7F7;position: absolute;left: 700px}
-.centers .c_banner {height: 95px;width: 100%;background-color:red;position: absolute;top:400px;margin-top: 5px}
+.centers {width: 980px;height: 800px;margin-top: 1px;position: relative;overflow: hidden;} 
+.centers .c_left{ float:left;height:500px;width:780px;background:#F0F0F0; position: absolute;} 
+.centers .c_left .c_r { float:right;height:100%;width:700px;position: absolute;left:80px} 
+.centers .c_left .c_l { float:left;height:100%;width:80px;} 
+.centers .c_left .c_r  .current{background-color:#34B3D4 }
+.centers .c_left .c_l img { width: 80%;margin-top: 10px} 
+.centers .c_left .c_r  ul { width:100%;position: absolute;top:450px;} 
+.centers .c_left .c_r  ul li {;cursor:pointer;background-color:#98A4A4; float:left;height:40px;line-height: 40px;width:108px;margin-right: 10px;border-radius:5px;} 
+.centers .c_left .line {height: 1px;background-color: #ccc;width: 100%;position: absolute;top:510px}
+
+.centers .c_right{ float:left;height: 500px; width:200px;background:#F7F7F7;position: absolute;left: 780px}
+.centers .c_right .banner{width: 180px;height:200px;margin:0px 10px 10px 10px;background-color: #ccc}
+
 
 .kanfangtuan {width: 980px;height: 400px;margin-top: 1px;position: relative;overflow: hidden;}
 .kanfangtuan .c_left{ float:left;height: 400px ;width:480px; position: absolute;margin: 5px} 
@@ -40,7 +49,7 @@ img{border:none}
 .c_top {height: 300px;width: 100%;background-color:green}
 .c_bottom{height: 50px;width: 480px;position: absolute;top: 300px;margin-top: 10px;overflow: hidden;}
 .c_bottom ul{width:550px;}
-.c_bottom ul li {width:108px;margin-right:16px;background-color:#98A4A4;float:left;height:40px;line-height: 40px;border-radius:5px;margin-top: 5px}
+.c_bottom ul li {cursor:pointer;width:108px;margin-right:16px;background-color:#98A4A4;float:left;height:40px;line-height: 40px;border-radius:5px;margin-top: 5px}
 .c_bottom .current{background-color:#34B3D4 }
 .footer{height: 50px;  background:#34B3D4;margin-top: 1px;color: white;font-size: 12px;text-align: left;padding-top: 20px} 
 

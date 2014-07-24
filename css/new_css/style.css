@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document */
+
+.banner_child .banner_img{ height:189px;}
+.banner_child .banner_img img{ position:absolute; left:50%; margin-left:-960px;}
+
+/*--------------------index---banner----------------------------*/
+.Index_banimg{ height:529px;}
+.Index_banimg img{ position:absolute; left:50%; margin-left:-960px;}
+
+/*-----------------zjys---left--------------------------*/
+
+.left{ width:250px;  position:relative; top:-33px;}
+.left .title{ background:url(../images/menu_bg.png);font-size:15px; width:90%;padding-left:10%; height:33px; line-height:33px; color:#fff; }
+.left img{ margin:5px auto;}
+
+.menu{ position:relative; overflow:hidden;}
+.menu dt{background:url(../images/menu_li.png) 0 -36px;line-height:36px;width:90%;padding-left:10%;font-size:14px; }
+.menu dt.current{background-position:0 0;  }
+.menu dt.current a{ color:#0e9adf; }
+.menu .shadow{ background:url(../images/rimenu.png) no-repeat; position:absolute; top:33px; right:0px; width:10px; height:100%;}
+
+.menu dd{ background:url(../images/dd.png) repeat-y; padding-left:40px;font-size:14px;line-height:36px; }
+.menu dd span{ background:url(../images/ddspan.png) no-repeat center; width:16px; height:33px;  float:left;}
+.menu dd a{ padding:8px 0px;}
+
+
+
+.content{ padding-left:10px; width:730px;font-size:12px;padding-bottom:20px;}
+.break{ border-bottom:1px solid #e3e3e3;font-size:13px; height:35px; margin-bottom:10px; line-height:35px;width:720px; padding-left:10px; }
+.break span{ padding:5px;}
+.break span.current{ color:#0e9adf;}
+.zjys{ padding:0 10px; margin-top:20px;}
+.zjys p{ line-height:2.5em;  }
+
+
+
+
+/*----------------------产品专区-----------
+.table th,td{width:150px; height:30px;text-align:center;}---------------*/
+.table thead{color:#fff; background:#0093dd; }
+.table .odd td{ background:#f8fbfd; border-bottom:1px solid #f1f6f9;border-left:1px solid #fff;border-right:1px solid #d9d9d9;}
+.table .even td{ background:#f3f6f8; border-top:1px solid #e9eef2; border-left:1px solid #fff;border-right:1px solid #d9d9d9; }
+.table td.end{ border-right:0px; }
+.page{ width:320px; margin:20px auto; height:50px;}
+.page span{ background:url(../images/page_end.png); width:37px; height:31px; display:block; float:left; margin-left:1px;}
+.page span.one{ background:url(../images/page_one.png);}
+.page span a{ display:block;width:37px; height:31px; }
+.page li{  border-left:1px solid #fff;border-bottom:1px solid #c1c1c1; float:left; text-align:center;}
+.page li a{ width:34px; height:30px; background:#eaeaea;   display:block; line-height:30px; color:#3f3f3f;}
+.page li a:hover{ background:#6acdff;color:#fff;}
+.page li.cur{ width:34px; height:30px; background:#6acdff;   display:block; line-height:30px; color:#000;}
+
+
+span.red{ color:red;}
+span.green{ color:#5ab700;}
+
+
+
+
+/*----------------资讯中心--------------------*/
+.list li{ height:37px; border-bottom:1px dotted #cdcdcd; line-height:37px; padding-left:40px; background:url(../images/list_bg.png) no-repeat 10px center;}
+.article { font-size:13px; font-weight:200; color:#3f3f3f;}
+.article .title{ color:#0093dd; font-size:15px; clear:both; padding-left:20px;}
+.article img{ float:left;}
+.article p{line-height:2em; }
+
+
+.fzjg ul li{ margin-bottom:40px; font-size:14px; line-height:2em; border-bottom:1px dotted #CCC;}
+.fzjg ul li .title{ color:#0E9ADF; }
+.fzjg ul li p a{ text-decoration:underline;color:#0E9ADF;}
+
+
+.jrys ul li{ margin-bottom:20px; padding-left:10px; font-size:14px; line-height:2em; border-bottom:1px dotted #CCC;}
+.jrys ul li .title{ color:#0E9ADF; font-size:16px; }
+.jrys ul li .yp{ text-align:right; margin:10px;}
+.yshan span{ color:#0E9ADF;}
+
+/*---------------------------登陆-------------------*/
+.Login_header{ width:990px; margin:0 auto; height:80px; margin-bottom:10px;}
+.Login_header .Login_var{ padding-right:10px;}
+.Login_banner{ position:relative; width:100%; overflow:hidden; height:399px;}
+.Login_banner img.Login_banimg{ position:absolute; top:0; left:50%; margin-left:-960px;}
+.Login_banner .Login_login{ background:#fbf7f7; width:300px; padding:20px 20px 10px; border-radius:15px; -moz-border-radius:15px; -webkit-border-radius:15px; box-shadow:0 0 7px #333; position:absolute; top:25px; right:15%;}
+.Login_banner h1{ font-size:16px; background:url(../images/loginh1bg.jpg) no-repeat bottom; padding-bottom:7px;}
+.Login_banner form{ padding:20px 10px 0;}
+.Login_banner form div{ margin-bottom:15px;}
+.Login_banner form div label{ font-size:14px;}
+.Login_banner form div .Login_yzm{ width:90px; padding-top:-2px;}
+.Login_banner .Login_pass{ padding-left:65px; line-height:13px;}
+.Login_banner .Login_pass input{ vertical-align: bottom;}
+.Login_banner .Login_sub input{ background:url(../images/subbg.jpg) repeat-x; border:1px solid #429f5f; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; width:207px; height:30px;}
+.Login_banner .Login_reg{ color:#007cc2; text-decoration:underline;}
+.Login_con{ background:url(../images/Loginconbg.jpg) repeat-x top; width:100%; height:140px;}
+.Login_con .Login_adv{ width:990px; margin:0 auto; overflow:hidden; padding-top:10px;}
+.Login_con .Login_adv h2{ color:#007cc2; font-size:14px;}
+.Login_con .Login_adv ul{ overflow:hidden;}
+.Login_con .Login_adv ul li{ float:left; margin:10px 12px 0 0; line-height:20px; vertical-align:bottom;}
+.Login_con .Login_adv ul li .Login_advcon{ color:#007cc2;}
+.Login_con .Login_adv .Loginpad{ padding-top: 10px;}
+.Login_con .Login_adv .Login_hy h2{ margin-top:-29px; margin-bottom:10px;}
+.Login_con .Login_adv .Login_icon{ background:url(../images/list_bg.png) no-repeat center; padding:3px 20px 3px 7px;}
+.Login_con .Login_adv .Login_convar{ margin:0px 20px 0 10px;}
+
+
+
+.search .break{ width:100%; padding-left:0px;}
+.search_title{line-height:40px;}
+.search_title .sslb{ font-size:18px; font-weight:bold; }
+.article_title{ font-size:16px; height:30px; text-align:center;border-bottom:1px dotted #CCC;line-height:23px;  }
+.article_date{ text-align:center; margin:5px 0px; }
+
+

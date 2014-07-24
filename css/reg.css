@@ -1,0 +1,112 @@
+﻿/*
+    ----------------------------------------------------------------- 重置元素 -----------------------------------------------------------------
+*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin: 0;padding: 0;}
+body,input{font-size: 12px;font-family: "微软雅黑","宋体","Arial";line-height: 1.125;color: #454545;}
+table{border-collapse: collapse;border: none;border-spacing: 0;}
+caption,th{text-align: left;}
+ol,ul{list-style-type: none;}
+fieldset,img{border: none;}
+h1,h2,h3,h4,h5,h6 {font-size: 100%;font-weight: normal;}
+a{text-decoration: none;color: #2471ff;}
+a:hover{text-decoration: underline;}
+
+/*
+    ----------------------------------------------------------------- 通用 -----------------------------------------------------------------
+*/
+.ffArial{font-family: "Arial";}.ffBlack{font-family: "黑体";}
+.b{font-weight: 700;}.n{font-weight: 400;}.small{font-size: small;}
+.tac{text-align: center;}.tal{text-align: left;}.tar{text-align: right;}
+.tdl{text-decoration: underline;}.tdn{text-decoration: none;}
+.mc{margin-left: auto;margin-right: auto;}
+.fl{float: left;}.fr{float: right;}
+.cb{clear: both;}
+.db{display: block;}.di{display: inline;}
+.mphand{cursor: pointer;cursor: hand\9;}
+.clearfix:after{font-size: 0;content: " ";height: 0;clear: both;display: block;visibility: hidden;}
+.clearfix{*zoom: 1;}
+
+.mb12{margin-bottom: 12px;}.mr12{margin-right: 12px;}
+
+
+/*
+    ----------------------------------------------------------------- 注册 -----------------------------------------------------------------
+*/
+.myBanner {
+    background: url("../uploads/banner.jpg") no-repeat 50% 50%;
+    width: 100%;
+    min-width: 1288px;
+    height: 554px;
+    overflow: hidden;
+}
+
+.myReg {
+    background: url("../images/reg_bg.png") no-repeat 50% 50%;
+    width: 904px;
+    height: 491px;
+    padding: 24px 58px 0 33px;
+    margin: 28px auto 0;
+    overflow: hidden;
+}
+.myRegBd{
+    width: 360px;
+    padding-right: 27px;
+    border-right: solid #C0D2DC 1px;
+}
+.myRegBd h2{
+    font-size: 18px;
+    line-height: 30px;
+    text-indent: 2px;
+    border-bottom: solid #C0D2DC 1px;
+}
+.myRegBd .inputArea{
+    padding-top: 13px;
+}
+.myRegBd .inputArea td{
+    line-height: 34px;
+    font-size: 14px;
+    padding: 8px 0;
+}
+.myRegBd .inputArea td.tit {
+    width: 90px;
+    text-align: right;
+    padding-right: 6px;
+}
+.myRegBd .inputArea input.text{
+    background-color: #FBF7F7;
+    height: 34px;
+    padding: 0 6px;
+    border: solid #CECACA 1px;
+    border-radius: 5px;
+}
+input.btnCaptcha {
+    background: url("../images/btn_captcha.png") no-repeat 0 0;
+    text-indent: -999em;
+    width: 72px;
+    height: 26px;
+    border: none;
+    overflow: hidden;
+}
+input.btnReg {
+    background: url("../images/btn_reg.png") no-repeat 0 0;
+    text-indent: -999em;
+    width: 222px;
+    height: 34px;
+    border: none;
+    overflow: hidden;
+}
+
+.myPact h3.title{
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 16px;
+}
+.myScroll{
+    width: 456px;
+    height: 400px;
+    position: relative;
+}
+.myScroll li{
+    line-height: 24px;
+    padding-right: 10px;
+}
