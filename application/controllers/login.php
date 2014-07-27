@@ -17,6 +17,15 @@ class Login extends Front_Controller {
 	*/
 	 public function index()
 	{
+		$this->load->view('web/login/login.php');
+	}
+
+
+	/**
+	 * 默认首页
+	*/
+	 public function index_bk()
+	{
 		$this->load->helper('captcha');
 		$captchaDir = dirname(dirname(dirname(__FILE__))).'/captcha';
 		self::clear_dir($captchaDir);

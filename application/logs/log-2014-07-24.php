@@ -58,3 +58,4 @@ ERROR - 2014-07-24 22:28:34 --> Severity: Warning  --> Invalid argument supplied
 ERROR - 2014-07-24 22:28:34 --> Severity: Notice  --> Undefined offset: 0 D:\AMP\WEB\ROOT\FANG\application\modules\admin\controllers\frames.php 165
 ERROR - 2014-07-24 22:28:34 --> Severity: Notice  --> Undefined offset: 0 D:\AMP\WEB\ROOT\FANG\application\modules\admin\controllers\frames.php 165
 ERROR - 2014-07-24 23:05:07 --> 404 Page Not Found --> favicon.ico
+ERROR - 2014-07-24 23:32:35 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\WEB\ROOT\FANG\application\modules\admin\controllers\frames.php 199

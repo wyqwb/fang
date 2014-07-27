@@ -173,7 +173,7 @@ class CI_DB_driver {
 			log_message('error', 'Unable to set database connection charset: '.$this->char_set);
 
 			if ($this->db_debug)
-			{
+			{   
 				$this->display_error('db_unable_to_set_charset', $this->char_set);
 			}
 

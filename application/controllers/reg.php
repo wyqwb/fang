@@ -15,7 +15,8 @@ class Reg extends Front_Controller {
 	 */
 	 public function index()
 	{
-		$this->load->view('web/reg/index.html');
+		$this->load->view('web/reg/index.php');
+		//$this->front_footer();
 	}
 
 

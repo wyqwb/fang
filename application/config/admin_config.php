@@ -11,27 +11,27 @@
 // type='_blank'表示打开新页面
 // type='target'表示打开IFRAME页面
 $config['admin_menu']=array();
-$config['admin_menu']['cn']['header'][]=array('title'=>'房源信息','action'=>'admin/article','icon'=>'nav2.png','type'=>'default');
+$config['admin_menu']['cn']['header'][]=array('title'=>'信息中心','action'=>'admin/article','icon'=>'nav2.png','type'=>'default');
 $config['admin_menu']['cn']['header'][]=array('title'=>'订单中心','action'=>'admin/orders','icon'=>'nav2.png','type'=>'default');
 // $config['admin_menu']['cn']['header'][]=array('title'=>'教育中心','action'=>'admin/edu','icon'=>'nav2.png','type'=>'default');
 $config['admin_menu']['cn']['header'][]=array('title'=>'会员中心','action'=>'admin/member','icon'=>'nav1.png','type'=>'default');
 $config['admin_menu']['cn']['header'][]=array('title'=>'管理员中心','action'=>'admin/administrator','icon'=>'nav1.png','type'=>'default');
-$config['admin_menu']['cn']['header'][]=array('title'=>'统计信息','action'=>'http://tongji.baidu.com/web/welcome/login','icon'=>'nav1.png','type'=>'_blank');
+// $config['admin_menu']['cn']['header'][]=array('title'=>'统计信息','action'=>'http://tongji.baidu.com/web/welcome/login','icon'=>'nav1.png','type'=>'_blank');
 
     
-$config['admin_menu']['cn']['left']['article'][]=array('title'=>'房源中心','type'=>'default',
+$config['admin_menu']['cn']['left']['article'][]=array('title'=>'信息中心','type'=>'default',
     'child'=>array(
-        // array('title'=>'分类列表','action'=>'admin/article/article_sort','type'=>'default','icon'=>'icon_articlelist.png'),
-        // array('title'=>'创建分类','action'=>'admin/article/article_sort_create','type'=>'default','icon'=>'icon_articlecreate.png'),
-        array('title'=>'房源列表','action'=>'admin/article/article_lists','type'=>'default','icon'=>'icon_articlelist.png'),
-        array('title'=>'创建房源','action'=>'admin/article/article_create','type'=>'default','icon'=>'icon_articlecreate.png')
-
+        array('title'=>'信息分类','action'=>'admin/article/article_sort','type'=>'default','icon'=>'icon_articlelist.png'),
+        array('title'=>'创建分类','action'=>'admin/article/article_sort_create','type'=>'default','icon'=>'icon_articlecreate.png'),
+        array('title'=>'信息列表','action'=>'admin/article/article_lists','type'=>'default','icon'=>'icon_articlelist.png'),
+        array('title'=>'创建信息','action'=>'admin/article/article_create','type'=>'default','icon'=>'icon_articlecreate.png'),
+        // array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
     ));
-// $config['admin_menu']['cn']['left']['article'][]=array('title'=>'信息中心','type'=>'default',
-//     'child'=>array(
-//         array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
-
-//     ));
+$config['admin_menu']['cn']['left']['article'][]=array('title'=>'广告评论','type'=>'default',
+    'child'=>array(
+        array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png'),
+        array('title'=>'广告列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
+    ));
 
 $config['admin_menu']['cn']['left']['edu'][]=array('title'=>'题库中心','type'=>'default',
     'child'=>array(
@@ -56,10 +56,10 @@ $config['admin_menu']['cn']['left']['orders'][]=array('title'=>'订单中心','t
     ));
 
 
-$config['admin_menu']['cn']['left']['track'][]=array('title'=>'访客信息','type'=>'default',
-    'child'=>array(
-        array('title'=>'访问记录','action'=>'admin/track/track_list','type'=>'default','icon'=>'icon_articlelist.png')
-    ));
+// $config['admin_menu']['cn']['left']['track'][]=array('title'=>'访客信息','type'=>'default',
+//     'child'=>array(
+//         array('title'=>'访问记录','action'=>'admin/track/track_list','type'=>'default','icon'=>'icon_articlelist.png')
+//     ));
     
     
 $config['admin_menu']['cn']['left']['administrator'][]=array('title'=>'管理员中心','action'=>'admin/administrator/home','type'=>'default',
@@ -70,8 +70,9 @@ $config['admin_menu']['cn']['left']['administrator'][]=array('title'=>'管理员
 
 $config['admin_menu']['cn']['left']['member'][]=array('title'=>'会员中心','type'=>'default',
     'child'=>array(
-        array('title'=>'会员列表','action'=>'admin/member/member_lists','type'=>'default','icon'=>'icon_articlelist.png'),
-        // array('title'=>'积分管理','action'=>'admin/member/point_lists','type'=>'default','icon'=>'icon_articlelist.png'),
+        array('title'=>'普通会员','action'=>'admin/member/normal_member_lists','type'=>'default','icon'=>'icon_articlelist.png'),
+        array('title'=>'商户会员','action'=>'admin/member/business_member_lists','type'=>'default','icon'=>'icon_articlelist.png'),
+        array('title'=>'积分管理','action'=>'admin/member/point_lists','type'=>'default','icon'=>'icon_articlelist.png'),
         // array('title'=>'意见反馈','action'=>'admin/question/lists','type'=>'default','icon'=>'icon_articlelist.png'),
     ));
 

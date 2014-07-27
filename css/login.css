@@ -1,0 +1,300 @@
+/* 宋体 */
+/* 微软雅黑 */
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body {
+  -webkit-text-size-adjust: 100%;
+  /*解决webkit内核字体默认不能小于12px的问题*/
+  font: 12px/1.5 Tahoma, Helvetica, Arial '\5B8B\4F53';
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+li {
+  list-style: none;
+}
+iframe {
+  border: 0;
+}
+img {
+  border: 0;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.clear {
+  clear: both;
+}
+/*头部*/
+body {
+  background: #f1f1f1;
+}
+.g-hd {
+  position: relative;
+  margin: 0 auto;
+}
+.g-wh {
+  width: 1029px;
+  height: 118px;
+  margin-top: 77px;
+}
+.m-logo {
+  position: absolute;
+  top: 0px;
+  left: 82px;
+}
+.m-language {
+  position: absolute;
+  right: 67px;
+  bottom: 0px;
+}
+.m-language a {
+  color: #333;
+}
+/*主体*/
+.g-bd {
+  width: 1029px;
+  margin: 0 auto;
+}
+.g-bd-left {
+  float: left;
+  width: 503px;
+  height: 371px;
+  margin-left: 82px;
+  background: url(../images/bd_left_bg.jpg) no-repeat;
+}
+.g-bd-left img {
+  border: none;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.g-bd-right {
+  float: left;
+  width: 396px;
+  height: 371px;
+  background: url(../images/bd_right_bg.jpg) no-repeat;
+}
+/*登录*/
+.m-login {
+  margin-left: 45px;
+  width: 307px;
+  padding-top: 24px;
+}
+.m-item {
+  margin-top: 8px;
+  color: #999;
+}
+.m-item2 {
+  margin: 0 auto;
+}
+.m-item3 {
+  position: relative;
+  padding: 8px 10px;
+  line-height: 12px;
+}
+.m-item3 a {
+  position: absolute;
+  right: 0px;
+}
+.input-user,
+.input-pwd {
+  width: 307px;
+  height: 34px;
+  border: 1px solid #ccc;
+}
+.input-user {
+  background: url(../images/user.png) no-repeat right center;
+}
+.input-pwd {
+  background: url(../images/lock.png) no-repeat right center;
+}
+/*all buttons*/
+.u-btn {
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  width: 129px;
+  height: 24px;
+  line-height: 24px;
+  padding-left: 15px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  border-radius: 3px;
+}
+.btn-login {
+  width: 305px;
+  height: 34px;
+  padding: 0;
+  background: url(../images/login_btn.png) center center;
+}
+.btn-register {
+  width: 305px;
+  height: 34px;
+  margin: 12px 0;
+  padding: 0;
+  background: url(../images/btn_register.png) center center;
+}
+.btn-qq {
+  margin-left: 12px;
+  background-color: #0078ff;
+  background-image: url(../images/qqbtn.png);
+}
+.btn-wx {
+  margin-left: 12px;
+  background-color: #7cbe56;
+  background-image: url(../images/wxbtn.png);
+}
+.btn-wb {
+  margin-left: 18px;
+  margin-top: 12px;
+  background-color: #ff4a4a;
+  background-image: url(../images/wbbtn.png);
+}
+.btn-bd {
+  margin-left: 18px;
+  background-color: #0078ff;
+  background-image: url(../images/bdbtn.png);
+}
+/*底部*/
+.g-ft {
+  position: relative;
+  width: 1029px;
+  height: 167px;
+  padding-top: 142px;
+  margin: 0 auto;
+}
+.m-connect {
+  position: absolute;
+  left: 356px;
+}
+.m-connect li {
+  float: left;
+  padding: 0 12px;
+  border-right: 1px solid #7a7a7a;
+}
+.m-connect li a {
+  color: #333;
+}
+.m-coypright {
+  position: absolute;
+  left: 433px;
+  margin-top: 20px;
+}
+/*注册*/
+.m-tab {
+  position: relative;
+  width: 900px;
+  height: 477px;
+  margin: 0 auto;
+  padding-top: 33px;
+}
+.tab-btns {
+  position: absolute;
+  left: 315px;
+  top: 0;
+}
+.tab-btns span {
+  hegiht: 33px;
+  padding: 10px 15px;
+  line-height: 33px;
+  border: 1px solid #dddddd;
+  border-bottom: none;
+  padding-right: 10px;
+  background: #f7f7f7;
+  color: #333;
+}
+.tab-btns span.on {
+  background: #fff;
+}
+.login-user {
+  position: absolute;
+  width: 217px;
+  top: 10px;
+  left: 400px;
+}
+.login-user a {
+  color: #005aa0;
+  margin-right: 5px;
+}
+.contes {
+  height: 444px;
+  padding-left: 35px;
+  background: #fff;
+}
+.g-ht {
+  height: 72px;
+}
+.m-login .left {
+  display: block;
+  width: 105px;
+  float: left;
+  text-align: right;
+}
+.m-login .right {
+  display: block;
+  width: 330px;
+  float: left;
+}
+.m-login p {
+  padding: 20px 0;
+  clear: both;
+  line-height: 34px;
+}
+.m-login .red {
+  color: #ff0000;
+}
+.g-wh3 {
+  width: 272px;
+}
+.g-wh6 {
+  width: 480px;
+}
+.g-ht3 {
+  padding-top: 83px;
+}
+.input-code {
+  width: 132px;
+  height: 34px;
+  border: 1px solid #ccc;
+}
+.btn-bg2 {
+  width: 276px;
+  height: 41px;
+  background: url(../images/register2.png);
+}

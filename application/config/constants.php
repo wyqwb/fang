@@ -21,7 +21,8 @@ define('DIR_WRITE_MODE', 0777);
 
 //路径信息设置
 
-if (!defined("WEB_IMAGES_PATH")) define("WEB_IMAGES_PATH", "images/");
+if (!defined("WEB_IMAGES_PATH")) define("WEB_IMAGES_PATH", "/images/");
+if (!defined("CUSTOM_IMAGES_PATH")) define("CUSTOM_IMAGES_PATH", "/uploads/");
 
 define("SITE_NAME", "local.edu.com");
 define("DOMAIN_NAME", ".edu.com");

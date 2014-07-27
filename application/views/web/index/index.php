@@ -1,379 +1,446 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<title>房产</title>
-<link href="/css/base.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
-
-/* focus */
-#focus{width:980px;height:320px;overflow:hidden;position:relative;}
-#focus ul{height:320px;position:absolute;}
-#focus ul li{float:left;width:980px;height:320px;overflow:hidden;position:relative;background:white;}
-#focus ul li div{position:absolute;overflow:hidden;}
-#focus .btnBg{position:absolute;width:980px;height:20px;left:10;bottom:0;}
-#focus .btn{position:absolute;width:980px;height:10px;padding:5px 10px;right:0;bottom:0;text-align:center;}
-#focus .btn span{display:inline-block;_display:inline;_zoom:1;width:25px;height:5px;_font-size:0;margin-left:5px;cursor:pointer;background:#29A7E1;}
-#focus .btn span.on{background:#29A7E1;}
-#focus .preNext{width:45px;height:100px;position:absolute;top:90px;background:url(/images/lunbo/sprite.png) no-repeat 0 0;cursor:pointer;}
-#focus .pre{left:0;}
-#focus .next{right:0;background-position:right top;}
-#focus img{width: 980px;height: 300px}
-</style>
-		<style type="text/css">
-			#wrapper {
-				width: 735px;
-				height: 220px;
-				margin: -110px 0 0 -367px;
-				position: absolute;
-				left: 50%;
-				top: 50%;
-			}
-
-			#carousel {
-				width: 735px;
-				position:vrelative;
-			}
-			#carousel ul {
-				list-style: none;
-				display: block;
-				margin: 0;
-				padding: 0;
-			}
-			#carousel li {
-				background: transparent url(images/carousel_polaroid.png) no-repeat 0 0;
-				font-size: 40px;
-				color: #999;
-				text-align: center;
-				display: block;
-				width: 232px;
-				height: 178px;
-				padding: 0;
-				margin: 6px;
-				float: left;
-				position: relative;
-			}
-
-			#carousel li img {
-				width: 201px;
-				height: 127px;
-				margin-top: 14px;
-			}
-			
-			#carousel li span {
-				background: transparent url(/images/carousel_shine.png) no-repeat 0 0;
-				text-indent: -999px;
-				display: block;
-				overflow: hidden;
-				width: 201px;
-				height: 127px;
-				position: absolute;
-				z-index: 2;
-				top: 14px;
-				left: 16px;
-			}			
-
-			.clearfix {
-				float: none;
-				clear: both;
-			}
-			#carousel .prev, #carousel .next {
-				background: transparent url(/images/carousel_control.png) no-repeat 0 0;
-				text-indent: -999px;
-				display: block;
-				overflow: hidden;
-				width: 15px;
-				height: 21px;
-				margin-left: 10px;
-				position: absolute;
-				top: 70px;				
-			}
-			#carousel .prev {
-				background-position: 0 0;
-				left: -30px;
-			}
-			#carousel .prev:hover {
-				left: -31px;
-			}			
-			#carousel .next {
-				background-position: -18px 0;
-				right: -20px;
-			}
-			#carousel .next:hover {
-				right: -21px;
-			}				
-			#carousel .pager {
-				text-align: center;
-				margin: 0 auto;
-			}
-			#carousel .pager a {
-				background: transparent url(/images/carousel_control.png) no-repeat -2px -32px;
-				text-decoration: none;
-				text-indent: -999px;
-				display: inline-block;
-				overflow: hidden;
-				width: 8px;
-				height: 8px;
-				margin: 0 5px 0 0;
-			}
-		/*	#carousel .pager a.selected {
-				background: transparent url(/images/carousel_control.png) no-repeat -12px -32px;
-				text-decoration: underline;				
-			}
-			*/
-			#source {
-				text-align: center;
-				width: 100%;
-				position: absolute;
-				bottom: 10px;
-				left: 0;
-			}
-			#source, #source a {
-				font-size: 12px;
-				color: #999;
-			}
-			
-			#donate-spacer {
-				height: 100%;
-			}
-			#donate {
-				border-top: 1px solid #999;
-				width: 750px;
-				padding: 50px 75px;
-				margin: 0 auto;
-				overflow: hidden;
-			}
-			#donate p, #donate form {
-				margin: 0;
-				float: left;
-			}
-			#donate p {
-				width: 650px;
-			}
-			#donate form {
-				width: 100px;
-			}
-		</style>
-
-<script type="text/javascript" src="/javascript/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="/javascript/jquery.carouFredSel-6.0.4-packed.js"></script>
-
-<script type="text/javascript">
-$(function() {
-	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
-	var len = $("#focus ul li").length; //获取焦点图个数
-	var index = 0;
-	var picTimer;
-	
-	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
-	var btn = "<div class='btnBg'></div><div class='btn'>";
-	for(var i=0; i < len; i++) {
-		btn += "<span></span>";
-	}
-	btn += "</div><div class='preNext pre'></div><div class='preNext next'></div>";
-	$("#focus").append(btn);
-	$("#focus .btnBg").css("opacity",0.5);
-
-	//为小按钮添加鼠标滑入事件，以显示相应的内容
-	$("#focus .btn span").css("opacity",0.9).mouseover(function() {
-		index = $("#focus .btn span").index(this);
-		showPics(index);
-	}).eq(0).trigger("mouseover");
-
-	//上一页、下一页按钮透明度处理
-	$("#focus .preNext").css("opacity",0.2).hover(function() {
-		$(this).stop(true,false).animate({"opacity":"0.5"},300);
-	},function() {
-		$(this).stop(true,false).animate({"opacity":"0.2"},300);
-	});
-
-	//上一页按钮
-	$("#focus .pre").click(function() {
-		index -= 1;
-		if(index == -1) {index = len - 1;}
-		showPics(index);
-	});
-
-	//下一页按钮
-	$("#focus .next").click(function() {
-		index += 1;
-		if(index == len) {index = 0;}
-		showPics(index);
-	});
-
-	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
-	$("#focus ul").css("width",sWidth * (len));
-	
-	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
-	$("#focus").hover(function() {
-		clearInterval(picTimer);
-	},function() {
-		picTimer = setInterval(function() {
-			showPics(index);
-			index++;
-			if(index == len) {index = 0;}
-		},4000); //此4000代表自动播放的间隔，单位：毫秒
-	}).trigger("mouseleave");
-	
-	//显示图片函数，根据接收的index值显示相应的内容
-	function showPics(index) { //普通切换
-		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
-		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
-		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
-		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
-	}
-});
-
-</script>
-
-<script type="text/javascript">
-			$(function() {
-
-				$('#carousel ul').carouFredSel({
-					prev: '#prev',
-					next: '#next',
-					pagination: "#pager",
-					scroll: 1000
-				});
-	
-			});
-</script>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<link rel="stylesheet" href="css/index.css">
 </head>
-<body class="pagebody"> 
-	<div class="header">
-		<div class="ad"><img src="<?php echo WEB_IMAGES_PATH?>ad.png"></div>
-		<div class="nav"></div>
-	</div> 
-
-	<div class="banner">
-		<div id="focus">
-			<ul>
-				<li><a href="" target="_blank"><img src="/images/lunbo/banner1.png" alt="QQ商城焦点图效果下载" /></a></li>
-				<li><a href="" target="_blank"><img src="/images/lunbo/banner2.png" alt="QQ商城焦点图效果教程" /></a></li>
-				<li><a href="" target="_blank"><img src="/images/lunbo/banner3.png" alt="jquery商城焦点图效果" /></a></li>
-				<li><a href="" target="_blank"><img src="/images/lunbo/banner4.png" alt="jquery商城焦点图代码" /></a></li>
-				<li><a href="" target="_blank"><img src="/images/lunbo/banner5.png" alt="jquery商城焦点图源码" /></a></li>
-			</ul>
-		</div><!--focus end-->
+<body>
+	<!-- 广告 -->
+	<div class="g-banner-wrap">
+		<div class="g-banner">
+			
+		</div>
 	</div>
-
-	<div class="banner">
-		<div id="wrapper">
-			<div id="carousel">
+	<!-- 头部 -->
+	<div class="g-hd">
+		<div class="g-item g-bg1">
+			<div class="g-info">
+				<div class="m-logo">
+				<img src="<?php  echo WEB_IMAGES_PATH?>logo.gif" alt="">
+				</div>
+				<div class="m-search">
+					<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>search.gif" alt=""></a>
+					<input type="text" name="content" class="search-input">
+					<span>热门关键词：
+						<a href="">投资</a>
+						<a href="">移民</a>
+						<a href="">马来西亚</a>
+						<a href="">云顶</a>
+					</span>
+				</div>
+				<div class="m-login">
+					<a href="/login/">登录</a>
+					<a href="/reg/">立即注册</a>
+					<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>qqicon.gif" alt=""></a>
+					<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>wxicon.gif" alt=""></a>
+				</div>
+			</div>
+		</div>
+		<div class="g-item">
+			<!-- 图片切换 -->
+			<div class="m-pic-scroll">
+				<span class="btn-left"></span>
+				<span class="btn-right"></span>
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">			
+			</div>
+			<div class="scroll-ico">
 				<ul>
-					<li><img src="images/tz.png" alt="" /><span>Image1</span></li>
-					<li><img src="images/ym.png" alt="" /><span>Image2</span></li>
-					<li><img src="images/jy.png" alt="" /><span>Image3</span></li>
-					<li><img src="images/yl.png" alt="" /><span>Image4</span></li>
-					<li><img src="images/dj.png" alt="" /><span>Image5</span></li>
+					<li class="on"></li>
+					<li></li>
+					<li></li>
 				</ul>
-				<div class="clearfix"></div>
-				<a id="prev" class="prev" href="#">&lt;</a>
-				<a id="next" class="next" href="#">&gt;</a>
-				<!-- <div id="pager" class="pager"></div> -->
 			</div>
 		</div>
 	</div>
+	<!-- 主体 -->
+	<div class="g-bd">
+		<!-- 主体上部 -->
+		<div class="g-bd-up">
+			<!-- 模块1 -->
+			<div class="g-item g-wh">
+				<div class="g-m1">
+					<div class="g-pic-box">
+					<img src="<?php  echo WEB_IMAGES_PATH?>index_page_26.gif" alt="">
+					<div class="g-m1-btns">
+						<span class="btn-gray"><a href="">HOT PICTURES</a></span>
+					</div>					
+					</div>
+					<div class="g-pic-box">
+						<img src="<?php  echo WEB_IMAGES_PATH?>index_page_29.gif" alt="">
+						<div class="g-m1-btns">
+							<span class="btn-gray"><a href="">HOT PICTURES</a></span>
+						</div>	
+					</div>
+					<div class="g-pic-box">
+						<img src="<?php  echo WEB_IMAGES_PATH?>index_page_29.gif" alt="">
+						<div class="g-m1-btns">
+							<span class="btn-gray"><a href="">HOT PICTURES</a></span>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>				
+			</div>	
+			<!-- 模块2 -->
+			<div class="g-item g-wh">
+				<div class="g-m2">
+					<div class="g-box-hd">
+						<span class="title">THE PURPOSE OF THE PURCHASE?</span><br>
+						<span class="title2">THE PURPOSE OF THE PURCHASE THE PURPOSE OF THE PURCHASE</span>
+					</div>
+					<div class="g-box-bd">
+						<div class="m-pic-scroll2">
+							<div class="img-box">
+								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt="">
+								<span class="stitle">教育</span><br>
+								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
+							</div>
+							<div class="img-box">
+								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt="">
+								<span class="stitle">教育</span><br>
+								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
+							</div>
+							<div class="img-box">
+								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt="">
+								<span class="stitle">教育</span><br>
+								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
+							</div>
+							<div class="img-box">
+								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt="">
+								<span class="stitle">教育</span><br>
+								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
+							</div>
+							<div class="img-box">
+								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt="">
+								<span class="stitle">教育</span><br>
+								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
+							</div>
+							<div class="clear"></div>
+							<span class="btn-left2"></span>
+							<span class="btn-right2"></span>
 
-	<div class="banner">
-		<div id="wrapper">
-			<div id="carousel">
-				<ul>
-					<li><img src="images/mg.png" alt="" /><span>Image1</span></li>
-					<li><img src="images/adly.png" alt="" /><span>Image2</span></li>
-					<li><img src="images/jnd.png" alt="" /><span>Image3</span></li>
-					<li><img src="images/mlxy.png" alt="" /><span>Image4</span></li>
-					<li><img src="images/dj.png" alt="" /><span>Image5</span></li>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<!-- 模块3 -->
+			<div class="g-item g-wh">
+				<div class="g-m2">
+					<div class="g-box-hd">
+						<span class="title">TARGET COUNTRIES?</span><br>
+						<span class="title2">THE PURPOSE OF THE PURCHASE THE PURPOSE OF THE PURCHASE</span>
+					</div>
+					<div class="g-box-bd">
+						<div class="m-pic-scroll2">
+							<div class="img-box">
+								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt="">
+								<span class="stitle">教育</span><br>
+								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
+							</div>
+							<div class="img-box">
+								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt="">
+								<span class="stitle">教育</span><br>
+								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
+							</div>
+							<div class="img-box">
+								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt="">
+								<span class="stitle">教育</span><br>
+								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
+							</div>
+							<div class="img-box">
+								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt="">
+								<span class="stitle">教育</span><br>
+								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
+							</div>
+							<div class="img-box">
+								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt="">
+								<span class="stitle">教育</span><br>
+								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
+							</div>
+							<div class="clear"></div>
+							<span class="btn-left2"></span>
+							<span class="btn-right2"></span>
+
+						</div>
+					</div>
+				</div>
+			</div>	
+
+		<!-- 主体中部 -->
+		<div class="g-bd-mid g-wh5">
+			<!-- 主体中部左侧 -->
+			<div class="g-mid-left">
+					<!-- 模块4 -->
+
+				<?php
+            		foreach ($toplist as $key => $value) {
+            	?> 	
+				<div class="g-m4">
+					<div class="coment">
+						<span class="top">TOP顶</span>
+						<a href="/comments/?fangid=<?php echo $value['id']?>"><span class="say">评</span></a>
+						<img src="<?php  echo WEB_IMAGES_PATH?>m4img.jpg" alt="" class="m4-img">
+					</div>
+					<div class="details">
+						<p><span class="title"><?php echo $value['title']?></span></p>
+						<p>
+							<span class="writer">Posted by Admin in WordPress</span>
+						    <span class="abouts">Design,Template</span>
+						    <span class="comments">22</span>
+					    </p>
+						<p>
+							<?php echo $value['content']?>
+						</p>
+						<p>
+							<span class="btn-gray g-wh3"><a href="/fang/?fangid=<?php echo $value['id']?>">查看详情</a></span>
+							<span class="btn-gray g-wh3"><a href="/jia/?fangid=<?php echo $value['id']?>">我要出价</a></span>
+							<span class="btn-gray g-wh3"><a href="/tuan/?fangid=<?php echo $value['id']?>">看房团</a></span>
+							<span class="btn-gray g-wh3"><a href="/yim/?fangid=<?php echo $value['id']?>">移民优势</a></span>
+							<div class="clear"></div>
+						</p>
+					</div>
+				</div>
+				<?php }?>
+					<!-- 模块5 -->
+<!-- 				<div class="g-m4">
+					<div class="coment">
+						<span class="top">TOP顶</span>
+						<span class="say">评</span>
+						<img src="/images/m4img.jpg" alt="" class="m4-img">
+					</div>
+					<div class="details">
+						<p><span class="title">Duis dapibus aliquam mi, eget euismod sem scelerisque ut.</span></p>
+						<p>
+							<span class="writer">Posted by Admin in WordPress</span>
+						    <span class="abouts">Design,Template</span>
+						    <span class="comments">22</span>
+					    </p>
+						<p>
+							Yellowstone National Park is the centerpiece of the Greater Yellowstone Ecosystem, the largest intact ecosystem in the Earth's northern temperate zone. Yellowstone became the world's first national park on March 1, 1872. Located mostly in the U.S. state of Wyoming, the park extends into Montana and Idaho. The park is known for its wildlife and geothermal features; the Old Faithful Geyser is one of the most popular features in the park. 
+						</p>
+						<p>
+							<span class="btn-gray g-wh3"><a href="">查看详情</a></span>
+							<span class="btn-gray g-wh3"><a href="">我要出价</a></span>
+							<span class="btn-gray g-wh3"><a href="">看房团</a></span>
+							<span class="btn-gray g-wh3"><a href="">移民优势</a></span>
+							<div class="clear"></div>
+						</p>
+					</div>
+				</div>
+					模块6
+				<div class="g-m4">
+					<div class="coment">
+						<span class="top">TOP顶</span>
+						<span class="say">评</span>
+						<img src="/images/m4img.jpg" alt="" class="m4-img">
+					</div>
+					<div class="details">
+						<p><span class="title">Duis dapibus aliquam mi, eget euismod sem scelerisque ut.</span></p>
+						<p>
+							<span class="writer">Posted by Admin in WordPress</span>
+						    <span class="abouts">Design,Template</span>
+						    <span class="comments">22</span>
+					    </p>
+						<p>
+							Yellowstone National Park is the centerpiece of the Greater Yellowstone Ecosystem, the largest intact ecosystem in the Earth's northern temperate zone. Yellowstone became the world's first national park on March 1, 1872. Located mostly in the U.S. state of Wyoming, the park extends into Montana and Idaho. The park is known for its wildlife and geothermal features; the Old Faithful Geyser is one of the most popular features in the park. 
+						</p>
+						<p>
+							<span class="btn-gray g-wh3"><a href="">查看详情</a></span>
+							<span class="btn-gray g-wh3"><a href="">我要出价</a></span>
+							<span class="btn-gray g-wh3"><a href="">看房团</a></span>
+							<span class="btn-gray g-wh3"><a href="">移民优势</a></span>
+							<div class="clear"></div>
+						</p>
+					</div>
+				</div> -->
+
+			</div>
+			<!-- 主体中部右侧 -->
+			<div class="g-mid-right">	
+				<div class="g-item-l">
+					<h2>GATEGORIES</h2>
+					<ul class="list1">
+						<li><a href="">LOGO DESIGN</a></li>
+						<li><a href="">WEB DESIGN</a></li>
+						<li><a href="">PHOTOGRAPHY</a></li>
+						<li><a href="">WORDPRESS</a></li>
+						<li><a href="">ICONS</a></li>
+					</ul>
+				</div>
+				<div class="g-item-l">
+					<h2>GATEGORIES</h2>
+					<ul class="list2">
+						<li><a href="">LOGO DESIGN</a><br>
+							<span>25 May,2013</span>
+						</li>
+						<li><a href="">WEB DESIGN</a><br>
+							<span>25 May,2013</span>
+						</li>
+						<li><a href="">PHOTOGRAPHY</a><br>
+							<span>25 May,2013</span>
+						</li>
+						<li><a href="">WORDPRESS</a><br>
+							<span>25 May,2013</span>
+						</li>
+					</ul>
+				</div>
+				<div class="g-item-l">
+					<h2>TAGS</h2>
+					<ul class="list3">
+						<li><a href="">Meances</a></li>
+						<li><a href="">Nunc</a></li>
+						<li><a href="">Meances</a></li>
+						<li><a href="">Nunc</a></li>
+						<li><a href="">Preasent</a></li>			
+						<li><a href="">Meances</a></li>
+						<li><a href="">Nunc</a></li>			
+						<li><a href="">Nunc</a></li>
+						<li><a href="">Preasent</a></li>
+						<li><a href="">Preasent</a></li>
+						<li><a href="">Nunc</a></li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+				<div class="g-item-l">
+					<h2>ARCHIVE</h2>
+					<ul class="list4">
+						<li><a href="">2013</a></li>
+						<li><a href="">2012</a></li>
+						<li><a href="">2011</a></li>
+					</ul>
+				</div>
+				<div class="g-item-l">	
+					<div class="m-banner">banner广告</div>
+					<div class="m-banner">banner广告</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!-- 主体下部 -->
+		<div class="g-bd-ft">
+			<!-- 模块7 -->
+			<div class="g-item g-wh5">
+
+				<?php
+            		foreach ($list2 as $key => $value) {
+            	?> 
+				<div class="g-box g-wh4">
+					<img src="<?php  echo CUSTOM_IMAGES_PATH?><?php echo $value['previewimg']?>" alt="">
+					<div>
+						<span class="btn-gray g-wh3"><a href="/fang/?fangid=<?php echo $value['id']?>">查看详情</a></span>
+						<span class="btn-gray g-wh3"><a href="/jia/?fangid=<?php echo $value['id']?>">我要出价</a></span>
+						<span class="btn-gray g-wh3"><a href="/tuan/?fangid=<?php echo $value['id']?>">看房团</a></span>
+						<span class="btn-gray g-wh3"><a href="/yim/?fangid=<?php echo $value['id']?>">移民优势</a></span>
+					</div>
+				</div>
+				<?php }?>
+
+<!-- 				<div class="g-box g-wh4">
+					<img src="/images/house.gif" alt="">
+					<div>
+						<span class="btn-gray g-wh3"><a href="">查看详情</a></span>
+						<span class="btn-gray g-wh3"><a href="">我要出价</a></span>
+						<span class="btn-gray g-wh3"><a href="">看房团</a></span>
+						<span class="btn-gray g-wh3"><a href="">移民优势</a></span>
+					</div>
+				</div>
+				<div class="g-box g-wh4">
+					<img src="/images/house.gif" alt="">
+					<div>
+						<span class="btn-gray g-wh3"><a href="">查看详情</a></span>
+						<span class="btn-gray g-wh3"><a href="">我要出价</a></span>
+						<span class="btn-gray g-wh3"><a href="">看房团</a></span>
+						<span class="btn-gray g-wh3"><a href="">移民优势</a></span>
+					</div>
+				</div>
+				<div class="g-box g-wh4">
+					<img src="/images/house.gif" alt="">
+					<div>
+						<span class="btn-gray g-wh3"><a href="">查看详情</a></span>
+						<span class="btn-gray g-wh3"><a href="">我要出价</a></span>
+						<span class="btn-gray g-wh3"><a href="">看房团</a></span>
+						<span class="btn-gray g-wh3"><a href="">移民优势</a></span>
+					</div>
+				</div>
+ -->
+
+
+				<div class="clear"></div>
+			</div>
+			<!-- 模块8 -->
+			<div class="g-item g-wh5">
+					<img src="<?php  echo WEB_IMAGES_PATH?>m9.jpg" alt="">
+				<div class="m-news">
+					<div class="g-box">
+						<h2>CONSULTING NEWS</h2>
+						<img src="<?php  echo WEB_IMAGES_PATH?>news.gif" alt="">
+					</div>
+					<div class="g-box g-wh6">
+						<ul class="list5">
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+						</ul>
+					</div>
+					<div class="g-box g-wh6">
+						<ul class="list5">
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+						</ul class="list5">
+					</div>
+					<div class="g-box g-wh6">
+						<ul class="list5">
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+							<li><a href="">Yellowstone National Park</a></li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<!-- 模块9 -->
+			<div class="g-item g-wh5">
+				<div class="m-clients">
+					<h2>Our happy clients</h2>
+					<span class="btn-left3"></span>
+					<span class="btn-right3"></span>
+				</div>
+				<ul class="list6">
+					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
+					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
+					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
+					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
+					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
+					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
 				</ul>
-				<div class="clearfix"></div>
-				<a id="prev" class="prev" href="#">&lt;</a>
-				<a id="next" class="next" href="#">&gt;</a>
-				<!-- <div id="pager" class="pager"></div> -->
+				<div class="clear"></div>
+			</div>
+		</div>
+			
+	</div>
+	<!-- 尾部 -->
+	<div class="g-ft g-bg1">
+		<div class="g-ft-wrap g-wh5">
+			<span>2013 ModusVersus</span>
+			<div class="connects">
+				<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>f1.png" alt=""></a>
+				<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>f2.png" alt=""></a>
+				<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>f3.png" alt=""></a>
+				<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>f4.png" alt=""></a>
 			</div>
 		</div>		
-
 	</div>
-
-	<div class="centers"> 
-		<div class="c_left">
-			<div class="c_l"><img src="images/d.png"><img src="images/p.png"></div>
-			<div class="c_r"><img src="images/cbanner.png">
-			<ul>
-					<li >查看详情</li>
-					<li>我要出价</li>
-					<li class="current">看房团</li>
-					<li>移民优势</li>
-			</ul>
-			</div>
-			<div class="line"></div>
-		</div> 
-		<div class="c_right">
-			<div class="banner">banner</div>
-			<div class="banner">banner</div>
-		</div>		
-	</div> 
-
-	<div class="kanfangtuan">
-		<div class="c_left">
-			<div class="c_top"><img src="/images/fang1.png"></div>
-			<div class="c_bottom">
-				<ul>
-					<li class="current">查看详情</li>
-					<li>我要出价</li>
-					<li>看房团</li>
-					<li>移民优势</li>
-				</ul>
-			</div>
-		</div> 
-		<div class="c_right">
-			<div class="c_top"><img src="/images/fang2.png"></div>
-			<div class="c_bottom">				
-				<ul>
-					<li>查看详情</li>
-					<li>我要出价</li>
-					<li class="current">看房团</li>
-					<li>移民优势</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="kanfangtuan">
-		<div class="c_left">
-			<div class="c_top"><img src="/images/fang3.png"></div>
-			<div class="c_bottom">
-			<ul>
-					<li>查看详情</li>
-					<li>我要出价</li>
-					<li>看房团</li>
-					<li class="current">移民优势</li>
-				</ul>
-			</div>
-		</div> 
-		<div class="c_right">
-			<div class="c_top"><img src="/images/fang4.png"></div>
-			<div class="c_bottom">
-				<ul>
-					<li>查看详情</li>
-					<li>我要出价</li>
-					<li>看房团</li>
-					<li>移民优势</li>
-				</ul>
-			</div>			
-		</div>
-	</div>
-
-	<div class="banner"><img src="/images/pg.png"></div>
-
-	<div class="banner news">
-				<ul>
-					<li class="title">Consultin news
-					<img src="/images/news.png"></li>
-					<li>afafafafsf</li>
-					<li>adfasffdsaf</li>
-					<li>affafdfsfd</li>
-				</ul>
-	</div>
-
-    <div class="footer">2013 modulesversion</div> 
-</body> 
+</body>
 </html>

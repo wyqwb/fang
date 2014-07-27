@@ -3,11 +3,11 @@
 			<div class="Ind_contop">
 				<h2>快捷方式</h2>
 				<ul class="Ind_conul">
-					<li><a href="./admin/article"><img src="./images/admin/indextip.png" /><span>房源信息</span></a></li>
-					<li><a href="./admin/orders"><img src="./images/admin/indextip2.png" /><span>订单中心</span></a></li>
-					<li><a href="./admin/member"><img src="./images/admin/indextip6.png" /><span>会员中心</span></a></li>
+					<li><a href="./admin/article"><img src="./images/admin/indextip.png" /><span>信息中心</span></a></li>
+                    <li><a href="./admin/member"><img src="./images/admin/indextip6.png" /><span>会员中心</span></a></li>
+                    <li><a href="./admin/orders"><img src="./images/admin/indextip2.png" /><span>订单中心</span></a></li>
                     <li><a href="./admin/administrator"><img src="./images/admin/indextip6.png" /><span>管理员</span></a></li>
-                    <li><a href="http://tongji.baidu.com/web/welcome/login" target='_blank'><img src="./images/admin/indextip4.png" /><span>统计信息</span></a></li>
+                   <!--  <li><a href="http://tongji.baidu.com/web/welcome/login" target='_blank'><img src="./images/admin/indextip4.png" /><span>统计信息</span></a></li> -->
 				</ul>
 			</div>
 <!-- 		<div class="Ind_conbot" id='jswelcome'>

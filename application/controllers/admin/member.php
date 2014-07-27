@@ -35,8 +35,8 @@ class Member extends AD_Controller
     }
 
     
-    //文章列表
-    public function member_lists()
+    //商家会员列表
+    public function business_member_lists()
     {
     	if (!$this->input->post('searchcondition') && !$this->uri->segment(4))
     	   $this->session->unset_userdata("Search_Member");
@@ -88,6 +88,72 @@ class Member extends AD_Controller
         	log_message("debug","---->".$sql);
         	//print_r($sql);exit();
         	$data['lists'] = $this->mpublic->get_dates(base_url().'admin/member/member_lists/',4,$sql);
+        }
+        else
+       {
+            $data['lists'] = $this->mpublic->get_dates(base_url().'admin/member/member_lists/','4','select * from member order by Id desc');;
+        }
+        $tabledata['data'] = $data['lists']['result'];
+        $tabledata['foot']= $data['lists']['page'];
+        $this->formdebris->initialize($tabledata);
+        $data['table'] = $this->formdebris->packing_table($tabledata);
+        $this->load->view('admin/member/member_lists.php',$data);
+    }
+
+
+    //普通会员列表
+    public function normal_member_lists()
+    {
+        if (!$this->input->post('searchcondition') && !$this->uri->segment(4))
+           $this->session->unset_userdata("Search_Member");
+        $searchkey = trim($this->input->post('searchkey'));
+        if (!empty($searchkey)){
+            $data = array('searchkey'=>$searchkey);
+            $this->session->set_userdata('Search_Member',$data);
+        }
+        $session = $this->session->userdata('Search_Member');
+        if (!empty($session))  $searchkey = $session['searchkey'];
+        $this->load->helper('resource');
+        $search = array(
+            'uri'=>base_url()."admin/member/member_lists",
+            'searchtitle'=>array('账号','姓名','手机'),
+            'searchcondition'=>array('account','fullname','mobile'),
+            'searchkey'=>$searchkey,
+        );
+        $data['search'] = $this->load->module('/admin/frames/search',$search,true);
+        $this->load->module('/admin/frames/header');
+        $this->load->module('/admin/frames/left');
+        $this->load->module('/admin/frames/tools');
+        $data['title'] = $this->load->module('/admin/frames/content_title',array('title'=>'会员管理'),true);
+        $tabledata['head'] = '编号_5%,账号_10%,姓名_10%,手机_10%,城市_10%,积分_10%,状态_10%,操作_10%';
+        $tabledata['rules']['order']=array('Id','account','fullname','mobile','city','point','status');
+        $tabledata['rules']['operate']=
+            array(
+                'look'=>array(
+                'url'=>'admin/member/member_view/member_lists/',
+                'id'=>'Id' ),
+                'modify'=>array(
+                'url'=>'admin/member/modify_member/member_lists/',
+                'id'=>'Id'),
+                'check'=>array(
+                'url'=>'admin/member/member_check/',
+                'checkfield'=>'status',
+                'checkdispvalue'=>'未审核',
+                'id'=>'Id'),
+            );
+        if($searchkey)
+        {
+            $condition = $search['searchcondition'];
+            $sql = "select * from member ";
+            $temp ="";
+            foreach ($condition as $arr) 
+            if (!empty($arr))
+                $temp .= " OR ".$arr." LIKE '%".$searchkey."%' ";
+            $sql .= " WHERE (".substr($temp,4).")";
+            $sql .= " order by Id desc";
+            log_message("debug","---->".$sql);
+            //print_r($sql);exit();
+            $data['lists'] = $this->mpublic->get_dates(base_url().'admin/member/member_lists/',4,$sql);
         }
         else
        {
@@ -201,7 +267,7 @@ class Member extends AD_Controller
         	$sql .= " AND (".substr($temp,4).")";
         	$sql .= " order by Id desc";
         	log_message("debug","---->".$sql);
-        	//print_r($sql);exit();
+        	print_r($sql);exit();
         	$data['lists'] = $this->mpublic->get_dates(base_url().'admin/member/member_lists/',4,$sql);
         }
         else
