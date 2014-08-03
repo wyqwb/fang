@@ -12,7 +12,7 @@
                 	<option value="男">男</option>
                 	<option value="女">女</option>
                 </select></div>
-                <div class="clear"><label>身份证号：</label><input type="text" name="idcard" value="<?php echo $artcon['idcard'];?>" /></div>
+                <!-- <div class="clear"><label>身份证号：</label><input type="text" name="idcard" value="<?php echo $artcon['idcard'];?>" /></div> -->
                 <div class="clear" id = "jsOrder"><label>手    机：</label><input type="text" name="mobile" value="<?php echo $artcon['mobile'];?>" /></div>
                 <div  class="clear"><label>城    市：</label><select name="city"  ><?php echo $artcon['city'];?>
                 <?php foreach($city as $arr) :?>

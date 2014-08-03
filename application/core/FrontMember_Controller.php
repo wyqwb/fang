@@ -14,9 +14,10 @@ class FrontMember_Controller extends CI_Controller
 	//公用模块顶部导航
 	protected function front_header()
 	{
-		$data["member"] = $this->mpublic->getRow('member','',array('Id'=>$this->session->userdata('userid')));
-		$data['member']['point'] = round($data['member']['point']);
-		$this->load->view('web/member/header.php',$data);
+		//$data["member"] = $this->mpublic->getRow('member','',array('Id'=>$this->session->userdata('userid')));
+		//$data['member']['point'] = round($data['member']['point']);
+		//$this->load->view('web/member/header.php',$data);
+		$this->load->view('web/member/header.php');
 	}
 	//公用模块底部导航
 	protected function front_footer()
@@ -28,6 +29,11 @@ class FrontMember_Controller extends CI_Controller
 	protected function front_left()
 	{
 		$this->load->view('web/member/left.php');
+	}
+
+	protected function front_left_normal()
+	{
+		$this->load->view('web/member/left_normal.php');
 	}
 	
 	//公用成功模块

@@ -64,25 +64,26 @@ class Login extends Front_Controller {
 	} 
 
 	public function act(){
-		$captcha = $this->session->userdata('captcha')?$this->session->userdata('captcha'):null;
-		if(isset($_POST['login']) && !empty($_POST['login']['username']) && !empty($_POST['login']['password']) && strtolower($captcha) == strtolower($_POST['login']['captcha'] )){
-			$password = md5($_POST['login']['password']);
-			$table = 'member';
-			$where ="account = '{$_POST['login']['username']}' and password='{$password}'";
-			$result = $this->mpub->getRow($table,$fields = "",$where);
-			if(count($result) >1){
-				$login_session = array('islogin'=>1,
-					'userid'=>$result['Id']
-				);
-				$this->session->set_userdata($login_session);
-				$this->session->unset_userdata('captcha');
-				echo "<script>window.location.href='".base_url()."member'</script>";
-			}else{
-				echo "帐号密码错误！";
-			}
-		}else{
-			echo "验证码错误！";
-		}
+		echo "<script>window.location.href='".base_url()."member'</script>";
+		// $captcha = $this->session->userdata('captcha')?$this->session->userdata('captcha'):null;
+		// if(isset($_POST['login']) && !empty($_POST['login']['username']) && !empty($_POST['login']['password']) && strtolower($captcha) == strtolower($_POST['login']['captcha'] )){
+		// 	$password = md5($_POST['login']['password']);
+		// 	$table = 'member';
+		// 	$where ="account = '{$_POST['login']['username']}' and password='{$password}'";
+		// 	$result = $this->mpub->getRow($table,$fields = "",$where);
+		// 	if(count($result) >1){
+		// 		$login_session = array('islogin'=>1,
+		// 			'userid'=>$result['Id']
+		// 		);
+		// 		$this->session->set_userdata($login_session);
+		// 		$this->session->unset_userdata('captcha');
+		// 		echo "<script>window.location.href='".base_url()."member'</script>";
+		// 	}else{
+		// 		echo "帐号密码错误！";
+		// 	}
+		// }else{
+		// 	echo "验证码错误！";
+		// }
 	
 	}
 

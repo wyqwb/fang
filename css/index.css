@@ -125,8 +125,16 @@ body {
   height: 502px;
   margin: 0 auto;
   background: #ff0;
+  overflow: hidden;
+}
+.m-pic-scroll .scroll li {
+  float: left;
 }
 .btn-left {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
   display: block;
   position: absolute;
   cursor: pointer;
@@ -135,8 +143,13 @@ body {
   left: 0;
   top: 220px;
   background: url(../images/left1.png) no-repeat;
+  z-index: 10;
 }
 .btn-right {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
   display: block;
   position: absolute;
   cursor: pointer;
@@ -148,6 +161,10 @@ body {
   z-index: 10;
 }
 .btn-left2 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
   display: block;
   position: absolute;
   cursor: pointer;
@@ -158,6 +175,10 @@ body {
   background: url(../images/left2.gif) no-repeat;
 }
 .btn-right2 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
   display: block;
   position: absolute;
   cursor: pointer;
@@ -254,6 +275,18 @@ body {
   background-image: url(../images/line.gif);
   background-repeat: no-repeat;
   background-position: 0 200px ;
+  position: relative;
+}
+.img-box .stitle {
+  position: absolute;
+  left: 20px;
+  font-weight: bold;
+  top: 170px;
+}
+.img-box .describe {
+  position: absolute;
+  left: 20px;
+  top: 210px;
 }
 .g-mid-left {
   width: 874px;
@@ -441,6 +474,10 @@ ul.list6 li {
 }
 .m-clients .btn-left3,
 .m-clients .btn-right3 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
   position: absolute;
   cursor: pointer;
   width: 45px;
@@ -450,6 +487,10 @@ ul.list6 li {
   background: url(../images/left3.png) no-repeat;
 }
 .m-clients .btn-right3 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
   right: 0;
   top: 0;
   background: url(../images/right3.png) no-repeat;
@@ -468,4 +509,101 @@ ul.list6 li {
   position: absolute;
   right: 0;
   top: 0;
+}
+/*图片切换*/
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+ul,
+li {
+  list-style: none;
+}
+img {
+  border: 0;
+}
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+h1 {
+  height: 50px;
+  line-height: 50px;
+  font-size: 22px;
+  font-weight: normal;
+  font-family: "Microsoft YaHei", SimHei;
+  margin-bottom: 20px;
+}
+/* focus */
+#focus {
+  min-width: 1279px;
+  height: 502px;
+  overflow: hidden;
+  position: relative;
+}
+#focus ul {
+  position: absolute;
+}
+#focus ul li {
+  float: left;
+  height: 502px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+#focus ul li div {
+  position: absolute;
+  overflow: hidden;
+}
+#focus .btnBg {
+  position: absolute;
+  width: 800px;
+  height: 20px;
+  left: 0;
+  bottom: 0;
+  background: #000;
+}
+#focus .btn {
+  position: absolute;
+  width: 780px;
+  height: 10px;
+  padding: 5px 10px;
+  right: 0;
+  bottom: 0;
+  text-align: right;
+}
+#focus .btn span {
+  display: inline-block;
+  _display: inline;
+  _zoom: 1;
+  width: 25px;
+  height: 10px;
+  _font-size: 0;
+  margin-left: 5px;
+  cursor: pointer;
+  background: #fff;
+}
+#focus .btn span.on {
+  background: #fff;
+}
+#focus .preNext {
+  width: 45px;
+  height: 100px;
+  position: absolute;
+  top: 200px;
+  background: url(../images/left1.png) no-repeat 0 0;
+  cursor: pointer;
+}
+#focus .pre {
+  left: 0;
+}
+#focus .next {
+  right: 0;
+  background: url(../images/right1.png) no-repeat 0 0;
 }

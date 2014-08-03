@@ -136,6 +136,7 @@ body {
 .input-pwd {
   width: 307px;
   height: 34px;
+  line-height: 34px;
   border: 1px solid #ccc;
 }
 .input-user {
@@ -260,21 +261,53 @@ body {
 .g-ht {
   height: 72px;
 }
+.m-login {
+  /* IE7 */
+}
 .m-login .left {
   display: block;
   width: 105px;
   float: left;
   text-align: right;
+  margin: 10px 0;
 }
 .m-login .right {
   display: block;
-  width: 330px;
+  width: 430px;
   float: left;
+  position: relative;
+  margin: 10px 0;
+}
+.m-login .right img {
+  margin-left: 4px;
+  padding: 0;
+  position: absolute;
+  top: -2px;
 }
 .m-login p {
-  padding: 20px 0;
   clear: both;
   line-height: 34px;
+  color: #333;
+}
+.m-login p a {
+  color: #005aa0;
+}
+ * + html .m-login  .right{
+  margin-bottom: 0;
+ }
+  * + html .m-login  .left{
+  margin-bottom: 0;
+ }
+ * + html .m-login p {
+  clear: both;
+  color: #333;
+  line-height:20px;
+}
+* + html .m-login p a {
+  color: #005aa0;
+}
+* + html .m-login .red {
+  color: #ff0000;
 }
 .m-login .red {
   color: #ff0000;
@@ -283,7 +316,7 @@ body {
   width: 272px;
 }
 .g-wh6 {
-  width: 480px;
+  width: 580px;
 }
 .g-ht3 {
   padding-top: 83px;

@@ -3,12 +3,13 @@
 <head>
 <base href="<?php echo base_url();?>" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link type="text/css" href="<?php echo base_url(); ?>css/common.css" rel="stylesheet" />
-    <link type="text/css" href="<?php echo base_url(); ?>css/vipstyle.css" rel="stylesheet" />
-    <link type="text/css" href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" />
-<script charset="utf-8" type="text/javascript" src="<?php echo base_url(); ?>/javascript/jquery-1.8.3.min.js" ></script>
-<script charset="utf-8" type="text/javascript" src="<?php echo base_url(); ?>/javascript/Validform_v5.3.2_min.js" ></script>
-<script charset="utf-8" type="text/javascript" src="<?php echo base_url(); ?>/javascript/jquery.form.min.js" ></script>
+    <link type="text/css" href="/css/common.css" rel="stylesheet" />
+    <link type="text/css" href="/css/vipstyle.css" rel="stylesheet" />
+    <link type="text/css" href="/css/style.css" rel="stylesheet" />
+   
+<script charset="utf-8" type="text/javascript" src="/javascript/jquery-1.8.3.min.js" ></script>
+<script charset="utf-8" type="text/javascript" src="/javascript/Validform_v5.3.2_min.js" ></script>
+<script charset="utf-8" type="text/javascript" src="/javascript/jquery.form.min.js" ></script>
     <title>会员中心</title>
     
 	<style type="text/css">
@@ -47,23 +48,43 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
 #Validform_msg a.Validform_close:hover{color:#ccc;}
 #Validform_msg .Validform_info{padding:8px;border:1px solid #bbb; border-top:none; text-align:left;}
 .msg-block{color:red;}
+
+/* foot part*/
+.g-ft {
+  height: 50px;
+}
+.g-ft .g-ft-wrap {
+  position: relative;
+  margin: 0 auto;
+  color: #fff;
+  line-height: 50px;
+}
+.g-ft .connects {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.g-bg1 {
+  background: #28a7e1;
+}
+
 	</style>
 </head>
 
 <body>
     <div id="header">
-        <a href="<?php echo base_url();?>"><img src="<?php echo base_url(); ?>images/logo.jpg" width="200" height="79" alt="友山基金" /></a>
-        <a href="<?php echo base_url(); ?>member"><img src="<?php echo base_url(); ?>images/jyh.jpg" alt="金友汇专区" /></a>
+        <a href="/"><img src="/images/logo.jpg" width="200" height="79" alt="用户中心" /></a>
+        <!-- <a href="/member"><img src="/images/jyh.jpg" alt="金友汇专区" /></a> -->
         <div class="fr">
-            <div class="tel"> <img src="<?php echo base_url(); ?>images/tel.jpg" width="192" height="32" alt="联系方式" /></div>
+            <div class="tel"> <img src="/images/tel.jpg" width="192" height="32" alt="联系方式" /></div>
             <div class="lxfs">
-                <img src="<?php echo base_url(); ?>images/person.jpg" width="20" height="21" />&nbsp;您好，<span class="vipname"><?php echo $member['fullname']?></span> , 欢迎回到金友汇专区！
-                <img src="<?php echo base_url(); ?>images/vipclass.jpg" width="17" height="16" /><span class="vipred"><?php echo $member['rank']?></span>
-                <img src="<?php echo base_url(); ?>images/money.jpg" width="20" height="20" /><span class="vipjf">积分(<?php echo $member['point']?>)</span>
+                <img src="/images/person.jpg" width="20" height="21" />&nbsp;您好，<span class="vipname"><?php echo get_cookie("username");?></span> , 欢迎回到用户中心区！
+                <!-- <img src="/images/vipclass.jpg" width="17" height="16" /><span class="vipred">11</span> -->
+                <img src="/images/money.jpg" width="20" height="20" /><span class="vipjf">积分(10)</span>
             </div>
         </div>
     </div>
-    <div class="vipbanner clearfix"><img src="<?php echo base_url(); ?>images/banner_zxzx.jpg" /></div>
+    <div class="vipbanner clearfix"><img src="/images/banner_zxzx.jpg" /></div>
     <!-- by nonzar -->
     <!-- 主体 -->
     <div class="main layout mc clearfix">

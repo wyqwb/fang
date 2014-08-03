@@ -32,6 +32,11 @@ $config['admin_menu']['cn']['left']['article'][]=array('title'=>'广告评论','
         array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png'),
         array('title'=>'广告列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
     ));
+$config['admin_menu']['cn']['left']['article'][]=array('title'=>'看房团','type'=>'default',
+    'child'=>array(
+        array('title'=>'看房团列表','action'=>'admin/article/article_lists','type'=>'default','icon'=>'icon_articlelist.png'),
+        // array('title'=>'创建看房团','action'=>'admin/article/article_create','type'=>'default','icon'=>'icon_articlecreate.png'),
+    ));
 
 $config['admin_menu']['cn']['left']['edu'][]=array('title'=>'题库中心','type'=>'default',
     'child'=>array(
@@ -83,3 +88,7 @@ $config['tools']['cn']['point']= "<div ><a  class='hoverabg' href='./admin/membe
 $config['tools']['cn']['price']= "<div ><a  class='hoverabg' href='./admin/price/price_create'><i class='modletip'></i>新增净值</a></div>";
 $config['tools']['cn']['createquestion']= "<div ><a  class='hoverabg ' href='./admin/questionbank/createquestion'><i class='modletip'></i>创建试题</a></div>";
 $config['tools']['cn']['createcourse']= "<div ><a  class='hoverabg ' href='./admin/edu/createcourse'><i class='modletip'></i>创建课程</a></div>";
+
+
+$config['accountype_normal']=1;
+$config['accountype_business']=2;

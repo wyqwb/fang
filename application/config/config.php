@@ -309,9 +309,9 @@ $config['encryption_key'] = '';
 $config['sess_cookie_name']		= 'ci_session';
 $config['sess_expiration']		= 7200;
 $config['sess_expire_on_close']	= FALSE;
-$config['sess_encrypt_cookie']	= FALSE;
-$config['sess_use_database']	= FALSE;
-$config['sess_table_name']		= 'ci_sessions';
+$config['sess_encrypt_cookie']	= TRUE;
+$config['sess_use_database']	= TRUE;
+$config['sess_table_name']		= 'sessions';
 $config['sess_match_ip']		= FALSE;
 $config['sess_match_useragent']	= TRUE;
 $config['sess_time_to_update']	= 300;
@@ -426,23 +426,6 @@ $config['perpage'] = 10;
 /* Location: ./application/config/config.php */
 
 /* the question config  */
-$config['choice'] ="1";
-$config['judge'] = "2";
+$config['normal'] ="普通会员";
+$config['business'] = "商家会员";
 
-/* the industryinfo config  */
-$config['brandinfo'] ="6";
-$config['desigeinfo'] ="7";
-$config['fashionindustry'] ="8";
-$config['digitaltech'] ="9";
-$config['fashionmedia'] ="10";
-$config['fashionbloger'] ="11";
-$config['fashionbuyer'] ="12";
-$config['fashionelectric'] ="13";
-
-/* the Cooper config  */
-$config['coope_teacher'] ="3";
-$config['coope_orgnization'] ="4";
-$config['cooper_inner'] ="a";
-$config['cooper_overseas'] ="b";
-$config['cooper_man'] ="1";
-$config['cooper_woman'] ="0";

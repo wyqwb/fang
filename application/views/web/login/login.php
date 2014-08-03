@@ -18,13 +18,16 @@
 		<div class="g-bd-left"><img src="<?php  echo WEB_IMAGES_PATH?>left_img.jpg" alt=""></div>
 		<div class="g-bd-right">
 			<!-- 登录部分 -->
+			
 			<div class="m-login">
 				<div class="m-item">邮箱/用户名/已验证手机</div>
+				<!-- <form action="<?php echo base_url(); ?>login/act" method="post"> -->
 				<div class="m-item2"><input type="text" name="user" class="input-user"></div>
 				<div class="m-item">密码</div>
-				<div class="m-item2"><input type="text" name="user" class="input-pwd"></div>
+				<div class="m-item2"><input type="text" name="passwd" class="input-pwd"></div>
 				<div class="m-item3"><input type="checkbox" style="vertical-align:middle;" >七天内自动登录<a>忘记密码？</a></div>
-				<div class="m-item2"><button class="u-btn btn-login"></button>
+				<div class="m-item2"><a href="/login/act"><button class="u-btn btn-login"></button></a>
+				<!-- </form> -->
 				<div class="m-item3">使用合作帐号一键登录：</div>
 				<div class="m-item2">
 					<button class="u-btn btn-qq">使用QQ帐号登录</button>
@@ -32,8 +35,9 @@
 					<button class="u-btn btn-wx">使用微信帐号登录</button>
 					<button class="u-btn btn-wb">使用微博帐号登录</button>
 				</div>
-				<div class="m-item2"><button class="u-btn btn-register"></button></div>
+				<div class="m-item2"><a href="/reg/"><button class="u-btn btn-register"></button></a></div>
 			</div>
+		
 		</div>
 	</div>
 	<div class="clear"></div>

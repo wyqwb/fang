@@ -11,14 +11,15 @@ class Member extends FrontMember_Controller {
 	{
 		parent::__construct();
 		$this->load->model('web/mpublic');
+		$this->load->helper('cookie');
 		//$this->load->library('session');
 
-		$loginsession = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
-		if(!$loginsession){
-			echo "<script>window.location.href='".base_url()."'</script>";
-		}else{
-			$this->user_data = $this->session->userdata('userid');
-		}
+		// $loginsession = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		// if(!$loginsession){
+		// 	echo "<script>window.location.href='".base_url()."'</script>";
+		// }else{
+		// 	$this->user_data = $this->session->userdata('userid');
+		// }
 	} 
 
 	
@@ -28,59 +29,66 @@ class Member extends FrontMember_Controller {
 	 public function index()
 	{
 		$this->front_header();
-		$this->front_left();
 
-		$prePage = 5;
-		$rowNum = $this->uri->segment(3);
-		$rowNum = empty($rowNum)?0:$rowNum;
-
-		$count = $this->mpublic->get_no_sqlserver('cv_bas_ProductProject','PRODUCTSTATE IN(1,0)');
-
-		$user_id = $this->session->userdata('userid');
-		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-		$data['member']['point'] = round($data['member']['point']);
-		//$product = $this->mpublic->getList('product','',array('state'=>'募集中'));
-		$data['product'] = $this->mpublic->getList_sqlserver('cv_bas_ProductProject','','PRODUCTSTATE IN(1,0)',$prePage,$rowNum);
-
-		foreach ($data['product'] as $key=>$arr){
-
-			if(!empty($data['product'][$key]['NAME'])){
-				$data['product'][$key]['NAME'] = mb_strcut($data['product'][$key]['NAME'],0,50,'UTF-8');
-			}
-			if(!empty($data['product'][$key]['YEARINCOMERATE'])){
-				$data['product'][$key]['YEARINCOMERATE'] = $data['product'][$key]['YEARINCOMERATE']/100;
-			}
-			if(!empty($data['product'][$key]['SCALE1'])){
-				$data['product'][$key]['SCALE1'] = $data['product'][$key]['SCALE1']/10000;
-			}
-			if(!empty($data['product'][$key]['SUBSCRIBEPRODUCTDOWN'])){
-				$data['product'][$key]['SUBSCRIBEPRODUCTDOWN'] = $data['product'][$key]['SUBSCRIBEPRODUCTDOWN']/10000;
-			}
-			if(!empty($data['product'][$key]['PRODUCTDEADLINE'])){
-				$data['product'][$key]['PRODUCTDEADLINE'] = round($data['product'][$key]['PRODUCTDEADLINE']/30);
-			}
-			if(!empty($data['product'][$key]['PROJECTDATE'])){
-				$data['product'][$key]['PROJECTDATE'] = substr($data['product'][$key]['PROJECTDATE'],0,10);
-			}
+		$accoutype = get_cookie("accoutype"); 
+		if($accoutype=="normal"){
+			$this->front_left_normal();
+		}else{
+			$this->front_left();
 		}
 
-		$this->load->library('pagination');
 
-		$config['base_url'] = base_url().'member/index';
-		$config['total_rows'] = $count;
-		$config['per_page'] = $prePage;
-		$config['cur_tag_open'] = "<a class='on'>";
-		$config['cur_tag_close'] = "</a>";
-		
-		$config['first_link'] = '首页';
-		$config['last_link'] ="最后一页";
-		$config['uri_segment'] = '3';//设为页面的参数，如果不添加这个参数分页用不了
-		
-		$this->pagination->initialize($config);
-		
-		$data['page'] = $this->pagination->create_links();
+		// $prePage = 5;
+		// $rowNum = $this->uri->segment(3);
+		// $rowNum = empty($rowNum)?0:$rowNum;
 
-		$this->load->view('web/member/index.php',$data);
+		// $count = $this->mpublic->get_no_sqlserver('cv_bas_ProductProject','PRODUCTSTATE IN(1,0)');
+
+		// $user_id = $this->session->userdata('userid');
+		// $data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+		// $data['member']['point'] = round($data['member']['point']);
+		// //$product = $this->mpublic->getList('product','',array('state'=>'募集中'));
+		// $data['product'] = $this->mpublic->getList_sqlserver('cv_bas_ProductProject','','PRODUCTSTATE IN(1,0)',$prePage,$rowNum);
+
+		// foreach ($data['product'] as $key=>$arr){
+
+		// 	if(!empty($data['product'][$key]['NAME'])){
+		// 		$data['product'][$key]['NAME'] = mb_strcut($data['product'][$key]['NAME'],0,50,'UTF-8');
+		// 	}
+		// 	if(!empty($data['product'][$key]['YEARINCOMERATE'])){
+		// 		$data['product'][$key]['YEARINCOMERATE'] = $data['product'][$key]['YEARINCOMERATE']/100;
+		// 	}
+		// 	if(!empty($data['product'][$key]['SCALE1'])){
+		// 		$data['product'][$key]['SCALE1'] = $data['product'][$key]['SCALE1']/10000;
+		// 	}
+		// 	if(!empty($data['product'][$key]['SUBSCRIBEPRODUCTDOWN'])){
+		// 		$data['product'][$key]['SUBSCRIBEPRODUCTDOWN'] = $data['product'][$key]['SUBSCRIBEPRODUCTDOWN']/10000;
+		// 	}
+		// 	if(!empty($data['product'][$key]['PRODUCTDEADLINE'])){
+		// 		$data['product'][$key]['PRODUCTDEADLINE'] = round($data['product'][$key]['PRODUCTDEADLINE']/30);
+		// 	}
+		// 	if(!empty($data['product'][$key]['PROJECTDATE'])){
+		// 		$data['product'][$key]['PROJECTDATE'] = substr($data['product'][$key]['PROJECTDATE'],0,10);
+		// 	}
+		// }
+
+		// $this->load->library('pagination');
+
+		// $config['base_url'] = base_url().'member/index';
+		// $config['total_rows'] = $count;
+		// $config['per_page'] = $prePage;
+		// $config['cur_tag_open'] = "<a class='on'>";
+		// $config['cur_tag_close'] = "</a>";
+		
+		// $config['first_link'] = '首页';
+		// $config['last_link'] ="最后一页";
+		// $config['uri_segment'] = '3';//设为页面的参数，如果不添加这个参数分页用不了
+		
+		// $this->pagination->initialize($config);
+		
+		// $data['page'] = $this->pagination->create_links();
+
+		$this->load->view('web/member/index.php');
 		$this->front_footer();
 	}
 	
