@@ -91,7 +91,7 @@
         function docompreg() {
             
             var datastr="";
-            alert($("#phone").val());
+            //alert($("#phone").val());
             if($("#phone").val()!=""){
                 datastr="{'mobile':"+$("#phone").val();
             }
@@ -99,7 +99,7 @@
                 datastr+=",'weibo':"+$("#weibo").val()+"}";
             }
 
-            alert(datastr);
+            //alert(datastr);
             // var weibo = $("#weibo").val();
             // var xueli = $("#xueli").val();
             // var creer = $("#creer").val();
@@ -125,12 +125,12 @@
                 //     return false;
                 // }
             });
-            alert(resault.responseText);
+            //alert(resault.responseText);
 
-            if (resault.responseText == "1") {
-                window.location.href = '/member/'+accountype;
-                return false;
-            }
+            // if (resault.responseText == "1") {
+                window.location.href = '/member/';
+                // return false;
+            // }
         
     }
     </script>
