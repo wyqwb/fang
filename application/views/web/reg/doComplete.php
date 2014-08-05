@@ -118,12 +118,13 @@
                 //     return false;
                 // }
             });
-            alert(resault.responseText);
+            //alert(resault.responseText);
 
             if (resault.responseText == "1") {
                 window.location.href = '/member/';
                 return false;
             }
+
         
     }
     </script>
