@@ -1,10 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>完善资料</title>
-    <link rel="stylesheet" type="text/css" href="/css/login.css">
-</head>
 <body>
     <!-- 头部 -->
     <div class="g-hd-wrap">
@@ -86,12 +79,12 @@
         </div>
         <div class="m-coypright">Copyright@2014-2014 版权所有</div>
     </div>
-    <script type="text/javascript" src="/javascript/jquery.js"></script>
+<!--    <script type="text/javascript" src="/javascript/jquery.js"></script> -->
     <script type="text/javascript">
         function docompreg() {
             
             var datastr="";
-            alert($("#phone").val());
+            //alert($("#phone").val());
             if($("#phone").val()!=""){
                 datastr="{'mobile':"+$("#phone").val();
             }
@@ -99,7 +92,7 @@
                 datastr+=",'weibo':"+$("#weibo").val()+"}";
             }
 
-            alert(datastr);
+            //alert(datastr);
             // var weibo = $("#weibo").val();
             // var xueli = $("#xueli").val();
             // var creer = $("#creer").val();
@@ -107,7 +100,7 @@
 
             var resault = $.ajax({
                 url: "/reg/docompleteact/",
-                data: datastr,
+                data: {'phone':"123444","weibo":"xxx@weibo.com"},
                 async: false,
                 type: 'post'
                 // success : function(data) 
@@ -128,7 +121,7 @@
             alert(resault.responseText);
 
             if (resault.responseText == "1") {
-                window.location.href = '/member/'+accountype;
+                window.location.href = '/member/';
                 return false;
             }
         

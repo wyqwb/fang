@@ -35,6 +35,7 @@ class Reg extends Front_Controller {
     	);
 		$query = $this->db->insert_string('captcha', $data);
 		$this->db->query($query);
+		$this->front_header('index');
 		$this->load->view('web/reg/index.php',$cap);
 	}
 
@@ -75,9 +76,14 @@ class Reg extends Front_Controller {
 		);
 		$result = $this->mpublic->db->insert('member',$dataInfo);
 		if($result){
-			  set_cookie("username",$params['username'],7200);  
-			  set_cookie("accountype",$params['accountype'],7200); 
-    		  exit("1");	/*注册成功*/		
+			  // set_cookie("username",$params['username'],7200);  
+			  // set_cookie("accountype",$params['accountype'],7200); 
+			$login_session = array('islogin'=>1,
+		 			'userid'=>$result['Id'],
+		 			'accountype'=>$result['accountype']
+		 	);
+			$this->session->set_userdata($login_session);
+    		exit("1");	/*注册成功*/		
 		}else{
 			  exit("-3");  /*注册失败*/
 		}
@@ -85,23 +91,30 @@ class Reg extends Front_Controller {
 
 	function docompleteact()
 	{	
-		$params=$_REQUEST;
-		print_r($params);die;
-		$table = 'member';
-		$where ="account = '{$params['username']}'";
-		$result = $this->mpublic->getRow($table,$fields = "",$where);
-		if(count($result) >1){
-			print_r($result);die;
-				$dataInfo = array(
-				'mobile'=>$params['mobile'],
-				'qq'=>$params['qq'],
-				'creer'=>$params['creer'],
-				'xueli'=>$params['xueli'],
-				'weibo'=>$params['weibo'],
-				'createtime'=>date('Y-m-d G:i:s'),
-				'isenable'=>1
-				);
-			$this->mpublic->update();
+		//print_r("ok".$this->session->userdata('islogin'));die;
+		if($this->session->userdata('islogin')){
+			$params=$_REQUEST;		
+			//print_r($params);die;
+			$table = 'member';
+			$where ="account = '{$params['username']}'";
+			$result = $this->mpublic->getRow($table,$fields = "",$where);
+			if(count($result) >1){
+				//print_r($result);die;
+					// $dataInfo = array(
+					// 'mobile'=>$params['mobile'],
+					// 'qq'=>$params['qq'],
+					// 'creer'=>$params['creer'],
+					// 'xueli'=>$params['xueli'],
+					// 'weibo'=>$params['weibo'],
+					// 'createtime'=>date('Y-m-d G:i:s'),
+					// 'isenable'=>1
+					// );
+				//$this->mpublic->update();
+				exit("1");
+			}
+		}
+		else{
+			echo "<script>window.location.href='".base_url()."'</script>";
 		}
 
 
@@ -112,6 +125,7 @@ class Reg extends Front_Controller {
 		$seg = $this->uri->segment(3);
 		$data["username"]=get_cookie("username"); 
 		$data["accoutype"]=$this->config->item($seg);
+		$this->front_header('index');
 		$this->load->view('web/reg/doComplete.php',$data);	
 	}
 

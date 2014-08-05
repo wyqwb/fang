@@ -78,9 +78,9 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
         <div class="fr">
             <div class="tel"> <img src="/images/tel.jpg" width="192" height="32" alt="联系方式" /></div>
             <div class="lxfs">
-                <img src="/images/person.jpg" width="20" height="21" />&nbsp;您好，<span class="vipname"><?php echo get_cookie("username");?></span> , 欢迎回到用户中心区！
-                <!-- <img src="/images/vipclass.jpg" width="17" height="16" /><span class="vipred">11</span> -->
+                <img src="/images/person.jpg" width="20" height="21" />&nbsp;您好，<span class="vipname"><?php echo $account;?></span> , 欢迎回到用户中心区！
                 <img src="/images/money.jpg" width="20" height="20" /><span class="vipjf">积分(10)</span>
+                <span class="vipred"><a href="/member/outlogin">退出</a></span>
             </div>
         </div>
     </div>

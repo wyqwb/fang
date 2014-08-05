@@ -6,7 +6,7 @@
                     <dl class="fl clearfix info">
                         <dt class="fl"><a href="javascript:void(0);"><img src="/images/reguser.png" width="80" height="80" alt="" /></a></dt>
                         <dd class="fl">
-			                 <p><b>会员<?php echo get_cookie("username"); ?></b></p>
+			                 <p><b>会员<?php echo $account; ?></b></p>
 			                 <p><span><?php echo date("H") < 12 ? "上午好!" : "下午好!";?></span></p>
                         </dd>
                     </dl>

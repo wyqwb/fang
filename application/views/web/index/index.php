@@ -91,8 +91,8 @@
 			<div class="g-item g-wh">
 				<div class="g-m2">
 					<div class="g-box-hd">
-						<span class="title">THE PURPOSE OF THE PURCHASE?</span><br>
-						<span class="title2">THE PURPOSE OF THE PURCHASE THE PURPOSE OF THE PURCHASE</span>
+						<span class="title">最受欢迎的图片</span><br>
+						<span class="title2">最受欢迎的图片内容，测试内容</span>
 					</div>
 					<div class="g-box-bd">
 						<div class="m-pic-scroll2" id="m-pic-scroll2">
@@ -133,8 +133,8 @@
 			<div class="g-item g-wh">
 				<div class="g-m2">
 					<div class="g-box-hd">
-						<span class="title">TARGET COUNTRIES?</span><br>
-						<span class="title2">THE PURPOSE OF THE PURCHASE THE PURPOSE OF THE PURCHASE</span>
+						<span class="title">目标国家</span><br>
+						<span class="title2">T最受欢迎的国家，测试内容</span>
 					</div>
 					<div class="g-box-bd">
 						<div class="m-pic-scroll2" id="m-pic-scroll3">
@@ -190,8 +190,8 @@
 					<div class="details">
 						<p><span class="title"><?php echo $value['title']?></span></p>
 						<p>
-							<span class="writer">Posted by Admin in WordPress</span>
-						    <span class="abouts">Design,Template</span>
+							<span class="writer">管理员提交</span>
+						    <span class="abouts">设计模板</span>
 						    <span class="comments">22</span>
 					    </p>
 						<p>
@@ -214,51 +214,51 @@
 			<!-- 主体中部右侧 -->
 			<div class="g-mid-right">	
 				<div class="g-item-l">
-					<h2>GATEGORIES</h2>
+					<h2>分类标签</h2>
 					<ul class="list1">
-						<li><a href="">LOGO DESIGN</a></li>
-						<li><a href="">WEB DESIGN</a></li>
-						<li><a href="">PHOTOGRAPHY</a></li>
-						<li><a href="">WORDPRESS</a></li>
-						<li><a href="">ICONS</a></li>
+						<li><a href="">标识设计</a></li>
+						<li><a href="">网站设计</a></li>
+						<li><a href="">图形设计</a></li>
+						<li><a href="">快速文档</a></li>
+						<li><a href="">图标</a></li>
 					</ul>
 				</div>
 				<div class="g-item-l">
-					<h2>GATEGORIES</h2>
+					<h2>分类标签</h2>
 					<ul class="list2">
-						<li><a href="">LOGO DESIGN</a><br>
-							<span>25 May,2013</span>
+						<li><a href="">标识设计</a><br>
+							<span>25 5,2013</span>
 						</li>
-						<li><a href="">WEB DESIGN</a><br>
-							<span>25 May,2013</span>
+						<li><a href="">网站设计</a><br>
+							<span>25 5,2013</span>
 						</li>
-						<li><a href="">PHOTOGRAPHY</a><br>
-							<span>25 May,2013</span>
+						<li><a href="">图形设计</a><br>
+							<span>25 5,2013</span>
 						</li>
-						<li><a href="">WORDPRESS</a><br>
-							<span>25 May,2013</span>
+						<li><a href="">快速文档</a><br>
+							<span>25 5,2013</span>
 						</li>
 					</ul>
 				</div>
 				<div class="g-item-l">
-					<h2>TAGS</h2>
+					<h2>标签</h2>
 					<ul class="list3">
-						<li><a href="">Meances</a></li>
-						<li><a href="">Nunc</a></li>
-						<li><a href="">Meances</a></li>
-						<li><a href="">Nunc</a></li>
-						<li><a href="">Preasent</a></li>			
-						<li><a href="">Meances</a></li>
-						<li><a href="">Nunc</a></li>			
-						<li><a href="">Nunc</a></li>
-						<li><a href="">Preasent</a></li>
-						<li><a href="">Preasent</a></li>
-						<li><a href="">Nunc</a></li>
+						<li><a href="">标签</a></li>
+						<li><a href="">标签1</a></li>
+						<li><a href="">标签2</a></li>
+						<li><a href="">标签3</a></li>
+						<li><a href="">标签4</a></li>			
+						<li><a href="">标签5</a></li>
+						<li><a href="">标签6</a></li>			
+						<li><a href="">标签7</a></li>
+						<li><a href="">标签8</a></li>
+						<li><a href="">标签9</a></li>
+						<li><a href="">标签</a></li>
 					</ul>
 					<div class="clear"></div>
 				</div>
 				<div class="g-item-l">
-					<h2>ARCHIVE</h2>
+					<h2>归档</h2>
 					<ul class="list4">
 						<li><a href="">2013</a></li>
 						<li><a href="">2012</a></li>
@@ -300,7 +300,7 @@
 					<img src="<?php  echo WEB_IMAGES_PATH?>m9.jpg" alt="">
 				<div class="m-news">
 					<div class="g-box">
-						<h2>CONSULTING NEWS</h2>
+						<h2>新闻</h2>
 						<img src="<?php  echo WEB_IMAGES_PATH?>news.gif" alt="">
 					</div>
 					<div class="g-box g-wh6">
@@ -339,7 +339,7 @@
 			<!-- 模块9 -->
 			<div class="g-item g-wh5">
 				<div class="m-clients">
-					<h2>Our happy clients</h2>
+					<h2>友情链接</h2>
 					<span class="btn-left3"></span>
 					<span class="btn-right3"></span>
 				</div>

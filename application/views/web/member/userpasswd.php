@@ -6,12 +6,12 @@
                     <dl class="fl clearfix info">
                         <dt class="fl"><a href=""><img src="<?php echo base_url(); ?>/images/ewm.png" width="80" height="80" alt="" /></a></dt>
                         <dd class="fl">
-			<p><b><?php echo $user_data['fullname']; ?></b></p>
+			<p><b><?php echo $user_data['account']; ?></b></p>
                             <p><span><?php echo date("H") < 12 ? "上午好!" : "下午好!";?></span></p>
                         </dd>
                     </dl>
                     <div class="fl about">
-                        <p>会员等级：<a class="c_ad0909" href=""><?php echo $user_data['rank']; ?></a>&nbsp;<a href=""><img src="<?php echo base_url(); ?>/images/vipclass.jpg" alt="" /></a></p>
+                        <!-- <p>会员等级：<a class="c_ad0909" href=""><?php echo $user_data['rank']; ?></a>&nbsp;<a href=""><img src="<?php echo base_url(); ?>/images/vipclass.jpg" alt="" /></a></p> -->
                         <p>积分：<strong class="c_ad0909"><?php echo $user_data['point']; ?></strong>分&nbsp;<a href=""><img src="<?php echo base_url(); ?>/images/money.jpg" alt="" /></a></p>
                     </div>
                 </div>

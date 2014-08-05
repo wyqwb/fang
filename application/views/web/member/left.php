@@ -1,8 +1,7 @@
         <div class="sidebar fl">
             <!-- 侧边导航栏 -->
             <div class="sideNav">
-                <h2>金友汇专区</h2>
-                <div class="bd">
+                    <div class="bd">
                 	<dl class="J_nav">
                         <dt><a><b class="icon-logo"></b>房产专区</a></dt>
                         <dd><a href="<?php echo base_url();?>netvalue/product_list1">看房团</a></dd>

@@ -12,7 +12,7 @@ class Member extends FrontMember_Controller {
 		parent::__construct();
 		$this->load->model('web/mpublic');
 		$this->load->helper('cookie');
-		//$this->load->library('session');
+		$this->load->library('session');
 
 		// $loginsession = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		// if(!$loginsession){
@@ -28,16 +28,24 @@ class Member extends FrontMember_Controller {
 	 */
 	 public function index()
 	{
-		$this->front_header();
-
-		$accoutype = get_cookie("accoutype"); 
-		if($accoutype=="normal"){
-			$this->front_left_normal();
+		//print_r($this->session->userdata("account"));
+		if($this->session->userdata('islogin')){
+			$data["account"]=$this->session->userdata("account");
+			$this->front_header($this->session->userdata("account"));
+			$accoutype=$this->session->userdata('accountype');
+			
+			if($accoutype=="normal"){
+				$this->front_left_normal();
+			}else{
+				$this->front_left();
+			}
+			$this->load->view('web/member/index.php',$data);
+			$this->front_footer();
 		}else{
-			$this->front_left();
+			echo "<script>window.location.href='".base_url()."'</script>";
 		}
 
-
+		//print_r($data);die;
 		// $prePage = 5;
 		// $rowNum = $this->uri->segment(3);
 		// $rowNum = empty($rowNum)?0:$rowNum;
@@ -88,8 +96,7 @@ class Member extends FrontMember_Controller {
 		
 		// $data['page'] = $this->pagination->create_links();
 
-		$this->load->view('web/member/index.php');
-		$this->front_footer();
+
 	}
 	
 	
@@ -301,7 +308,7 @@ class Member extends FrontMember_Controller {
 		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
 		$data['member']['point'] = round($data['member']['point']);
 
-		$data['city'] = $this->mpublic->getList('dictdata','',array('type'=>'城市'));
+		//$data['city'] = $this->mpublic->getList('dictdata','',array('type'=>'城市'));
 
 		$this->front_header();
 		$this->front_left();
@@ -417,6 +424,12 @@ class Member extends FrontMember_Controller {
 		$this->productAppointment();
 	}
 	
+	//退出
+	function outlogin(){
+		$this->session->sess_destroy();
+		echo "<script>window.location.href='/login/'</script>";
+	}
+
 	
 	public static function  clear_dir($dir){
 		if(is_dir($dir)){

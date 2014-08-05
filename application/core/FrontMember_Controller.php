@@ -12,12 +12,13 @@ class FrontMember_Controller extends CI_Controller
 	
 	
 	//公用模块顶部导航
-	protected function front_header()
+	protected function front_header($account)
 	{
+		$data["account"]=$account;
 		//$data["member"] = $this->mpublic->getRow('member','',array('Id'=>$this->session->userdata('userid')));
 		//$data['member']['point'] = round($data['member']['point']);
 		//$this->load->view('web/member/header.php',$data);
-		$this->load->view('web/member/header.php');
+		$this->load->view('web/member/header.php',$data);
 	}
 	//公用模块底部导航
 	protected function front_footer()

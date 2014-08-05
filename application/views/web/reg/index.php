@@ -1,11 +1,4 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>注册</title>
-    <link rel="stylesheet" type="text/css" href="/css/login.css">
-</head>
-<body>
+﻿<body>
     <!-- 头部 -->
     <div class="g-hd-wrap">
         <div class="g-hd g-wh g-ht">
@@ -78,9 +71,11 @@
         </div>
         <div class="m-coypright">Copyright@2014-2014 版权所有</div>
     </div>
+    <!--
     <script type="text/javascript" src="/javascript/jquery.js"></script>
     <script type="text/javascript" src="/javascript/json2.js"></script>
     <script type="text/javascript" src="/javascript/store.js"></script>
+    -->
     <script type="text/javascript">
     $(function(){
         var tabIndex=store.get("index");

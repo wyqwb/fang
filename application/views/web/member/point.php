@@ -5,18 +5,18 @@
                     <dl class="fl clearfix info">
                         <dt class="fl"><a href=""><img src="<?php echo base_url(); ?>images/ewm.png" width="80" height="80" alt="" /></a></dt>
                         <dd class="fl">
-			<p><b><?php echo $member["fullname"]?></b></p>
+			<p><b><?php echo $member["account"]?></b></p>
 			<p><span><?php echo date("H") < 12 ? "上午好!" : "下午好!";?></span></p>
                         </dd>
                     </dl>
                     <div class="fl about">
-                        <p>会员等级：<a class="c_ad0909" href=""><?php echo $member["rank"]?></a>&nbsp;<a href=""><img src="<?php echo base_url(); ?>images/vipclass.jpg" alt="" /></a></p>
-                        <p>积分：<strong class="c_ad0909"><?php echo $member["point"]?></strong>分&nbsp;<a href=""><img src="<?php echo base_url(); ?>images/money.jpg" alt="" /></a></p>
+                        <!-- <p>会员等级：<a class="c_ad0909" href=""><?php echo $member["rank"]?></a>&nbsp;<a href=""><img src="<?php echo base_url(); ?>images/vipclass.jpg" alt="" /></a></p> -->
+                        <p>积分：<strong class="c_ad0909">8</strong>分&nbsp;<a href=""><img src="<?php echo base_url(); ?>images/money.jpg" alt="" /></a></p>
                     </div>
                 </div>
             </div>
             <!-- 火热招募 -->
-            <div class="ui-winbox1 myIntegral">
+<!--             <div class="ui-winbox1 myIntegral">
                 <div class="hd clearfix mb15">
                     <h3 class="fl">积分明细</h3>
                 </div>
@@ -52,6 +52,6 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>

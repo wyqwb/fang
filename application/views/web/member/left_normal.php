@@ -1,14 +1,13 @@
         <div class="sidebar fl">
             <!-- 侧边导航栏 -->
             <div class="sideNav">
-                <h2>金友汇专区</h2>
                 <div class="bd">
-                	<dl class="J_nav">
-                        <dt><a><b class="icon-logo"></b>房产专区</a></dt>
-                        <dd><a href="<?php echo base_url();?>netvalue/product_list1">我参与的看房团</a></dd>
+                	<!-- <dl class="J_nav"> -->
+                        <!-- <dt><a><b class="icon-logo"></b>房产专区</a></dt> -->
+                        <!-- <dd><a href="<?php echo base_url();?>netvalue/product_list1">我参与的看房团</a></dd> -->
                         <!-- <dd><a href="<?php echo base_url();?>netvalue/product_list2">房源信</a></dd> -->
                         <!-- <dd><a href="<?php echo base_url();?>netvalue/product_list3">已兑付产品</a></dd> -->
-                    </dl>
+                    <!-- </dl> -->
 <!--                     <dl class="J_nav">
                         <dt><a><b class="icon-logo"></b>我购买的产品</a></dt>
                         <dd><a href="<?php echo base_url();?>member/productList/1">已预约产品</a></dd>
