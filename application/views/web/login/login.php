@@ -1,3 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fang</title>
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <script type="text/javascript" src="/javascript/jquery.js"></script>
+    <script type="text/javascript" src="/javascript/json2.js"></script>
+    <script type="text/javascript" src="/javascript/store.js"></script>
+</head>
+
 <body>
 	<!-- 头部 -->
 	<div class="g-hd-wrap">
@@ -76,7 +88,6 @@
                 async: false,
                 type: 'post'
             });
-            //alert(resault.responseText);
             if (resault.responseText == "-1") {
             	alert("账号和密码错误");
                 //$("#check").html("验证码错误或过期!");

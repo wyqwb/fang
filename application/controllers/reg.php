@@ -35,7 +35,7 @@ class Reg extends Front_Controller {
     	);
 		$query = $this->db->insert_string('captcha', $data);
 		$this->db->query($query);
-		$this->front_header('index');
+		//$this->front_header('index');
 		$this->load->view('web/reg/index.php',$cap);
 	}
 
@@ -76,11 +76,10 @@ class Reg extends Front_Controller {
 		);
 		$result = $this->mpublic->db->insert('member',$dataInfo);
 		if($result){
-			  // set_cookie("username",$params['username'],7200);  
-			  // set_cookie("accountype",$params['accountype'],7200); 
+			   set_cookie("username",$params['username'],72000);  
+			   set_cookie("accountype",$params['accountype'],72000); 
 			$login_session = array('islogin'=>1,
-		 			'userid'=>$result['Id'],
-		 			'accountype'=>$result['accountype']
+		 			'userid'=>$result['Id']
 		 	);
 			$this->session->set_userdata($login_session);
     		exit("1");	/*注册成功*/		
@@ -91,14 +90,13 @@ class Reg extends Front_Controller {
 
 	function docompleteact()
 	{	
-		//print_r("ok".$this->session->userdata('islogin'));die;
 		if($this->session->userdata('islogin')){
-			$params=$_REQUEST;		
+			//$params=$_REQUEST;		
 			//print_r($params);die;
-			$table = 'member';
-			$where ="account = '{$params['username']}'";
-			$result = $this->mpublic->getRow($table,$fields = "",$where);
-			if(count($result) >1){
+			//$table = 'member';
+			//$where ="account = '{$params['username']}'";
+			//$result = $this->mpublic->getRow($table,$fields = "",$where);
+			//if(count($result) >1){
 				//print_r($result);die;
 					// $dataInfo = array(
 					// 'mobile'=>$params['mobile'],
@@ -110,8 +108,9 @@ class Reg extends Front_Controller {
 					// 'isenable'=>1
 					// );
 				//$this->mpublic->update();
-				exit("1");
-			}
+				//exit("1");
+			//}
+			exit("1");
 		}
 		else{
 			echo "<script>window.location.href='".base_url()."'</script>";
@@ -123,7 +122,7 @@ class Reg extends Front_Controller {
 
 	function docomplete(){
 		$seg = $this->uri->segment(3);
-		$data["username"]=get_cookie("username"); 
+		$data["username"]=get_cookie("username");
 		$data["accoutype"]=$this->config->item($seg);
 		$this->front_header('index');
 		$this->load->view('web/reg/doComplete.php',$data);	

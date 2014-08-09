@@ -9,6 +9,7 @@ class Login extends Front_Controller {
 		parent::__construct();
 		$this->load->model('web/mpub');
 		$this->load->library('session');
+		$this->load->helper('cookie');
 	} 
 
 	/**
@@ -16,7 +17,7 @@ class Login extends Front_Controller {
 	*/
 	 public function index()
 	{
-		$this->front_header('index');
+		// $this->front_header('index');
 		$this->load->view('web/login/login.php');
 	}
 
@@ -28,10 +29,10 @@ class Login extends Front_Controller {
 			$result = $this->mpub->getRow($table,$fields = "",$where);
 			if(count($result) >1){
 				$login_session = array('islogin'=>1,
-		 			'userid'=>$result['Id'],
-		 			'account'=>$result['account'],
-		 			'accountype'=>$result['accountype']
+		 			'userid'=>$result['Id']
 		 		);
+		 		set_cookie("username",$result['account'],72000);  
+			   	set_cookie("accountype",$result['accountype'],72000); 
 				$this->session->set_userdata($login_session);
 				exit("1");
 			}else{

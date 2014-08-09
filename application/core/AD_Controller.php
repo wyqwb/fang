@@ -17,7 +17,6 @@ class AD_Controller extends CI_Controller
         $this->load->database();
 		$this->load->library('session');
         date_default_timezone_set('Asia/Shanghai');
-// 		use acl filter to control login and rights.
       $ids=$this->session->userdata('name');
       if(empty($ids)){
        	header("Location: ".base_url()."index.php/admin/adminlogin");

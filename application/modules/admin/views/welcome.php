@@ -7,6 +7,7 @@
                     <li><a href="./admin/member"><img src="./images/admin/indextip6.png" /><span>会员中心</span></a></li>
                     <li><a href="./admin/orders"><img src="./images/admin/indextip2.png" /><span>订单中心</span></a></li>
                     <li><a href="./admin/administrator"><img src="./images/admin/indextip6.png" /><span>管理员</span></a></li>
+                    <li><a href="./admin/ad"><img src="./images/admin/indextip4.png" /><span>广告中心</span></a></li>
                    <!--  <li><a href="http://tongji.baidu.com/web/welcome/login" target='_blank'><img src="./images/admin/indextip4.png" /><span>统计信息</span></a></li> -->
 				</ul>
 			</div>

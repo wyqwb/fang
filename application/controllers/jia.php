@@ -17,7 +17,9 @@ class Jia extends Front_Controller {
 		//$data=$this->marticle->get_top_default();
 		//$fang['toplist']=$data;
 		//print_r($fang);die;
+		$this->front_header();
 		$this->load->view('web/jia/index.php');
+		$this->front_footer();
 	}
 	
 	

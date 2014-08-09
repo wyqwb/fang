@@ -4,8 +4,8 @@
                     <div class="bd">
                 	<dl class="J_nav">
                         <dt><a><b class="icon-logo"></b>房产专区</a></dt>
-                        <dd><a href="<?php echo base_url();?>netvalue/product_list1">看房团</a></dd>
-                        <dd><a href="<?php echo base_url();?>netvalue/product_list2">房源信</a></dd>
+                        <dd><a href="#">看房团</a></dd>
+                        <dd><a href="#">房源信</a></dd>
                         <!-- <dd><a href="<?php echo base_url();?>netvalue/product_list3">已兑付产品</a></dd> -->
                     </dl>
 <!--                     <dl class="J_nav">

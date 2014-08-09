@@ -4,14 +4,106 @@
 	<meta charset="UTF-8">
 	<title>首页</title>
 	<link rel="stylesheet" href="/css/index.css">
+	<script type="text/javascript"  src="/javascript/jquery.js"></script>
+	<script type="text/javascript"  src="/javascript/slider.js"></script>
+	<script type="text/javascript" src="/javascript/unslider.min.js"></script>
+	<script>
+	$(function() {
+		var w=$("#focus").css("width");
+		$("#focus").find("li").css("width",w);
+		$("#m-pic-scroll2").scrollimg();
+		$("#m-pic-scroll3").scrollimg();
+		$("#ul-list").scrollimg({
+			leftBtn: ".btn-left3",
+			rightBtn: ".btn-right3",
+			itembox: "li"
+		});
+
+		var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+		var len = $("#focus ul li").length; //获取焦点图个数
+		var index = 0;
+		var picTimer;
+		btn = "<div class='preNext pre'></div><div class='preNext next'></div>";
+		$("#focus").append(btn);
+		$("#focus .btnBg").css("opacity", 0.8);
+
+		//为小按钮添加鼠标滑入事件，以显示相应的内容
+		$(".count li").css("opacity", 0.4).mouseover(function() {
+			index = $(".count li").index(this);
+			$('.count').find("li").eq(index).addClass("on").siblings().removeClass("on");
+			showPics(index);
+		}).eq(0).trigger("mouseover");
+
+		//上一页、下一页按钮透明度处理
+		$("#focus .preNext").css("opacity", 0.5).hover(function() {
+			$(this).stop(true, false).animate({
+				"opacity": "0.8"
+			}, 300);
+		}, function() {
+			$(this).stop(true, false).animate({
+				"opacity": "0.5"
+			}, 300);
+		});
+
+		//上一页按钮
+		$("#focus .pre").click(function() {
+			index -= 1;
+			if (index == -1) {
+				index = len - 1;
+			}
+			showPics(index);
+		});
+
+		//下一页按钮
+		$("#focus .next").click(function() {
+			index += 1;
+			if (index == len) {
+				index = 0;
+			}
+			showPics(index);
+		});
+
+		//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+		$("#focus ul").css("width", sWidth * (len));
+
+		//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+		$("#focus").hover(function() {
+			clearInterval(picTimer);
+		}, function() {
+			picTimer = setInterval(function() {
+				showPics(index);
+				index++;
+				if (index == len) {
+					index = 0;
+				}
+			}, 4000); //此4000代表自动播放的间隔，单位：毫秒
+		}).trigger("mouseleave");
+
+		//显示图片函数，根据接收的index值显示相应的内容
+
+		function showPics(index) { //普通切换
+			var nowLeft = -index * sWidth; //根据index值计算ul元素的left值
+			$("#focus ul").stop(true, false).animate({
+				"left": nowLeft
+			}, 300); //通过animate()调整ul元素滚动到计算出的position
+			//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+			// $(".count li").stop(true, false).animate({
+			// 	"opacity": "0.4"
+			// }, 300).eq(index).stop(true, false).animate({
+			// 	"opacity": "1"
+			// }, 300); //为当前的按钮切换到选中的效果
+			$('.count').find("li").eq(index).addClass("on").siblings().removeClass("on");
+		}
+	})
+	</script>
 </head>
 <body>
 	<!-- 广告 -->
-	<div class="g-banner-wrap">
+<!-- 	<div class="g-banner-wrap">
 		<div class="g-banner">
 			
 		</div>
-	</div>
+	</div> -->
 	<!-- 头部 -->
 	<div class="g-hd">
 		<div class="g-item g-bg1">
@@ -30,8 +122,8 @@
 					</span>
 				</div>
 				<div class="m-login">
-					<a href="/login/">登录</a>
-					<a href="/reg/">立即注册</a>
+					<a href="">登录</a>
+					<a href="">立即注册</a>
 					<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>qqicon.gif" alt=""></a>
 					<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>wxicon.gif" alt=""></a>
 				</div>
@@ -43,9 +135,17 @@
 			<div class="wrapper" >	
 			<div id="focus" style="padding-bottom:30px;">
 				<ul>
-					<li><a href="" ><img src="<?php  echo WEB_IMAGES_PATH?>banner.jpg" alt="" /></a></li>
-					<li><a href="" ><img src="<?php  echo WEB_IMAGES_PATH?>banner2.jpg" alt="" /></a></li>
-					<li><a href="" ><img src="<?php  echo WEB_IMAGES_PATH?>banner3.jpg" alt="" /></a></li>
+				<?php 
+				if($ads!=""){
+					foreach ($ads as $key => $value) {
+							echo "<li><a href='' ><img src='".CUSTOM_IMAGES_PATH.$value['previewimg']."' alt='' /></a></li>";
+						}	
+				}else{					
+				?>
+					<li><a href="" ><p><img src="<?php  echo WEB_IMAGES_PATH?>banner.jpg" alt="" /></p></a></li>
+					<li><a href="" ><p><img src="<?php  echo WEB_IMAGES_PATH?>banner2.jpg" alt="" /></p></a></li>
+					<li><a href="" ><p><img src="<?php  echo WEB_IMAGES_PATH?>banner3.jpg" alt="" /></p></a></li>
+				<?php }?>
 				</ul>
 			</div><!--focus end-->	
 			</div><!-- wrapper end -->
@@ -58,7 +158,7 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</div>	
 	<!-- 主体 -->
 	<div class="g-bd">
 		<!-- 主体上部 -->
@@ -295,171 +395,4 @@
 
 				<div class="clear"></div>
 			</div>
-			<!-- 模块8 -->
-			<div class="g-item g-wh5">
-					<img src="<?php  echo WEB_IMAGES_PATH?>m9.jpg" alt="">
-				<div class="m-news">
-					<div class="g-box">
-						<h2>新闻</h2>
-						<img src="<?php  echo WEB_IMAGES_PATH?>news.gif" alt="">
-					</div>
-					<div class="g-box g-wh6">
-						<ul class="list5">
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-						</ul>
-					</div>
-					<div class="g-box g-wh6">
-						<ul class="list5">
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-						</ul class="list5">
-					</div>
-					<div class="g-box g-wh6">
-						<ul class="list5">
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-							<li><a href="">Yellowstone National Park</a></li>
-						</ul>
-					</div>
-					<div class="clear"></div>
-				</div>
-			</div>
-			<!-- 模块9 -->
-			<div class="g-item g-wh5">
-				<div class="m-clients">
-					<h2>友情链接</h2>
-					<span class="btn-left3"></span>
-					<span class="btn-right3"></span>
-				</div>
-				<ul class="list6">
-					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
-					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
-					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
-					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
-					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
-					<li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
-				</ul>
-				<div class="clear"></div>
-			</div>
-		</div>
 			
-	</div>
-	<!-- 尾部 -->
-	<div class="g-ft g-bg1">
-		<div class="g-ft-wrap g-wh5">
-			<span>2013 ModusVersus</span>
-			<div class="connects">
-				<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>f1.png" alt=""></a>
-				<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>f2.png" alt=""></a>
-				<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>f3.png" alt=""></a>
-				<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>f4.png" alt=""></a>
-			</div>
-		</div>		
-	</div>
-
-	<script src="/javascript/jquery.js"></script>
-	<script src="/javascript/slider.js"></script>
-	<script type="text/javascript" src="/javascript/unslider.min.js"></script>
-	<script>
-	$(function() {
-		var w=$("#focus").css("width");
-		$("#focus").find("li").css("width",w);
-		$("#m-pic-scroll2").scrollimg();
-		$("#m-pic-scroll3").scrollimg();
-		$("#ul-list").scrollimg({
-			leftBtn: ".btn-left3",
-			rightBtn: ".btn-right3",
-			itembox: "li"
-		});
-
-		var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
-		var len = $("#focus ul li").length; //获取焦点图个数
-		var index = 0;
-		var picTimer;
-		btn = "<div class='preNext pre'></div><div class='preNext next'></div>";
-		$("#focus").append(btn);
-		$("#focus .btnBg").css("opacity", 0.8);
-
-		//为小按钮添加鼠标滑入事件，以显示相应的内容
-		$(".count li").css("opacity", 0.4).mouseover(function() {
-			index = $(".count li").index(this);
-			$('.count').find("li").eq(index).addClass("on").siblings().removeClass("on");
-			showPics(index);
-		}).eq(0).trigger("mouseover");
-
-		//上一页、下一页按钮透明度处理
-		$("#focus .preNext").css("opacity", 0.5).hover(function() {
-			$(this).stop(true, false).animate({
-				"opacity": "0.8"
-			}, 300);
-		}, function() {
-			$(this).stop(true, false).animate({
-				"opacity": "0.5"
-			}, 300);
-		});
-
-		//上一页按钮
-		$("#focus .pre").click(function() {
-			index -= 1;
-			if (index == -1) {
-				index = len - 1;
-			}
-			showPics(index);
-		});
-
-		//下一页按钮
-		$("#focus .next").click(function() {
-			index += 1;
-			if (index == len) {
-				index = 0;
-			}
-			showPics(index);
-		});
-
-		//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
-		$("#focus ul").css("width", sWidth * (len));
-
-		//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
-		$("#focus").hover(function() {
-			clearInterval(picTimer);
-		}, function() {
-			picTimer = setInterval(function() {
-				showPics(index);
-				index++;
-				if (index == len) {
-					index = 0;
-				}
-			}, 4000); //此4000代表自动播放的间隔，单位：毫秒
-		}).trigger("mouseleave");
-
-		//显示图片函数，根据接收的index值显示相应的内容
-
-		function showPics(index) { //普通切换
-			var nowLeft = -index * sWidth; //根据index值计算ul元素的left值
-			$("#focus ul").stop(true, false).animate({
-				"left": nowLeft
-			}, 300); //通过animate()调整ul元素滚动到计算出的position
-			//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
-			// $(".count li").stop(true, false).animate({
-			// 	"opacity": "0.4"
-			// }, 300).eq(index).stop(true, false).animate({
-			// 	"opacity": "1"
-			// }, 300); //为当前的按钮切换到选中的效果
-			$('.count').find("li").eq(index).addClass("on").siblings().removeClass("on");
-		}
-	})
-	</script>
-</body>
-</html>

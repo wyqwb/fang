@@ -13,6 +13,8 @@
 $config['admin_menu']=array();
 $config['admin_menu']['cn']['header'][]=array('title'=>'信息中心','action'=>'admin/article','icon'=>'nav2.png','type'=>'default');
 $config['admin_menu']['cn']['header'][]=array('title'=>'订单中心','action'=>'admin/orders','icon'=>'nav2.png','type'=>'default');
+$config['admin_menu']['cn']['header'][]=array('title'=>'广告中心','action'=>'admin/ad','icon'=>'nav2.png','type'=>'default');
+
 // $config['admin_menu']['cn']['header'][]=array('title'=>'教育中心','action'=>'admin/edu','icon'=>'nav2.png','type'=>'default');
 $config['admin_menu']['cn']['header'][]=array('title'=>'会员中心','action'=>'admin/member','icon'=>'nav1.png','type'=>'default');
 $config['admin_menu']['cn']['header'][]=array('title'=>'管理员中心','action'=>'admin/administrator','icon'=>'nav1.png','type'=>'default');
@@ -25,13 +27,28 @@ $config['admin_menu']['cn']['left']['article'][]=array('title'=>'信息中心','
         array('title'=>'创建分类','action'=>'admin/article/article_sort_create','type'=>'default','icon'=>'icon_articlecreate.png'),
         array('title'=>'信息列表','action'=>'admin/article/article_lists','type'=>'default','icon'=>'icon_articlelist.png'),
         array('title'=>'创建信息','action'=>'admin/article/article_create','type'=>'default','icon'=>'icon_articlecreate.png'),
-        // array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
+        array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
     ));
-$config['admin_menu']['cn']['left']['article'][]=array('title'=>'广告评论','type'=>'default',
+// $config['admin_menu']['cn']['left']['article'][]=array('title'=>'评论','type'=>'default',
+//     'child'=>array(
+//         array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png'),
+//         array('title'=>'广告列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
+//     ));
+
+// $config['admin_menu']['cn']['left']['article'][]=array('title'=>'评论中心','type'=>'default',
+//     'child'=>array(
+//         array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
+
+//     ));
+
+
+$config['admin_menu']['cn']['left']['ad'][]=array('title'=>'广告中心','type'=>'default',
     'child'=>array(
-        array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png'),
-        array('title'=>'广告列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
+        array('title'=>'创建广告','action'=>'admin/ad/ad_create','type'=>'default','icon'=>'icon_articlecreate.png'),
+        array('title'=>'广告列表','action'=>'admin/ad/adlist','type'=>'default','icon'=>'icon_articlelist.png')
     ));
+
+
 $config['admin_menu']['cn']['left']['article'][]=array('title'=>'看房团','type'=>'default',
     'child'=>array(
         array('title'=>'看房团列表','action'=>'admin/article/article_lists','type'=>'default','icon'=>'icon_articlelist.png'),

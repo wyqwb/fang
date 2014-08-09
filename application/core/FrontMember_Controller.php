@@ -15,6 +15,7 @@ class FrontMember_Controller extends CI_Controller
 	protected function front_header($account)
 	{
 		$data["account"]=$account;
+		//print_r($account);die;
 		//$data["member"] = $this->mpublic->getRow('member','',array('Id'=>$this->session->userdata('userid')));
 		//$data['member']['point'] = round($data['member']['point']);
 		//$this->load->view('web/member/header.php',$data);

@@ -17,6 +17,12 @@ class Front_Controller extends CI_Controller
 		$this->load->view('web/public/header_index.php',$data);
 	}
 	
+	final protected function front_footer_index($where='')
+	{
+		$data['where'] = $where;
+		$this->load->view('web/public/footer_index.php',$data);
+	}
+	
 	//公用模块顶部导航
 	final protected function front_header($where='')
 	{

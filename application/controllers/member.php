@@ -28,12 +28,14 @@ class Member extends FrontMember_Controller {
 	 */
 	 public function index()
 	{
-		//print_r($this->session->userdata("account"));
+		//print_r($this->session->userdata('userid'));
+		//print_r($this->session->userdata('islogin'));die;
 		if($this->session->userdata('islogin')){
-			$data["account"]=$this->session->userdata("account");
-			$this->front_header($this->session->userdata("account"));
-			$accoutype=$this->session->userdata('accountype');
+			$data["account"]=get_cookie("username");
 			
+			$this->front_header(get_cookie("username"));
+
+			$accoutype=get_cookie('accountype');
 			if($accoutype=="normal"){
 				$this->front_left_normal();
 			}else{
@@ -44,68 +46,23 @@ class Member extends FrontMember_Controller {
 		}else{
 			echo "<script>window.location.href='".base_url()."'</script>";
 		}
-
-		//print_r($data);die;
-		// $prePage = 5;
-		// $rowNum = $this->uri->segment(3);
-		// $rowNum = empty($rowNum)?0:$rowNum;
-
-		// $count = $this->mpublic->get_no_sqlserver('cv_bas_ProductProject','PRODUCTSTATE IN(1,0)');
-
-		// $user_id = $this->session->userdata('userid');
-		// $data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-		// $data['member']['point'] = round($data['member']['point']);
-		// //$product = $this->mpublic->getList('product','',array('state'=>'募集中'));
-		// $data['product'] = $this->mpublic->getList_sqlserver('cv_bas_ProductProject','','PRODUCTSTATE IN(1,0)',$prePage,$rowNum);
-
-		// foreach ($data['product'] as $key=>$arr){
-
-		// 	if(!empty($data['product'][$key]['NAME'])){
-		// 		$data['product'][$key]['NAME'] = mb_strcut($data['product'][$key]['NAME'],0,50,'UTF-8');
-		// 	}
-		// 	if(!empty($data['product'][$key]['YEARINCOMERATE'])){
-		// 		$data['product'][$key]['YEARINCOMERATE'] = $data['product'][$key]['YEARINCOMERATE']/100;
-		// 	}
-		// 	if(!empty($data['product'][$key]['SCALE1'])){
-		// 		$data['product'][$key]['SCALE1'] = $data['product'][$key]['SCALE1']/10000;
-		// 	}
-		// 	if(!empty($data['product'][$key]['SUBSCRIBEPRODUCTDOWN'])){
-		// 		$data['product'][$key]['SUBSCRIBEPRODUCTDOWN'] = $data['product'][$key]['SUBSCRIBEPRODUCTDOWN']/10000;
-		// 	}
-		// 	if(!empty($data['product'][$key]['PRODUCTDEADLINE'])){
-		// 		$data['product'][$key]['PRODUCTDEADLINE'] = round($data['product'][$key]['PRODUCTDEADLINE']/30);
-		// 	}
-		// 	if(!empty($data['product'][$key]['PROJECTDATE'])){
-		// 		$data['product'][$key]['PROJECTDATE'] = substr($data['product'][$key]['PROJECTDATE'],0,10);
-		// 	}
-		// }
-
-		// $this->load->library('pagination');
-
-		// $config['base_url'] = base_url().'member/index';
-		// $config['total_rows'] = $count;
-		// $config['per_page'] = $prePage;
-		// $config['cur_tag_open'] = "<a class='on'>";
-		// $config['cur_tag_close'] = "</a>";
-		
-		// $config['first_link'] = '首页';
-		// $config['last_link'] ="最后一页";
-		// $config['uri_segment'] = '3';//设为页面的参数，如果不添加这个参数分页用不了
-		
-		// $this->pagination->initialize($config);
-		
-		// $data['page'] = $this->pagination->create_links();
-
-
 	}
 	
 	
 	public function point()
 	{
-		$this->front_header();
-		$this->front_left();
-		$data['point'] = $this->mpublic->getList('point','',array('memberid'=>$this->user_data));
-		$data['point'] = $this->mpublic->get_product_data($data['point']);
+		$this->front_header(get_cookie("username"));
+
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){
+			$this->front_left_normal();
+		}else{
+			$this->front_left();
+		}
+		
+		$user_id = $this->session->userdata('userid');
+		$this->user_data = $this->mpublic->getRow('member',"",array('id'=>$user_id));
+		$data = array('member'=>$this->user_data);
 		$this->load->view('web/member/point.php',$data);
 		$this->front_footer();
 	}
@@ -251,9 +208,12 @@ class Member extends FrontMember_Controller {
 	 */
 	public function userpasswd()
 	{
+		//print_r($this->session->userdata('userid'));
+		//print_r($this->session->userdata('islogin'));die;
 		$user_id = $this->session->userdata('userid');
+		//print_r($user_id);die;
 		$this->user_data = $this->mpublic->getRow('member',"",array('id'=>$user_id));
-		$this->user_data['point'] = round($this->user_data['point']);
+		//$this->user_data['point'] = round($this->user_data['point']);
 		/*$this->load->helper('captcha');
 		$captcha = $this->session->userdata('captcha_p')?$this->session->userdata('captcha_p'):null;
 		$vals = array(
@@ -270,12 +230,16 @@ class Member extends FrontMember_Controller {
 		$this->session->set_userdata("captcha_p",$data['word']);*/
 
 
-		$data = array(
-			'user_data'=>$this->user_data
-			//,'captcha'=>$data
-			);
-		$this->front_header();
-		$this->front_left();
+		$data = array('user_data'=>$this->user_data);
+		//print_r($data);die;
+		$this->front_header(get_cookie("username"));
+		$accoutype=get_cookie('accountype');
+		//print_r($accoutype);die;
+		if($accoutype=="normal"){
+			$this->front_left_normal();
+		}else{
+			$this->front_left();
+		}
 		$this->load->view('web/member/userpasswd.php',$data);
 		$this->front_footer();
 	}
@@ -285,6 +249,7 @@ class Member extends FrontMember_Controller {
 	public function modifypasswd()
 	{
 		$user_id = $this->session->userdata('userid');
+		print_r($user_id);die;
 		$this->user_data = $this->mpublic->getRow('member',"",array('id'=>$user_id));
 		if(!empty($_POST['captcha'])){//TODO 替换为正式手机验证码的判断
 			$uservif = $this->mpublic->getRow('member',"",array('account'=>$this->user_data['account'],'password'=>md5($_POST['passwd'])));
@@ -306,12 +271,18 @@ class Member extends FrontMember_Controller {
 	public function userinfo(){
 		$user_id = $this->session->userdata('userid');
 		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-		$data['member']['point'] = round($data['member']['point']);
+		//$data['member']['point'] = round($data['member']['point']);
 
 		//$data['city'] = $this->mpublic->getList('dictdata','',array('type'=>'城市'));
 
-		$this->front_header();
-		$this->front_left();
+		//print_r($data);die;
+		$this->front_header(get_cookie("username"));
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){
+			$this->front_left_normal();
+		}else{
+			$this->front_left();
+		}
 		$this->load->view('web/member/userinfo.php',$data);
 		$this->front_footer();
 	}
@@ -427,6 +398,8 @@ class Member extends FrontMember_Controller {
 	//退出
 	function outlogin(){
 		$this->session->sess_destroy();
+		delete_cookie("username");
+		delete_cookie("accountype");
 		echo "<script>window.location.href='/login/'</script>";
 	}
 

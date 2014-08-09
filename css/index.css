@@ -61,9 +61,13 @@ table {
 .clear {
   clear: both;
 }
+html {
+  overflow-x: hidden;
+}
 body {
   min-width: 1279px;
   background: #f3f3f3;
+  overflow-x: hidden;
 }
 /*广告*/
 .g-banner-wrap {

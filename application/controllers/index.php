@@ -8,6 +8,7 @@ class Index extends Front_Controller {
 	{
 		parent::__construct();
 		$this->load->model('web/marticle');
+		$this->load->model('web/mad');
 	} 
 	/**
 	 * 默认首页
@@ -16,9 +17,16 @@ class Index extends Front_Controller {
 	{
 		$data=$this->marticle->get_top_default();
 		$data2=$this->marticle->get_fang_by_default();
+		$ads=$this->mad->get_index_ad();
+		if(count($ads)!=0){
+			$fang['ads']=$ads;	
+		}else{
+			$fang['ads']='';
+		}
 		$fang['toplist']=$data;
 		$fang['list2']=$data2;
 		$this->load->view('web/index/index.php',$fang);
+		$this->front_footer_index();
 	}
 	
 	
