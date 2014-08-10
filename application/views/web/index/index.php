@@ -122,8 +122,8 @@
 					</span>
 				</div>
 				<div class="m-login">
-					<a href="">登录</a>
-					<a href="">立即注册</a>
+					<a href="/login/">登录</a>
+					<a href="/reg/">立即注册</a>
 					<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>qqicon.gif" alt=""></a>
 					<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>wxicon.gif" alt=""></a>
 				</div>
