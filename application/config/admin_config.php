@@ -45,7 +45,9 @@ $config['admin_menu']['cn']['left']['article'][]=array('title'=>'信息中心','
 $config['admin_menu']['cn']['left']['ad'][]=array('title'=>'广告中心','type'=>'default',
     'child'=>array(
         array('title'=>'创建广告','action'=>'admin/ad/ad_create','type'=>'default','icon'=>'icon_articlecreate.png'),
-        array('title'=>'广告列表','action'=>'admin/ad/adlist','type'=>'default','icon'=>'icon_articlelist.png')
+        array('title'=>'广告列表','action'=>'admin/ad/adlist','type'=>'default','icon'=>'icon_articlelist.png'),
+        array('title'=>'添加友情链接','action'=>'admin/ad/links_create','type'=>'default','icon'=>'icon_articlecreate.png'),
+        array('title'=>'友情链接列表','action'=>'admin/ad/linkslist','type'=>'default','icon'=>'icon_articlelist.png')
     ));
 
 

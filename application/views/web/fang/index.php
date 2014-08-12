@@ -105,9 +105,9 @@
 				<div class="g-m2-tab">
 					<ul class="btns">
 						<li class="on">内容介绍</li>
-						<li>规格参数</li>
+<!-- 						<li>规格参数</li>
 						<li>包装清单</li>
-						<li>商品评价<a href="">(673)</a></li>
+						<li>商品评价<a href="">(673)</a></li> -->
 					</ul>
 					<div class="cnt">
 						<p><span>面积：</span>153平方</p>

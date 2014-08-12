@@ -283,8 +283,8 @@
             	?> 	
 				<div class="g-m4">
 					<div class="coment">
-						<span class="top">TOP顶</span>
-						<a href="/comments/?fangid=<?php echo $value['id']?>"><span class="say">评</span></a>
+						<span class="top">赞</span>
+						<a href="/comments/?fangid=<?php echo $value['id']?>"><span class="say">分享</span></a>
 						<img src="<?php  echo WEB_IMAGES_PATH?>m4img.jpg" alt="" class="m4-img">
 					</div>
 					<div class="details">
