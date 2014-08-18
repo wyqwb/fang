@@ -4,67 +4,51 @@
 		<div class="bd-wrap g-wh5">
 		<!-- 模块1 -->
 		<div class="g-item g-wh7">
-			<div class="m-infobox">
-				<p>
-					<span>区域：</span>
-					<a href="">全世界</a>
-					<a href="">马来西亚</a>
-					<a href="">美国</a>
-					<a href="">泰国</a>
-					<a href="">加拿大</a>
-					<a href="">马尔代夫</a>
-					<a href="">日本</a>
-					<a href="">西班牙</a>
-				</p>
-				<p>
-					<span>总价：</span>
-					<a href="">不限</a>
-					<a href="">20万以下</a>
-					<a href="">20-30万</a>
-					<a href="">30-40万</a>
-					<a href="">40-50万</a>
-					<a href="">50-60万</a>
-					<a href="">60-80万</a>
-					<a href="">80-100万</a>
-					<a href="">100-120万</a>
-					<a href="">120万-150万</a>
-					<a href="">150万以上</a>
-					<select name="" id="">
-						<option value="">按总价</option>
-					</select>
-					<input type="text">-
-					<input type="text">万
-				</p>
-				<p>
-					<span>面积：</span>
-					<a href="">不限</a>
-					<a href="">50m <sup>2</sup>以下</a>
-					<a href="">50-70m <sup>2</sup></a>
-					<a href="">70-90m <sup>2</sup></a>
-					<a href="">90-110m <sup>2</sup></a>
-					<a href="">110-130m <sup>2</sup></a>
-					<a href="">130-150m <sup>2</sup></a>
-					<a href="">150m <sup>2</sup>以上</a>
-					<input type="text">-
-					<input type="text">m <sup>2</sup>
-				</p>
-				<p>
-					<span>更多：</span>
-					<select name="" id="">
-						<option value="">朝向不限</option>
-					</select>
-					<select name="" id="">
-						<option value="">装修不限</option>
-					</select>
-					<select name="" id="">
-						<option value="">房龄不限</option>
-					</select>
-					<select name="" id="">
-						<option value="">装修不限</option>
-					</select>
-					<input type="text"><input type="button" value='搜本类'>
-				</p>
-			</div>
+				<div class="m-infobox">
+					<p>
+						<span>区域：</span>
+						<a href="">全世界</a>
+						<a href="">马来西亚</a>
+						<a href="">美国</a>
+						<a href="">泰国</a>
+						<a href="">加拿大</a>
+						<a href="">马尔代夫</a>
+						<a href="">日本</a>
+						<a href="">西班牙</a>
+					</p>
+					<p>
+						<span>总价：</span>
+						<a href="">不限</a>
+						<a href="">20万以下</a>
+						<a href="">20-30万</a>
+						<a href="">30-40万</a>
+						<a href="">40-50万</a>
+						<a href="">50-60万</a>
+						<a href="">60-80万</a>
+						<a href="">80-100万</a>
+						<a href="">100-120万</a>
+						<a href="">120万-150万</a>
+						<a href="">150万以上</a>
+						<select name="" id="">
+							<option value="">按总价</option>
+						</select>
+						<input type="text" class="short-input">-
+						<input type="text" class="short-input">万
+					</p>
+					<p>
+						<span>面积：</span>
+						<a href="">不限</a>
+						<a href="">50m <sup>2</sup>以下</a>
+						<a href="">50-70m <sup>2</sup></a>
+						<a href="">70-90m <sup>2</sup></a>
+						<a href="">90-110m <sup>2</sup></a>
+						<a href="">110-130m <sup>2</sup></a>
+						<a href="">130-150m <sup>2</sup></a>
+						<a href="">150m <sup>2</sup>以上</a>
+						<input type="text" class="short-input">-
+						<input type="text" class="short-input">m <sup>2</sup>
+					</p>
+				</div>
 		</div>
 		<!-- 模块2 -->
 		<div class="g-item g-wh7">

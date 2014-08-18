@@ -18,10 +18,18 @@ class Mad extends CI_Model {
 
     public function get_index_ad()
     {
-        $sql = "SELECT * FROM `ad` limit 0 ,5";
+        $sql = "SELECT * FROM `ad` where type='ad' limit 0 ,5";
         $query = $this->db->query($sql);        
         return $query->result_array();
     }
+
+    public function get_links()
+    {
+        $sql = "SELECT * FROM `ad` where type='links' ";
+        $query = $this->db->query($sql);        
+        return $query->result_array();
+    }
+
 
     public  function  exc_sql($sql){
         $query = $this->db->query($sql);

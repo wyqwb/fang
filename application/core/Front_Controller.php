@@ -17,9 +17,12 @@ class Front_Controller extends CI_Controller
 		$this->load->view('web/public/header_index.php',$data);
 	}
 	
-	final protected function front_footer_index($where='')
+	final protected function front_footer_index()
 	{
-		$data['where'] = $where;
+		$this->load->model('web/mad');
+		$links=$this->mad->get_links();
+		$data['links']=$links;
+		//print_r($data);
 		$this->load->view('web/public/footer_index.php',$data);
 	}
 	

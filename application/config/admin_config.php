@@ -14,12 +14,8 @@ $config['admin_menu']=array();
 $config['admin_menu']['cn']['header'][]=array('title'=>'信息中心','action'=>'admin/article','icon'=>'nav2.png','type'=>'default');
 $config['admin_menu']['cn']['header'][]=array('title'=>'订单中心','action'=>'admin/orders','icon'=>'nav2.png','type'=>'default');
 $config['admin_menu']['cn']['header'][]=array('title'=>'广告中心','action'=>'admin/ad','icon'=>'nav2.png','type'=>'default');
-
-// $config['admin_menu']['cn']['header'][]=array('title'=>'教育中心','action'=>'admin/edu','icon'=>'nav2.png','type'=>'default');
 $config['admin_menu']['cn']['header'][]=array('title'=>'会员中心','action'=>'admin/member','icon'=>'nav1.png','type'=>'default');
 $config['admin_menu']['cn']['header'][]=array('title'=>'管理员中心','action'=>'admin/administrator','icon'=>'nav1.png','type'=>'default');
-// $config['admin_menu']['cn']['header'][]=array('title'=>'统计信息','action'=>'http://tongji.baidu.com/web/welcome/login','icon'=>'nav1.png','type'=>'_blank');
-
     
 $config['admin_menu']['cn']['left']['article'][]=array('title'=>'信息中心','type'=>'default',
     'child'=>array(
@@ -29,18 +25,6 @@ $config['admin_menu']['cn']['left']['article'][]=array('title'=>'信息中心','
         array('title'=>'创建信息','action'=>'admin/article/article_create','type'=>'default','icon'=>'icon_articlecreate.png'),
         array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
     ));
-// $config['admin_menu']['cn']['left']['article'][]=array('title'=>'评论','type'=>'default',
-//     'child'=>array(
-//         array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png'),
-//         array('title'=>'广告列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
-//     ));
-
-// $config['admin_menu']['cn']['left']['article'][]=array('title'=>'评论中心','type'=>'default',
-//     'child'=>array(
-//         array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
-
-//     ));
-
 
 $config['admin_menu']['cn']['left']['ad'][]=array('title'=>'广告中心','type'=>'default',
     'child'=>array(
@@ -56,22 +40,6 @@ $config['admin_menu']['cn']['left']['article'][]=array('title'=>'看房团','typ
         array('title'=>'看房团列表','action'=>'admin/article/article_lists','type'=>'default','icon'=>'icon_articlelist.png'),
         // array('title'=>'创建看房团','action'=>'admin/article/article_create','type'=>'default','icon'=>'icon_articlecreate.png'),
     ));
-
-$config['admin_menu']['cn']['left']['edu'][]=array('title'=>'题库中心','type'=>'default',
-    'child'=>array(
-        array('title'=>'创建试题','action'=>'admin/questionbank/createquestion','type'=>'default','icon'=>'icon_articlelist.png'),
-        array('title'=>'试题列表','action'=>'admin/questionbank/questionlist','type'=>'default','icon'=>'icon_articlelist.png')
-       // array('title'=>'创建试卷','action'=>'admin/questionbank/createpapers','type'=>'default','icon'=>'icon_articlelist.png'),
-       // array('title'=>'试卷列表','action'=>'admin/questionbank/paperlist','type'=>'default','icon'=>'icon_articlelist.png')
-    ));
-$config['admin_menu']['cn']['left']['edu'][]=array('title'=>'课程中心','type'=>'default',
-    'child'=>array(
-        array('title'=>'创建课程','action'=>'admin/edu/createcourse','type'=>'default','icon'=>'icon_articlelist.png'),
-        array('title'=>'课程分类','action'=>'admin/edu/courseclass','type'=>'default','icon'=>'icon_articlelist.png'),
-        array('title'=>'课程列表','action'=>'admin/edu/courselist','type'=>'default','icon'=>'icon_articlelist.png')
-    ));
-
-
 
 
 $config['admin_menu']['cn']['left']['orders'][]=array('title'=>'订单中心','type'=>'default',
@@ -103,10 +71,10 @@ $config['admin_menu']['cn']['left']['member'][]=array('title'=>'会员中心','t
 $config['tools']['cn']['images']= "<div id='jsUploadPhoto'><a  class='hoverabg'><i class='modletip'></i>上传图片</a></div>";
 //admin/article/article_create
 $config['tools']['cn']['article']= "<div ><a  class='hoverabg' href='./admin/article/article_create'><i class='modletip'></i>添加文章</a></div>";
-$config['tools']['cn']['point']= "<div ><a  class='hoverabg' href='./admin/member/pointcal'><i class='modletip'></i>计算积分</a></div>";
-$config['tools']['cn']['price']= "<div ><a  class='hoverabg' href='./admin/price/price_create'><i class='modletip'></i>新增净值</a></div>";
-$config['tools']['cn']['createquestion']= "<div ><a  class='hoverabg ' href='./admin/questionbank/createquestion'><i class='modletip'></i>创建试题</a></div>";
-$config['tools']['cn']['createcourse']= "<div ><a  class='hoverabg ' href='./admin/edu/createcourse'><i class='modletip'></i>创建课程</a></div>";
+// $config['tools']['cn']['point']= "<div ><a  class='hoverabg' href='./admin/member/pointcal'><i class='modletip'></i>计算积分</a></div>";
+// $config['tools']['cn']['price']= "<div ><a  class='hoverabg' href='./admin/price/price_create'><i class='modletip'></i>新增净值</a></div>";
+// $config['tools']['cn']['createquestion']= "<div ><a  class='hoverabg ' href='./admin/questionbank/createquestion'><i class='modletip'></i>创建试题</a></div>";
+// $config['tools']['cn']['createcourse']= "<div ><a  class='hoverabg ' href='./admin/edu/createcourse'><i class='modletip'></i>创建课程</a></div>";
 
 
 $config['accountype_normal']=1;

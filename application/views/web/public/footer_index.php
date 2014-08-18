@@ -47,12 +47,16 @@
                 <span class="btn-right3"></span>
             </div>
             <ul class="list6" id="ul-list">
-                <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
+            <?php foreach ($links as $key => $value) {
+            ?>
+            <li><a href="http://<?php echo $value['url']?>"><img src="<?php  echo CUSTOM_IMAGES_PATH.$value['previewimg']?>" width="170px" height="90px" target="_blank" alt=""></a></li>
+<!--                 <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
                 <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
                 <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg2.gif" alt=""></li>
                 <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
                 <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
-                <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
+                <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li> -->
+            <?php }?>
             </ul>
             <div class="clear"></div>
         </div>

@@ -427,5 +427,5 @@ $config['perpage'] = 10;
 
 /* the question config  */
 $config['normal'] ="普通会员";
-$config['business'] = "商家会员";
+$config['business'] = "企业会员";
 

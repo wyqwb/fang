@@ -149,13 +149,13 @@ class Admin_Mframes extends CI_Module
         }
     }
     //获取第二级分类的元素
-    /**
-    <ul class="clear twonav jstwonav">
-        <li>
-        <a href="" class="lfloat">最新动态</a>
-        </li>
-    </ul>
-     */
+    
+    //<ul class="clear twonav jstwonav"> 
+    //    <li>
+    //    <a href="" class="lfloat">最新动态</a>
+    //    </li>
+    //</ul>
+    
     public function _get_left_nav_child($data=array(),$where2=-1)
     {
         if(!empty($data))

@@ -28,6 +28,7 @@ class Member extends FrontMember_Controller {
 	 */
 	 public function index()
 	{
+		//print_r($_REQUEST);
 		//print_r($this->session->userdata('userid'));
 		//print_r($this->session->userdata('islogin'));die;
 		if($this->session->userdata('islogin')){
@@ -269,8 +270,11 @@ class Member extends FrontMember_Controller {
 	}
 
 	public function userinfo(){
+		//print_r(expression);
 		$user_id = $this->session->userdata('userid');
+		//print_r($user_id);die;
 		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+		//print_r($data);die;
 		//$data['member']['point'] = round($data['member']['point']);
 
 		//$data['city'] = $this->mpublic->getList('dictdata','',array('type'=>'城市'));
@@ -287,6 +291,66 @@ class Member extends FrontMember_Controller {
 		$this->front_footer();
 	}
 
+
+
+	public function fangtuan_create(){
+		$user_id = $this->session->userdata('userid');
+		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+		$this->front_header(get_cookie("username"));
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){
+			$this->front_left_normal();
+		}else{
+			$this->front_left();
+		}
+		$this->load->view('web/member/fangtuan_create.php',$data);
+		$this->front_footer();
+	}
+
+	public function fangtuanlist(){
+		$user_id = $this->session->userdata('userid');
+		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+		$this->front_header(get_cookie("username"));
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){
+			$this->front_left_normal();
+		}else{
+			$this->front_left();
+		}
+		$this->load->view('web/member/fangtuan_list.php',$data);
+		$this->front_footer();
+	}
+
+
+	public function fanglist(){
+		$user_id = $this->session->userdata('userid');
+		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+		$this->front_header(get_cookie("username"));
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){
+			$this->front_left_normal();
+		}else{
+			$this->front_left();
+		}
+		$this->load->view('web/member/fang_list.php',$data);
+		$this->front_footer();
+	}
+
+	public function fang_create(){
+		$user_id = $this->session->userdata('userid');
+		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+		$this->front_header(get_cookie("username"));
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){
+			$this->front_left_normal();
+		}else{
+			$this->front_left();
+		}
+		$this->load->view('web/member/fang_create.php',$data);
+		$this->front_footer();
+	}
+
+
 	public function moduserinfo(){
 		$user_id = $this->session->userdata('userid');
 		$result = $this->mpublic->update('member',array(
@@ -301,51 +365,7 @@ class Member extends FrontMember_Controller {
 		}
 	}
 	
-	public function productList()
-	{
-		//echo "1111";exit;
-		$this->front_header();
-		$this->front_left();
-		$user_id = $this->session->userdata('userid');
-		$id = intval($this->uri->segment(3));
-		$products = $this->mpublic->getRow('member',"NUMBER",array('id'=>$user_id));
-		$number = $products["NUMBER"];
-		$data["table"]["num"] = 1;
-		$start = 0;
-		if(0==$id)
-			$data["table"]["num"] = 3;
-		if(1==$id||0==$id)//已预约产品列表
-		{
-			$data["table"][$start]["type"] = 1;
-			$data["table"][$start]["name"] = "已预约产品";
-			$data["table"][$start]["index"] = array("NAME","Rate","PRODUCTDEADLINE","PROJECTDATE","StateTo","STATE");
-			$data["table"][$start]["title"] = array("NAME"=>"产品名称","Rate"=>"预期年化收益率",
-			"PRODUCTDEADLINE"=>"产品期限","PROJECTDATE"=>"发行日期","StateTo"=>"产品状态","STATE"=>"产品预约");
-			$data["table"][$start]["data"] = $this->mpublic->getProductList($data["table"][$start]["type"],$user_id);
-			$start++;
-		}
-		if(2==$id||0==$id)//已认购产品
-		{
-			$data["table"][$start]["type"] = 2;
-			$data["table"][$start]["name"] = "已认购产品";
-			$data["table"][$start]["index"] = array("NAME","Rate","FUNDINGDATE","DUEDATE","SUBSCRIBESHARE","SEARCH");
-			$data["table"][$start]["title"] = array("NAME"=>"产品名称","Rate"=>"年化收益率","SUBSCRIBESHARE"=>"认购数量","DUEDATE"=>"兑付日期","FUNDINGDATE"=>"成立日期","SEARCH"=>"净值查询");
-			$data["table"][$start]["data"] = $this->mpublic->getProductList($data["table"][$start]["type"],$user_id);
-			$start++;
-		}
-		if(3==$id||0==$id)//已兑付产品
-		{
-			$data["table"][$start]["type"] = 3;
-			$data["table"][$start]["name"] = "已兑付产品";
-			$data["table"][$start]["index"] = array("NAME","Rate","FUNDINGDATE","DUEDATE","SUBSCRIBESHARE","SEARCH");
-			$data["table"][$start]["title"] = array("NAME"=>"产品名称","Rate"=>"年化收益率","SUBSCRIBESHARE"=>"认购数量","DUEDATE"=>"兑付日期","FUNDINGDATE"=>"成立日期","SEARCH"=>"净值查询");
-			$data["table"][$start]["data"] = $this->mpublic->getProductList($data["table"][$start]["type"],$user_id);
-			$start++;
-		}
-		
-		$this->load->view('web/member/productList.php',$data);
-		$this->front_footer();
-	}
+
 	public function productAppointment()
 	{
 		$this->front_header();
@@ -369,31 +389,7 @@ class Member extends FrontMember_Controller {
 		$this->load->view('web/member/productAppointment.php',$data);
 		$this->front_footer();
 	}
-	public function appointment()
-	{
-		$product_id = $this->uri->segment(3);
-		$user_id = $this->session->userdata('userid');
-		$money = $_REQUEST["money"];
-		$city = $_REQUEST["city"];
-		$remark = $_REQUEST["remark"];
-//		$check = $this->mpublic->exc_default_sql("select * from reservation where memberid=".$user_id." and NUMBER='".$product_id."'");
-//		if($check>0)
-//		{
-//			echo "<script type='text/javascript'>alert('您已经预约过该产品！不能重复预约')</script>"; 
-//		}
-		//$sql = 'insert into reservation(memberid,rsv_date,NUMBER,city,amount,state,createtime) ' .
-		//		'values('.$user_id.',"'.date("Y-m-d").'","'.$product_id.'","'.$city.'",'.$money.',"等待处理","'.date("Y-m-d H:i:s").'")';
-		$sql = array("memberid"=>$user_id,
-					 "rsv_date"=>date("Y-m-d"),
-					 "NUMBER"=>$product_id,
-					 "city"=>$city,
-					 "amount"=>$money,
-					 "state"=>"等待处理",
-					 "createtime"=>date("Y-m-d H:i:s"));
-		$this->mpublic->insert_default_sql("reservation",$sql);
-		echo "<script type='text/javascript'>alert('成功添加预约状态')</script>";
-		$this->productAppointment();
-	}
+
 	
 	//退出
 	function outlogin(){

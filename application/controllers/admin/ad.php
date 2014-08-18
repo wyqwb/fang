@@ -48,7 +48,8 @@ class Ad extends AD_Controller
                 }
             }
             $data['title'] = $this->input->post('title');
-            $data['des'] = $this->input->post('des');
+            $data['url'] = $this->input->post('url');
+            $data['type']= $this->input->post('type');
             $data['oid'] = $this->input->post('pid');
             $res = $this->db->insert('ad', $data);
             if($res)
@@ -95,15 +96,15 @@ class Ad extends AD_Controller
                 }
             }
             $data['title'] = $this->input->post('title');
-            $data['des'] = $this->input->post('des');
-            $data['oid'] = $this->input->post('pid');
+            $data['type']= $this->input->post('type');
+            $data['url'] = $this->input->post('url');
             $res = $this->db->insert('ad', $data);
             if($res)
             {
                 $this->load->module('/admin/frames/header');
                 $this->load->module('/admin/frames/left');
                 $this->load->module('/admin/frames/tools');
-                $this->load->module('/admin/frames/returnTip',array('tip'=>'修改成功！','onurl'=>base_url()."admin/ad/ad_create",'reurl'=>base_url()."admin/ad/adlist"));
+                $this->load->module('/admin/frames/returnTip',array('tip'=>'修改成功！','onurl'=>base_url()."admin/ad/ad_create",'reurl'=>base_url()."admin/ad/linkslist"));
 
             }
         }
@@ -113,7 +114,7 @@ class Ad extends AD_Controller
             $this->load->module('/admin/frames/header');
             $this->load->module('/admin/frames/left');
             $this->load->module('/admin/frames/tools');
-            $this->load->view('admin/ad/ad_create',$data);
+            $this->load->view('admin/ad/linkscreate',$data);
         }
     }
 
@@ -124,6 +125,14 @@ class Ad extends AD_Controller
         $id = intval($this->uri->segment(4));
         $res = $this->db->delete('ad', array('id' => $id));
         echo "<script>location.href='".base_url()."admin/ad/adlist';</script>";
+    }
+
+    public function delete_links()
+    {
+
+        $id = intval($this->uri->segment(4));
+        $res = $this->db->delete('ad', array('id' => $id));
+        echo "<script>location.href='".base_url()."admin/ad/linkslist';</script>";
     }
 
     public function modify_ad()
@@ -148,8 +157,9 @@ class Ad extends AD_Controller
 
             }
             $data['title'] = $this->input->post('title');
-            $data['des'] = $this->input->post('des');
+            $data['url'] = $this->input->post('url');
             $data['oid'] = $this->input->post('pid');
+            $this->db->where('id', $id);
             $res = $this->db->update('ad', $data);
             if($res)
             {
@@ -174,10 +184,62 @@ class Ad extends AD_Controller
 
     }
 
+
+    public function modify_links()
+    {
+        if($this->input->post('sub'))
+        {
+            $id = $this->input->post('id');
+            $config['upload_path'] = FCPATH.'uploads/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size'] = '20000';
+            $config['overwrite'] = FALSE;
+            $config['encrypt_name'] = TRUE;
+            $this->load->library('upload',$config);
+            //第1张图
+            if(!empty($_FILES['addphoto']['name'])){
+                if($this->upload->do_upload('addphoto'))
+                {
+                    $str = $this->upload->data();
+                    $previewimg = $str['file_name'];
+                    $data['previewimg'] = $previewimg;
+                }
+
+            }
+            $data['title'] = $this->input->post('title');
+            $data['url'] = $this->input->post('url');
+            $data['type'] = $this->input->post('type');
+            $this->db->where('id', $id);
+            $res = $this->db->update('ad', $data);
+            if($res)
+            {
+                $this->load->module('/admin/frames/header');
+                $this->load->module('/admin/frames/left');
+                $this->load->module('/admin/frames/tools');
+                $this->load->module('/admin/frames/returnTip',array('tip'=>'修改成功！','onurl'=>base_url()."admin/ad/ad_create",'reurl'=>base_url()."admin/ad/linkslist"));
+
+            }
+
+        }
+        else
+        {
+            $id = $this->uri->segment(4);
+            $data['result'] = $this->mad->get_ad_byid($id);
+            $data['sort'] = $this->marticle->get_sort_tree($data['result']['oid']);
+            $this->load->module('/admin/frames/header');
+            $this->load->module('/admin/frames/left');
+            $this->load->module('/admin/frames/tools');
+            $this->load->view('admin/ad/linkmodify',$data);
+        }
+
+    }
+
+
+
     public function adlist()
     {
-        $tabledata['head'] = '编号_5%,标题_25%,分类_25%,预览图_25%,操作_25%';
-        $tabledata['rules']['order']=array('id','title','oname','previewimg');
+        $tabledata['head'] = '编号_5%,标题_25%,连接地址_25%,预览图_25%,操作_25%';
+        $tabledata['rules']['order']=array('id','title','url','previewimg');
         $tabledata['rules']['operate']=array(
             'modify'=>array('url'=>'admin/ad/modify_ad','id'=>'id','title'=>'修改广告'),
             //'modify'=>array('url'=>'admin/diff/createrule/modify','id'=>'id','title'=>'修改规则标题'),
@@ -196,22 +258,24 @@ class Ad extends AD_Controller
 
         public function linkslist()
     {
-        $tabledata['head'] = '编号_5%,标题_25%,分类_25%,预览图_25%,操作_25%';
-        $tabledata['rules']['order']=array('id','title','oname','previewimg');
+        $tabledata['head'] = '编号_5%,标题_15%,外链地址_35%,预览图_25%,操作_25%';
+        $tabledata['rules']['order']=array('id','title','url','previewimg');
         $tabledata['rules']['operate']=array(
-            'modify'=>array('url'=>'admin/ad/modify_ad','id'=>'id','title'=>'修改广告'),
-            //'modify'=>array('url'=>'admin/diff/createrule/modify','id'=>'id','title'=>'修改规则标题'),
-            'delete'=>array('action'=>'admin/ad/delete_ad','id'=>'id','title'=>'删除广告'),
+            'modify'=>array('url'=>'admin/ad/modify_links','id'=>'id','title'=>'修改友情连接'),
+            'delete'=>array('action'=>'admin/ad/delete_links','id'=>'id','title'=>'删除友情连接')
         );
-        $result = $this->mad->get_ads_bypage();
+        $result = $this->mad->get_links_bypage();
+        //print_r($result);die;
         $tabledata['data'] = $result['result'];
         $tabledata['foot']= $result['page'];
         $this->formdebris->initialize($tabledata);
         $data['table'] = $this->formdebris->packing_table($tabledata);
+        //print_r($data['table']);die;
         $this->load->module('/admin/frames/header');
         $this->load->module('/admin/frames/left');
         $this->load->module('/admin/frames/tools');
-        $this->load->view('admin/ad/adlist',$data);
+        //print_r($data);die;
+        $this->load->view('admin/ad/linkslist',$data);
     }
 
 

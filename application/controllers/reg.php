@@ -75,14 +75,13 @@ class Reg extends Front_Controller {
 				'isenable'=>1
 		);
 		$result = $this->mpublic->db->insert('member',$dataInfo);
+		$id=$this->mpublic->exc_sql('select Id from member where account="'.$params['username'].'"');
 		if($result){
-			   set_cookie("username",$params['username'],72000);  
-			   set_cookie("accountype",$params['accountype'],72000); 
-			$login_session = array('islogin'=>1,
-		 			'userid'=>$result['Id']
-		 	);
-			$this->session->set_userdata($login_session);
-    		exit("1");	/*注册成功*/		
+			    set_cookie("username",$params['username'],72000);  
+			    set_cookie("accountype",$params['accountype'],72000); 
+			    $login_session = array('islogin'=>1,'userid'=>$id[0]['Id']);
+				$this->session->set_userdata($login_session);
+    			exit("1");	/*注册成功*/		
 		}else{
 			  exit("-3");  /*注册失败*/
 		}
@@ -123,9 +122,8 @@ class Reg extends Front_Controller {
 	function docomplete(){
 		$seg = $this->uri->segment(3);
 		$data["username"]=get_cookie("username");
-		$data["accoutype"]=$this->config->item($seg);
-		$this->front_header('index');
-		$this->load->view('web/reg/doComplete.php',$data);	
+		$data["accoutype"]=$seg;
+		$this->load->view('web/reg/complete.php',$data);	
 	}
 
 

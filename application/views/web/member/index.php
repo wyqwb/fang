@@ -3,17 +3,13 @@
             <!-- 用户概览 -->
             <div class="userSum">
                 <div class="bd clearfix">
-                    <dl class="fl clearfix info">
+<!--                     <dl class="fl clearfix info">
                         <dt class="fl"><a href="javascript:void(0);"><img src="/images/reguser.png" width="80" height="80" alt="" /></a></dt>
                         <dd class="fl">
 			                 <p><b>会员<?php echo $account; ?></b></p>
 			                 <p><span><?php echo date("H") < 12 ? "上午好!" : "下午好!";?></span></p>
                         </dd>
-                    </dl>
-<!--                     <div class="fl about">
-                        <p>会员等级：<a class="c_ad0909" href="">11</a>&nbsp;<a href=""><img src="<?php echo base_url(); ?>images/vipclass.jpg" alt="" /></a></p>
-                        <p>积分：<strong class="c_ad0909">11</strong>分&nbsp;<a href=""><img src="<?php echo base_url(); ?>images/money.jpg" alt="" /></a></p>
-                    </div> -->
+                    </dl> -->
                 </div>
             </div>
             <!-- 广告 -->

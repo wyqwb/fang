@@ -284,7 +284,7 @@
 				<div class="g-m4">
 					<div class="coment">
 						<span class="top">赞</span>
-						<a href="/comments/?fangid=<?php echo $value['id']?>"><span class="say">分享</span></a>
+						<a href="/comments/?fangid=<?php echo $value['id']?>"><span class="say"><img src="<?php echo WEB_IMAGES_PATH?>share.png?>" ></span></a>
 						<img src="<?php  echo WEB_IMAGES_PATH?>m4img.jpg" alt="" class="m4-img">
 					</div>
 					<div class="details">
@@ -396,3 +396,5 @@
 				<div class="clear"></div>
 			</div>
 			
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"2","bdPos":"right","bdTop":"100.5"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>

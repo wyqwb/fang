@@ -12,20 +12,23 @@
                     </dl>
                     <div class="fl about">
                         <!-- <p>会员等级：<a class="c_ad0909" href=""><?php echo $member['rank']; ?></a>&nbsp;<a href=""><img src="<?php echo base_url(); ?>/images/vipclass.jpg" alt="" /></a></p> -->
-                        <p>积分：<strong class="c_ad0909"><?php echo $member['point']; ?></strong>分&nbsp;<a href=""><img src="<?php echo base_url(); ?>/images/money.jpg" alt="" /></a></p>
+                        <!-- <p>积分：<strong class="c_ad0909"><?php echo $member['point']; ?></strong>分&nbsp;<a href=""><img src="<?php echo base_url(); ?>/images/money.jpg" alt="" /></a></p> -->
                     </div>
                 </div>
             </div>
+
+
             <!-- 个人信息修改 -->
             <div class="userInfo">
 		<form action="<?php echo base_url(); ?>/member/moduserinfo" method="post" class="moduserinfo">
                 <div class="bd">
-<div class="msginfo" style="color:red"></div>
+                    <div class="msginfo" style="color:red"></div>
                     <table>
                         <tbody>
                             <tr>
                                 <td class="tit">真实姓名：</td>
-				<td class="input"><input class="text" type="text" disabled="disabled" value="<?php echo $member['account']; ?>" /></td>
+				                <td class="input">
+                                <input class="text" type="text" disabled="disabled" value="<?php echo $member['account']; ?>" /></td>
                                 <td><b class="icon-"></b>默认姓名，不可修改</td>
                             </tr>
                             <tr>
@@ -33,31 +36,27 @@
                                 <td class="input"><input class="text" type="text" disabled="true" value="<?php echo $member['mobile']; ?>" /></td>
                                 <td><b class="icon-"></b>默认电话，不可修改</td>
                             </tr>
-<!--                             <tr>
+                            <tr>
                                 <td class="tit">身份证号：</td>
                                 <td class="input"><input class="text"  disabled="true" datatype="*5-25" nullmsg="请输入身份证号码！" errormsg="身份证号码无效！"   name="idcard" type="text" value="<?php echo $member['idcard']; ?>" /></td>
                                 <td><b class="icon-"></b>默认身份证号,不可修改</td>
-                            </tr> -->
-<!--                             <tr>
+                            </tr> 
+                            <tr>
                                 <td class="tit">城市选择：</td>
-				<td class="input"><select name="city" data-value="<?php echo $member['city']; ?>"  datatype="*" nullmsg="请选择城市！" errormsg="请选择城市！"   disabled="disabled" style="width:210px;">
-					<option>--选择--</option>
-					<?php foreach($city as $arr): ?>
-					<option value="<?php echo $arr['name']; ?>"> <?php  echo $arr['name'];?></option>
-					<?php endforeach; ?>
-					</select></td>
+				                <td class="input">
+                                <select name="city" data-value="<?php echo $member['city']; ?>"  datatype="*" nullmsg="请选择城市！" errormsg="请选择城市！"   disabled="disabled" style="width:210px;">
+					            <option>--选择--</option>
+					            <?php foreach($city as $arr): ?>
+					            <option value="<?php echo $arr['name']; ?>"> <?php  echo $arr['name'];?></option>
+					            <?php endforeach; ?>
+					            </select></td>
                                 <td><b class="icon-"></b><div class="Validform_checktip"></div></td>
-                            </tr> -->
+                            </tr>
                             <tr>
                                 <td class="tit">邮　　箱：</td>
                                 <td class="input"><input class="text" name="mail" type="text" disabled="disabled" datatype="e" nullmsg="请输入邮箱" errormsg="邮箱无效" value="<?php echo $member['email']; ?>" /></td>
                                 <td><div class="Validform_checktip"></div></td>
                             </tr>
-                            <!--<tr>
-                                <td class="tit">&nbsp;</td>
-                                <td class="input"><input class="ui-btn-submit" type="submit" value="保存" /></td>
-                                <td></td>
-                            </tr>-->
                         </tbody>
                     </table>
                 </div>

@@ -26,10 +26,13 @@ class Admin_Frames_module extends AD_Module
         $this->load->database();
         if (!isset($this->session)) $this->load->library('session');
         $this->menu = $this->config->item('admin_menu');
+        //print_r($this->menu);die;
         $this->menu = $this->menu[$this->lang];
+        //print_r($this->menu);die;
         //self::_setpower();
         $this->header_arr = $this->menu['header'];
         $tools = $this->config->item('tools');
+        //print_r($tools);die;
         $this->tools = $tools[$this->lang];
         $this->load->model('mframes');
         $this->load->library('uri');
@@ -252,7 +255,7 @@ class Admin_Frames_module extends AD_Module
             }
         }
         $data['left'] = $this->mframes->get_left_nav($this->menu['left'][$type],$where1,$where2);
-
+        //print_r($data);die;
         $this->load->view('left',$data);
     }
 

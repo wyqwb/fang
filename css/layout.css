@@ -5,8 +5,54 @@ html {
   margin: 0 auto;
   background: #fff;
 }
+.m-login {
+  color: #fff;
+  text-align: right;
+  padding-right: 20px;
+}
+.m-login .customer {
+  background: url(../images/cursor2.gif) no-repeat right center;
+  padding-right: 13px;
+  cursor: pointer;
+}
 .m-infobox {
   position: relative;
+  margin-bottom: 10px;
+  padding-left: 16px;
+}
+.m-infobox p {
+  padding: 5px 0;
+  color: #808080;
+}
+.m-infobox p span {
+  color: red;
+  font-weight: bold;
+}
+.m-infobox p a {
+  color: #2255dd;
+  margin-right: 10px;
+}
+.m-infobox .short-input {
+  border: 1px solid #ccc;
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+}
+.m-infobox .long-input {
+  border: 1px solid #ccc;
+  width: 150px;
+  height: 20px;
+  line-height: 20px;
+}
+.m-infobox .bluebtn {
+  border: 1px solid #0e75a4;
+  padding: 5px 15px;
+  background: #28a6e1;
+  color: #fff;
+  cursor: pointer;
+}
+.m-infobox .bluebtn:hover {
+  background: #50bbec;
 }
 .g-wh7 {
   width: 1029px;
@@ -183,11 +229,19 @@ html {
   margin: 30px auto;
 }
 .user-info {
+  position: relative;
   width: 121px;
   float: left;
   padding-top: 18px;
   text-align: center;
   color: #9c9a9c;
+}
+.user-info .lpic {
+  position: absolute;
+  right: -1px;
+  top: 10px;
+  background: url(../images/jian.png) no-repeat;
+  z-index: 6;
 }
 .u-cnt {
   margin-bottom: 15px;
