@@ -303,22 +303,57 @@ class Member extends FrontMember_Controller {
 		}else{
 			$this->front_left();
 		}
+
+
+
 		$this->load->view('web/member/fangtuan_create.php',$data);
 		$this->front_footer();
 	}
 
 	public function fangtuanlist(){
-		$user_id = $this->session->userdata('userid');
-		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-		$this->front_header(get_cookie("username"));
-		$accoutype=get_cookie('accountype');
-		if($accoutype=="normal"){
-			$this->front_left_normal();
-		}else{
-			$this->front_left();
+		 if ($this->input->post('sub')) {
+			$params=$_REQUEST;
+			$user_id = $this->session->userdata('userid');
+			$dataInfo = array(
+					'mid'=>$user_id,
+					'title'=>$params['title'],
+					'attention'=>$params['attention'],
+					'Travelinfo'=>$params['Travelinfo'],
+					'godate'=>$params['godate'],
+					'gotime'=>$params['gotime'],										
+					'normalCost'=>md5($params['normalCost']),
+					'vipCost'=>md5($params['vipCost']),
+					'displayCost'=>md5($params['displayCost']),
+					'createtime'=>date('Y-m-d G:i:s')
+			);
+			$result = $this->mpublic->db->insert('fangtuan',$dataInfo);
+			//print_r($result);
+
+			$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+			$this->front_header(get_cookie("username"));
+			$accoutype=get_cookie('accountype');
+			if($accoutype=="normal"){
+				$this->front_left_normal();
+			}else{
+				$this->front_left();
+			}
+			$this->load->view('web/member/fangtuan_list.php',$data);
+			$this->front_footer();
+
+		 	
+		 }else{
+			$user_id = $this->session->userdata('userid');
+			$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+			$this->front_header(get_cookie("username"));
+			$accoutype=get_cookie('accountype');
+			if($accoutype=="normal"){
+				$this->front_left_normal();
+			}else{
+				$this->front_left();
+			}
+			$this->load->view('web/member/fangtuan_list.php',$data);
+			$this->front_footer();
 		}
-		$this->load->view('web/member/fangtuan_list.php',$data);
-		$this->front_footer();
 	}
 
 

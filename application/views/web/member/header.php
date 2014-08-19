@@ -6,10 +6,14 @@
     <link type="text/css" href="/css/common.css" rel="stylesheet" />
     <link type="text/css" href="/css/vipstyle.css" rel="stylesheet" />
     <link type="text/css" href="/css/style.css" rel="stylesheet" />
-   
+  
+
+
 <script charset="utf-8" type="text/javascript" src="/javascript/jquery-1.8.3.min.js" ></script>
-<script charset="utf-8" type="text/javascript" src="/javascript/Validform_v5.3.2_min.js" ></script>
+<script charset="utf-8" type="text/javascript" src="/javascript/Validform_v5.3.2.js" ></script>
 <script charset="utf-8" type="text/javascript" src="/javascript/jquery.form.min.js" ></script>
+
+
     <title>会员中心</title>
     
 	<style type="text/css">
