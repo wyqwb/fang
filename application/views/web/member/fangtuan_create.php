@@ -1,9 +1,6 @@
 
-    <link type="text/css" href="/css/jquery.ui.css" rel="stylesheet" />
-    <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet" />
-    <script charset="utf-8" type="text/javascript" src="/javascript/bootstrap.js" ></script>
-    <script charset="utf-8" type="text/javascript" src="/javascript/jquery-ui-1.10.4.custom.min.js" ></script>
-
+    <link type="text/css" href="/css/jquery-ui.css" rel="stylesheet" />
+    <script charset="utf-8" type="text/javascript" src="/javascript/jquery-ui.js" ></script>
         <div class="content fr">
             <!-- 横栏概览 -->
             <div ><h2> 创建看房团信息</h2></div>
@@ -35,17 +32,14 @@
                             <tr>
                                 <td class="tit">出行日期：</td>
                                 <td class="input">
-                                <input class="text"  id="godate" name="godate" type="text" value="" datatype="*" nullmsg="请选择出行日期！" /> 
+                                <input class='text js_notnull datePicker' data-container="body" data-trigger="focus" data-placement="right" data-content="时间不可为空" data-original-title="" datatype="*" type="text" class='datePicker' name="godate" id="godate" value="<?php if (isset($artcon['godate'])) {echo $artcon['godate'];}?>" />
                                 </td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">请选择出行日期</div></td>
                             </tr>
                             <tr>
                                 <td class="tit">行程时间：</td>
                                 <td class="input">
-                                <!-- <input class="text"  name="gotime"  type="text" value="" datatype="*" nullmsg="请输入行程时间：！"/> -->
-<input class='text js_notnull datePicker' data-container="body" data-trigger="focus" data-placement="right" data-content="文章发布时间不可为空" data-original-title=""  type="text" class='datePicker' name="gotime" value="<?php if (isset($artcon['gotime'])) {echo $artcon['gotime'];}?>" />
-
-
+                                <input class='text js_notnull datePicker' data-container="body" data-trigger="focus" data-placement="right" data-content="时间不可为空" data-original-title="" datatype="*" type="text" class='datePicker' name="gotime" id="gotime" value="<?php if (isset($artcon['gotime'])) {echo $artcon['gotime'];}?>" />
                                 </td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">选择您的行程时间</div></td>
                             </tr> 
@@ -109,9 +103,7 @@ $('select').each(function(){
 	}
 })
 
-</script>
-<script type="text/javascript">
-    $((function($){
+$((function($){
         $.datepicker.regional['zh-CN'] = {
             clearText: '清除',
             clearStatus: '清除已选日期',
@@ -146,7 +138,7 @@ $('select').each(function(){
     })(jQuery));
 
     $(document).ready(function(){
-        $('.gotime').datepicker();
-
+        $('#godate').datepicker();
+        $('#gotime').datepicker();
     });
  </script>

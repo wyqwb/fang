@@ -124,3 +124,21 @@ ERROR - 2014-08-19 17:29:23 --> 404 Page Not Found --> favicon.ico
 ERROR - 2014-08-19 17:29:27 --> Severity: Notice  --> Undefined index: HTTP_ACCEPT_LANGUAGE D:\AMP\ROOT\FANG\application\config\config.php 82
 ERROR - 2014-08-19 17:29:27 --> 404 Page Not Found --> favicon.ico
 ERROR - 2014-08-19 17:29:54 --> 404 Page Not Found --> images
+ERROR - 2014-08-19 23:21:01 --> 404 Page Not Found --> favicon.ico
+ERROR - 2014-08-19 23:21:46 --> Severity: Notice  --> Undefined variable: product D:\AMP\WEB\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-08-19 23:21:46 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\WEB\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-08-19 23:21:46 --> Severity: Notice  --> Undefined variable: page D:\AMP\WEB\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-08-19 23:21:46 --> 404 Page Not Found --> images
+ERROR - 2014-08-19 23:21:55 --> Severity: Notice  --> Undefined variable: product D:\AMP\WEB\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-08-19 23:21:55 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\WEB\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-08-19 23:21:55 --> Severity: Notice  --> Undefined variable: page D:\AMP\WEB\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-08-19 23:39:05 --> 404 Page Not Found --> images
+ERROR - 2014-08-19 23:39:12 --> Severity: Notice  --> Undefined index: godate D:\AMP\WEB\ROOT\FANG\application\controllers\member.php 322
+ERROR - 2014-08-19 23:39:12 --> Severity: Notice  --> Undefined index: gotime D:\AMP\WEB\ROOT\FANG\application\controllers\member.php 323
+ERROR - 2014-08-19 23:39:12 --> 404 Page Not Found --> images
+ERROR - 2014-08-19 23:40:32 --> Severity: Notice  --> Undefined index: godate D:\AMP\WEB\ROOT\FANG\application\controllers\member.php 322
+ERROR - 2014-08-19 23:40:32 --> Severity: Notice  --> Undefined index: gotime D:\AMP\WEB\ROOT\FANG\application\controllers\member.php 323
+ERROR - 2014-08-19 23:41:17 --> 404 Page Not Found --> images
+ERROR - 2014-08-19 23:41:35 --> 404 Page Not Found --> images
+ERROR - 2014-08-19 23:46:35 --> 404 Page Not Found --> images
+ERROR - 2014-08-19 23:48:01 --> 404 Page Not Found --> images

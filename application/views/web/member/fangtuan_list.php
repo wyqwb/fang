@@ -5,36 +5,21 @@
 
             <!-- 看房团列表 -->
             <div class="userSum">
+
+            <?php if (isset($fang_tuan_list)&&count($fang_tuan_list)>0) {
+                foreach ($fang_tuan_list as $key => $value) {                
+            ?>
                 <div class="bd clearfix">
                     <dl class="fl clearfix info">
                         <dt class="fl">
                         <!-- <a href=""><img src="<?php echo base_url(); ?>images/ewm.png" width="80" height="80" alt="" /></a> -->
                         </dt>
-                        <dd class="fl">看房团1</dd>
+                        <dd class="fl"><a href="/fang/tuandetail/<?php echo $value['id']?>" target="_blank"><?php echo $value['title']?></a></dd>
                     </dl>
                     <div class="fl about" style="float:right"><a>修改</a> <a>删除</a></div>
                 </div>
 
-                <div class="bd clearfix">
-                    <dl class="fl clearfix info">
-                        <dt class="fl">
-                        <!-- <a href=""><img src="<?php echo base_url(); ?>images/ewm.png" width="80" height="80" alt="" /></a> -->
-                        </dt>
-                        <dd class="fl">看房团2</dd>
-                    </dl>
-                    <div class="fl about" style="float:right"><a>修改</a> <a>删除</a></div>
-                </div>
-
-                <div class="bd clearfix">
-                    <dl class="fl clearfix info">
-                        <dt class="fl">
-                        <!-- <a href=""><img src="<?php echo base_url(); ?>images/ewm.png" width="80" height="80" alt="" /></a> -->
-                        </dt>
-                        <dd class="fl">看房团3</dd>
-                    </dl>
-                    <div class="fl about" style="float:right"><a>修改</a> <a>删除</a></div>
-                </div>
-
+            <?php } } ?>
 
             </div>
         </div>

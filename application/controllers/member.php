@@ -110,97 +110,7 @@ class Member extends FrontMember_Controller {
 		$this->front_footer();
 	}
 	
-	//意见反馈 start
-	public  function feedback(){
-		$this->front_header();
-		$this->front_left();
-		$where = array('type'=>'工单');
-		
-		
-		$this->load->helper('captcha');
-		$captchaDir = dirname(dirname(dirname(__FILE__))).'/captcha';
-		self::clear_dir($captchaDir);
-		$vals = array(
-		    'word' => rand(1000,10000),
-		    'img_path' => './captcha/',
-		    'img_url' => base_url().'/captcha/',
-		    'font_path' => './path/to/fonts/texb.ttf',
-		    'img_width' => '100',
-		    'img_height' => 36,
-		    'expiration' => 7200
-		    );
-		$data["captcha"] = create_captcha($vals);
-		$this->session->set_userdata("captcha",$data['captcha']['word']);
-		
-		$data['gongdan'] = $this->mpublic->getList('dictdata','',$where);
-		$sql = "SELECT * FROM question WHERE memberid={$this->user_data}";
-		$type = $this->uri->segment(3);
-			if($type){
-				$filter = array('state'=>'');
-				switch ($type){
-					case "wait":
-						$filter['state'] = "等待处理";
-						break;
-					case "being":
-						$filter['state'] = "test";
-						break;
-					case "finish":
-						$filter['state'] = "答复";
-						break;
-					case "close":
-						$filter['state'] = "test";
-						break;
-				}
-				$sql .=" and state = '{$filter['state']}'";
-			}
-		$data['qa'] = $this->mpublic->exc_sql($sql);
-			$this->load->view('web/member/feedback.php',$data);
-		$this->front_footer();
-		
-	}
 	
-	
-	public  function feedbackdetail(){
-		$this->front_header();
-		$this->front_left();
-		$data['prent'] = $this->mpublic->getRow('question','',array('Id' =>$this->uri->segment(3) ));
-		$sql ="SELECT * FROM questiondetail WHERE questionid='{$this->uri->segment(3)}' ORDER BY iorder,postdate";
-		$detail = $this->mpublic->exc_sql($sql);
-		$dataInfo = array();
-		foreach($detail as $key=>$arr){
-			$dataInfo[$arr['iorder']][] = $arr;
-		}
-		$data['detail'] = $dataInfo;
-		$this->load->view('web/member/feedbackdetail.php',$data);
-		$this->front_footer();
-		
-	}
-	
-	public function feedbackact(){
-			$params = $_POST;
-			$captcha = $this->session->userdata('captcha')?$this->session->userdata('captcha'):null;
-			if($captcha != $params['captcha']){
-				echo "验证码错误";
-				exit;
-			}
-			$dataInfo = array(
-				"type"=>$params['type'],
-				"title"=>$params['title'],
-				"content"=>$params['content'],
-				"postdate"=>date("Y-m-d G:i:s"),
-				"createtime"=>date("Y-m-d G:i:s"),
-				"state"=>"等待处理",
-				"memberid"=>$this->user_data
-			);
-			$result = $this->mpublic->db->insert('question',$dataInfo);
-			if($result){
-				echo "提交成功";
-			}else{
-				echo "提交失败,请稍候重试!";
-			}
-	}
-	
-	//意见反馈 end
 	/**
 	 * userpasswd用户密码修改 
 	 * 
@@ -209,33 +119,11 @@ class Member extends FrontMember_Controller {
 	 */
 	public function userpasswd()
 	{
-		//print_r($this->session->userdata('userid'));
-		//print_r($this->session->userdata('islogin'));die;
 		$user_id = $this->session->userdata('userid');
-		//print_r($user_id);die;
 		$this->user_data = $this->mpublic->getRow('member',"",array('id'=>$user_id));
-		//$this->user_data['point'] = round($this->user_data['point']);
-		/*$this->load->helper('captcha');
-		$captcha = $this->session->userdata('captcha_p')?$this->session->userdata('captcha_p'):null;
-		$vals = array(
-		    //'word' => 'Random word',
-		    'img_path' => './captcha/',
-		    'img_url' => base_url().'/captcha/',
-		    'font_path' => './path/to/fonts/texb.ttf',
-		    'img_width' => '100',
-		    'img_height' => 36,
-		    'expiration' => 7200
-		    );
-		$data = create_captcha($vals);
-		$image = create_captcha($vals);
-		$this->session->set_userdata("captcha_p",$data['word']);*/
-
-
 		$data = array('user_data'=>$this->user_data);
-		//print_r($data);die;
 		$this->front_header(get_cookie("username"));
 		$accoutype=get_cookie('accountype');
-		//print_r($accoutype);die;
 		if($accoutype=="normal"){
 			$this->front_left_normal();
 		}else{
@@ -270,16 +158,8 @@ class Member extends FrontMember_Controller {
 	}
 
 	public function userinfo(){
-		//print_r(expression);
 		$user_id = $this->session->userdata('userid');
-		//print_r($user_id);die;
 		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-		//print_r($data);die;
-		//$data['member']['point'] = round($data['member']['point']);
-
-		//$data['city'] = $this->mpublic->getList('dictdata','',array('type'=>'城市'));
-
-		//print_r($data);die;
 		$this->front_header(get_cookie("username"));
 		$accoutype=get_cookie('accountype');
 		if($accoutype=="normal"){
@@ -304,8 +184,6 @@ class Member extends FrontMember_Controller {
 			$this->front_left();
 		}
 
-
-
 		$this->load->view('web/member/fangtuan_create.php',$data);
 		$this->front_footer();
 	}
@@ -321,13 +199,12 @@ class Member extends FrontMember_Controller {
 					'Travelinfo'=>$params['Travelinfo'],
 					'godate'=>$params['godate'],
 					'gotime'=>$params['gotime'],										
-					'normalCost'=>md5($params['normalCost']),
-					'vipCost'=>md5($params['vipCost']),
-					'displayCost'=>md5($params['displayCost']),
+					'normalCost'=>$params['normalCost'],
+					'vipCost'=>$params['vipCost'],
+					'displayCost'=>$params['displayCost'],
 					'createtime'=>date('Y-m-d G:i:s')
 			);
 			$result = $this->mpublic->db->insert('fangtuan',$dataInfo);
-			//print_r($result);
 
 			$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
 			$this->front_header(get_cookie("username"));
@@ -351,6 +228,12 @@ class Member extends FrontMember_Controller {
 			}else{
 				$this->front_left();
 			}
+
+
+			$fang_tuan_list=$this->mpublic->getList('fangtuan','','');
+			$data['fang_tuan_list']=$fang_tuan_list;
+
+
 			$this->load->view('web/member/fangtuan_list.php',$data);
 			$this->front_footer();
 		}
@@ -367,6 +250,10 @@ class Member extends FrontMember_Controller {
 		}else{
 			$this->front_left();
 		}
+
+
+
+
 		$this->load->view('web/member/fang_list.php',$data);
 		$this->front_footer();
 	}
@@ -401,29 +288,7 @@ class Member extends FrontMember_Controller {
 	}
 	
 
-	public function productAppointment()
-	{
-		$this->front_header();
-		$this->front_left();
-		$product_id = $this->uri->segment(3);
-		$user_id = $this->session->userdata('userid');
-		$list= $this->mpublic->getProductAppointment($product_id);
-		$data["table"]  = $list[0];
-		$data["table"]["PRODUCTDEADLINE"] = round($data["table"]["PRODUCTDEADLINE"]/365)."年";
-		$rate = array();
-		foreach ( $list as $k=> $value ) 
-		{
-       		$rate[] = (isset($value["RATE"])?$value["RATE"]."%":"0%")."(认购金额".$value["SUBSCRIBESTART"]."-".$value["SUBSCRIBEEND"].")";
-		}
-		$data["table"]["RATE"] = $rate;
-		$member = $this->mpublic->exc_default_sql('select fullname,mobile from member where Id='.$user_id);
-		if(count($member)==1)
-			$data["member"] = $member[0]; 
-		$data["table"]["Rate"] = "5.3%";
-		$data["city"] = $this->mpublic->getCityList();
-		$this->load->view('web/member/productAppointment.php',$data);
-		$this->front_footer();
-	}
+
 
 	
 	//退出
