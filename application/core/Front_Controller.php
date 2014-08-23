@@ -27,9 +27,14 @@ class Front_Controller extends CI_Controller
 	}
 	
 	//公用模块顶部导航
-	final protected function front_header($where='')
+	final protected function front_header()
 	{
-		$data['where'] = $where;
+		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
+		//$data['member']['point'] = round($data['member']['point']);
+		// $this->load->view('web/member/header.php',$data);
+
+
 		$this->load->view('web/public/header.php',$data);
 	}
 	//公用模块底部导航

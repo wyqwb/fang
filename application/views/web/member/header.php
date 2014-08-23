@@ -87,7 +87,7 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
                 <!-- <img src="/images/person.jpg" width="20" height="21" />&nbsp; -->
                 您好：<span class="vipname"><?php echo $account;?></span> , 欢迎来到本站！
                 <!-- <img src="/images/money.jpg" width="20" height="20" /> -->
-                <span class="vipjf">积分(0)</span>
+                <!-- <span class="vipjf">积分(0)</span> -->
                 <span class="vipred"><a href="/member/outlogin">[退出]</a></span>
             </div>
         </div>

@@ -72,6 +72,7 @@ class Reg extends Front_Controller {
 				'account'=>$params['username'],
 				'password'=>md5($params['password']),
 				'createtime'=>date('Y-m-d G:i:s'),
+				'point'=>100,
 				'isenable'=>1
 		);
 		$result = $this->mpublic->db->insert('member',$dataInfo);

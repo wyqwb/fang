@@ -5,38 +5,25 @@
 
             <!-- 看房团列表 -->
             <div class="userSum">
-                <div class="bd clearfix">
-                    <dl class="fl clearfix info">
-                        <dt class="fl">
-                        <!-- <a href=""><img src="<?php echo base_url(); ?>images/ewm.png" width="80" height="80" alt="" /></a> -->
-                        </dt>
-                        <dd class="fl">房源1</dd>
-                    </dl>
-                    <div class="fl about" style="float:right"><a>修改</a> <a>删除</a></div>
-                </div>
+            <?php if (isset($fang_list)&&count($fang_list)>0) {
+                foreach ($fang_list as $key => $value) {                
+            ?>
 
                 <div class="bd clearfix">
                     <dl class="fl clearfix info">
                         <dt class="fl">
                         <!-- <a href=""><img src="<?php echo base_url(); ?>images/ewm.png" width="80" height="80" alt="" /></a> -->
                         </dt>
-                        <dd class="fl">房源2</dd>
+                        <dd class="fl"><a href="/fang/detail/<?php echo $value['id']?>" target="_blank"><?php echo $value['title']?></a></dd>
                     </dl>
-                    <div class="fl about" style="float:right"><a>修改</a> <a>删除</a></div>
+                    <div class="fl about" style="float:right">
+                    <a href="/member/modify/<?php echo $value['id']?>">修改</a>&nbsp;
+                    <a href="javascript:void(0)" onclick="deletefang(<?php echo $value['id'] ?>)">删除</a></div>
                 </div>
+            <?php }
+               }?>
 
-                <div class="bd clearfix">
-                    <dl class="fl clearfix info">
-                        <dt class="fl">
-                        <!-- <a href=""><img src="<?php echo base_url(); ?>images/ewm.png" width="80" height="80" alt="" /></a> -->
-                        </dt>
-                        <dd class="fl">房源3</dd>
-                    </dl>
-                    <div class="fl about" style="float:right"><a>修改</a> <a>删除</a></div>
-                </div>
-
-
-            </div>
+               </div>
         </div>
     </div>
 <script type="text/javascript"> 
@@ -70,4 +57,16 @@ $('select').each(function(){
 		$(this).find('option[value='+dataval+']').attr('selected',true);
 	}
 })
+
+function deletefang(id){
+    var resault = $.ajax({
+            url: "/fang/fuang_over/"+id,
+                data: {},
+                async: false,
+                type: 'post'
+            });
+    location.reload();
+    return;
+}
+
 </script>

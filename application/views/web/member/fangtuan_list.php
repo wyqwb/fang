@@ -16,7 +16,7 @@
                         </dt>
                         <dd class="fl"><a href="/fang/tuandetail/<?php echo $value['id']?>" target="_blank"><?php echo $value['title']?></a></dd>
                     </dl>
-                    <div class="fl about" style="float:right"><a>修改</a> <a>删除</a></div>
+                    <div class="fl about" style="float:right"><a >修改</a> <a href="javascript:void(0)" onclick="deletefangtuan(<?php echo $value['id'] ?>)">删除</a></div>
                 </div>
 
             <?php } } ?>
@@ -55,4 +55,16 @@ $('select').each(function(){
 		$(this).find('option[value='+dataval+']').attr('selected',true);
 	}
 })
+
+
+function deletefangtuan(id){
+    var resault = $.ajax({
+            url: "/fang/fuang_tuan_over/"+id,
+                data: {},
+                async: false,
+                type: 'post'
+            });
+    location.reload();
+    return;
+}
 </script>

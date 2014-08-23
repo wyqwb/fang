@@ -122,10 +122,17 @@
 					</span>
 				</div>
 				<div class="m-login">
-					<a href="/login/">登录</a>
-					<a href="/reg/">立即注册</a>
-					<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>qqicon.gif" alt=""></a>
-					<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>wxicon.gif" alt=""></a>
+					<?php  if($islogin) { ?>
+					    <div class="lxfs">
+                			您好：<span class="vipname"><a href="/member/"><?php echo $member['account'];?></a></span> , 欢迎来到本站！
+               		 		<span class="vipred"><a href="/member/outlogin">[退出]</a></span>
+            			</div>
+	                <?php } else{ ?>
+		                <a href="/reg/">注册</a> 
+		                <a href="/login/">登陆</a>
+		                <a href=""><img src="<?php  echo WEB_IMAGES_PATH?>qqicon.gif" alt=""></a>
+						<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>wxicon.gif" alt=""></a>     
+	                <?php }?>
 				</div>
 			</div>
 		</div>

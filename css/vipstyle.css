@@ -587,7 +587,7 @@ table {
 
 .main .content {
     width: 720px;
-    height: 500px;
+    /*height: 500px;*/
 }
 
 .sideNav {
@@ -757,7 +757,7 @@ table {
 .userInfo {
     padding: 40px 0 20px 20px;
     border: solid #F0F0F0 1px;
-    border-top: solid #F01617 5px;
+    border-top: solid #47ACE4 5px;
     border-radius: 5px 5px 0 0;
 }
 

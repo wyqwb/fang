@@ -3,7 +3,7 @@
     <script charset="utf-8" type="text/javascript" src="/javascript/jquery-ui.js" ></script>
         <div class="content fr">
             <!-- 横栏概览 -->
-            <div ><h2> 创建看房团信息</h2></div>
+            <div class="userSum"><h2>看房团列表</h2></div>
 
             <!-- 添加看房团 -->
             <div class="userInfo">
@@ -17,22 +17,12 @@
                                 <td class="input"><input class="text"  name="title"  type="text" value="" datatype="s3-16" nullmsg="看房团名称至少3个字符,最多16个字符！"/></td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">看房团名称至少3个字符,最多16个字符！</div></td>
                             </tr>
-                            <tr>
-                                <td class="tit">注意事项：</td>
-                                <td class="input">
-                                <!-- <textarea class="text" name="attention" /><textarea /> -->
-                                <input class="text" name="attention" type="text" value="" datatype="*" nullmsg="请输入注意事项!" /></td>
-                                <td><b class="icon-"></b><div class="Validform_checktip"></div></td>
-                            </tr>
-                            <tr>
-                                <td class="tit">行程信息：</td>
-                                <td class="input"><input class="text"  name="Travelinfo" type="text" value="" datatype="*"  nullmsg="请输入行程信息！" errormsg="" /></td>
-                                <td><b class="icon-"></b><div class="Validform_checktip">请输入行程信息</div></td>
-                            </tr> 
+
+
                             <tr>
                                 <td class="tit">出行日期：</td>
                                 <td class="input">
-                                <input class='text js_notnull datePicker' data-container="body" data-trigger="focus" data-placement="right" data-content="时间不可为空" data-original-title="" datatype="*" type="text" class='datePicker' name="godate" id="godate" value="<?php if (isset($artcon['godate'])) {echo $artcon['godate'];}?>" />
+                                <input class='text js_notnull datePicker' data-container="body" data-trigger="focus" data-placement="right" data-content="时间不可为空"  datatype="*" type="text" class='datePicker' name="godate" id="godate" value="<?php if (isset($artcon['godate'])) {echo $artcon['godate'];}?>" />
                                 </td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">请选择出行日期</div></td>
                             </tr>
@@ -57,7 +47,18 @@
                                 <td class="tit">显示价格：</td>
                                 <td class="input"><input class="text"  name="displayCost" type="text" datatype="n" nullmsg="请输入正确的费用(数字)！" /></td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">请输入正确的费用(数字)！</div></td>
-                            </tr> 
+                            </tr>
+                            <tr>
+                                <td class="tit">行程信息：</td>
+                                <td class="input" colspan="2"><textarea class="text" name="Travelinfo" style="margin: 0px; width: 448px; height: 100px;resize: none;"  ></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tit">注意事项：</td>
+                                <td class="input" colspan="2">
+                                <textarea class="text" name="attention" style="margin: 0px; width: 448px; height: 100px;resize: none;" ></textarea>
+                               </td>
+                            </tr>
 
                             <tr>
                                 <td class="tit">&nbsp;</td>

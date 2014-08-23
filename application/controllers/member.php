@@ -14,12 +14,12 @@ class Member extends FrontMember_Controller {
 		$this->load->helper('cookie');
 		$this->load->library('session');
 
-		// $loginsession = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
-		// if(!$loginsession){
-		// 	echo "<script>window.location.href='".base_url()."'</script>";
-		// }else{
-		// 	$this->user_data = $this->session->userdata('userid');
-		// }
+		$loginsession = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		if(!$loginsession){
+			echo "<script>window.location.href='".base_url()."'</script>";
+		}else{
+			$this->user_data = $this->session->userdata('userid');
+		}
 	} 
 
 	
@@ -28,9 +28,6 @@ class Member extends FrontMember_Controller {
 	 */
 	 public function index()
 	{
-		//print_r($_REQUEST);
-		//print_r($this->session->userdata('userid'));
-		//print_r($this->session->userdata('islogin'));die;
 		if($this->session->userdata('islogin')){
 			$data["account"]=get_cookie("username");
 			
@@ -65,48 +62,6 @@ class Member extends FrontMember_Controller {
 		$this->user_data = $this->mpublic->getRow('member',"",array('id'=>$user_id));
 		$data = array('member'=>$this->user_data);
 		$this->load->view('web/member/point.php',$data);
-		$this->front_footer();
-	}
-	
-	public function activity()
-	{
-		$this->front_header();
-		$this->front_left();
-		$prePage = 5;
-		$rowNum = $this->uri->segment(3);
-		$rowNum = empty($rowNum)?0:$rowNum;
-		$count = $this->mpublic->exc_sql("SELECT COUNT(*) total FROM article WHERE type = 1 AND pid =134");
-		$data['article'] = $this->mpublic->getList(
-		'article','',array('type'=>1,
-		'pid'=>134
-		),$rowNum,$prePage);
-		
-			$this->load->library('pagination');
-
-			$config['base_url'] = base_url().'member/activity';
-			$config['total_rows'] = $count[0]['total'];
-			$config['per_page'] = $prePage;
-			$config['cur_tag_open'] = "<a class='on'>";
-			$config['cur_tag_close'] = "</a>";
-			
-			$config['first_link'] = '首页';
-			$config['last_link'] ="最后一页";
-			$config['uri_segment'] = '3';//设为页面的参数，如果不添加这个参数分页用不了
-			
-			$this->pagination->initialize($config);
-			
-			$data['page'] = $this->pagination->create_links();
-			$this->load->view('web/member/activity.php',$data);
-		$this->front_footer();
-		
-	}
-	
-	
-	public function activitydetail(){
-		$this->front_header();
-		$this->front_left();
-		$data['detail'] = $this->mpublic->getRow('article','',array('Id' =>$this->uri->segment(3) ));
-			$this->load->view('web/member/activitydetail.php',$data);
 		$this->front_footer();
 	}
 	
@@ -214,6 +169,11 @@ class Member extends FrontMember_Controller {
 			}else{
 				$this->front_left();
 			}
+
+
+			$fang_tuan_list=$this->mpublic->getList('fangtuan','',array('mid' => $user_id ));
+			$data['fang_tuan_list']=$fang_tuan_list;
+			
 			$this->load->view('web/member/fangtuan_list.php',$data);
 			$this->front_footer();
 
@@ -228,12 +188,8 @@ class Member extends FrontMember_Controller {
 			}else{
 				$this->front_left();
 			}
-
-
-			$fang_tuan_list=$this->mpublic->getList('fangtuan','','');
+			$fang_tuan_list=$this->mpublic->getList('fangtuan','',array('mid' => $user_id ));
 			$data['fang_tuan_list']=$fang_tuan_list;
-
-
 			$this->load->view('web/member/fangtuan_list.php',$data);
 			$this->front_footer();
 		}
@@ -241,24 +197,94 @@ class Member extends FrontMember_Controller {
 
 
 	public function fanglist(){
-		$user_id = $this->session->userdata('userid');
-		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-		$this->front_header(get_cookie("username"));
-		$accoutype=get_cookie('accountype');
-		if($accoutype=="normal"){
-			$this->front_left_normal();
-		}else{
-			$this->front_left();
+
+		$reupload=$this->session->userdata('reupload')?$this->session->userdata('reupload'):0;
+
+        if($this->input->post('sub')&&($reupload==0))
+        {
+        	//print_r($_REQUEST);die;
+			$this->session->set_userdata(array('reupload'=>1));        	
+
+        	$user_id = $this->session->userdata('userid');
+            $config['upload_path'] = FCPATH.'uploads/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size'] = '20000';
+            $config['max_width']  = '1500';
+            $config['max_height']  = '502';
+            $config['overwrite'] = FALSE;
+            $config['encrypt_name'] = TRUE;
+            $this->load->library('upload',$config);
+            //第1张图
+            if(!empty($_FILES['homeimg1']['name'])){
+                if($this->upload->do_upload('homeimg1'))
+                {
+                    $str = $this->upload->data();
+                    $previewimg = $str['file_name'];
+                    $data['img1'] = $previewimg;
+                }
+            }
+            //第2张图
+            if(!empty($_FILES['homeimg2']['name'])){
+                if($this->upload->do_upload('homeimg2'))
+                {
+                    $str = $this->upload->data();
+                    $previewimg = $str['file_name'];
+                    $data['img2'] = $previewimg;
+                }
+            }
+
+            if(!empty($_REQUEST['housetype'])){
+	            $data['housetype']= $this->input->post('housetype');
+            }
+            $data['mid'] = $user_id;
+            $data['title'] = $this->input->post('title');
+            $data['tuanid'] = $this->input->post('fangtuan');
+            $data['builtarea'] = $this->input->post('builtarea');
+            $data['landarea']= $this->input->post('landarea');
+            $data['bedrooms'] = $this->input->post('bedrooms');
+            $data['toilets'] = $this->input->post('toilets');
+            $data['displayprice'] = $this->input->post('displayprice');
+            $data['desc'] = $this->input->post('desc');
+
+            $res = $this->db->insert('fang', $data);
+            if($res)
+            {
+				$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+				$this->front_header(get_cookie("username"));
+				$accoutype=get_cookie('accountype');
+				if($accoutype=="normal"){
+					$this->front_left_normal();
+				}else{
+					$this->front_left();
+				}            	
+				$fang_list=$this->mpublic->getList('fang','',array('mid' => $user_id ));
+				$data['fang_list']=$fang_list;
+				$this->load->view('web/member/fang_list.php',$data);
+				$this->front_footer();
+            }
+        }else{
+
+			$user_id = $this->session->userdata('userid');
+			$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+			$this->front_header(get_cookie("username"));
+			$accoutype=get_cookie('accountype');
+			if($accoutype=="normal"){
+				$this->front_left_normal();
+			}else{
+				$this->front_left();
+			}
+			
+			$fang_list=$this->mpublic->getList('fang','',array('mid' => $user_id ));
+			$data['fang_list']=$fang_list;
+
+			$this->load->view('web/member/fang_list.php',$data);
+			$this->front_footer();
 		}
-
-
-
-
-		$this->load->view('web/member/fang_list.php',$data);
-		$this->front_footer();
 	}
 
 	public function fang_create(){
+		$this->session->set_userdata(array('reupload'=>0));    
+
 		$user_id = $this->session->userdata('userid');
 		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
 		$this->front_header(get_cookie("username"));
@@ -268,9 +294,47 @@ class Member extends FrontMember_Controller {
 		}else{
 			$this->front_left();
 		}
+
+		$fang_tuan_list=$this->mpublic->getList('fangtuan','id,title',array('mid' => $user_id ));
+		$data['fang_tuan_list']=$fang_tuan_list;
+
 		$this->load->view('web/member/fang_create.php',$data);
 		$this->front_footer();
 	}
+
+
+	public function modify()
+	{		
+		$this->session->set_userdata(array('reupload'=>0));   
+
+		$seg=$this->uri->segment(3);
+		if($seg){
+		$data['fang'] = $this->mpublic->getRow('fang','',array('id'=>$seg));
+
+		}else{
+			show_404();
+		}
+
+		$user_id = $this->session->userdata('userid');
+		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+		$this->front_header(get_cookie("username"));
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){
+			$this->front_left_normal();
+		}else{
+			$this->front_left();
+		}
+
+		$fang_tuan_list=$this->mpublic->getList('fangtuan','id,title',array('mid' => $user_id ));
+		$data['fang_tuan_list']=$fang_tuan_list;
+
+		$this->load->view('web/member/fang_create.php',$data);
+		$this->front_footer();
+
+
+	}
+
+
 
 
 	public function moduserinfo(){

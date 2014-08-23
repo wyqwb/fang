@@ -118,6 +118,7 @@ body {
   position: absolute;
   top: 30px;
   right: 0;
+  color: white;
 }
 .g-info .m-login a {
   padding: 0 2px;
