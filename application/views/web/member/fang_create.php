@@ -8,6 +8,7 @@
 		<form action="<?php echo base_url(); ?>member/fanglist" method="post" class="modfang" enctype="multipart/form-data">
                 <div class="bd">
                     <div class="msginfo" style="color:red"></div>
+                    <input type="hidden" name="fangid" value="<?php if (isset($fang['id'])) {echo $fang['id'];}?>" />
                     <table>
                         <tbody>
                             <tr>
@@ -69,8 +70,8 @@
                             <tr>
                                 <td class="tit">住宅类型：</td>
                                 <td class="input">
-                                <select name="housetype" class="text">
-                                    <option>请选择</option>
+                                <select name="housetype" class="text" datatype="*"  nullmsg="请选择房屋类型！">
+                                    <option></option>
                                     <option value="1">普通住宅</option>
                                     <option value="2">商住两用</option>
                                     <option value="3">公寓</option>
@@ -83,7 +84,6 @@
                             <tr>
                                 <td class="tit">房屋照片上传：</td>
                                 <td class="input">
-                                <!-- <input type="file" name="homeimg1" size="20" /> -->
                                 <input type="file" class='text' data-container="body" data-trigger="focus" data-placement="right" data-content="预览图"  name="homeimg1" value="" />
                                 </td>
                                 <td><div class="Validform_checktip"></div></td>
@@ -106,7 +106,7 @@
                             <tr>
                                 <td class="tit">房屋介绍：</td>
                                 <td class="input" colspan="2">
-                                <textarea class="text" name="desc" style="margin: 0px; width: 450px; height: 180px;resize: none;" datatype="*" nullmsg="请输入房屋介绍！"></textarea>
+                                <textarea class="text" name="desc" style="margin: 0px; width: 450px; height: 180px;resize: none;" datatype="*" nullmsg="请输入房屋介绍！"><?php if (isset($fang['desc'])) {echo $fang['desc'];}?></textarea>
                                 <div class="Validform_checktip"></div></td>
                             </tr>  
                             <br>    

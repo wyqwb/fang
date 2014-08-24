@@ -1,56 +1,51 @@
 ﻿        <div class="content fr">
 		
-            <!-- 用户概览 -->
+            <!-- 用户概览 -->            
             <div class="userSum">
                 <div class="bd clearfix">
                     <dl class="fl clearfix info">
                         <dt class="fl"><a href=""><img src="<?php echo base_url(); ?>/images/ewm.png" width="80" height="80" alt="" /></a></dt>
                         <dd class="fl">
-			<p><b><?php echo $user_data['account']; ?></b></p>
+			                <p><b><?php echo $user_data['account']; ?></b></p>
                             <p><span><?php echo date("H") < 12 ? "上午好!" : "下午好!";?></span></p>
                         </dd>
                     </dl>
                     <div class="fl about">
-                        <!-- <p>会员等级：<a class="c_ad0909" href=""><?php echo $user_data['rank']; ?></a>&nbsp;<a href=""><img src="<?php echo base_url(); ?>/images/vipclass.jpg" alt="" /></a></p> -->
                         <p>积分：<strong class="c_ad0909"><?php echo $user_data['point']; ?></strong>分&nbsp;<a href=""><img src="<?php echo base_url(); ?>/images/money.jpg" alt="" /></a></p>
                     </div>
                 </div>
             </div>
             <!-- 个人信息修改 -->
             <div class="userInfo">
-<div class="msginfo"></div>
+                <div class="msginfo"></div>
                 <div class="bd">
-		<form action="<?php echo base_url(); ?>/member/modifypasswd" method="post" class="modifypasswd">
+		              <form action="<?php echo base_url(); ?>member/modifypasswd" method="post"  class="modifypasswd">
                     <table>
                         <tbody>
                             <tr>
                                 <td class="tit">原始密码：</td>
-                                <td class="input"><input class="text" datatype="*3-16" nullmsg="请输入原始密码！" errormsg="您的密码不符合要求！" type="password" name="passwd" value="" /></td>
-				<td><b class="icon-"></b><div class="Validform_checktip"></div></td>
+                                <td class="input">
+                                <input class="text"  nullmsg="请输入原始密码！"    errormsg="您的密码不符合要求！" type="password" name="passwd" id="passwd" value="" onblur="chkpwd()" />
+                                </td>
+				                <td><div class="Validform_passwd"></div></td>
                             </tr>
                             <tr>
                                 <td class="tit">新密码：</td>
-                                <td class="input"><input class="text" type="password"  datatype="*6-16" nullmsg="请设置密码！" errormsg="密码范围在6~16位之间！" name="newpasswd" value="" /></td>
-                                <td><b class="icon-"></b><div class="Validform_checktip"></div></td>
+                                <td class="input">
+                                <input class="text" type="password"  datatype="*6-16" nullmsg="请设置密码！" errormsg="密码范围在6~16位之间！" name="newpasswd" value="" />
+                                </td>
+                                <td><div class="Validform_checktip"></div></td>
                             </tr>
                             <tr>
                                 <td class="tit">确认密码：</td>
-                                <td class="input"><input class="text" datatype="*" recheck="newpasswd" nullmsg="请再输入一次密码！" errormsg="您两次输入的账号密码不一致！" type="password"  value="" /></td>
-				<td><b class="icon-"></b><b><div class="Validform_checktip"></div></b></td>
-                            </tr>
-                            <tr>
-                                <td class="tit">手机号：</td>
-				<td class="input"><input type="text"  datatype="m" nullmsg="请输入手机号码！" errormsg="手机号码无效！"  value="<?php echo $user_data['mobile'];?>" /><a class="icon-" href=""></a></td>
-                                <td><b class="icon-"></b><div class="Validform_checktip"></div></td>
-                            </tr>
-                            <tr>
-                                <td class="tit">验证码：</td>
-                                <td class="input"><input class="text" name="captcha"  datatype="*" nullmsg="验证码不能为空！" type="text" value="" /><div class="Validform_checktip"></div></td>
-				<td></td>
-                            </tr>
+                                <td class="input">
+                                <input class="text" datatype="*" recheck="newpasswd" nullmsg="请再输入一次密码！" errormsg="您两次输入的账号密码不一致！" type="password"  value="" />
+                                </td>
+				                <td><b><div class="Validform_checktip"></div></b></td>
+                            </tr>                           
                             <tr>
                                 <td class="tit">&nbsp;</td>
-                                <td class="input"><input class="ui-btn-submit" type="submit" value="提交" /></td>
+                                <td class="input"><input class="ui-btn-submit"  type="submit" value="提交" /></td>
                                 <td></td>
                             </tr>
                         </tbody>
@@ -83,5 +78,35 @@ var options = {
     success: function() {
     } };
 $('.modifypasswd').ajaxForm(options);
-</script>
 
+
+function chkpwd() {
+            var passwd = $("#passwd").val();
+            if (passwd == "") {
+            $(".Validform_passwd").css("color","red");
+            $(".Validform_passwd").html("请输入密码");
+            return false;
+            }
+
+            var resault = $.ajax({
+                url: "/member/chkpasswd/",
+                data: {
+                    'passwd': passwd,
+                    'chkpwd':true
+                },
+                async: false,
+                type: 'post'
+            });
+            // alert(resault.responseText);
+            if (resault.responseText == "-1") {
+                $(".Validform_passwd").css("color","red");
+                $(".Validform_passwd").html("密码错误,请重新输入!");
+                // $("#passwd").focus();
+                return false;
+            }
+            }else{
+                return  true;
+            }
+
+        }
+</script>

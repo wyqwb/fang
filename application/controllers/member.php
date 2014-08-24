@@ -76,52 +76,43 @@ class Member extends FrontMember_Controller {
 	{
 		$user_id = $this->session->userdata('userid');
 		$this->user_data = $this->mpublic->getRow('member',"",array('id'=>$user_id));
-		$data = array('user_data'=>$this->user_data);
+		$data['user_data'] = $this->user_data;
 		$this->front_header(get_cookie("username"));
+
 		$accoutype=get_cookie('accountype');
-		if($accoutype=="normal"){
-			$this->front_left_normal();
-		}else{
-			$this->front_left();
-		}
+		if($accoutype=="normal") {$this->front_left_normal();}
+		else {$this->front_left();}
 		$this->load->view('web/member/userpasswd.php',$data);
 		$this->front_footer();
 	}
-
+	public function chkpasswd()
+	{
+		$user_id = $this->session->userdata('userid');
+		$password = $this->mpublic->getRow('member',"password",array('id'=>$user_id));
+		if ((md5($_REQUEST['passwd'])!=$password['password'])&&(isset($_REQUEST['chkpwd'])&&$_REQUEST['chkpwd'])) {
+			exit("-1"); //原始密码不对
+		}else{exit;}
+	}
 
 
 	public function modifypasswd()
 	{
 		$user_id = $this->session->userdata('userid');
-		print_r($user_id);die;
-		$this->user_data = $this->mpublic->getRow('member',"",array('id'=>$user_id));
-		if(!empty($_POST['captcha'])){//TODO 替换为正式手机验证码的判断
-			$uservif = $this->mpublic->getRow('member',"",array('account'=>$this->user_data['account'],'password'=>md5($_POST['passwd'])));
-			$uservif = array_filter($uservif);
-			if(!empty($uservif)){
-				$this->mpublic->update('member',array('password'=>md5($_POST['newpasswd'])),array('id'=>$user_id));
-				echo '修改成功！';
-				exit;
-			}else{
-				echo "验证失败！";
-			}
-
-		}else{
-			echo "手机验证码错误，请重新认证";
+		$password = $this->mpublic->getRow('member',"password",array('id'=>$user_id));
+		if(isset($_POST['newpasswd'])&&($_POST['newpasswd']!="")){
+			$this->db->update('member', array('password'=>md5($_POST['newpasswd'])),array('id' =>$user_id));
+			echo "<script>window.location.href='/member/'</script>";
 		}
-	
 	}
 
 	public function userinfo(){
 		$user_id = $this->session->userdata('userid');
 		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
 		$this->front_header(get_cookie("username"));
+
 		$accoutype=get_cookie('accountype');
-		if($accoutype=="normal"){
-			$this->front_left_normal();
-		}else{
-			$this->front_left();
-		}
+		if($accoutype=="normal") {$this->front_left_normal();}
+		else {$this->front_left();}
 		$this->load->view('web/member/userinfo.php',$data);
 		$this->front_footer();
 	}
@@ -129,25 +120,44 @@ class Member extends FrontMember_Controller {
 
 
 	public function fangtuan_create(){
+		$this->session->set_userdata(array('fangtuancreate'=>1));    
 		$user_id = $this->session->userdata('userid');
-		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+		//$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
 		$this->front_header(get_cookie("username"));
 		$accoutype=get_cookie('accountype');
-		if($accoutype=="normal"){
-			$this->front_left_normal();
-		}else{
-			$this->front_left();
-		}
+		if($accoutype=="normal") {$this->front_left_normal();}
+		else {$this->front_left();}
 
-		$this->load->view('web/member/fangtuan_create.php',$data);
+		$this->load->view('web/member/fangtuan_create.php');
+		$this->front_footer();
+	}
+
+
+	public function fang_create(){
+		//添加信息设置，用于防止刷新重复提交
+		$this->session->set_userdata(array('fangcreate'=>1));
+		$user_id = $this->session->userdata('userid');
+		$data['fang_tuan_list']=$this->mpublic->getList('fangtuan','id,title',array('mid' => $user_id ));
+		$this->front_header(get_cookie("username"));
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal") {$this->front_left_normal();}
+		else {$this->front_left();}
+		$this->load->view('web/member/fang_create.php',$data);
 		$this->front_footer();
 	}
 
 	public function fangtuanlist(){
-		 if ($this->input->post('sub')) {
+		$user_id = $this->session->userdata('userid');
+		$this->front_header(get_cookie("username"));
+		//$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+
+		//获取创建或修改开关变量值
+		$fang_tuan_create=$this->session->userdata('fangtuancreate')?$this->session->userdata('fangtuancreate'):0;
+		$fang_tuan_modif=$this->session->userdata('fangtuanmodif')?$this->session->userdata('fangtuanmodif'):0;
+    
+		if ($this->input->post('sub')) {
 			$params=$_REQUEST;
-			$user_id = $this->session->userdata('userid');
-			$dataInfo = array(
+			$postdata = array(
 					'mid'=>$user_id,
 					'title'=>$params['title'],
 					'attention'=>$params['attention'],
@@ -159,53 +169,42 @@ class Member extends FrontMember_Controller {
 					'displayCost'=>$params['displayCost'],
 					'createtime'=>date('Y-m-d G:i:s')
 			);
-			$result = $this->mpublic->db->insert('fangtuan',$dataInfo);
 
-			$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-			$this->front_header(get_cookie("username"));
-			$accoutype=get_cookie('accountype');
-			if($accoutype=="normal"){
-				$this->front_left_normal();
-			}else{
-				$this->front_left();
-			}
+            if($fang_tuan_modif==1){
+	        	//设置防止刷新重复提交开关
+	        	$this->session->set_userdata(array('fangtuanmodif'=>0));
+	        	$fangtuanid=$this->input->post('fangtuanid');
+	        	if($fangtuanid!="") { $this->db->update('fangtuan', $postdata,array('id' =>$fangtuanid)); }	
+            }
+            if($fang_tuan_create==1){
+	        	//设置防止刷新重复提交开关
+				$this->session->set_userdata(array('fangcreate'=>0));
+				$this->db->insert('fangtuan', $postdata);
+            }	 	
+		 }
 
-
-			$fang_tuan_list=$this->mpublic->getList('fangtuan','',array('mid' => $user_id ));
-			$data['fang_tuan_list']=$fang_tuan_list;
-			
-			$this->load->view('web/member/fangtuan_list.php',$data);
-			$this->front_footer();
-
-		 	
-		 }else{
-			$user_id = $this->session->userdata('userid');
-			$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-			$this->front_header(get_cookie("username"));
-			$accoutype=get_cookie('accountype');
-			if($accoutype=="normal"){
-				$this->front_left_normal();
-			}else{
-				$this->front_left();
-			}
-			$fang_tuan_list=$this->mpublic->getList('fangtuan','',array('mid' => $user_id ));
-			$data['fang_tuan_list']=$fang_tuan_list;
-			$this->load->view('web/member/fangtuan_list.php',$data);
-			$this->front_footer();
-		}
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal") {$this->front_left_normal();}
+		else {$this->front_left();}
+		$data['fang_tuan_list']=$this->mpublic->getList('fangtuan','',array('mid' => $user_id ));
+		$this->load->view('web/member/fangtuan_list.php',$data);
+		$this->front_footer();
 	}
 
 
 	public function fanglist(){
 
-		$reupload=$this->session->userdata('reupload')?$this->session->userdata('reupload'):0;
+		$user_id = $this->session->userdata('userid');
+		$this->front_header(get_cookie("username"));
+		//$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
 
-        if($this->input->post('sub')&&($reupload==0))
-        {
-        	//print_r($_REQUEST);die;
-			$this->session->set_userdata(array('reupload'=>1));        	
-
-        	$user_id = $this->session->userdata('userid');
+		//获取创建或修改开关变量值
+		$fang_create=$this->session->userdata('fangcreate')?$this->session->userdata('fangcreate'):0;
+		$fang_modif=$this->session->userdata('fangmodif')?$this->session->userdata('fangmodif'):0;
+    
+        //处理提交参数
+        if($this->input->post('sub'))
+        {     	
             $config['upload_path'] = FCPATH.'uploads/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['max_size'] = '20000';
@@ -220,7 +219,7 @@ class Member extends FrontMember_Controller {
                 {
                     $str = $this->upload->data();
                     $previewimg = $str['file_name'];
-                    $data['img1'] = $previewimg;
+                    $postdata['img1'] = $previewimg;
                 }
             }
             //第2张图
@@ -229,111 +228,87 @@ class Member extends FrontMember_Controller {
                 {
                     $str = $this->upload->data();
                     $previewimg = $str['file_name'];
-                    $data['img2'] = $previewimg;
+                    $postdata['img2'] = $previewimg;
                 }
             }
+            $postdata['mid'] = $user_id;
+            $postdata['title'] = $this->input->post('title');
+            $postdata['tuanid'] = $this->input->post('fangtuan');
+            $postdata['builtarea'] = $this->input->post('builtarea');
+            $postdata['landarea']= $this->input->post('landarea');
+            $postdata['bedrooms'] = $this->input->post('bedrooms');
+            $postdata['toilets'] = $this->input->post('toilets');
+            $postdata['housetype']= $this->input->post('housetype');
+            $postdata['displayprice'] = $this->input->post('displayprice');
+            $postdata['desc'] = $this->input->post('desc');
 
-            if(!empty($_REQUEST['housetype'])){
-	            $data['housetype']= $this->input->post('housetype');
+            if($fang_modif==1){
+	        	//设置防止刷新重复提交开关
+	        	$this->session->set_userdata(array('fangmodif'=>0));
+	        	$fangid=$this->input->post('fangid');
+	        	if($fangid!="") { $this->db->update('fang', $postdata,array('id' =>$fangid)); }	
+
             }
-            $data['mid'] = $user_id;
-            $data['title'] = $this->input->post('title');
-            $data['tuanid'] = $this->input->post('fangtuan');
-            $data['builtarea'] = $this->input->post('builtarea');
-            $data['landarea']= $this->input->post('landarea');
-            $data['bedrooms'] = $this->input->post('bedrooms');
-            $data['toilets'] = $this->input->post('toilets');
-            $data['displayprice'] = $this->input->post('displayprice');
-            $data['desc'] = $this->input->post('desc');
-
-            $res = $this->db->insert('fang', $data);
-            if($res)
-            {
-				$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-				$this->front_header(get_cookie("username"));
-				$accoutype=get_cookie('accountype');
-				if($accoutype=="normal"){
-					$this->front_left_normal();
-				}else{
-					$this->front_left();
-				}            	
-				$fang_list=$this->mpublic->getList('fang','',array('mid' => $user_id ));
-				$data['fang_list']=$fang_list;
-				$this->load->view('web/member/fang_list.php',$data);
-				$this->front_footer();
+            if($fang_create==1){
+	        	//设置防止刷新重复提交开关
+				$this->session->set_userdata(array('fangcreate'=>0));
+				$this->db->insert('fang', $postdata);
             }
-        }else{
+        }
 
-			$user_id = $this->session->userdata('userid');
-			$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-			$this->front_header(get_cookie("username"));
-			$accoutype=get_cookie('accountype');
-			if($accoutype=="normal"){
-				$this->front_left_normal();
-			}else{
-				$this->front_left();
-			}
-			
-			$fang_list=$this->mpublic->getList('fang','',array('mid' => $user_id ));
-			$data['fang_list']=$fang_list;
-
-			$this->load->view('web/member/fang_list.php',$data);
-			$this->front_footer();
-		}
-	}
-
-	public function fang_create(){
-		$this->session->set_userdata(array('reupload'=>0));    
-
-		$user_id = $this->session->userdata('userid');
-		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-		$this->front_header(get_cookie("username"));
-		$accoutype=get_cookie('accountype');
-		if($accoutype=="normal"){
-			$this->front_left_normal();
-		}else{
-			$this->front_left();
-		}
-
-		$fang_tuan_list=$this->mpublic->getList('fangtuan','id,title',array('mid' => $user_id ));
-		$data['fang_tuan_list']=$fang_tuan_list;
-
-		$this->load->view('web/member/fang_create.php',$data);
+        $data['fang_list']=$this->mpublic->getList('fang','',array('mid' => $user_id ));
+        $accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){$this->front_left_normal();}
+		else{$this->front_left();}			
+		$this->load->view('web/member/fang_list.php',$data);
 		$this->front_footer();
 	}
 
 
 	public function modify()
 	{		
-		$this->session->set_userdata(array('reupload'=>0));   
-
-		$seg=$this->uri->segment(3);
-		if($seg){
-		$data['fang'] = $this->mpublic->getRow('fang','',array('id'=>$seg));
-
-		}else{
-			show_404();
-		}
+		//添加信息设置，用于防止刷新重复提交
+		$this->session->set_userdata(array('fangmodif'=>1));  
 
 		$user_id = $this->session->userdata('userid');
-		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+		// $data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
 		$this->front_header(get_cookie("username"));
 		$accoutype=get_cookie('accountype');
-		if($accoutype=="normal"){
-			$this->front_left_normal();
-		}else{
-			$this->front_left();
-		}
 
-		$fang_tuan_list=$this->mpublic->getList('fangtuan','id,title',array('mid' => $user_id ));
-		$data['fang_tuan_list']=$fang_tuan_list;
+		$seg=$this->uri->segment(3);
+		if($seg) { $data['fang'] = $this->mpublic->getRow('fang','',array('id'=>$seg));}
+		else { show_404();}
 
+		if($accoutype=="normal") {$this->front_left_normal();}
+		else {$this->front_left();}
+
+		$data['fang_tuan_list']=$this->mpublic->getList('fangtuan','id,title',array('mid' => $user_id ));
 		$this->load->view('web/member/fang_create.php',$data);
 		$this->front_footer();
-
-
 	}
 
+
+	public function tuan_modify()
+	{		
+		//添加信息设置，用于防止刷新重复提交
+		$this->session->set_userdata(array('fangtuanmodif'=>1));  
+
+		$user_id = $this->session->userdata('userid');
+		// $data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+		$this->front_header(get_cookie("username"));
+		$accoutype=get_cookie('accountype');
+
+		$seg=$this->uri->segment(3);
+		if($seg) { $data['fangtuan'] = $this->mpublic->getRow('fangtuan','',array('id'=>$seg));}
+		else { show_404();}
+
+		if($accoutype=="normal") {$this->front_left_normal();}
+		else {$this->front_left();}
+
+		$data['fang_tuan_list']=$this->mpublic->getList('fangtuan','id,title',array('mid' => $user_id ));
+		$this->load->view('web/member/fangtuan_create.php',$data);
+		$this->front_footer();
+	}
 
 
 

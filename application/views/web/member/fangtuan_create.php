@@ -7,56 +7,61 @@
 
             <!-- 添加看房团 -->
             <div class="userInfo">
-		<form action="<?php echo base_url(); ?>member/fangtuanlist" method="post" class="createfangtuan">
+		<form action="<?php echo base_url(); ?>member/fangtuanlist" method="post" class="createfangtuan" enctype="multipart/form-data"> 
                 <div class="bd">
                     <div class="msginfo" style="color:red"></div>
+                    <input type="hidden" name="fangtuanid" value="<?php if (isset($fangtuan['id'])) {echo $fangtuan['id'];}?>" />
                     <table>
                         <tbody>
                             <tr>
                                 <td class="tit">看房团名称：</td>
-                                <td class="input"><input class="text"  name="title"  type="text" value="" datatype="s3-16" nullmsg="看房团名称至少3个字符,最多16个字符！"/></td>
-                                <td><b class="icon-"></b><div class="Validform_checktip">看房团名称至少3个字符,最多16个字符！</div></td>
+                                <td class="input">
+                                <input class="text"  name="title"  type="text" value="<?php if (isset($fangtuan['title'])){echo $fangtuan['title'];}?>" datatype="s3-16" nullmsg="看房团名称至少3个字符,最多16个字符！" value="" />
+                                </td>
+                                <td><div class="Validform_checktip">看房团名称至少3个字符,最多16个字符！</div></td>
                             </tr>
 
 
                             <tr>
                                 <td class="tit">出行日期：</td>
                                 <td class="input">
-                                <input class='text js_notnull datePicker' data-container="body" data-trigger="focus" data-placement="right" data-content="时间不可为空"  datatype="*" type="text" class='datePicker' name="godate" id="godate" value="<?php if (isset($artcon['godate'])) {echo $artcon['godate'];}?>" />
+                                <input class='text js_notnull datePicker' data-container="body" data-trigger="focus" data-placement="right" data-content="时间不可为空"  datatype="*" type="text" class='datePicker' name="godate" id="godate" value="<?php if (isset($fangtuan['godate'])){echo $fangtuan['godate'];}?>" />
                                 </td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">请选择出行日期</div></td>
                             </tr>
                             <tr>
                                 <td class="tit">行程时间：</td>
                                 <td class="input">
-                                <input class='text js_notnull datePicker' data-container="body" data-trigger="focus" data-placement="right" data-content="时间不可为空" data-original-title="" datatype="*" type="text" class='datePicker' name="gotime" id="gotime" value="<?php if (isset($artcon['gotime'])) {echo $artcon['gotime'];}?>" />
+                                <input class='text js_notnull datePicker' data-container="body" data-trigger="focus" data-placement="right" data-content="时间不可为空" data-original-title="" datatype="*" type="text" v class='datePicker' name="gotime" id="gotime" value="<?php if (isset($fangtuan['gotime'])){echo $fangtuan['gotime'];}?>" />
                                 </td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">选择您的行程时间</div></td>
                             </tr> 
                             <tr>
                                 <td class="tit">普通费用：</td>
-                                <td class="input"><input class="text"  name="normalCost" type="text" value="" datatype="n"  nullmsg="请输入正确的费用(数字)！" errormsg="" /></td>
+                                <td class="input"><input class="text"  name="normalCost" type="text" value="<?php if(isset($fangtuan['normalCost'])){echo $fangtuan['normalCost'];}?>" datatype="n"  nullmsg="请输入正确的费用(数字)！" errormsg="" /></td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">请输入正确的费用(数字)！</div></td>
                             </tr> 
                             <tr>
                                 <td class="tit">Vip费用：</td>
-                                <td class="input"><input class="text"  name="vipCost" type="text" datatype="n" nullmsg="请输入正确的费用(数字)！" /></td>
+                                <td class="input"><input class="text"  name="vipCost" type="text" datatype="n" nullmsg="请输入正确的费用(数字)！" 
+                                value="<?php if (isset($fangtuan['vipCost'])) {echo $fangtuan['vipCost'];}?>" /></td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">请输入正确的费用(数字)！</div></td>
                             </tr> 
                             <tr>
                                 <td class="tit">显示价格：</td>
-                                <td class="input"><input class="text"  name="displayCost" type="text" datatype="n" nullmsg="请输入正确的费用(数字)！" /></td>
+                                <td class="input"><input class="text"  name="displayCost" type="text" datatype="n" nullmsg="请输入正确的费用(数字)！" value="<?php if (isset($fangtuan['displayCost'])) {echo $fangtuan['displayCost'];}?>" /></td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">请输入正确的费用(数字)！</div></td>
                             </tr>
                             <tr>
                                 <td class="tit">行程信息：</td>
-                                <td class="input" colspan="2"><textarea class="text" name="Travelinfo" style="margin: 0px; width: 448px; height: 100px;resize: none;"  ></textarea>
+                                <td class="input" colspan="2"><textarea class="text" name="Travelinfo" style="margin: 0px; width: 448px; height: 100px;resize: none;"  ><?php if (isset($fangtuan['Travelinfo'])) {echo $fangtuan['Travelinfo'];}?></textarea>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="tit">注意事项：</td>
                                 <td class="input" colspan="2">
-                                <textarea class="text" name="attention" style="margin: 0px; width: 448px; height: 100px;resize: none;" ></textarea>
+                                <textarea class="text" name="attention" style="margin: 0px; width: 448px; height: 100px;resize: none;"><?php if (isset($fangtuan['attention'])){echo $fangtuan['attention'];}?>
+                                </textarea>
                                </td>
                             </tr>
 
