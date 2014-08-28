@@ -69,7 +69,9 @@ class Article extends AD_Controller
                 //echo "<script>alert('添加失败！');location.href='".base_url()."index.php/admin/article/article_create';</script>";
             }
         } else {
+            //print_r("expression");die;
             $datas['article_tree'] = $this->marticle->get_sort_tree();
+           // print_r("expression");die;
             $datas['navList'] = $this->mpub->getList('article','',array('status' => 1));
             $this->load->module('/admin/frames/header');
             $this->load->module('/admin/frames/left',array('type'=>'article'));
@@ -79,22 +81,7 @@ class Article extends AD_Controller
             $this->load->view('admin/article/article_sort_create.php',$datas);
         }
     }
-    /**
-    $tabledata['head'] = array(
-    array('data'=>'<input type="checkbox" name="admin" value="" />','class'=>'tt','action'=>'dd','width'=>'5%'),
-    array('data'=>'编号','class'=>'tt','width'=>'15%'),
-    array('data'=>'编号2','class'=>'tt','width'=>'15%'),
-    array('data'=>'标题','class'=>'tt','width'=>'35%'),
-    array('data'=>'操作','class'=>'operate','width'=>'30%')
-    );
-    $tabledata['data']= $this->marticle->get_sort();
-    $tabledata['rules']=array(
-    'default_checkbox'=>array('classname'=>'js_recall','name'=>'admin','id'=>'id'),
-    'order'=>array('id','title','pid'),
-    'operate'=>array('look'=>array('url'=>'admin/ad/look_indexad/','id'=>'id'),'modify'=>array('url'=>'admin/ad/modify_indexad/','id'=>'id'),'delete'=>array('url'=>'admin/ad/confirm_to_deleteindexad/','id'=>'id'))
-    );
-    $tabledata['foot']='23232323';
-     */
+
     public function article_sort()
     {
         $this->load->module('/admin/frames/header');

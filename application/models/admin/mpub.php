@@ -56,12 +56,31 @@ class Mpub extends CI_Model {
 		return $result;
 	}
 
-	public function getViewRow($id){
-		$sql = "select a.*,b.title as tname from  article a left join article b on a.pid=b.id where a.type=1 and a.id=".$id;
+	public function getViewRow($table,$id){
+		$sql = "select * from  ".$table."  where id=".$id;
+		//$sql =  "select ft.*,m.account name from member m,  fangtuan ft  where ft.isenable=1 and ft.mid=m.Id ";
 		$query = $this->db->query($sql);
 		//echo $this->db->last_query();
 		return $query->row_array();
 	}
+
+
+	public function get_fangtuan_ViewRow($table,$id){
+		//$sql = "select * from  ".$table."  where id=".$id;
+		$sql =  "select ft.*,m.account name from member m, fangtuan ft  where ft.isenable=1 and ft.mid=m.Id and ft.id=".$id;
+		$query = $this->db->query($sql);
+		//echo $this->db->last_query();
+		return $query->row_array();
+	}
+
+	public function get_fang_ViewRow($table,$id){
+		//$sql = "select * from  ".$table."  where id=".$id;
+		$sql =  "select f.*,m.account name from member m, fang f  where f.isenable=1 and f.mid=m.Id and f.id=".$id;
+		$query = $this->db->query($sql);
+		//echo $this->db->last_query();
+		return $query->row_array();
+	}
+
 	/** 查询数据
 	 * $url 路径
 	 * $uri_segment 分页数是url的第几个
@@ -100,7 +119,11 @@ class Mpub extends CI_Model {
 			$config['cur_tag_open'] = '<li class="curr">';
 			$config['cur_tag_close'] = '</li>';
 			$this->pagination->initialize($config);
-			$data['result'] = $this->mpub->get_article_bypage($table,$fields,$where,$order,$config['per_page'],$this->uri->segment($uri_segment) ? $this->uri->segment($uri_segment) : 0);
+			if($table=="fangtuan"){
+				$data['result'] = $this->mpub->get_fangtuan_bypage($table,$fields,$where,$order,$config['per_page'],$this->uri->segment($uri_segment) ? $this->uri->segment($uri_segment) : 0);
+			}else{
+				$data['result'] = $this->mpub->get_fang_bypage($table,$fields,$where,$order,$config['per_page'],$this->uri->segment($uri_segment) ? $this->uri->segment($uri_segment) : 0);
+			}
 			$data['page'] = $this->pagination->create_links();
 		}
 		else
@@ -125,10 +148,18 @@ class Mpub extends CI_Model {
 	/*
 	 * 获取数据信息
 	 * */
-	public function get_article_bypage($table,$fields="*",$where="",$order="",$perpage,$pageno) {
-		$sql = "select a.*,b.title as tname from  article a left join article b on a.pid=b.id where a.type=1 and a.status = ".$where['status']." order by a.order desc, a.id desc limit ".$pageno.",".$perpage."";
+	public function get_fangtuan_bypage($table,$fields="*",$where="",$order="",$perpage,$pageno) {
+		$sql = "select ft.*,m.account name from member m,  fangtuan ft  where ft.isenable=1 and ft.mid=m.Id  order by createtime desc  limit ".$pageno.",".$perpage."";
 		$query = $this->db->query($sql);
-		//echo $this->db->last_query();
 		return $query->result_array();
 	}
+
+	/*
+	 * 获取数据信息
+	 * */
+	public function get_fang_bypage($table,$fields="*",$where="",$order="",$perpage,$pageno) {
+		$sql = "select f.*,m.account name from fang f,member m  where f.isenable=1 and f.mid=m.Id  order by createtime desc  limit ".$pageno.",".$perpage."";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}	
 }

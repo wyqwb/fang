@@ -1,6 +1,6 @@
 <?php
 if(!defined('BASEPATH')) exit ('No direct script access allowed');
-class Marticle extends CI_Model {
+class Mfangtuan extends CI_Model {
     // private $per_page;
     public $perpage;
     public function __construct()
@@ -89,7 +89,10 @@ class Marticle extends CI_Model {
 	public function get_searchlist_bypage()
     {
         $searchcondition = explode('_',$this->input->post('searchcondition'));
+
+        //print_r($searchcondition);die;
         $searchkey = trim($this->input->post('searchkey'));
+        //print_r($searchkey);die;
         $likearr = array();
         foreach($searchcondition as $row)
         {
@@ -98,15 +101,9 @@ class Marticle extends CI_Model {
                 $likearr[$row] = $searchkey;
             }
         }
-        $wherearr['type'] = 1;
-        $this->db->select('id,order,title,subtitle,published,pid');
-        $this->db->or_like($likearr);
-        $this->db->where($wherearr);
-        $this->db->order_by('order desc,id desc');
-        $query = $this->db->get('article');
-        //echo $this->db->last_query();
+        $sql = "select ft.*,m.account name from member m, fangtuan ft  where ft.isenable=1 and ft.mid=m.Id and ft.title like '%".$searchkey."%' order by createtime desc";
+        $query = $this->db->query($sql);
         return $query->result_array();
-
     }
     
     //$base_url,$total_rows,$uri_segment

@@ -35,10 +35,10 @@ $config['admin_menu']['cn']['left']['ad'][]=array('title'=>'广告中心','type'
     ));
 
 
-$config['admin_menu']['cn']['left']['article'][]=array('title'=>'看房团','type'=>'default',
+$config['admin_menu']['cn']['left']['article'][]=array('title'=>'房产中心','type'=>'default',
     'child'=>array(
-        array('title'=>'看房团列表','action'=>'admin/article/article_lists','type'=>'default','icon'=>'icon_articlelist.png'),
-        // array('title'=>'创建看房团','action'=>'admin/article/article_create','type'=>'default','icon'=>'icon_articlecreate.png'),
+        array('title'=>'看房团列表','action'=>'admin/fangtuan/lists','type'=>'default','icon'=>'icon_articlelist.png'),
+        array('title'=>'房源信息列表','action'=>'admin/fang/lists','type'=>'default','icon'=>'icon_articlelist.png'),
     ));
 
 
