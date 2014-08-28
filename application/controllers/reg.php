@@ -42,10 +42,6 @@ class Reg extends Front_Controller {
 
 	public function act()
 	{
-		//print_r($_REQUEST);die;
-		//$captcha=$_REQUEST['captcha'];
-		//$captcha=$this->input->post('captcha');
-		//print_r($captcha);die;
 		$params=$_REQUEST;
 		$expiration = time()-7200; // 2小时限制
 		$this->db->query("DELETE FROM captcha WHERE captcha_time < ".$expiration); 
@@ -91,26 +87,40 @@ class Reg extends Front_Controller {
 	function docompleteact()
 	{	
 		if($this->session->userdata('islogin')){
-			//$params=$_REQUEST;		
-			//print_r($params);die;
-			//$table = 'member';
-			//$where ="account = '{$params['username']}'";
-			//$result = $this->mpublic->getRow($table,$fields = "",$where);
-			//if(count($result) >1){
-				//print_r($result);die;
-					// $dataInfo = array(
-					// 'mobile'=>$params['mobile'],
-					// 'qq'=>$params['qq'],
-					// 'creer'=>$params['creer'],
-					// 'xueli'=>$params['xueli'],
-					// 'weibo'=>$params['weibo'],
-					// 'createtime'=>date('Y-m-d G:i:s'),
-					// 'isenable'=>1
-					// );
-				//$this->mpublic->update();
-				//exit("1");
-			//}
-			exit("1");
+			$params=$_REQUEST;		
+			$user_id = $this->session->userdata('userid');
+			//print_r($user_id);die;
+			$userinfo=$this->mpublic->getRow("member","",array('Id' => $user_id));
+			// $userinfo=$this->mpublic->getRow("member","id",array('pid'=>$seg));
+			//print_r($userinfo);die;
+			if(count($userinfo) >1){
+				//print_r($userinfo);die;
+					$dataInfo = array(
+					'realname'=>$params['realname'],
+					'idcard'=>$params['idcard'],
+					'city'=>$params['city'],
+					'company'=>$params['company'],
+					'job'=>$params['job'],
+					'createtime'=>date('Y-m-d G:i:s'),
+					'isenable'=>1
+					);
+
+				//处理选填项目内容
+				if(isset($params['otherregstr'])&&$params['otherregstr']!=""){
+					$otherregstr=$params['otherregstr'];
+					$otherregstr=trim($otherregstr,"|");
+					$strarr = explode("|",$otherregstr);
+			    	foreach($strarr as $newstr){
+				        $data = explode("=",$newstr);        
+				        $dataInfo[$data[0]]=$data[1];
+			    	}
+		    	}
+
+
+				$this->mpublic->update('member',$dataInfo,array("Id"=>$user_id));
+				exit("1");
+			}
+			exit("-1");  /*注册失败*/
 		}
 		else{
 			echo "<script>window.location.href='".base_url()."'</script>";

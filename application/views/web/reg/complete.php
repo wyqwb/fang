@@ -61,19 +61,7 @@
                     </div>
                 </div>
             </div>
-
-<!--             <label for="" class="frm_label" select="option">类型</label>
-            
-            <div class="js_top_tab js_organization" style="">
-                <div class="frm_controls" type="enterprise" style="display: block;">
-                    <div class="button_group">
-                        <a class="btn btn_default js_style_type selected" data-type="3" form="govreg" href="javascript:;">
-                            企业</a>
-                    </div>
-                </div>
-
-            </div> -->
-            
+        
             <div class="js_top_tab js_personal" style="display: none;">
                 <div class="frm_controls" type="enterprise" style="display: block;">
                     <div class="button_group">
@@ -92,7 +80,7 @@
                 <label for="" class="frm_label">身份证姓名</label>
                 <div class="frm_controls">
                     <span class="frm_input_box">
-                        <input id="name" onblur="chkname()" type="text" placeholder="" class="frm_input">
+                        <input id="name"  type="text" placeholder="" class="frm_input">
                     </span>
                     <p class="frm_tips">如果名字包含分隔号“·”，请勿省略。</p>
                 </div>
@@ -102,7 +90,7 @@
                               <label for="" class="frm_label">身份证号码</label>
                               <div class="frm_controls">
                     <span class="frm_input_box">
-                        <input id="identity_card"  onblur="checkEnergyCard()" value="" type="text" placeholder="" class="frm_input">
+                        <input id="identity_card"  value="" type="text" placeholder="" class="frm_input">
                     </span>
                     <p class="frm_tips">请输入您的身份证号码</p>
                 </div>
@@ -197,7 +185,8 @@
                         <option>其它</option>
                     </select>
                     <select id="city" name="city" class="input w130">
-                      <option>城市</option>
+                      <option></option>
+                      <option>请选择城市</option>
                     </select>
                 </div>
                     <p class="frm_tips">选择您所在地</p>
@@ -271,9 +260,6 @@
     </div>
 <script type="text/javascript">
 
-
-
-
 //----------------------------------
 try{  
     var sf=new Array();  
@@ -345,9 +331,7 @@ function chkfiled(){
     }
     var m =  $("#name").val().match(/^[\u4e00-\u9fa5]{2,6}$/i);    
     if(!m){ alert('请输入汉字姓名');return false;}
-    else { return true;}
-
-
+    
     var city = $("#city").val();
     if(city==""){
         alert("城市不能为空");
@@ -356,22 +340,17 @@ function chkfiled(){
 
     var company = $("#company").val();
     if(company==""){
-        alert("城市不能为空");
+        alert("单位名称不能为空");
         return false;
     }
 
     var job = $("#job").val();
     if(job==""){
-        alert("城市不能为空");
+        alert("职务不能为空");
         return false;
     }
 
-    //选填项
-    var otherregstr="";
-    if($("#personal_location").val()!=""){otherregstr+="|personal_location="+$("#personal_location").val()}            
-    if($("#company_location").val()!=""){otherregstr+="|company_location="+$("#company_location").val()}
-    if(otherregstr!="")otherregstr+="|";
-
+    return true;
 }
 
  //--------------------------------------------------------
@@ -394,7 +373,7 @@ function checkEnergyCard(){
         return false;
      }
      //检查省份
-     else if(checkProvince(allowancePersonValue) === false)
+     else if(checkProvince(identity_card) === false)
      {
         alert("您输入的身份证号码不正确,请重新输入");
         //$("#allowancePersonIDTips").addClass("aTip");
@@ -403,7 +382,7 @@ function checkEnergyCard(){
      }
  
      //校验生日
-     else if(checkBirthday(allowancePersonValue) === false)
+     else if(checkBirthday(identity_card) === false)
      {
         alert("您输入的身份证号码生日不正确,请重新输入");
         //$("#allowancePersonIDTips").addClass("aTip");
@@ -411,7 +390,7 @@ function checkEnergyCard(){
         return false;
      }
      //检验位的检测
-     else if(checkParity(allowancePersonValue) === false)
+     else if(checkParity(identity_card) === false)
      {
         alert("您的身份证校验位不正确,请重新输入");
         //$("#allowancePersonIDTips").addClass("aTip");
@@ -544,7 +523,40 @@ function changeFivteenToEighteen(card){
 function dogoon(){
     if(chkfiled()){
         if(checkEnergyCard()){
-           alert("goon");
+
+        //必填项    
+        var realname=$("#name").val();
+        var idcard=$("#identity_card").val();
+        var city = $("#city").val();
+        var company = $("#company").val();
+        var job = $("#job").val();
+        //选填项
+        var otherregstr="";
+        if($("#personal_location").val()!=""){otherregstr+="|personal_location="+$("#personal_location").val()}            
+        if($("#company_location").val()!=""){otherregstr+="|company_location="+$("#company_location").val()}
+        if(otherregstr!="")otherregstr+="|";
+
+        var resault = $.ajax({
+                url: "/reg/docompleteact/",
+                data: {
+                    'realname': realname,
+                    'idcard': idcard,
+                    'city': city,
+                    'company': company,
+                    'job': job,
+                    'otherregstr':otherregstr
+                },
+                async: false,
+                type: 'post'
+        });
+        alert(resault.responseText)  ;  
+        if (resault.responseText == "-1") {
+                alert("注册失败，请重新完成");
+                return false;
+            }
+            if (resault.responseText == "1") {
+                window.location.href = '/member/';
+            }
         }
     }
 }
