@@ -10,8 +10,7 @@
         <link rel="stylesheet" href="/css/page_register1ef84c.css">
         <link rel="stylesheet" href="/css/upload1f8f05.css">
         <script type="text/javascript" src="/javascript/jquery.js"></script>
-<!-- <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/c/=/mpres/htmledition/style/widget/datepicker1ec663.css,/mpres/htmledition/style/biz_web/widget/dropdown1fb191.css,/mpres/htmledition/style/widget/verifycode1ec5f7.css,/mpres/htmledition/style/widget/processor_bar1ec663.css" /> -->
- 
+        <script type="text/javascript" src="/javascript/jquery.form.min.js"></script>
     </head>
     <body class="zh_CN">
         <div class="head" id="header">
@@ -72,10 +71,7 @@
             </div>
         </div>
         <div class="upload_tips_block" id="register_form">
-
-        <!-- <form action="/member/" class="form" id="personreg" novalidate="novalidate"> -->
-        <fieldset class="frm_fieldset no_legend">
-          
+        <fieldset class="frm_fieldset no_legend">          
             <div class="frm_control_group">
                 <label for="" class="frm_label">身份证姓名</label>
                 <div class="frm_controls">
@@ -107,17 +103,32 @@
                         身份证上的所有信息清晰可见，必须能看清证件号。<br>
                         照片需免冠，建议未化妆，手持证件人的五官清晰可见。<br>
                         照片内容真实有效，不得做任何修改。<br>
-                        支持.jpg .jpeg .bmp .gif格式照片，大小不超过2M。                        </p>
-                        <span class="upload_area">
-                         <!-- <input type="file" class='text' data-container="body" data-trigger="focus" data-placement="right" data-content="预览图"  name="homeimg1" value="" /> -->
-
-                            <a href="javascript:;" id="idcard_copy_id" class="btn btn_upload js_select_file" width="106" height="32">选择文件</a>
-                        <ul class="upload_file_box" style="display: none;"></ul><object type="application/x-shockwave-flash" data="/images/uploadify1f0e45.swf" width="100%" height="100%" id="idcard_copy_idUploader" style="zoom: 0;"><param name="quality" value="high"><param name="wmode" value="opaque"><param name="allowScriptAccess" value="always"><param name="flashvars" value="uploadifyID=idcard_copy_id&amp;pagepath=/acct/&amp;script=https%3A%2F%2Fmp.weixin.qq.com%2Fcgi-bin%2Ffiletransfer%3Faction%3Dpreview%26f%3Djson%26ticket_id%3Dgh_73829e0b4a76%26ticket%3Dc0ad60c9d29e75490dcc8e5fdbf3606076125ce0%26token%3D%26lang%3Dzh_CN&amp;folder=uploads&amp;width=106&amp;height=32&amp;wmode=opaque&amp;method=POST&amp;queueSizeLimit=5&amp;simUploadLimit=1&amp;hideButton=true&amp;auto=true&amp;fileDataName=file&amp;queueID=fileQueue"></object></span>
-                        <div>
-                         </div>
-                        <p id="idcard_copy_id_preview" class="upload_preview">
-                            
+                        支持.jpg .jpeg .bmp .gif格式照片，大小不超过2M。
                         </p>
+                        <span class="upload_area">
+                        <!-- <form action="/member/" class="form"  method="post"  enctype="multipart/form-data">                                 -->
+                                <!-- <input type="file" class="btn btn_upload" style="width:150px" onchange="checkImage()"  name="user_card_img" value="用户身份证" /> -->
+                                <!-- <a href="javascript:;" id="idcard_copy_id" class="btn btn_upload js_select_file" width="106" height="32">选择文件</a> -->
+                                <!-- <ul class="upload_file_box" style="display: none;"></ul> -->
+<!--                                 <object type="application/x-shockwave-flash" data="/images/uploadify1f0e45.swf" width="100%" height="100%" id="idcard_copy_idUploader" style="zoom: 0;">
+                                <param name="quality" value="high">
+                                <param name="wmode" value="opaque">
+                                <param name="allowScriptAccess" value="always">
+                                <param name="flashvars" value="uploadifyID=idcard_copy_id&amp;pagepath=/acct/&amp;script=https%3A%2F%2Fmp.weixin.qq.com%2Fcgi-bin%2Ffiletransfer%3Faction%3Dpreview%26f%3Djson%26ticket_id%3Dgh_73829e0b4a76%26ticket%3Dc0ad60c9d29e75490dcc8e5fdbf3606076125ce0%26token%3D%26lang%3Dzh_CN&amp;folder=uploads&amp;width=106&amp;height=32&amp;wmode=opaque&amp;method=POST&amp;queueSizeLimit=5&amp;simUploadLimit=1&amp;hideButton=true&amp;auto=true&amp;fileDataName=file&amp;queueID=fileQueue">
+                                </object> -->
+                        <!-- </form>  -->
+
+                        <form method="post" action="" enctype="multipart/form-data">
+                        
+                        <input type="button" value="上传身份证" class="btn btn_upload" onClick="t_file.click()">
+                        <input type="file"  name="upload" id="t_file" onchange="f_file.value=this.value" style="display:none">
+                       <input type="text" class="btn btn_upload" id="f_file">
+                        <!-- <input type="submit"> -->
+                        </form>
+
+                        </span>
+                        <!-- <div></div> -->
+                        <!-- <p id="idcard_copy_id_preview" class="upload_preview"></p> -->
                     </div>
                 </div>
             </div>           
