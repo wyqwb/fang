@@ -214,7 +214,7 @@ class Mpublic extends CI_Model {
 	 */
 	public function update($table,$data,$where){
 		$result = $this->db->update($table,$data,$where);
-		log_message("debug","---***--->data:".$data."where:".$where);
+		// log_message("debug","---***--->data:".$data."where:".$where);
 		return $result;
 	}
 	

@@ -146,7 +146,7 @@ class Marticle extends CI_Model {
 
     public function get_sort()
     {
-        $this->db->select('id,pid,title,order,subtitle,published,type');
+        $this->db->select('id,pid,title,order,type');
         $this->db->where(array('type'=>0));
         $query = $this->db->get('article');
         $arr = $query->result_array();
@@ -155,8 +155,9 @@ class Marticle extends CI_Model {
 
     public function get_sort_tree($default_id=false)
     {
+       // print_r("expression");die;
         $arr = $this->get_sort();
-        //print_r($arr);
+       // print_r($arr);die;
        // exit;
         $this->recursivejson->initialize(array('data'=>$arr,'returntype'=>'array'));
         $outarr = $this->recursivejson->recursiveout();

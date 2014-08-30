@@ -10,8 +10,7 @@
         <link rel="stylesheet" href="/css/page_register1ef84c.css">
         <link rel="stylesheet" href="/css/upload1f8f05.css">
         <script type="text/javascript" src="/javascript/jquery.js"></script>
-<!-- <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/c/=/mpres/htmledition/style/widget/datepicker1ec663.css,/mpres/htmledition/style/biz_web/widget/dropdown1fb191.css,/mpres/htmledition/style/widget/verifycode1ec5f7.css,/mpres/htmledition/style/widget/processor_bar1ec663.css" /> -->
- 
+        <script type="text/javascript" src="/javascript/jquery.form.min.js"></script>
     </head>
     <body class="zh_CN">
         <div class="head" id="header">
@@ -61,19 +60,7 @@
                     </div>
                 </div>
             </div>
-
-<!--             <label for="" class="frm_label" select="option">类型</label>
-            
-            <div class="js_top_tab js_organization" style="">
-                <div class="frm_controls" type="enterprise" style="display: block;">
-                    <div class="button_group">
-                        <a class="btn btn_default js_style_type selected" data-type="3" form="govreg" href="javascript:;">
-                            企业</a>
-                    </div>
-                </div>
-
-            </div> -->
-            
+        
             <div class="js_top_tab js_personal" style="display: none;">
                 <div class="frm_controls" type="enterprise" style="display: block;">
                     <div class="button_group">
@@ -84,15 +71,12 @@
             </div>
         </div>
         <div class="upload_tips_block" id="register_form">
-
-        <!-- <form action="/member/" class="form" id="personreg" novalidate="novalidate"> -->
-        <fieldset class="frm_fieldset no_legend">
-          
+        <fieldset class="frm_fieldset no_legend">          
             <div class="frm_control_group">
                 <label for="" class="frm_label">身份证姓名</label>
                 <div class="frm_controls">
                     <span class="frm_input_box">
-                        <input id="name" onblur="chkname()" type="text" placeholder="" class="frm_input">
+                        <input id="name"  type="text" placeholder="" class="frm_input">
                     </span>
                     <p class="frm_tips">如果名字包含分隔号“·”，请勿省略。</p>
                 </div>
@@ -102,7 +86,7 @@
                               <label for="" class="frm_label">身份证号码</label>
                               <div class="frm_controls">
                     <span class="frm_input_box">
-                        <input id="identity_card"  onblur="checkEnergyCard()" value="" type="text" placeholder="" class="frm_input">
+                        <input id="identity_card"  value="" type="text" placeholder="" class="frm_input">
                     </span>
                     <p class="frm_tips">请输入您的身份证号码</p>
                 </div>
@@ -119,17 +103,32 @@
                         身份证上的所有信息清晰可见，必须能看清证件号。<br>
                         照片需免冠，建议未化妆，手持证件人的五官清晰可见。<br>
                         照片内容真实有效，不得做任何修改。<br>
-                        支持.jpg .jpeg .bmp .gif格式照片，大小不超过2M。                        </p>
-                        <span class="upload_area">
-                         <!-- <input type="file" class='text' data-container="body" data-trigger="focus" data-placement="right" data-content="预览图"  name="homeimg1" value="" /> -->
-
-                            <a href="javascript:;" id="idcard_copy_id" class="btn btn_upload js_select_file" width="106" height="32">选择文件</a>
-                        <ul class="upload_file_box" style="display: none;"></ul><object type="application/x-shockwave-flash" data="/images/uploadify1f0e45.swf" width="100%" height="100%" id="idcard_copy_idUploader" style="zoom: 0;"><param name="quality" value="high"><param name="wmode" value="opaque"><param name="allowScriptAccess" value="always"><param name="flashvars" value="uploadifyID=idcard_copy_id&amp;pagepath=/acct/&amp;script=https%3A%2F%2Fmp.weixin.qq.com%2Fcgi-bin%2Ffiletransfer%3Faction%3Dpreview%26f%3Djson%26ticket_id%3Dgh_73829e0b4a76%26ticket%3Dc0ad60c9d29e75490dcc8e5fdbf3606076125ce0%26token%3D%26lang%3Dzh_CN&amp;folder=uploads&amp;width=106&amp;height=32&amp;wmode=opaque&amp;method=POST&amp;queueSizeLimit=5&amp;simUploadLimit=1&amp;hideButton=true&amp;auto=true&amp;fileDataName=file&amp;queueID=fileQueue"></object></span>
-                        <div>
-                         </div>
-                        <p id="idcard_copy_id_preview" class="upload_preview">
-                            
+                        支持.jpg .jpeg .bmp .gif格式照片，大小不超过2M。
                         </p>
+                        <span class="upload_area">
+                        <!-- <form action="/member/" class="form"  method="post"  enctype="multipart/form-data">                                 -->
+                                <!-- <input type="file" class="btn btn_upload" style="width:150px" onchange="checkImage()"  name="user_card_img" value="用户身份证" /> -->
+                                <!-- <a href="javascript:;" id="idcard_copy_id" class="btn btn_upload js_select_file" width="106" height="32">选择文件</a> -->
+                                <!-- <ul class="upload_file_box" style="display: none;"></ul> -->
+<!--                                 <object type="application/x-shockwave-flash" data="/images/uploadify1f0e45.swf" width="100%" height="100%" id="idcard_copy_idUploader" style="zoom: 0;">
+                                <param name="quality" value="high">
+                                <param name="wmode" value="opaque">
+                                <param name="allowScriptAccess" value="always">
+                                <param name="flashvars" value="uploadifyID=idcard_copy_id&amp;pagepath=/acct/&amp;script=https%3A%2F%2Fmp.weixin.qq.com%2Fcgi-bin%2Ffiletransfer%3Faction%3Dpreview%26f%3Djson%26ticket_id%3Dgh_73829e0b4a76%26ticket%3Dc0ad60c9d29e75490dcc8e5fdbf3606076125ce0%26token%3D%26lang%3Dzh_CN&amp;folder=uploads&amp;width=106&amp;height=32&amp;wmode=opaque&amp;method=POST&amp;queueSizeLimit=5&amp;simUploadLimit=1&amp;hideButton=true&amp;auto=true&amp;fileDataName=file&amp;queueID=fileQueue">
+                                </object> -->
+                        <!-- </form>  -->
+
+                        <form method="post" action="" enctype="multipart/form-data">
+                        
+                        <input type="button" value="上传身份证" class="btn btn_upload" onClick="t_file.click()">
+                        <input type="file"  name="upload" id="t_file" onchange="f_file.value=this.value" style="display:none">
+                       <input type="text" class="btn btn_upload" id="f_file">
+                        <!-- <input type="submit"> -->
+                        </form>
+
+                        </span>
+                        <!-- <div></div> -->
+                        <!-- <p id="idcard_copy_id_preview" class="upload_preview"></p> -->
                     </div>
                 </div>
             </div>           
@@ -197,7 +196,8 @@
                         <option>其它</option>
                     </select>
                     <select id="city" name="city" class="input w130">
-                      <option>城市</option>
+                      <option></option>
+                      <option>请选择城市</option>
                     </select>
                 </div>
                     <p class="frm_tips">选择您所在地</p>
@@ -271,9 +271,6 @@
     </div>
 <script type="text/javascript">
 
-
-
-
 //----------------------------------
 try{  
     var sf=new Array();  
@@ -345,9 +342,7 @@ function chkfiled(){
     }
     var m =  $("#name").val().match(/^[\u4e00-\u9fa5]{2,6}$/i);    
     if(!m){ alert('请输入汉字姓名');return false;}
-    else { return true;}
-
-
+    
     var city = $("#city").val();
     if(city==""){
         alert("城市不能为空");
@@ -356,22 +351,17 @@ function chkfiled(){
 
     var company = $("#company").val();
     if(company==""){
-        alert("城市不能为空");
+        alert("单位名称不能为空");
         return false;
     }
 
     var job = $("#job").val();
     if(job==""){
-        alert("城市不能为空");
+        alert("职务不能为空");
         return false;
     }
 
-    //选填项
-    var otherregstr="";
-    if($("#personal_location").val()!=""){otherregstr+="|personal_location="+$("#personal_location").val()}            
-    if($("#company_location").val()!=""){otherregstr+="|company_location="+$("#company_location").val()}
-    if(otherregstr!="")otherregstr+="|";
-
+    return true;
 }
 
  //--------------------------------------------------------
@@ -394,7 +384,7 @@ function checkEnergyCard(){
         return false;
      }
      //检查省份
-     else if(checkProvince(allowancePersonValue) === false)
+     else if(checkProvince(identity_card) === false)
      {
         alert("您输入的身份证号码不正确,请重新输入");
         //$("#allowancePersonIDTips").addClass("aTip");
@@ -403,7 +393,7 @@ function checkEnergyCard(){
      }
  
      //校验生日
-     else if(checkBirthday(allowancePersonValue) === false)
+     else if(checkBirthday(identity_card) === false)
      {
         alert("您输入的身份证号码生日不正确,请重新输入");
         //$("#allowancePersonIDTips").addClass("aTip");
@@ -411,7 +401,7 @@ function checkEnergyCard(){
         return false;
      }
      //检验位的检测
-     else if(checkParity(allowancePersonValue) === false)
+     else if(checkParity(identity_card) === false)
      {
         alert("您的身份证校验位不正确,请重新输入");
         //$("#allowancePersonIDTips").addClass("aTip");
@@ -544,7 +534,40 @@ function changeFivteenToEighteen(card){
 function dogoon(){
     if(chkfiled()){
         if(checkEnergyCard()){
-           alert("goon");
+
+        //必填项    
+        var realname=$("#name").val();
+        var idcard=$("#identity_card").val();
+        var city = $("#city").val();
+        var company = $("#company").val();
+        var job = $("#job").val();
+        //选填项
+        var otherregstr="";
+        if($("#personal_location").val()!=""){otherregstr+="|personal_location="+$("#personal_location").val()}            
+        if($("#company_location").val()!=""){otherregstr+="|company_location="+$("#company_location").val()}
+        if(otherregstr!="")otherregstr+="|";
+
+        var resault = $.ajax({
+                url: "/reg/docompleteact/",
+                data: {
+                    'realname': realname,
+                    'idcard': idcard,
+                    'city': city,
+                    'company': company,
+                    'job': job,
+                    'otherregstr':otherregstr
+                },
+                async: false,
+                type: 'post'
+        });
+        alert(resault.responseText)  ;  
+        if (resault.responseText == "-1") {
+                alert("注册失败，请重新完成");
+                return false;
+            }
+            if (resault.responseText == "1") {
+                window.location.href = '/member/';
+            }
         }
     }
 }
