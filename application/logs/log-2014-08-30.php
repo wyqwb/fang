@@ -221,3 +221,39 @@ ERROR - 2014-08-30 10:15:43 --> Severity: Notice  --> Undefined variable: page D
 ERROR - 2014-08-30 10:16:11 --> Severity: Notice  --> Undefined variable: product D:\AMP\WEB\ROOT\FANG\application\views\web\member\index.php 25
 ERROR - 2014-08-30 10:16:11 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\WEB\ROOT\FANG\application\views\web\member\index.php 25
 ERROR - 2014-08-30 10:16:11 --> Severity: Notice  --> Undefined variable: page D:\AMP\WEB\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-08-30 10:19:33 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
+ERROR - 2014-08-30 10:19:33 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:19:33 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:19:35 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
+ERROR - 2014-08-30 10:19:35 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:19:35 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:19:36 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
+ERROR - 2014-08-30 10:19:36 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:19:36 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:19:37 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
+ERROR - 2014-08-30 10:19:37 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:19:37 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:19:38 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
+ERROR - 2014-08-30 10:19:38 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:19:38 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:19:38 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
+ERROR - 2014-08-30 10:19:38 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:19:38 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:20:10 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-08-30 10:20:10 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-08-30 10:20:10 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-08-30 10:20:10 --> 404 Page Not Found --> images
+ERROR - 2014-08-30 10:20:14 --> 404 Page Not Found --> images
+ERROR - 2014-08-30 10:20:27 --> 404 Page Not Found --> images
+ERROR - 2014-08-30 10:21:19 --> 404 Page Not Found --> images
+ERROR - 2014-08-30 10:21:24 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
+ERROR - 2014-08-30 10:21:33 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:21:33 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:21:33 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:21:33 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:21:36 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
+ERROR - 2014-08-30 10:21:36 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:21:36 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:23:48 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
+ERROR - 2014-08-30 10:23:48 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:23:48 --> 404 Page Not Found --> javascript

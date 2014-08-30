@@ -325,7 +325,7 @@ function dogoon(){
                 async: false,
                 type: 'post'
         });
-        alert(resault.responseText)  ;  
+        //alert(resault.responseText)  ;  
         if (resault.responseText == "-1") {
                 alert("注册失败，请重新完成");
                 return false;
