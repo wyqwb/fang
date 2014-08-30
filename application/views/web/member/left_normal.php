@@ -3,8 +3,10 @@
             <div class="sideNav">
                 <div class="bd">
                     <dl class="J_nav">
-                        <dt><a><b class="icon-logo"></b>房产专区</a></dt>
+                        <dt><a><b class="icon-logo"></b>综合专区</a></dt>
                         <dd><a href="<?php echo base_url();?>member/fang/">我参与的看房团</a></dd>
+                        <dd><a href="<?php echo base_url();?>member/forcost/">我参与的出价</a></dd>
+                        <dd><a href="<?php echo base_url();?>member/pinlun/">我发布的评论</a></dd>
                     </dl> 
                     <dl class="J_nav">
                         <dt><a><b class="icon-user"></b>个人信息</a></dt>

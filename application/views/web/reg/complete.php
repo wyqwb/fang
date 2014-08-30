@@ -550,6 +550,7 @@ function dogoon(){
         var resault = $.ajax({
                 url: "/reg/docompleteact/",
                 data: {
+                    'accountype':'business',
                     'realname': realname,
                     'idcard': idcard,
                     'city': city,

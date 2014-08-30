@@ -89,12 +89,9 @@ class Reg extends Front_Controller {
 		if($this->session->userdata('islogin')){
 			$params=$_REQUEST;		
 			$user_id = $this->session->userdata('userid');
-			//print_r($user_id);die;
 			$userinfo=$this->mpublic->getRow("member","",array('Id' => $user_id));
-			// $userinfo=$this->mpublic->getRow("member","id",array('pid'=>$seg));
-			//print_r($userinfo);die;
 			if(count($userinfo) >1){
-				//print_r($userinfo);die;
+				if(isset($params['accountype'])&&($params['accountype']=='business')){
 					$dataInfo = array(
 					'realname'=>$params['realname'],
 					'idcard'=>$params['idcard'],
@@ -104,7 +101,12 @@ class Reg extends Front_Controller {
 					'createtime'=>date('Y-m-d G:i:s'),
 					'isenable'=>1
 					);
-
+				}else{
+					$dataInfo = array(
+					'createtime'=>date('Y-m-d G:i:s'),
+					'isenable'=>1
+					);
+				}	
 				//处理选填项目内容
 				if(isset($params['otherregstr'])&&$params['otherregstr']!=""){
 					$otherregstr=$params['otherregstr'];
@@ -115,8 +117,6 @@ class Reg extends Front_Controller {
 				        $dataInfo[$data[0]]=$data[1];
 			    	}
 		    	}
-
-
 				$this->mpublic->update('member',$dataInfo,array("Id"=>$user_id));
 				exit("1");
 			}
@@ -133,8 +133,12 @@ class Reg extends Front_Controller {
 	function docomplete(){
 		$seg = $this->uri->segment(3);
 		$data["username"]=get_cookie("username");
-		$data["accoutype"]=$seg;
-		$this->load->view('web/reg/complete.php',$data);	
+		if($seg=="business"){
+			$data["accoutype"]=$seg;
+			$this->load->view('web/reg/complete.php',$data);	
+		}else{
+			$this->load->view('web/reg/normal_complete.php',$data);		
+		}
 	}
 
 
