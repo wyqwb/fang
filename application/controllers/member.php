@@ -152,9 +152,10 @@ class Member extends FrontMember_Controller {
 		//$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
 
 		//获取创建或修改开关变量值
+
 		$fang_tuan_create=$this->session->userdata('fangtuancreate')?$this->session->userdata('fangtuancreate'):0;
 		$fang_tuan_modif=$this->session->userdata('fangtuanmodif')?$this->session->userdata('fangtuanmodif'):0;
-    
+
 		if ($this->input->post('sub')) {
 			$params=$_REQUEST;
 			$postdata = array(
@@ -169,6 +170,24 @@ class Member extends FrontMember_Controller {
 					'displayCost'=>$params['displayCost'],
 					'createtime'=>date('Y-m-d G:i:s')
 			);
+            $config['upload_path'] = FCPATH.'uploads/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size'] = '20000';
+            $config['max_width']  = '1500';
+            $config['max_height']  = '502';
+            $config['overwrite'] = FALSE;
+            $config['encrypt_name'] = TRUE;
+            $this->load->library('upload',$config);
+            //第1张图
+            if(!empty($_FILES['tuanimg']['name'])){
+                if($this->upload->do_upload('tuanimg'))
+                {
+                    $str = $this->upload->data();
+                    $previewimg = $str['file_name'];
+                    $postdata['previewimg'] = $previewimg;
+                }
+            }
+
 
             if($fang_tuan_modif==1){
 	        	//设置防止刷新重复提交开关
@@ -178,7 +197,7 @@ class Member extends FrontMember_Controller {
             }
             if($fang_tuan_create==1){
 	        	//设置防止刷新重复提交开关
-				$this->session->set_userdata(array('fangcreate'=>0));
+				$this->session->set_userdata(array('fangtuancreate'=>0));
 				$this->db->insert('fangtuan', $postdata);
             }	 	
 		 }
@@ -238,6 +257,9 @@ class Member extends FrontMember_Controller {
             $postdata['landarea']= $this->input->post('landarea');
             $postdata['bedrooms'] = $this->input->post('bedrooms');
             $postdata['toilets'] = $this->input->post('toilets');
+            $postdata['floor'] = $this->input->post('floor');
+            $postdata['pgreen'] = $this->input->post('pgreen');
+            $postdata['nearby'] = $this->input->post('nearby');
             $postdata['housetype']= $this->input->post('housetype');
             $postdata['displayprice'] = $this->input->post('displayprice');
             $postdata['desc'] = $this->input->post('desc');

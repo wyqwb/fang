@@ -140,7 +140,7 @@
 			<!-- 图片切换 -->
 			<div class="m-pic-scroll">
 			<div class="wrapper" >	
-			<div id="focus" style="padding-bottom:30px;">
+			<div id="focus" style="padding-bottom:30px;text-align: center;background-color: #30b9e7;">
 				<ul>
 				<?php 
 				if($ads!=""){
@@ -290,9 +290,14 @@
             	?> 	
 				<div class="g-m4">
 					<div class="coment">
-						<span class="top">赞</span>
-						<a href="/comments/?fangid=<?php echo $value['id']?>"><span class="say"><img src="<?php echo WEB_IMAGES_PATH?>share.png?>" ></span></a>
-						<img src="<?php  echo WEB_IMAGES_PATH?>m4img.jpg" alt="" class="m4-img">
+						<a href="#"><span class="top">赞</span></a>
+						
+						<span class="say">
+
+						<a target="_blank" href="http://s.share.baidu.com/mshare?click=1&url=http%3A%2F%2F<?php echo $shareurl?>%2F&uid=0&to=mshare&type=text&pic=&title=%E9%A6%96%E9%A1%B5&key=&desc=&comment=&relateUid=&searchPic=0&sign=on&l=190ll2tau190ll2ua6190ll33sm&linkid=hzi5n1em9m0&firstime=1409476035549" >
+
+						<img src="<?php echo WEB_IMAGES_PATH?>share.png?>" ></span></a>
+						<img src="<?php  echo WEB_IMAGES_PATH?>m4img.jpg" alt="" class="m4-img"></a>
 					</div>
 					<div class="details">
 						<p><span class="title"><?php echo $value['title']?></span></p>
@@ -302,13 +307,13 @@
 						    <span class="comments">22</span>
 					    </p>
 						<p>
-							<?php echo $value['content']?>
+							<?php echo mb_strcut($value['desc'], 0, 500, 'utf-8');?>
 						</p>
 						<p>
-							<span class="btn-gray g-wh3"><a href="/fang/?fangid=<?php echo $value['id']?>">查看详情</a></span>
+							<span class="btn-gray g-wh3"><a href="/fang/detail/<?php echo $value['id']?>">查看详情</a></span>
 							<span class="btn-gray g-wh3"><a href="/jia/?fangid=<?php echo $value['id']?>">我要出价</a></span>
-							<span class="btn-gray g-wh3"><a href="/tuan/?fangid=<?php echo $value['id']?>">看房团</a></span>
-							<span class="btn-gray g-wh3"><a href="/yim/?fangid=<?php echo $value['id']?>">移民优势</a></span>
+							<span class="btn-gray g-wh3"><a href="/fang/tuandetail/<?php echo $value['tuanid']?>">看房团</a></span>
+							<span class="btn-gray g-wh3"><a href="/fang/tuandetail/<?php echo $value['tuanid']?>">移民优势</a></span>
 							<div class="clear"></div>
 						</p>
 					</div>
@@ -320,7 +325,7 @@
 			</div>
 			<!-- 主体中部右侧 -->
 			<div class="g-mid-right">	
-				<div class="g-item-l">
+<!-- 				<div class="g-item-l">
 					<h2>分类标签</h2>
 					<ul class="list1">
 						<li><a href="">标识设计</a></li>
@@ -329,8 +334,8 @@
 						<li><a href="">快速文档</a></li>
 						<li><a href="">图标</a></li>
 					</ul>
-				</div>
-				<div class="g-item-l">
+				</div> -->
+<!-- 				<div class="g-item-l">
 					<h2>分类标签</h2>
 					<ul class="list2">
 						<li><a href="">标识设计</a><br>
@@ -346,7 +351,7 @@
 							<span>25 5,2013</span>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 				<div class="g-item-l">
 					<h2>标签</h2>
 					<ul class="list3">
@@ -364,14 +369,14 @@
 					</ul>
 					<div class="clear"></div>
 				</div>
-				<div class="g-item-l">
+<!-- 				<div class="g-item-l">
 					<h2>归档</h2>
 					<ul class="list4">
 						<li><a href="">2013</a></li>
 						<li><a href="">2012</a></li>
 						<li><a href="">2011</a></li>
 					</ul>
-				</div>
+				</div> -->
 				<div class="g-item-l">	
 					<div class="m-banner">banner广告</div>
 					<div class="m-banner">banner广告</div>
@@ -404,4 +409,4 @@
 			</div>
 			
 
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"2","bdPos":"right","bdTop":"100.5"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"2","bdPos":"right","bdTop":"100.5"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->

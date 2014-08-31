@@ -1,6 +1,6 @@
 <?php
 if(!defined('BASEPATH')) exit ('No direct script access allowed');
-class Marticle extends CI_Model {
+class Mfang extends CI_Model {
     // private $per_page;
     // public $perpage;
     public function __construct()
@@ -11,14 +11,14 @@ class Marticle extends CI_Model {
 
     public function get_record_by_typeid($id)
     {
-        $sql = "SELECT `id`,`previewimg`,`title`,`content` FROM `article` WHERE pid = $id";
+        $sql = "SELECT * FROM `fang` WHERE pid = $id";
         $query = $this->db->query($sql);        
         return $query->result_array();
     }
 
     public function get_fang_by_default()
     {
-        $sql = "SELECT `id`,`previewimg`,`title`,`content` FROM `article` where pid=1 and `order`=0 order by createtime  desc limit 10";
+        $sql = "SELECT * FROM `fang`   order by createtime  desc limit 10";
         $query = $this->db->query($sql);        
         return $query->result_array();
     }
@@ -26,7 +26,7 @@ class Marticle extends CI_Model {
 
     public function get_top_default()
     {
-        $sql = "SELECT `id`,`previewimg`,`title`,`content` FROM `article` where pid=1 and `order`!= 0 order by `order` limit 3 ";
+        $sql = "SELECT * FROM `fang`   order by `createtime` limit 10 ";
         $query = $this->db->query($sql);        
         return $query->result_array();
     }

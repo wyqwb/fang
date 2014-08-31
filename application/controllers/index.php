@@ -8,6 +8,7 @@ class Index extends Front_Controller {
 	{
 		parent::__construct();
 		$this->load->model('web/marticle');
+		$this->load->model('web/mfang');
 		$this->load->model('web/mad');
 		$this->load->model('web/mpublic');
 		if (!isset($this->session)) $this->load->library('session');
@@ -19,8 +20,11 @@ class Index extends Front_Controller {
 	{
 		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
-		$data['toplist']=$this->marticle->get_top_default();
-		$data['list2']=$this->marticle->get_fang_by_default();
+		
+		$data['shareurl']=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+		$data['toplist']=$this->mfang->get_top_default();
+		$data['list2']=$this->marticle->get_fang_by_default();		
+
 		$ads=$this->mad->get_index_ad();
 		if(count($ads)!=0){
 			$data['ads']=$ads;	

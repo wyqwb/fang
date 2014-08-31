@@ -52,7 +52,7 @@
                                 <input class="text"  name="landarea" type="text"  value="<?php if (isset($fang['landarea'])) {echo $fang['landarea'];}?>"   datatype="n" nullmsg="土地面积：" errormsg="" />
                                 </td>
                                 <td><div class="Validform_checktip">单位：平方米</div></td>                                
-                            </tr> 
+                            </tr>
                             <tr>
                                 <td class="tit">卧室数量：</td>
 				                <td class="input">
@@ -66,7 +66,31 @@
                                 <input class="text"  name="toilets" type="text"  value="<?php if (isset($fang['toilets'])) {echo $fang['toilets'];}?>"   datatype="n"  datatype="n" nullmsg="卫生间数量："/>
                                 </td>
                                 <td><div class="Validform_checktip">单位：个</div></td>                                
+                            </tr>
+                            <tr>
+                                <td class="tit">楼层：</td>
+                                <td class="input">
+                                <input class="text"  name="floor" type="text"  value="<?php if (isset($fang['floor'])) {echo $fang['floor'];}?>"   datatype="n" nullmsg="楼层：" errormsg="" />
+                                </td>
+                                <td><div class="Validform_checktip">单位：层</div></td>                                
                             </tr> 
+
+                            <tr>
+                                <td class="tit">绿化率：</td>
+                                <td class="input">
+                                <input class="text"  name="pgreen" type="text"  value="<?php if (isset($fang['pgreen'])) {echo $fang['pgreen'];}?>"   datatype="n" nullmsg="楼层：" errormsg="" />
+                                </td>
+                                <td><div class="Validform_checktip">单位：%</div></td>                                
+                            </tr> 
+
+                            <tr>
+                                <td class="tit">周边：</td>
+                                <td class="input">
+                                <input class="text"  name="nearby" type="text"  value="<?php if (isset($fang['nearby'])) {echo $fang['nearby'];}?>"   datatype="*" nullmsg="楼层：" errormsg="" />
+                                </td>
+                                <td><div class="Validform_checktip">周边配套设施</div></td>                                
+                            </tr> 
+
                             <tr>
                                 <td class="tit">住宅类型：</td>
                                 <td class="input">

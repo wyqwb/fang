@@ -93,7 +93,7 @@ class Fang extends AD_Controller
             //print_r($data['lists']);die;
             $tabledata['data'] = $data['lists']['result'];
             //$tabledata['rules']['operate']=array('look'=>array('url'=>'admin/article/article_view/article_lists/','id'=>'id'),'modify'=>array('url'=>'admin/article/modify_article/article_lists/','id'=>'id'),'delete'=>array('action'=>'admin/article/article_delete/','id'=>'id'));
-            $tabledata['rules']['operate']=array('look'=>array('url'=>'admin/fang/fang_view','id'=>'id'));
+            $tabledata['rules']['operate']=array('look'=>array('url'=>'admin/fang/fang_view','id'=>'id'),'delete'=>array('action'=>'admin/fang/fang_delete/','id'=>'id'));
             $tabledata['foot']= $data['lists']['page'];
             $this->formdebris->initialize($tabledata);
             $data['table'] = $this->formdebris->packing_table($tabledata);
@@ -117,5 +117,16 @@ class Fang extends AD_Controller
            $data['search'] = $this->load->module('admin/frames/search',array(),true);
            $this->load->view('admin/fang/fang_view.php',$data);
     }
+
+    public function fang_delete(){
+        $id = intval($this->uri->segment(4));
+        $res = $this->db->delete('fang', array('id' => $id));
+        if ($res) {
+            echo "<script>location.href='".base_url()."index.php/admin/fang/lists';</script>";
+        } else {
+            echo "<script>location.href='".base_url()."index.php/admin/fang/lists';</script>";
+        }
+    }
+    
     
 }

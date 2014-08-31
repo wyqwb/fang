@@ -22,7 +22,6 @@ class Front_Controller extends CI_Controller
 		$this->load->model('web/mad');
 		$links=$this->mad->get_links();
 		$data['links']=$links;
-		//print_r($data);
 		$this->load->view('web/public/footer_index.php',$data);
 	}
 	

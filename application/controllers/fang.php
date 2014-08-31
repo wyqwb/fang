@@ -21,34 +21,56 @@ class Fang extends Front_Controller {
 		$this->front_footer();
 	}
 
-	public function tuandetail()
+	public function tuandetail1()
 	{
 		$seg=$this->uri->segment(3);
 		if($seg){
-		$data['fangtuan'] = $this->mpublic->getRow('fangtuan','',array('id'=>$seg));
+			$data['fangtuan'] = $this->mpublic->getRow('fangtuan','',array('id'=>$seg));
+			$this->front_header();
+			$this->load->view('web/member/fangtuan_detail.php',$data);
+			$this->front_footer();
 		}else{
 			show_404();
 		}
 		//print_r($data['fangtuan']);die;
-		$this->front_header();
-		$this->load->view('web/member/fangtuan_detail.php',$data);
-		$this->front_footer();
+
 	}
 
 	public function detail()
 	{
 		$seg=$this->uri->segment(3);
 		if($seg){
-		$data['fangtuan'] = $this->mpublic->getRow('fang','',array('id'=>$seg));
+			$data['fang'] = $this->mpublic->getRow('fang','',array('id'=>$seg));
+			if(count($data['fang'])>0){
+				$tuanid=$data['fang']['tuanid'];
+				$data['fangtuan_info']=$this->mpublic->getRow('fangtuan','id,previewimg',array('id'=>$tuanid));
+				$this->front_header();
+				$this->load->view('web/fang/fang_detail.php',$data);
+				$this->front_footer();
+			}else{
+				show_404();	
+			}
 		}else{
 			show_404();
 		}
-		//print_r($data['fangtuan']);die;
-		$this->front_header();
-		$this->load->view('web/member/fangtuan_detail.php',$data);
-		$this->front_footer();
 	}
 
+	public function tuandetail()
+	{
+		$seg=$this->uri->segment(3);
+		if($seg){
+			$data['fangtuan'] = $this->mpublic->getRow('fangtuan','',array('id'=>$seg));
+			if(count($data['fangtuan'])>0){
+				$this->front_header();
+				$this->load->view('web/fang/fangtuan_detail.php',$data);
+				$this->front_footer();						
+			}else{
+				show_404();	
+			}
+		}else{
+			show_404();
+		}
+	}
 
 
 	public function fuang_tuan_over()

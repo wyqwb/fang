@@ -7,7 +7,7 @@
 
             <!-- 添加看房团 -->
             <div class="userInfo">
-		<form action="<?php echo base_url(); ?>member/fangtuanlist" method="post" class="createfangtuan" enctype="multipart/form-data"> 
+		<form action="<?php echo base_url();?>member/fangtuanlist" method="post" class="createfangtuan"  enctype="multipart/form-data"> 
                 <div class="bd">
                     <div class="msginfo" style="color:red"></div>
                     <input type="hidden" name="fangtuanid" value="<?php if (isset($fangtuan['id'])) {echo $fangtuan['id'];}?>" />
@@ -20,8 +20,6 @@
                                 </td>
                                 <td><div class="Validform_checktip">看房团名称至少3个字符,最多16个字符！</div></td>
                             </tr>
-
-
                             <tr>
                                 <td class="tit">出行日期：</td>
                                 <td class="input">
@@ -53,6 +51,14 @@
                                 <td><b class="icon-"></b><div class="Validform_checktip">请输入正确的费用(数字)！</div></td>
                             </tr>
                             <tr>
+                                <td class="tit">看房团图片：</td>
+                                <td class="input">
+                                <input type="file" class='text' name="tuanimg" /> 
+                                </td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
                                 <td class="tit">行程信息：</td>
                                 <td class="input" colspan="2"><textarea class="text" name="Travelinfo" style="margin: 0px; width: 448px; height: 100px;resize: none;"  ><?php if (isset($fangtuan['Travelinfo'])) {echo $fangtuan['Travelinfo'];}?></textarea>
                                 </td>
@@ -60,8 +66,7 @@
                             <tr>
                                 <td class="tit">注意事项：</td>
                                 <td class="input" colspan="2">
-                                <textarea class="text" name="attention" style="margin: 0px; width: 448px; height: 100px;resize: none;"><?php if (isset($fangtuan['attention'])){echo $fangtuan['attention'];}?>
-                                </textarea>
+                                <textarea class="text" name="attention" style="margin: 0px; width: 448px; height: 100px;resize: none;"><?php if (isset($fangtuan['attention'])){echo $fangtuan['attention'];}?></textarea>
                                </td>
                             </tr>
 

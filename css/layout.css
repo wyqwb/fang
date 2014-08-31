@@ -145,6 +145,7 @@ html {
   border-top: none;
   padding: 17px;
 }
+.g-m2-tab .cnt {line-height: 25px}
 .g-m2-tab .cnt span {
   font-weight: bold;
   color: #000;

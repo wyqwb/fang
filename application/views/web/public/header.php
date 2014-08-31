@@ -38,7 +38,7 @@
 					<?php  if($islogin) { ?>
 					    <div class="lxfs">
                			 	<!-- <img src="/images/person.jpg" width="20" height="21" />&nbsp; -->
-                			您好：<span class="vipname"><?php echo $member['account'];?></span> , 欢迎来到本站！
+                			您好：<span class="vipname"><a href="/member/"><?php echo $member['account'];?></a></span> , 欢迎来到本站！
                  			<!-- <span class="vipjf">积分(0)</span> -->
                		 		<span class="vipred"><a href="/member/outlogin">[退出]</a></span>
             			</div>

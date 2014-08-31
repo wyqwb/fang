@@ -18,10 +18,10 @@
                 <div class="inner wrp">
                     <h1 class="logo"><a href="/" ></a></h1>
                     <div class="account">
-                        <div class="account_meta account_info">
-                            <span class="nickname"><?php echo $username ?></span>
+                        <div class="account_meta ">
+                            <span class="nickname" style="margin-right:10px"><?php echo $username ?></span>
                         </div>
-                        <div id="accountArea" class="account_meta account_inbox"></div>
+                        <!-- <div id="accountArea" class="account_meta account_inbox"></div> -->
                         <div class="account_meta account_logout"><a id="logout" href="/member/outlogin">[退出]</a></div>
                     </div>
                 </div>
