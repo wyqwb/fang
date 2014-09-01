@@ -173,24 +173,38 @@
 			<!-- 模块1 -->
 			<div class="g-item g-wh">
 				<div class="g-m1">
+
+				<?php if(count($recomment)>0){
+
+					
+					?>
+
+
+				<? }else{ ?>
+
 					<div class="g-pic-box">
 					<img src="<?php  echo WEB_IMAGES_PATH?>index_page_26.gif" alt="">
 					<div class="g-m1-btns">
 						<span class="btn-gray"><a href="">HOT PICTURES</a></span>
 					</div>					
 					</div>
+
 					<div class="g-pic-box">
 						<img src="<?php  echo WEB_IMAGES_PATH?>index_page_29.gif" alt="">
 						<div class="g-m1-btns">
 							<span class="btn-gray"><a href="">HOT PICTURES</a></span>
 						</div>	
 					</div>
+
 					<div class="g-pic-box">
 						<img src="<?php  echo WEB_IMAGES_PATH?>index_page_29.gif" alt="">
 						<div class="g-m1-btns">
 							<span class="btn-gray"><a href="">HOT PICTURES</a></span>
 						</div>
 					</div>
+
+					<?php }?>
+
 					<div class="clear"></div>
 				</div>				
 			</div>	

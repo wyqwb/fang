@@ -22,8 +22,13 @@ class Index extends Front_Controller {
 		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
 		
 		$data['shareurl']=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+		$data['recomment']=$this->mfang->get_recomment_default();
+
+		// zkadmin&2014
+		print_r($data['recomment']);die;
 		$data['toplist']=$this->mfang->get_top_default();
-		$data['list2']=$this->marticle->get_fang_by_default();		
+		$data['list2']=$this->marticle->get_fang_by_default();	
 
 		$ads=$this->mad->get_index_ad();
 		if(count($ads)!=0){

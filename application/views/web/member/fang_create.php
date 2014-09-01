@@ -35,7 +35,7 @@
                             <tr>
                                 <td class="tit">房屋名称：</td>
 				                <td class="input">
-                                <input class="text"  name="title"  type="text" value="<?php if (isset($fang['title'])) {echo $fang['title'];}?>"  datatype="*" nullmsg="请输看房团名称！"/>
+                                <input class="text"  name="title"  type="text" value="<?php if (isset($fang['title'])) {echo $fang['title'];}?>"  datatype="*" nullmsg="请输看房源名称！"/>
                                 </td>
                                 <td><div class="Validform_checktip">房源名称至少3个字符,最多16个字符！</div></td>
                             </tr>

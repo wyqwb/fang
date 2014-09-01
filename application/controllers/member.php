@@ -263,6 +263,7 @@ class Member extends FrontMember_Controller {
             $postdata['housetype']= $this->input->post('housetype');
             $postdata['displayprice'] = $this->input->post('displayprice');
             $postdata['desc'] = $this->input->post('desc');
+            $postdata['createtime'] = date('Y-m-d G:i:s');
 
             if($fang_modif==1){
 	        	//设置防止刷新重复提交开关

@@ -31,6 +31,14 @@ class Mfang extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_recomment_default()
+    {
+        $sql = "SELECT * FROM `fang` where selected=1  order by `createtime` limit 3 ";
+        $query = $this->db->query($sql);        
+        return $query->result_array();
+    }
+
+
     public function get_record_by_id($id)
     { 
         $sql = "SELECT `title`,`subtitle`,`content`,DATE_FORMAT(FROM_UNIXTIME(createtime),'%Y/%m/%d') as createtime FROM `article` WHERE id = $id";
