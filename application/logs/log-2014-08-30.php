@@ -257,3 +257,4 @@ ERROR - 2014-08-30 10:21:36 --> 404 Page Not Found --> javascript
 ERROR - 2014-08-30 10:23:48 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
 ERROR - 2014-08-30 10:23:48 --> 404 Page Not Found --> javascript
 ERROR - 2014-08-30 10:23:48 --> 404 Page Not Found --> javascript
+ERROR - 2014-08-30 10:30:57 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202

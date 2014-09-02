@@ -82,7 +82,7 @@
         </div>
         </div>
         <div class="g-item g-wh5">
-                <img src="<?php  echo WEB_IMAGES_PATH?>m9.jpg" alt="">
+               <a href="http://112.126.64.44/">   <img src="<?php  echo WEB_IMAGES_PATH?>m9.jpg" alt=""></a>
             <div class="m-news">
                 <div class="g-box">
                     <h2>新闻</h2>

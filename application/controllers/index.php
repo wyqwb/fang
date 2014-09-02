@@ -25,8 +25,7 @@ class Index extends Front_Controller {
 
 		$data['recomment']=$this->mfang->get_recomment_default();
 
-		// zkadmin&2014
-		print_r($data['recomment']);die;
+		//print_r($data['recomment']);die;
 		$data['toplist']=$this->mfang->get_top_default();
 		$data['list2']=$this->marticle->get_fang_by_default();	
 

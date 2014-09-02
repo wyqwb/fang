@@ -24,6 +24,11 @@ class Front_Controller extends CI_Controller
 		$data['links']=$links;
 		$this->load->view('web/public/footer_index.php',$data);
 	}
+
+	final protected function front_footer_list()
+	{
+		$this->load->view('web/public/footer_list.php');
+	}
 	
 	//公用模块顶部导航
 	final protected function front_header()

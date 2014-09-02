@@ -1,7 +1,7 @@
 
         <div class="g-item g-wh5">
              <a href="http://112.126.64.44/">   <img src="<?php  echo WEB_IMAGES_PATH?>m9.jpg" alt=""></a>
-            <div class="m-news">
+<!--             <div class="m-news">
                 <div class="g-box">
                     <h2>新闻</h2>
                     <img src="<?php  echo WEB_IMAGES_PATH?>news.gif" alt="">
@@ -37,10 +37,10 @@
                     </ul>
                 </div>
                 <div class="clear"></div>
-            </div>
+            </div> -->
         </div>
         <!-- 模块9 -->
-        <div class="g-item g-wh5">
+<!--         <div class="g-item g-wh5">
             <div class="m-clients">
                 <h2>友情链接</h2>
                 <span class="btn-left3"></span>
@@ -53,7 +53,7 @@
             <?php }?>
             </ul>
             <div class="clear"></div>
-        </div>
+        </div> -->
         </div>
     </div>
     <!-- 尾部 -->

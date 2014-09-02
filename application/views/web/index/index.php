@@ -140,12 +140,12 @@
 			<!-- 图片切换 -->
 			<div class="m-pic-scroll">
 			<div class="wrapper" >	
-			<div id="focus" style="padding-bottom:30px;text-align: center;background-color: #30b9e7;">
+			<div id="focus" style="padding-bottom:30px;text-align: center;">
 				<ul>
 				<?php 
 				if($ads!=""){
 					foreach ($ads as $key => $value) {
-							echo "<li><a href='' ><img src='".CUSTOM_IMAGES_PATH.$value['previewimg']."' alt='' /></a></li>";
+							echo "<li style='background-color: #30b9e7;'><a href='' ><img src='".CUSTOM_IMAGES_PATH.$value['previewimg']."' alt='' /></a></li>";
 						}	
 				}else{					
 				?>
@@ -175,9 +175,8 @@
 				<div class="g-m1">
 
 				<?php if(count($recomment)>0){
-
 					
-					?>
+				?>
 
 
 				<? }else{ ?>
@@ -185,21 +184,21 @@
 					<div class="g-pic-box">
 					<img src="<?php  echo WEB_IMAGES_PATH?>index_page_26.gif" alt="">
 					<div class="g-m1-btns">
-						<span class="btn-gray"><a href="">HOT PICTURES</a></span>
+						<span class="btn-gray"><a href="/fang/detail/19">绿地中央广场</a></span>
 					</div>					
 					</div>
 
 					<div class="g-pic-box">
 						<img src="<?php  echo WEB_IMAGES_PATH?>index_page_29.gif" alt="">
 						<div class="g-m1-btns">
-							<span class="btn-gray"><a href="">HOT PICTURES</a></span>
+							<span class="btn-gray"><a href="/fang/detail/21">半岛国际</a></span>
 						</div>	
 					</div>
 
 					<div class="g-pic-box">
 						<img src="<?php  echo WEB_IMAGES_PATH?>index_page_29.gif" alt="">
 						<div class="g-m1-btns">
-							<span class="btn-gray"><a href="">HOT PICTURES</a></span>
+							<span class="btn-gray"><a href="/fang/detail/23">世界级都会地标</a></span>
 						</div>
 					</div>
 
@@ -218,28 +217,28 @@
 					<div class="g-box-bd">
 						<div class="m-pic-scroll2" id="m-pic-scroll2">
 							<div class="img-box">
-								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt="">
-								<span class="stitle">教育1</span><br>
+								<a href="/fang/listfang/1"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt=""></a>
+								<span class="stitle"><a href="/fang/listfang/1">分类1</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
 							<div class="img-box">
-								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt="">
-								<span class="stitle">教育2</span><br>
+								<a href="/fang/listfang/2"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt=""></a>
+								<span class="stitle"><a href="/fang/listfang/2">分类2</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
 							<div class="img-box">
-								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt="">
-								<span class="stitle">教育3</span><br>
+								<a href="/fang/listfang/3"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt=""></a>
+								<span class="stitle"><a href="/fang/listfang/2">分类3</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
 							<div class="img-box">
-								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt="">
-								<span class="stitle">教育4</span><br>
+								<a href="/fang/listfang/4"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt=""></a>
+								<span class="stitle"><a href="/fang/listfang/2">分类4</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
 							<div class="img-box">
-								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt="">
-								<span class="stitle">教育5</span><br>
+								<a href="/fang/listfang/5"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt=""></a>
+								<span class="stitle"><a href="/fang/listfang/2">分类5</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
 							<div class="clear"></div>
@@ -260,28 +259,28 @@
 					<div class="g-box-bd">
 						<div class="m-pic-scroll2" id="m-pic-scroll3">
 							<div class="img-box">
-								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt="">
-								<span class="stitle">教育1</span><br>
+								<a href="/fang/listfang/5"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt=""></a>
+								<span class="stitle"><a href="/fang/listfang/5">分类1</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
 							<div class="img-box">
-								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt="">
-								<span class="stitle">教育2</span><br>
+								<a href="/fang/listfang/5"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt=""></a>
+								<span class="stitle"><a href="/fang/listfang/5">分类2</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
 							<div class="img-box">
-								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt="">
-								<span class="stitle">教育3</span><br>
+								<a href="/fang/listfang/5"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt=""></a>
+								<span class="stitle"><a href="/fang/listfang/5">分类3</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
 							<div class="img-box">
-								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt="">
-								<span class="stitle">教育4</span><br>
+								<a href="/fang/listfang/5"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt=""></a>
+								<span class="stitle"><a href="/fang/listfang/5">分类4</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
 							<div class="img-box">
-								<img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt="">
-								<span class="stitle">教育5</span><br>
+								<a href="/fang/listfang/5"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt=""></a>
+								<span class="stitle"><a href="/fang/listfang/5">分类5</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
 							<div class="clear"></div>
