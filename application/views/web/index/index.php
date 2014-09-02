@@ -324,7 +324,7 @@
 						</p>
 						<p>
 							<span class="btn-gray g-wh3"><a href="/fang/detail/<?php echo $value['id']?>">查看详情</a></span>
-							<span class="btn-gray g-wh3"><a href="/jia/?fangid=<?php echo $value['id']?>">我要出价</a></span>
+							<span class="btn-gray g-wh3"><a href="/fang/jia/<?php echo $value['id']?>">我要出价</a></span>
 							<span class="btn-gray g-wh3"><a href="/fang/tuandetail/<?php echo $value['tuanid']?>">看房团</a></span>
 							<span class="btn-gray g-wh3"><a href="/fang/tuandetail/<?php echo $value['tuanid']?>">移民优势</a></span>
 							<div class="clear"></div>
@@ -338,33 +338,7 @@
 			</div>
 			<!-- 主体中部右侧 -->
 			<div class="g-mid-right">	
-<!-- 				<div class="g-item-l">
-					<h2>分类标签</h2>
-					<ul class="list1">
-						<li><a href="">标识设计</a></li>
-						<li><a href="">网站设计</a></li>
-						<li><a href="">图形设计</a></li>
-						<li><a href="">快速文档</a></li>
-						<li><a href="">图标</a></li>
-					</ul>
-				</div> -->
-<!-- 				<div class="g-item-l">
-					<h2>分类标签</h2>
-					<ul class="list2">
-						<li><a href="">标识设计</a><br>
-							<span>25 5,2013</span>
-						</li>
-						<li><a href="">网站设计</a><br>
-							<span>25 5,2013</span>
-						</li>
-						<li><a href="">图形设计</a><br>
-							<span>25 5,2013</span>
-						</li>
-						<li><a href="">快速文档</a><br>
-							<span>25 5,2013</span>
-						</li>
-					</ul>
-				</div> -->
+
 				<div class="g-item-l">
 					<h2>标签</h2>
 					<ul class="list3">
@@ -382,14 +356,6 @@
 					</ul>
 					<div class="clear"></div>
 				</div>
-<!-- 				<div class="g-item-l">
-					<h2>归档</h2>
-					<ul class="list4">
-						<li><a href="">2013</a></li>
-						<li><a href="">2012</a></li>
-						<li><a href="">2011</a></li>
-					</ul>
-				</div> -->
 				<div class="g-item-l">	
 					<div class="m-banner">banner广告</div>
 					<div class="m-banner">banner广告</div>
@@ -406,18 +372,15 @@
             		foreach ($list2 as $key => $value) {
             	?> 
 				<div class="g-box g-wh4">
-					<img src="<?php  echo CUSTOM_IMAGES_PATH?><?php echo $value['previewimg']?>" alt="">
+					<img src="<?php  echo CUSTOM_IMAGES_PATH?><?php echo $value['img1']?>" width="573px" height="273px" alt="">
 					<div>
-						<span class="btn-gray g-wh3"><a href="/fang/?fangid=<?php echo $value['id']?>">查看详情</a></span>
+						<span class="btn-gray g-wh3"><a href="/fang/detail/<?php echo $value['id']?>">查看详情</a></span>
 						<span class="btn-gray g-wh3"><a href="/jia/?fangid=<?php echo $value['id']?>">我要出价</a></span>
-						<span class="btn-gray g-wh3"><a href="/tuan/?fangid=<?php echo $value['id']?>">看房团</a></span>
-						<span class="btn-gray g-wh3"><a href="/yim/?fangid=<?php echo $value['id']?>">移民优势</a></span>
+						<span class="btn-gray g-wh3"><a href="/fang/tuandetail/<?php echo $value['tuanid']?>">看房团</a></span>
+						<span class="btn-gray g-wh3"><a href="/fang/tuandetail/<?php echo $value['tuanid']?>">移民优势</a></span>				
 					</div>
 				</div>
 				<?php }?>
-
-
-
 				<div class="clear"></div>
 			</div>
 			

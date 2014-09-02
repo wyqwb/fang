@@ -109,7 +109,7 @@
 		<div class="g-item g-bg1">
 			<div class="g-info">
 				<div class="m-logo">
-				<img src="<?php  echo WEB_IMAGES_PATH?>logo.gif" alt="">
+				<a href="/"><img src="<?php  echo WEB_IMAGES_PATH?>logo.gif" alt=""></a>
 				</div>
 				<div class="m-search">
 					<a href=""><img src="<?php  echo WEB_IMAGES_PATH?>search.gif" alt=""></a>
@@ -371,12 +371,12 @@
             		foreach ($list2 as $key => $value) {
             	?> 
 				<div class="g-box g-wh4">
-					<img src="<?php  echo CUSTOM_IMAGES_PATH?><?php echo $value['previewimg']?>" alt="">
+					<img src="<?php  echo CUSTOM_IMAGES_PATH?><?php echo $value['img1']?>" width="573px" height="273px" alt="">
 					<div>
-						<span class="btn-gray g-wh3"><a href="/fang/?fangid=<?php echo $value['id']?>">查看详情</a></span>
+						<span class="btn-gray g-wh3"><a href="/fang/detail/<?php echo $value['id']?>">查看详情</a></span>
 						<span class="btn-gray g-wh3"><a href="/jia/?fangid=<?php echo $value['id']?>">我要出价</a></span>
-						<span class="btn-gray g-wh3"><a href="/tuan/?fangid=<?php echo $value['id']?>">看房团</a></span>
-						<span class="btn-gray g-wh3"><a href="/yim/?fangid=<?php echo $value['id']?>">移民优势</a></span>
+						<span class="btn-gray g-wh3"><a href="/fang/tuandetail/<?php echo $value['tuanid']?>">看房团</a></span>
+						<span class="btn-gray g-wh3"><a href="/fang/tuandetail/<?php echo $value['tuanid']?>">移民优势</a></span>				
 					</div>
 				</div>
 				<?php }?>

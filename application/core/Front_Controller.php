@@ -19,9 +19,12 @@ class Front_Controller extends CI_Controller
 	
 	final protected function front_footer_index()
 	{
-		$this->load->model('web/mad');
+		$news[1]=$this->marticle->get_title_id_by_default(0,6);
+		$news[2]=$this->marticle->get_title_id_by_default(6,6);
+		$news[3]=$this->marticle->get_title_id_by_default(12,6);
 		$links=$this->mad->get_links();
 		$data['links']=$links;
+		$data['news']=$news;
 		$this->load->view('web/public/footer_index.php',$data);
 	}
 
@@ -44,7 +47,13 @@ class Front_Controller extends CI_Controller
 	//公用模块底部导航
 	final protected function front_footer()
 	{
-		$this->load->view('web/public/footer.php');
+		$news[1]=$this->marticle->get_title_id_by_default(0,6);
+		$news[2]=$this->marticle->get_title_id_by_default(6,6);
+		$news[3]=$this->marticle->get_title_id_by_default(12,6);
+		$links=$this->mad->get_links();
+		$data['links']=$links;
+		$data['news']=$news;
+		$this->load->view('web/public/footer.php',$data);
 	}
 	
 	//公用成功模块

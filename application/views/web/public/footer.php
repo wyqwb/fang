@@ -90,32 +90,47 @@
                 </div>
                 <div class="g-box g-wh6">
                     <ul class="list5">
+                    <?php if(count($news[1])>1){
+                            foreach ($news[1] as $key => $value) {   ?> 
+                        <li><a href="/article/detail/<?php echo $value['id']?>"><?php echo $value['title']?></a></li>
+                    <?php  } } else{ ?>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
+                    <?php }?>
                     </ul>
                 </div>
                 <div class="g-box g-wh6">
                     <ul class="list5">
+                    <?php if(count($news[2])>1){
+                            foreach ($news[2] as $key => $value) {   ?> 
+                        <li><a href=""><?php echo $value['title']?></a></li>
+                    <?php  } } else{ ?>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
+                    <?php }?>
                     </ul class="list5">
                 </div>
                 <div class="g-box g-wh6">
                     <ul class="list5">
+                    <?php if(count($news[3])>1){
+                            foreach ($news[3] as $key => $value) {   ?> 
+                        <li><a href=""><?php echo $value['title']?></a></li>
+                    <?php  } } else{ ?>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
                         <li><a href="">Yellowstone National Park</a></li>
+                    <?php }?>
                     </ul>
                 </div>
                 <div class="clear"></div>
@@ -129,12 +144,10 @@
                 <span class="btn-right3"></span>
             </div>
             <ul class="list6" id="ul-list">
-                <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
-                <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
-                <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg2.gif" alt=""></li>
-                <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
-                <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
-                <li><img src="<?php  echo WEB_IMAGES_PATH?>jqimg.gif" alt=""></li>
+            <?php foreach ($links as $key => $value) {
+            ?>
+            <li><a target="_blank" href="http://<?php echo $value['url']?>"><img src="<?php  echo CUSTOM_IMAGES_PATH.$value['previewimg']?>" width="170px" height="90px" target="_blank" alt=""></a></li>
+            <?php }?>
             </ul>
             <div class="clear"></div>
         </div>

@@ -6,7 +6,6 @@
             <div class="Aadd_ititle"><a href="#" class="cur">内容</a></div>
             <form class="actform" action="" method="post">
                 <div class='clear'><label>标题：</label><?php if (isset($artcon['title'])) {echo $artcon['title'];}?></div>
-                <div class='clear'><label>副标题：</label><?php if (isset($artcon['subtitle'])) {echo $artcon['subtitle'];}?></div>
                 <div class='clear'><label>文章类型：</label><?php if (isset($artcon['tname'])) {echo $artcon['tname'];}?></div>
                 <div class='clear'><label>预览图：</label><?php if (isset($artcon['previewimg'])) {echo "<img src='".base_url()."uploads/".$artcon['previewimg']."' />";}?></div>
                 <div class='clear'><label>排序：</label><?php if (isset($artcon['order'])) {echo $artcon['order'];}?></div>

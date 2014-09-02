@@ -39,6 +39,22 @@ class Fang extends Front_Controller {
 
 	}
 
+	public function jia()
+	{
+		$seg=$this->uri->segment(3);
+		if($seg){
+			$data['fang'] = $this->mpublic->getRow('fang','',array('id'=>$seg));
+			$this->front_header();
+			$this->load->view('web/fang/fang_jia.php',$data);
+			$this->front_footer();
+		}else{
+			show_404();
+		}
+		//print_r($data['fangtuan']);die;
+
+	}
+
+
 	public function detail()
 	{
 		$seg=$this->uri->segment(3);
@@ -67,7 +83,7 @@ class Fang extends Front_Controller {
 
 
 		$data['toplist']=$this->mfang->get_top_default();
-		$data['list2']=$this->marticle->get_fang_by_default();	
+		$data['list2']=$this->mfang->get_fang_by_default();	
 
 		$ads=$this->mad->get_index_ad();
 		if(count($ads)!=0){

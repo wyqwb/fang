@@ -18,7 +18,7 @@ class Mfang extends CI_Model {
 
     public function get_fang_by_default()
     {
-        $sql = "SELECT * FROM `fang`   order by createtime  desc limit 10";
+        $sql = "SELECT * FROM `fang`  order by `createtime`   limit 4";
         $query = $this->db->query($sql);        
         return $query->result_array();
     }

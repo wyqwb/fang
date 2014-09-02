@@ -121,6 +121,8 @@ class Mpub extends CI_Model {
 			$this->pagination->initialize($config);
 			if($table=="fangtuan"){
 				$data['result'] = $this->mpub->get_fangtuan_bypage($table,$fields,$where,$order,$config['per_page'],$this->uri->segment($uri_segment) ? $this->uri->segment($uri_segment) : 0);
+			}elseif($table=="article"){
+				$data['result'] = $this->mpub->get_article_bypage($table,$fields,$where,$order,$config['per_page'],$this->uri->segment($uri_segment) ? $this->uri->segment($uri_segment) : 0);
 			}else{
 				$data['result'] = $this->mpub->get_fang_bypage($table,$fields,$where,$order,$config['per_page'],$this->uri->segment($uri_segment) ? $this->uri->segment($uri_segment) : 0);
 			}
@@ -159,6 +161,13 @@ class Mpub extends CI_Model {
 	 * */
 	public function get_fang_bypage($table,$fields="*",$where="",$order="",$perpage,$pageno) {
 		$sql = "select f.*,m.account name from fang f,member m  where f.isenable=1 and f.mid=m.Id  order by createtime desc  limit ".$pageno.",".$perpage."";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}	
+
+	public function get_article_bypage($table,$fields="*",$where="",$order="",$perpage,$pageno) {
+		$sql = "select *  from article  where type=1 and pid=2  order by createtime desc  limit ".$pageno.",".$perpage."";
+		//print_r($sql);die;
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}	

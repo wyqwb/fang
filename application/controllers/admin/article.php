@@ -155,16 +155,16 @@ class Article extends AD_Controller
             }
             $data['previewimg'] = $previewimg;
             $data['title'] = $this->input->post('title');
-            $data['subtitle'] = $this->input->post('subtitle');
+            // $data['subtitle'] = $this->input->post('subtitle');
             $data['pid'] = $this->input->post('pid');
-            $data['published'] = $this->input->post('published');
+            $data['published'] = date('Y-m-d G:i:s');
             $data['order'] = $this->input->post('order');
             $data['content'] = $this->input->post('content');
-			$data['createtime'] = $_SERVER['REQUEST_TIME'];
+			$data['createtime'] = date('Y-m-d G:i:s');
 			$data['creater'] = $this->session->userdata('id');
             $data['selected'] = intval($this->input->post('selected'));
             $data['type'] = 1;
-            $data['status'] = 1;
+            // $data['status'] = 1;
             $res = $this->db->insert('article', $data);
             if ($res) {
                 $this->load->module('/admin/frames/header');
@@ -196,8 +196,8 @@ class Article extends AD_Controller
         $this->load->helper('resource');
         $search = array(
             'uri'=>'',
-            'searchtitle'=>array('标题','副标题','内容'),
-            'searchcondition'=>array('title','subtitle','content')
+            'searchtitle'=>array('标题','内容'),
+            'searchcondition'=>array('title','content')
         );
         $data['search'] = $this->load->module('/admin/frames/search',$search,true);
         $this->load->module('/admin/frames/header');
@@ -207,16 +207,12 @@ class Article extends AD_Controller
 		$tabledata['head'] = array(
 			array('data'=>'排序','class'=>'tt','width'=>'10%'),
 			array('data'=>'标题','class'=>'tt','width'=>'25%'),
-			array('data'=>'副标题','class'=>'tt','width'=>'30%'),
 			array('data'=>'发布时间','class'=>'operate','width'=>'15%'),
 			array('data'=>'操作','class'=>'operate','width'=>'20%')
 		);
-       // $tabledata['head'] = '排序_10%,标题_25%,副标题_30%,发布时间_15%,操作_20%';
-       // $tabledata['rules']['order']=array('order','title','subtitle','published');
 		$tabledata['rules']['order']= array(
 			'order'=>array('class'=>'xx','dd'=>'bb'),
 			'title'=>array('class'=>'xx','dd'=>'bb'),
-			'subtitle'=>array('class'=>'xx','dd'=>'bb'),
 			'published'=>array('class'=>'xx','dd'=>'bb')
 		);
         if($this->input->post('searchsub'))
@@ -224,15 +220,15 @@ class Article extends AD_Controller
             $result = $this->marticle->get_searchlist_bypage();
             $this->load->library('formdebris');
             $tabledata['data'] = $result;
-            $tabledata['rules']['operate']=array('look'=>array('url'=>'admin/article/article_view/article_lists/','id'=>'id'),'modify'=>array('url'=>'admin/article/modify_article/article_lists/','id'=>'id'),'delete'=>array('url'=>'admin/article/article_delete/','id'=>'id'));
+            $tabledata['rules']['operate']=array('look'=>array('url'=>'admin/article/article_view/article_lists','id'=>'id'),'modify'=>array('url'=>'admin/article/modify_article/article_lists','id'=>'id'),'delete'=>array('url'=>'admin/article/article_delete/','id'=>'id'));
             $this->formdebris->initialize($tabledata);
             $data['table'] = $this->formdebris->packing_table($tabledata);
         }
         else
         {
-            $data['lists'] = $this->mpub->get_dates(base_url().'index.php/admin/article/article_lists/','4','article','',array('type' => 1,'status' => 1),$this->perpage);;
+            $data['lists'] = $this->mpub->get_dates(base_url().'index.php/admin/article/article_lists','4','article','','',$this->perpage);
             $tabledata['data'] = $data['lists']['result'];
-            $tabledata['rules']['operate']=array('look'=>array('url'=>'admin/article/article_view/article_lists/','id'=>'id'),'modify'=>array('url'=>'admin/article/modify_article/article_lists/','id'=>'id'),'delete'=>array('action'=>'admin/article/article_delete/','id'=>'id'));
+            $tabledata['rules']['operate']=array('look'=>array('url'=>'admin/article/article_view/article_lists','id'=>'id'),'modify'=>array('url'=>'admin/article/modify_article/article_lists','id'=>'id'),'delete'=>array('action'=>'admin/article/article_delete/','id'=>'id'));
             $tabledata['foot']= $data['lists']['page'];
             $this->formdebris->initialize($tabledata);
             $data['table'] = $this->formdebris->packing_table($tabledata);
@@ -250,8 +246,8 @@ class Article extends AD_Controller
             $aid = $this->input->post('id');
             $data['title'] = $this->input->post('title');
             $data['pid'] = $this->input->post('pid');
-            $data['modifytime'] = time();
-            $data['modifier'] = $_SESSION['id'];
+            $data['modifytime'] = date('Y-m-d G:i:s');
+            // $data['modifier'] = $_SESSION['id'];
             $this->db->where('id', $aid);
             $res = $this->db->update('article', $data);
             if ($res) {
@@ -304,13 +300,13 @@ class Article extends AD_Controller
             }
 
             $data['title'] = $this->input->post('title');
-            $data['subtitle'] = $this->input->post('subtitle');
+            // $data['subtitle'] = $this->input->post('subtitle');
             $data['order'] = $this->input->post('order');
             $data['pid'] = $this->input->post('pid');
             $data['content'] = $this->input->post('content');
-            $data['modifytime'] = time();
-            $data['modifier'] = $_SESSION['id'];
-            $data['published'] = $this->input->post('published');
+            $data['modifytime'] = date('Y-m-d G:i:s');
+            // $data['modifier'] = $_SESSION['id'];
+            $data['published'] = date('Y-m-d G:i:s');
             $data['selected'] = intval($this->input->post('selected'));
             $this->db->where('id', $aid);
             $res = $this->db->update('article', $data);
@@ -344,7 +340,8 @@ class Article extends AD_Controller
     public function article_view(){
         $tip = intval($this->uri->segment(4));
     	$id = intval($this->uri->segment(5));
-        $data['artcon'] = $this->mpub->getViewRow($id);
+        $table="article";
+        $data['artcon'] = $this->mpub->getViewRow($table,$id);
         $this->load->module('/admin/frames/header');
         $this->load->module('/admin/frames/left',array('type'=>'article','segpos'=>4));
         $this->load->module('/admin/frames/tools',array('article'=>false,'images'=>false));
