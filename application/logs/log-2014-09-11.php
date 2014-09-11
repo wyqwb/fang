@@ -20,3 +20,5 @@ ERROR - 2014-09-11 22:29:58 --> Severity: Notice  --> Undefined index: floor D:\
 ERROR - 2014-09-11 22:29:58 --> Severity: Notice  --> Undefined index: pgreen D:\AMP\ROOT\FANG\application\views\web\fang\fang_detail.php 87
 ERROR - 2014-09-11 22:29:58 --> Severity: Notice  --> Undefined index: nearby D:\AMP\ROOT\FANG\application\views\web\fang\fang_detail.php 88
 ERROR - 2014-09-11 22:45:40 --> 404 Page Not Found --> css
+ERROR - 2014-09-11 23:31:35 --> Severity: Notice  --> Undefined variable: links D:\AMP\ROOT\FANG\application\views\web\public\footer_list.php 50
+ERROR - 2014-09-11 23:31:35 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\public\footer_list.php 50

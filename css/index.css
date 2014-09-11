@@ -637,11 +637,16 @@ h1 {
 #comment .actor .u-name{float:left;width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #comment .actor span{float:right}
 #comment .btns{float:right;width:140px;height:75px;padding-top:5px;line-height:15px;text-align:center}
-#comment .btn-comment{display:block;overflow:hidden;margin:5px auto;width:119px;height:30px;line-height:30px;background-position:-142px -390px}
+#comment .btn-comment{display:block;overflow:hidden;margin:5px auto;width:119px;height:30px;line-height:30px;background-position:-142px -390px;background-color:#28a7e1}
 #comment .btns .btn-comment{color:#333}
 #comment .btns a{color:#005aa0}.root61 
 #comment .rate{width:190px}.root61 
 #comment .actor{width:446px}.root61 
 #comment .actor li{width:160px}
-#comment .btns .btn-comment{color:#333}
-#comment .btns a{color:#005aa0}
+#comment .btns .btn-comment{color:#333;border:1px #ccc solid;}
+#comment .btns  a{color:#005aa0;text-decoration: none;}
+
+.comment-box{background:#fcfffa;border:1px solid #d0e4c2;;height: 300px;position: relative;}
+.comment-box .cont{float:right;margin-top:10px;margin-right: 10px}
+.comment-box .cont textarea{width:880px;height: 200px}
+

@@ -57,10 +57,16 @@ class Fang extends Front_Controller {
 
 	public function detail()
 	{
+
 		$seg=$this->uri->segment(3);
 		if($seg){
 			$data['fang'] = $this->mpublic->getRow('fang','',array('id'=>$seg));
 			if(count($data['fang'])>0){
+
+				//获取该房的评论
+				$data['comments_list']=$this->mpublic->getList("reviewlist","",array('aid' => $seg,'type'=>1));
+				//print_r($data['comments_list']);die;
+
 				$tuanid=$data['fang']['tuanid'];
 				$data['fangtuan_info']=$this->mpublic->getRow('fangtuan','id,previewimg',array('id'=>$tuanid));
 				$this->front_header();
@@ -113,6 +119,42 @@ class Fang extends Front_Controller {
 			show_404();
 		}
 	}
+
+
+	public function docomments()
+	{
+		$loginsession = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		$data['islogin']=$loginsession;
+		$data['fangid'] = $this->uri->segment(3);
+		$this->front_header();
+		$this->load->view('web/fang/fang_comments.php',$data);
+		$this->front_footer();
+
+	}
+
+	public	function comments()
+	{
+		$loginsession = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		if($loginsession){
+				$userid=$this->session->userdata('userid');
+				$params = $_REQUEST;
+				$dataInfo = array(					
+							'content'=>$params['message'],
+							'aid'=>$params['aid'],
+							'mid'=>	$userid,
+							'type'=>$params['type'],		
+							'createtime'=>date('Y-m-d G:i:s')
+				);
+				$result = $this->mpublic->db->insert('reviewlist',$dataInfo);
+				if($result){
+					exit("1");
+				}
+				else { 
+					exit("0");
+				}
+		}
+	}
+
 
 
 	public function fuang_tuan_over()
