@@ -614,3 +614,34 @@ h1 {
   right: 0;
   background: url(../images/right1.png) no-repeat 0 0;
 }
+
+.m .mt,.right .m .mt{font:14px/30px 'microsoft yahei'}
+.m1 .mt h2,.m2 .mt h2{font-weight:400}
+#comment{border-top:2px solid #999}
+#comment .mc{padding:10px 0;overflow:hidden;zoom:1;border:1px solid #ddd;border-top:0}
+#comment .rate{float:left;width:120px;padding:20px 0 0;text-align:center}
+#comment .rate strong{font:400 46px/30px arial;color:#e4393c}
+#comment .rate span{color:#999;font-family:arial}
+#comment .rate strong span{font-size:24px;color:#e4393c}
+#comment .percent{float:left;width:186px;height:74px;padding:8px 0;border-right:1px solid #E4E4E4}
+#comment .percent span{color:#9C9A9C}
+#comment .percent dl{padding:2px 0;overflow:hidden;zoom:1}
+#comment .percent dt{float:left;width:70px}
+#comment .percent dd{float:left;width:100px;height:10px;margin-top:6px;overflow:hidden;background:#efefef}
+#comment .percent dd div{overflow:hidden;height:10px;width:0;background-color:#ED0000;background-image:-ms-linear-gradient(top,#ED0000 0,#A50000 100%);background-image:-moz-linear-gradient(top,#ED0000 0,#A50000 100%);background-image:-o-linear-gradient(top,#ED0000 0,#A50000 100%);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#ED0000),color-stop(1,#A50000));background-image:-webkit-linear-gradient(top,#ED0000 0,#A50000 100%);background-image:linear-gradient(to bottom,#ED0000 0,#A50000 100%)}
+#comment .actor{float:left;position:relative;width:280px;height:85px;padding:5px 15px 0;line-height:15px;border-right:1px solid #E4E4E4;overflow:hidden;zoom:1}
+#comment .actor a{color:#005aa0}
+#comment .actor ul{margin-top:5px;height:40px;overflow:hidden}
+#comment .actor li{float:left;width:120px;height:15px;padding:2px 17px 2px 0;overflow:hidden}
+#comment .actor li span{color:#9C9A9C}
+#comment .actor .u-name{float:left;width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#comment .actor span{float:right}
+#comment .btns{float:right;width:140px;height:75px;padding-top:5px;line-height:15px;text-align:center}
+#comment .btn-comment{display:block;overflow:hidden;margin:5px auto;width:119px;height:30px;line-height:30px;background-position:-142px -390px}
+#comment .btns .btn-comment{color:#333}
+#comment .btns a{color:#005aa0}.root61 
+#comment .rate{width:190px}.root61 
+#comment .actor{width:446px}.root61 
+#comment .actor li{width:160px}
+#comment .btns .btn-comment{color:#333}
+#comment .btns a{color:#005aa0}

@@ -19,7 +19,6 @@ class FrontMember_Controller extends CI_Controller
 		//$data["member"] = $this->mpublic->getRow('member','',array('Id'=>$this->session->userdata('userid')));
 		//$data['member']['point'] = round($data['member']['point']);
 		//$this->load->view('web/member/header.php',$data);
-		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		$this->load->view('web/member/header.php',$data);
 	}
 	//公用模块底部导航

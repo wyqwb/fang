@@ -292,6 +292,75 @@
 		</div>
 		<!-- 模块5 -->
 		<div class="g-item g-wh7">
+
+
+  <div id="comment" class="m m2"> 
+   <div class="mt"> 
+    <h2>商品评价</h2> 
+   </div> 
+   <div class="mc">
+    <div id="i-comment"> 
+     <div class="rate"> 
+      <strong>94<span>%</span></strong> 
+      <br /> 
+      <span>好评度</span> 
+     </div> 
+     <div class="percent"> 
+      <dl> 
+       <dt>
+        好评
+        <span>(94%)</span>
+       </dt> 
+       <dd> 
+        <div style="width: 94px;"></div>
+       </dd> 
+      </dl> 
+      <dl> 
+       <dt>
+        中评
+        <span>(5%)</span>
+       </dt> 
+       <dd class="d1">
+        <div style="width: 5%;"> 
+        </div>
+       </dd> 
+      </dl> 
+      <dl> 
+       <dt>
+        差评
+        <span>(1%)</span>
+       </dt> 
+       <dd class="d1"> 
+        <div style="width: 1%;"> 
+        </div>
+       </dd> 
+      </dl> 
+     </div> 
+<!--      <div class="actor"> 
+      <em>发表评价即可获得京豆，前五位评价用户可获得双倍京豆：</em>
+      <a href="http://help.jd.com/help/question-890.html" target="_blank">详见京豆规则</a> 
+      <ul> 
+      </ul> 
+      <div class="clr"></div> 
+      <b></b> 
+     </div> --> 
+     <div class="btns"> 
+      <div>
+       您可对已购商品进行评价
+      </div> 
+      <a href="http://club.jd.com/mycomments.aspx?pid=1098274" class="btn-comment" target="_blank">发评价拿京豆</a> 
+      <div>
+       <em class="hl_red">前五名可获双倍京豆</em>
+       <a href="http://help.jd.com/help/question-890.html" target="_blank">[规则]</a>
+      </div> 
+     </div>
+    </div>
+   </div> 
+  </div>
+
+
+		
+
 			<div class="g-m2-tab g-wh8">
 				<ul class="btns">
 					<li class="z-on">全部评价<a href="">(677)</a></li>
@@ -300,6 +369,10 @@
 					<li>差评(30)</li>
 					<li>有晒单的评价(64)</li>
 				</ul>
+
+
+
+
 				<div class="cnts">
 					<div class="u-cnt">
 						<div class="user-info">

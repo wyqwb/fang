@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+        <base href="<?php echo base_url();?>" />
+    <link rel="stylesheet" type="text/css" href="css/reg.css" />
+    <script type="text/javascript" src="javascript/iScrollv4.2.5.js"></script>
+	<script charset="utf-8" type="text/javascript" src="javascript/jquery-1.8.3.min.js" ></script>
+	<script charset="utf-8" type="text/javascript" src="javascript/Validform_v5.3.2_min.js" ></script>
+	<script charset="utf-8" type="text/javascript" src="javascript/jquery.form.min.js" ></script>
+	<style type="text/css">
+	/*==========以下部分是Validform必须的===========*/
+.Validform_checktip{
+	margin-left:8px;
+	line-height:20px;
+	height:20px;
+	overflow:hidden;
+	color:#999;
+	font-size:12px;
+}
+.Validform_right{
+	color:#71b83d;
+	padding-left:20px;
+	background:url(images/right.png) no-repeat left center;
+}
+.Validform_wrong{
+	color:red;
+	padding-left:20px;
+	white-space:nowrap;
+	background:url(images/error.png) no-repeat left center;
+}
+.Validform_loading{
+	padding-left:20px;
+	background:url(images/onLoad.gif) no-repeat left center;
+}
+.Validform_error{
+	background-color:#ffe7e7;
+}
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999'); box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);}
+#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
+#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#999;
+background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-gradient(linear, 0 0, 0 100%, from(#999), to(#666)); filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#666666');}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#ccc;}
+#Validform_msg .Validform_info{padding:8px;border:1px solid #bbb; border-top:none; text-align:left;}
+.msg-block{color:red;}
+	</style>
+</head>
+<body>
+    <div class="myBanner clearfix">
+        <div class="myReg clearfix">
+            <div class="myRegBd fl">
+                <h2>用户注册</h2>
+		<form action="reg/act" method="post" class="FormReg">
+                <div class="inputArea">
+			<div class="msg-block"></div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="tit">用户名：</td>
+                                <td class="con"><input id="_myTextName" datatype="*"  nullmsg="请输入真实姓名！" errormsg="请输入真实姓名！" name="textname" class="text" size="35" type="text" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="tit">设置密码：</td>
+                                <td class="con"><input id="_myTextPassword1"   datatype="*6-16" nullmsg="请设置密码！" errormsg="密码范围在6~16位之间！"  name="password" class="text" size="35" type="password" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="tit">确认密码：</td>
+                                <td class="con"><input id="_myTextPassword2" datatype="*"  nullmsg="请再输入一次密码！" errormsg="两次密码不一致！" recheck="password" class="text" size="35" type="password" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="tit">性别：</td>
+                                  <td class="con">
+                                  男:<input type="radio" name="judgeAnswer" id="judgeAnswer" value="1">
+                                  &nbsp;&nbsp;&nbsp;&nbsp;
+                                  女:<input type="radio" name="judgeAnswer" id="judgeAnswer" value="0">
+                                  </td>
+                            </tr>
+                            <tr>
+                                <td class="tit">手机号：</td>
+                                <td class="con"><input id="_myTextTel" datatype="m"  nullmsg="请输入手机号码！" errormsg="手机号错误！" class=" text" name="mobile" size="22" type="text" value="" />&nbsp;<input class="btnCaptcha mphand" type="button" value="发送验证码" /></td>
+                            </tr>
+                            <tr>
+                                <td class="tit">验证码：</td>
+                                <td class="con"><input id="_myTextCaptcha"  datatype="*"  nullmsg="请输入验证码！" errormsg="请输入验证码！" class="text" name="captcha" size="22" type="text" value="" /></td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="con tac" colspan="2"><input id="_myBtnReg" class="btnReg mphand ui-btn-submit" type="submit" value="注册" /></td>
+                            </tr>
+                            <tr>
+                                <td class="con tac" colspan="2"><label><input type="checkbox"  datatype="need1"  nullmsg="请确认用户协议！" value="1" rormsg="请确认用户协议!" name="isAgree" />&nbsp;我已阅读并同意遵守<a href="javascript:void(0);">《用户服务协议》</a></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+	</form>
+            </div>
+            <div class="myPact fr">
+                <h3 class="title">用户协议</h3>
+                <div id="myScroll" class="myScroll">
+                    <ul>
+                        <li>
+                            <p>上海至上信息科技有限公司管理和运营的客户积分奖励计划。上海至上管理有限公司（以下简称：上海至上）依据以下条件和条款为您提供所享有的服务，请仔细阅读并遵守。</p>
+                            <br />
+                            <p>1、接受条款</p>
+                            <p>1.1本协议内容包括协议正文及所有上海至上已经发布或将来可能发布的各类规则。所有规则为协议不可分割的一部分，与协议正文具有同等法律效力；</p>
+                            <p>1.2 签署本协议即表示您已充分阅读、理解并同意接受本协议的条款和条件；</p>
+                            <p>1.3上海至上公司有权根据业务需要酌情修订“条款”，并以网站公告的形式进行更新，不再单独通知予您。经修订的“条款”一经在公司网站公布，即产生效力。如您不同意相关修订，请您立即停止使用“服务”。如您继续使用“服务”，则将视为您已接受经修订的“条款”。</p>
+                            <p>2、	会员入会条件</p>
+                            <p>2.1 遵守中华人民共和国各项法律、法规，承认并自觉遵守本上海至上章程；</p>
+                            <p>2.2 会员须真实填写上海至上管理有限公司入会申请表；</p>
+                            <p>2.3 会员应年满18岁或者依法成立的团体, 并以实名及有效证件入会；</p>
+                            <p>2.4 申请会员资格获准后，每个会员将拥有且仅可拥有唯一的账户，会员只能在其唯一指定的账户中累积积分或兑换奖励。不接受重复申请并保留对重复账户进行清理或删除的权利；</p>
+                            <p>2.5 申请人按要求的文字正确填写并签署入会申请表，最终受理后即可开始累积积分。如果积分计划最终不接受或未处理申请人的入会申请，该申请的会员资格视为未经确认的会员资格，所累积的积分将不获承认。</p>
+                            <p>3、会员权益</p>
+                            <p>3.1 查看产品信息；</p>
+                            <p>3.2 预约参加公司在当地举办的活动；</p>
+                            <p>3.3 接受上海至上的金融服务；</p>
+                            <p>3.4 享有积分和积分兑换的服务；</p>
+                            <p>3.5会员享有一对一理财客户经理服务专属理财场所服务；</p>
+                            <p>3.6其它会员专享服务。</p>
+                            <p>4、会员义务</p>
+                            <p>4.1 会员应维护上海至上的社会声誉和合法权益；</p>
+                            <p>4.2 会员身份及由上海至上提供的服务只能由会员本人享有、不可转让或用做其他商业用途；</p>
+                            <p>4.3 保证提供的资料真实有效；</p>
+                            <p>4.4 对上海至上内部保密信息严格保密。</p>
+                            <p>4.5会员资格不可转让。</p>
+                            <p>5、积分累计</p>
+                            <p>5.1“金友汇”积分以“点”作为单位。</p>
+                            <p>5.2会员购买公司产品所累积的积分仅进入会员自己所属的账户，积分一旦进入账户，不得转让，不可在不同会员间合并，不可以任何方式赠与他人，不可传于继承人或指定人员，会员亦不可要求取消积分。</p>
+                            <p>5.3 在公司购买产品的会员可享有对应金额的积分，1万元积1分，积分可累计。</p>
+                            <p>5.4 若因客户个人原因退款的，将不得要求累积积分。</p>
+                            <p>6.兑换奖励</p>
+                            <p>6.1 上海至上有权撤回、限制、更改或取消任何奖励、或更改任何奖励所需的积分数以及奖励的各项规定与限制。具体奖励的种类、标准和细则公布在上海至上公司网站上（正在建设中）。</p>
+                            <p>6.2 积分奖励不具现金价值，不得要求退还票款。</p>
+                            <p>7、会员资格终止</p>
+                            <p>7.1 “金友汇”会员资格终身有效。</p>
+                            <p>7.2 会员可随时以书面通知形式终止会员资格。会员资格一旦终止，其账户内所有积分即时失效。</p>
+                            <p>7.3 任何不恰当、欺诈或错误使用本奖励计划，或未能遵守有关规则与条款的行为，“金友汇”有权即时取消其会员资格及所有累积的积分。在此类情况下，上海至上公司保留对终止个人会员资格通知与否的权利。</p>
+                            <p>8、其它</p>
+                            <p>8.1 以上规则及条款，及所有会员之间的关系，均受中华人民共和国法律管辖。</p>
+                            <p>8.2 如对本规则及条款有任何争议，上海至上保留最终解释权。</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+
+	var formObj = $(".FormReg");
+
+formObj.Validform({
+	tiptype:1,
+	beforeSubmit:function(){
+		$('.ui-btn-submit').click();
+	}
+});
+
+
+var options = {
+    target:     '.msg-block',
+    success: function(a,b,c,d,e) {
+	    if(a =="注册成功"){
+	    	alert('注册成功!');
+		window.location.href = "<?php echo base_url(); ?>";
+	    }
+    } 
+};
+formObj.ajaxForm(options);
+
+
+
+	/**********************
+	传入自定义datatype类型【方式一】;
+	$.extend($.Datatype,{
+		"z2-4" : /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,4}$/
+	});
+	**********************/
+$.Datatype.idcard = function(gets,obj,curform,datatype){
+				//该方法由佚名网友提供;
+			
+				var Wi = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1 ];// 加权因子;
+				var ValideCode = [ 1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2 ];// 身份证验证位值，10代表X;
+			
+				if (gets.length == 15) {   
+					return isValidityBrithBy15IdCard(gets);   
+				}else if (gets.length == 18){   
+					var a_idCard = gets.split("");// 得到身份证数组   
+					if (isValidityBrithBy18IdCard(gets)&&isTrueValidateCodeBy18IdCard(a_idCard)) {   
+						return true;   
+					}   
+					return false;
+				}
+				return false;
+				
+				function isTrueValidateCodeBy18IdCard(a_idCard) {   
+					var sum = 0; // 声明加权求和变量   
+					if (a_idCard[17].toLowerCase() == 'x') {   
+						a_idCard[17] = 10;// 将最后位为x的验证码替换为10方便后续操作   
+					}   
+					for ( var i = 0; i < 17; i++) {   
+						sum += Wi[i] * a_idCard[i];// 加权求和   
+					}   
+					valCodePosition = sum % 11;// 得到验证码所位置   
+					if (a_idCard[17] == ValideCode[valCodePosition]) {   
+						return true;   
+					}
+					return false;   
+				}
+				
+				function isValidityBrithBy18IdCard(idCard18){   
+					var year = idCard18.substring(6,10);   
+					var month = idCard18.substring(10,12);   
+					var day = idCard18.substring(12,14);   
+					var temp_date = new Date(year,parseFloat(month)-1,parseFloat(day));   
+					// 这里用getFullYear()获取年份，避免千年虫问题   
+					if(temp_date.getFullYear()!=parseFloat(year) || temp_date.getMonth()!=parseFloat(month)-1 || temp_date.getDate()!=parseFloat(day)){   
+						return false;   
+					}
+					return true;   
+				}
+				
+				function isValidityBrithBy15IdCard(idCard15){   
+					var year =  idCard15.substring(6,8);   
+					var month = idCard15.substring(8,10);   
+					var day = idCard15.substring(10,12);
+					var temp_date = new Date(year,parseFloat(month)-1,parseFloat(day));   
+					// 对于老身份证中的你年龄则不需考虑千年虫问题而使用getYear()方法   
+					if(temp_date.getYear()!=parseFloat(year) || temp_date.getMonth()!=parseFloat(month)-1 || temp_date.getDate()!=parseFloat(day)){   
+						return false;   
+					}
+					return true;
+				}
+				
+			}
+
+
+		
+	$.extend($.Datatype,{
+		"z2-4" : /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,4}$/
+		,"need1":function(gets,obj,curform,regxp){
+				var need=1,
+					numselected=curform.find("input[name='"+obj.attr("name")+"']:checked").length;
+				return  numselected >= need ? true : "请确认用户协议！";
+			}
+		,"max2":function(gets,obj,curform,regxp){
+				var atmax=2,
+					numselected=curform.find("input[name='"+obj.attr("name")+"']:checked").length;
+					
+				if(numselected==0){
+					return false;
+				}else if(numselected>atmax){
+					return "最多只能选择"+atmax+"项！";
+				}
+				return  true;
+			}
+	});
+	
+        var myScroll;
+        function loaded(){
+            setTimeout(function () {
+                myScroll = new iScroll("myScroll", {
+                    snap: false,
+                    momentum: true,
+                    hScrollbar: false,
+                    vScrollbar: true
+                });
+
+            },100);
+        }
+        window.addEventListener("load",loaded,false);
+    </script>
+</body>
+</html>

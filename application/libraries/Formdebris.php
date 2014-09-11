@@ -13,25 +13,24 @@ class Formdebris {
         $this->CI =& get_instance();
 
     }
-    
-    // $tabledata['head'] = array(
-    // array('data'=>'<input type="checkbox" name="admin" value="" />','class'=>'tt','action'=>'dd','width'=>'5%'),
-    // array('data'=>'编号','class'=>'tt','width'=>'15%'),
-    // array('data'=>'编号2','class'=>'tt','width'=>'15%'),
-    // array('data'=>'标题','class'=>'tt','width'=>'35%'),
-    // array('data'=>'操作','class'=>'operate','width'=>'30%')
-    // );
-    // $tabledata['data']= $this->marticle->get_sort();
-    // $tabledata['rules']=array(
-    // 'default_checkbox'=>array('classname'=>'js_recall','name'=>'admin','id'=>'id'),
-    // 'order'=>array('id','title','pid'),
-    // 'operate'=>array('look'=>array('url'=>'admin/ad/look_indexad/','id'=>'id'),'modify'=>array('url'=>'admin/ad/modify_indexad/','id'=>'id'),'delete'=>array('url'=>'admin/ad/confirm_to_deleteindexad/','id'=>'id'))
-    // );
-    // $tabledata['foot']='23232323';
-     
+    /**
+    $tabledata['head'] = array(
+    array('data'=>'<input type="checkbox" name="admin" value="" />','class'=>'tt','action'=>'dd','width'=>'5%'),
+    array('data'=>'编号','class'=>'tt','width'=>'15%'),
+    array('data'=>'编号2','class'=>'tt','width'=>'15%'),
+    array('data'=>'标题','class'=>'tt','width'=>'35%'),
+    array('data'=>'操作','class'=>'operate','width'=>'30%')
+    );
+    $tabledata['data']= $this->marticle->get_sort();
+    $tabledata['rules']=array(
+    'default_checkbox'=>array('classname'=>'js_recall','name'=>'admin','id'=>'id'),
+    'order'=>array('id','title','pid'),
+    'operate'=>array('look'=>array('url'=>'admin/ad/look_indexad/','id'=>'id'),'modify'=>array('url'=>'admin/ad/modify_indexad/','id'=>'id'),'delete'=>array('url'=>'admin/ad/confirm_to_deleteindexad/','id'=>'id'))
+    );
+    $tabledata['foot']='23232323';
+     */
     public function initialize($data)
     {
-        //print_r($data);die;
                         
         $head = $data['head'];
         $rules = $data['rules'];
@@ -121,20 +120,18 @@ class Formdebris {
     }
 
 
-    
-     // $tabledata['head'] = array(
-        //     array('title'=>'<input type="checkbox" name="admin" value="" />','class'=>'','width'=>'5%'),
-        //     array('title'=>'编号','class'=>'','width'=>'35%'),
-        //     array('title'=>'标题','class'=>'','width'=>'35%'),
-        //     array('title'=>'操作','class'=>'operate','width'=>'25%')
-        // );
-    
+    /**
+     * $tabledata['head'] = array(
+            array('title'=>'<input type="checkbox" name="admin" value="" />','class'=>'','width'=>'5%'),
+            array('title'=>'编号','class'=>'','width'=>'35%'),
+            array('title'=>'标题','class'=>'','width'=>'35%'),
+            array('title'=>'操作','class'=>'operate','width'=>'25%')
+        );
+    */
     public function packing_table()
     {
-        //print_r("expression");die;
         $this->_set_temp();
         $result = $this->_initialize_data();
-        //print_r($result);die;
         $this->CI->table->set_heading($this->head);
         if($this->foot)
         {
