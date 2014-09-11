@@ -168,6 +168,62 @@
 		</div>
 		<!-- 模块5 -->
 		<div class="g-item g-wh7">
+
+			  <div id="comment" class="m m2"> 
+			   <div class="mt"> 
+			    <h2>看房团评价</h2> 
+			   </div> 
+			   <div class="mc">
+			    <div id="i-comment"> 
+			     <div class="rate"> 
+			      <strong>94<span>%</span></strong> 
+			      <br /> 
+			      <span>好评度</span> 
+			     </div> 
+			     <div class="percent"> 
+			      <dl> 
+			       <dt>
+			        好评
+			        <span>(94%)</span>
+			       </dt> 
+			       <dd> 
+			        <div style="width: 94px;"></div>
+			       </dd> 
+			      </dl> 
+			      <dl> 
+			       <dt>
+			        中评
+			        <span>(5%)</span>
+			       </dt> 
+			       <dd class="d1">
+			        <div style="width: 5%;"> 
+			        </div>
+			       </dd> 
+			      </dl> 
+			      <dl> 
+			       <dt>
+			        差评
+			        <span>(1%)</span>
+			       </dt> 
+			       <dd class="d1"> 
+			        <div style="width: 1%;"> 
+			        </div>
+			       </dd> 
+			      </dl> 
+			     </div> 
+
+			     <div class="btns"> 
+			      <div>
+			       您可对看房团进行评价
+			      </div> 
+			      <a href="/fang/dotuancomments/<?php echo $fangtuan['id']?>" class="btn-comment" target="_blank">我要评论</a> 
+			     </div>
+			    </div>
+			   </div> 
+			  </div>
+
+
+
 			<div class="g-m2-tab g-wh8">
 				<ul class="btns">
 					<li class="z-on">全部评价<a href="">(677)</a></li>
@@ -177,6 +233,13 @@
 					<li>有晒单的评价(64)</li>
 				</ul>
 				<div class="cnts">
+			
+				<?php if(count($comments_list)>0){
+					foreach ($comments_list as $key => $value) {
+				
+					
+				?>
+
 					<div class="u-cnt">
 						<div class="user-info">
 							<span class="uimg"><img src="<?php  echo WEB_IMAGES_PATH?>user.gif" alt=""></span>
@@ -188,7 +251,7 @@
 						</div>
 						<div class="user-comments">
 							<div class="star"><img src="<?php  echo WEB_IMAGES_PATH?>stars.gif" alt="">
-								<div class="time">2014-07-11 06:30</div>
+								<div class="time"><?php echo $value['createtime']?></div>
 							</div>
 							<dl class="labels">
 								<dt>标签：</dt>
@@ -196,7 +259,7 @@
 							</dl>
 							<dl class="content">
 								<dt>心得：</dt>
-								<dd>作为一种客观存在的物质形态，房地产是指房产和地产的总称，包括土地和土地上永久建筑物及其所衍生的权利。房产是指建筑在土地上的各种房屋，包括住宅、厂房、仓库和商业、服务、文化、教育、卫生、体育以及办公用房等。地产是指土地及其上下一定的空间，包括地下的各种基础设施、地面道路等。房地产由于其自己的特点即位置的固定性和不可移动性，在经济学上又被称为不动产。可以有三种存在形态：即土地、建筑物、房地合一。在房地产拍卖中，其拍卖标的也可以有三种存在形态，即土地（或土地使用权）、建筑物和房地合一状态下的物质实体及其权益。随着个人财产所有权的发展，房地产已经成为商业交易的主要组成部分。</dd>
+								<dd><?php echo $value['content']?></dd>
 							</dl>
 							<div class="btn">
 								<a href="" class="gray-btn">有用(10)</a>
@@ -205,6 +268,9 @@
 						</div>
 						<div class="clear"></div>
 					</div>
+					
+					<?php } }else{?>
+
 					<div class="u-cnt">
 						<div class="user-info">
 							<span class="uimg"><img src="<?php  echo WEB_IMAGES_PATH?>user.gif" alt=""></span>
@@ -233,6 +299,10 @@
 						</div>
 						<div class="clear"></div>
 					</div>
+
+				<?php }?>
+
+
 				</div>
 			</div>
 		</div>

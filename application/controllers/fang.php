@@ -109,6 +109,9 @@ class Fang extends Front_Controller {
 		if($seg){
 			$data['fangtuan'] = $this->mpublic->getRow('fangtuan','',array('id'=>$seg));
 			if(count($data['fangtuan'])>0){
+				//获取该房的评论
+				$data['comments_list']=$this->mpublic->getList("reviewlist","",array('aid' => $seg,'type'=>2));
+			
 				$this->front_header();
 				$this->load->view('web/fang/fangtuan_detail.php',$data);
 				$this->front_footer();						
@@ -118,6 +121,17 @@ class Fang extends Front_Controller {
 		}else{
 			show_404();
 		}
+	}
+
+	public function dotuancomments()
+	{
+		$loginsession = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		$data['islogin']=$loginsession;
+		$data['fangtuanid'] = $this->uri->segment(3);
+		$this->front_header();
+		$this->load->view('web/fang/fangtuan_comments.php',$data);
+		$this->front_footer();
+
 	}
 
 
