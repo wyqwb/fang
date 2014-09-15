@@ -120,12 +120,20 @@
                                 <td><div class="Validform_checktip"></div></td>
                             </tr>
                             <tr>
-                                <td class="tit">显示价格：</td>
+                                <td class="tit">最低价格：</td>
                                 <td class="input">
-                                <input class="text"  name="displayprice" type="text"  value="<?php if (isset($fang['displayprice'])) {echo $fang['displayprice'];}?>" datatype="n" nullmsg="请输入显示价格！" />
+                                <input class="text"  name="lowerprice" type="text"  value="<?php if (isset($fang['lowerprice'])) {echo $fang['lowerprice'];}?>" datatype="n" nullmsg="请输入显示价格！" />
                                 </td>
                                 <td><div class="Validform_checktip">单位：万元</div></td>
                             </tr>  
+
+                            <tr>
+                                <td class="tit">最高价格：</td>
+                                <td class="input">
+                                <input class="text"  name="highprice" type="text"  value="<?php if (isset($fang['highprice'])) {echo $fang['highprice'];}?>" datatype="n" nullmsg="请输入显示价格！" />
+                                </td>
+                                <td><div class="Validform_checktip">单位：万元</div></td>
+                            </tr> 
 
                             <tr>
                                 <td class="tit">房屋介绍：</td>
