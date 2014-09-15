@@ -14,13 +14,9 @@ class Tuan extends Front_Controller {
 	 */
 	public function index()
 	{
-		//$data=$this->marticle->get_top_default();
-		//$fang['toplist']=$data;
-		//print_r($fang);die;
 		$this->front_header();
 		$this->load->view('web/tuan/index.php');
 		$this->front_footer();
 	}
-	
-	
+		
 } 

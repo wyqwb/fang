@@ -35,7 +35,7 @@
 					</span>
 				</div>
 				<div class="m-login">
-					<?php  if($islogin) { ?>
+					<?php  if(isset($islogin)&&($islogin)) { ?>
 					    <div class="lxfs">
                			 	<!-- <img src="/images/person.jpg" width="20" height="21" />&nbsp; -->
                 			您好：<span class="vipname"><a href="/member/"><?php echo $member['account'];?></a></span> , 欢迎来到本站！

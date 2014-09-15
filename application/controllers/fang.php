@@ -186,4 +186,16 @@ class Fang extends Front_Controller {
 		}
 	}
 		
+
+
+	public function price()
+	{
+
+		$tuanid=$this->uri->segment(3);
+		$data['tuanid']=$tuanid;
+		$this->load->view('web/fang/price.php',$data);
+	}
+
+
+
 } 

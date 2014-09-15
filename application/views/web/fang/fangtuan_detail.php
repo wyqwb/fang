@@ -90,7 +90,11 @@
 									<p><span>Vip费用：</span><?php echo $fangtuan['vipCost']?></p>
 									<p><span>显示价格：</span><?php echo $fangtuan['displayCost']?></p>
 
+									
+									<input type="button" value="参加看房团" style="width:119px;height:30px;background-color:red">
 								</div>
+
+
 							</div>		
 							<div class="m2-img2">
 							<h2>注意事项：</h2>

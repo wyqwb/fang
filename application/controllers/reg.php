@@ -142,4 +142,16 @@ class Reg extends Front_Controller {
 	}
 
 
+
+	function activemail(){
+			
+		$this->normal_front_header();
+
+		$this->load->view('web/reg/activemail.php');
+			
+		$this->load->view('web/member/footer.php');
+
+	}
+
+
 } 

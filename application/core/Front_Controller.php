@@ -7,6 +7,9 @@ class Front_Controller extends CI_Controller
 		$this->load->database();
 		if (!isset($this->session)) $this->load->library('session');
 		$this->load->helper('url');
+		$this->load->model('web/marticle');
+		$this->load->model('web/mad');
+		$this->load->model('web/mpublic');		
 		date_default_timezone_set('Asia/Shanghai');
 	}
 	
@@ -38,12 +41,16 @@ class Front_Controller extends CI_Controller
 	{
 		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
-		//$data['member']['point'] = round($data['member']['point']);
-		// $this->load->view('web/member/header.php',$data);
-
-
 		$this->load->view('web/public/header.php',$data);
 	}
+
+
+	final protected function normal_front_header()
+	{
+
+		$this->load->view('web/public/header.php');
+	}
+
 	//公用模块底部导航
 	final protected function front_footer()
 	{

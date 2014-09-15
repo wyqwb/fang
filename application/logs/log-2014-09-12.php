@@ -27,3 +27,4 @@ ERROR - 2014-09-12 01:24:24 --> Query error: Field 'id' doesn't have a default v
 ERROR - 2014-09-12 01:24:41 --> Severity: Notice  --> Undefined variable: seg D:\AMP\ROOT\FANG\application\controllers\fang.php 137
 ERROR - 2014-09-12 01:24:44 --> Severity: Notice  --> Undefined variable: seg D:\AMP\ROOT\FANG\application\controllers\fang.php 137
 ERROR - 2014-09-12 02:02:11 --> Severity: Notice  --> Undefined variable: fang D:\AMP\ROOT\FANG\application\views\web\fang\fangtuan_detail.php 219
+ERROR - 2014-09-12 22:58:25 --> 404 Page Not Found --> favicon.ico

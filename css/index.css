@@ -650,3 +650,13 @@ h1 {
 .comment-box .cont{float:right;margin-top:10px;margin-right: 10px}
 .comment-box .cont textarea{width:880px;height: 200px}
 
+
+.login{ width:885px; height:372px; border:1px solid #dbdbdb; background-color:#fff; margin:70px auto;}
+.longin_l{ float:left;}
+.longin_r{ float:right; width:347px; padding-top:14px;}
+.longin_r .input{ border:1px solid #dbdbdb; height:32px; padding:0 10px; color:#333; background-color:#ffffff; margin-bottom:10px;}
+.w300{ width:280px;}
+.longin_r p{ line-height:22px; color:#646464}
+.longin_cg{ text-align:center; padding-top:80px;}
+.longin_cg h3{ font-size:20px; line-height:68px;}
+.longin_cg p{ font-size:14px; color:#646464; margin-bottom:16px;}

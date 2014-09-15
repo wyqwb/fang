@@ -123,7 +123,7 @@
 						</ul>			
 					</div>	
 					<div class="bottom-btns">
-						<img src="<?php  echo WEB_IMAGES_PATH?>btnblue.gif" alt=""><br>
+					<a  href="/fang/price/<?php echo $fangtuan_info['id']?>/<?php echo $fang['id']?>">	<img src="<?php  echo WEB_IMAGES_PATH?>btnblue.gif" alt=""></a><br>
 						<img src="<?php  echo WEB_IMAGES_PATH?>btnred.gif" alt="">
 						</div>	
 					<div class="clear"></div>
@@ -218,7 +218,7 @@
 								</ul>			
 							</div>	
 							<div class="bottom-btns">
-								<img src="<?php  echo WEB_IMAGES_PATH?>btnblue.gif" alt=""><br>
+							<img src="<?php  echo WEB_IMAGES_PATH?>btnblue.gif" alt=""><br>
 								<img src="<?php  echo WEB_IMAGES_PATH?>btnred.gif" alt="">
 								</div>	
 							<div class="clear"></div>

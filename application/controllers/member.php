@@ -350,6 +350,22 @@ class Member extends FrontMember_Controller {
 	}
 	
 
+	public function pinlun()
+	{
+		$this->front_header(get_cookie("username"));
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){$this->front_left_normal();}
+		else{$this->front_left();}
+
+
+		//获取我发布的评论
+		$data['comments_list']=$this->mpublic->getList("reviewlist","",array('mid' => $this->user_data));
+		
+
+		$this->load->view('web/member/pinlun.php',$data);
+		$this->front_footer();		
+	}
+
 
 
 	
