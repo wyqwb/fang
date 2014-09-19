@@ -153,7 +153,6 @@
             return false;
         	}
 
-        	alert(jia);
 
    			window.location.href = '/fang/tuandetail/<?php echo $tuanid?>';
 

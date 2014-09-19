@@ -368,7 +368,12 @@ class Member extends FrontMember_Controller {
 		$this->front_footer();		
 	}
 
+	//
+	function pay(){
 
+		$this->load->view('web/member/pay.php');
+		//$this->front_footer();	
+	}
 
 	
 	//退出

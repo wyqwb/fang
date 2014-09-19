@@ -195,7 +195,14 @@ class Fang extends Front_Controller {
 		$data['tuanid']=$tuanid;
 		$this->load->view('web/fang/price.php',$data);
 	}
+	
+	public function jointuan()
+	{
 
+		$tuanid=$this->uri->segment(3);
+		$data['tuanid']=$tuanid;
+		$this->load->view('web/fang/join_tuan.php',$data);
+	}
 
 
 } 

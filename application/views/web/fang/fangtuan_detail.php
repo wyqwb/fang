@@ -91,7 +91,7 @@
 									<p><span>显示价格：</span><?php echo $fangtuan['displayCost']?></p>
 
 									
-									<input type="button" value="参加看房团" style="width:119px;height:30px;background-color:red">
+									<input type="button" onclick="jointuan()" value="参加看房团" style="width:119px;height:30px;background-color:red;border:none;margin-top:80px;cursor:pointer;">
 								</div>
 
 
@@ -310,3 +310,32 @@
 				</div>
 			</div>
 		</div>
+
+	<script type="text/javascript">
+	function jointuan() {
+
+   			window.location.href = '/fang/jointuan/<?php echo $fangtuan["id"]?>';
+			return ;
+
+            var resault = $.ajax({
+                url: "/fang/jointuan/",
+                data: {
+                    'username': username,
+                    'password': password
+                },
+                async: false,
+                type: 'post'
+            });
+            if (resault.responseText == "-1") {
+            	alert("账号和密码错误");
+                //$("#check").html("验证码错误或过期!");
+                //window.location.reload();
+                return false;
+            }
+            if (resault.responseText == "1") {
+                window.location.href = '/member/';
+                return false;
+            }
+        }
+
+	</script>
