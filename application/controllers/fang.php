@@ -191,9 +191,17 @@ class Fang extends Front_Controller {
 	public function price()
 	{
 
-		$tuanid=$this->uri->segment(3);
-		$data['tuanid']=$tuanid;
-		$this->load->view('web/fang/price.php',$data);
+		$loginsession = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		if(!$loginsession){
+			echo "<script>alert('Please Login');window.location.href='/'</script>";
+		}else{
+			$this->user_data = $this->session->userdata('userid');
+			$tuanid=$this->uri->segment(3);
+			$data['tuanid']=$tuanid;
+			$this->load->view('web/fang/price.php',$data);
+		}
+
+
 	}
 	
 	public function jointuan()

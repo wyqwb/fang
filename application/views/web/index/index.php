@@ -324,7 +324,7 @@
 						</p>
 						<p>
 							<span class="btn-gray g-wh3"><a href="/fang/detail/<?php echo $value['id']?>">查看详情</a></span>
-							<span class="btn-gray g-wh3"><a href="/fang/jia/<?php echo $value['id']?>">我要出价</a></span>
+							<span class="btn-gray g-wh3"><a href="/fang/price/<?php echo $value['tuanid']?>/<?php echo $value['id']?>">我要出价</a></span>
 							<span class="btn-gray g-wh3"><a href="/fang/tuandetail/<?php echo $value['tuanid']?>">看房团</a></span>
 							<span class="btn-gray g-wh3"><a href="/fang/tuandetail/<?php echo $value['tuanid']?>">移民优势</a></span>
 							<div class="clear"></div>
