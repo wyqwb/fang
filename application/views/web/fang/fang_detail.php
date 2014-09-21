@@ -56,9 +56,10 @@
 			<div class="g-item g-wh7">
 				<div class="g-m2-left">
 					<div class="ad-title">
-						<span class="til"><?php echo $fang['title']; ?></span><br>
+						<span class="til"><?php echo $fang['title']; ?><span style="margin-left:320px">售价</span><span style="float:right">元/平方米</span><span style="font-size:20px;color:red;float:right;line-height:20px"><?php echo $fang['displayprice']?></span></span><br>
 						<span class="ti2">CBD核心，有轨电车1号线，诺贝尔湖，世界级综合体！</span>
-						<img src="<?php  echo WEB_IMAGES_PATH?>price.gif" alt="" class="price">
+						
+						<!-- <img src="<?php  echo WEB_IMAGES_PATH?>price.gif" alt="" class="price"> -->
 					</div>
 					<div class="ad-img"><img src="<?php echo CUSTOM_IMAGES_PATH.$fang['img1']; ?>" alt="" width="581px" height="301px"></div>
 					<div class="ad-cnt">
@@ -139,7 +140,8 @@
 							<div class="ad-title">
 								<span class="til">绿地中央广场&nbsp; 苏州西部新城 &nbsp; 世界级都会地标</span><br>
 								<span class="ti2">CBD核心，有轨电车1号线，诺贝尔湖，世界级综合体！</span>
-								<img src="<?php  echo WEB_IMAGES_PATH?>price.gif" alt="" class="price">
+								<?php echo $fang['displayprice']?>
+								<!-- <img src="<?php  echo WEB_IMAGES_PATH?>price.gif" alt="" class="price"> -->
 							</div>
 							<div class="ad-img"><img src="<?php  echo WEB_IMAGES_PATH?>adimg.gif" alt=""></div>
 							<div class="ad-cnt">

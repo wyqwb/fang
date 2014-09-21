@@ -193,11 +193,25 @@ class Fang extends Front_Controller {
 
 		$loginsession = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		if(!$loginsession){
-			echo "<script>alert('Please Login');window.location.href='/'</script>";
-		}else{
+			echo "<script>window.location.href='/login/'</script>";
+		}else{			
+
+
+			$user_id = $this->session->userdata('userid');
+			$user = $this->mpublic->getRow('member',"",array('id'=>$user_id,'accountype'=>'business'));
+			if(count($user)>0)
+			{
+				echo '<html>'; 
+				echo '<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>';
+				echo "<script>alert('商户不允许出价');window.history.go(-1);</script>";
+				echo '</html>';
+				exit();
+			}
+
 			$this->user_data = $this->session->userdata('userid');
-			$tuanid=$this->uri->segment(3);
-			$data['tuanid']=$tuanid;
+			$data['tuanid']=$this->uri->segment(3);
+			$data['fangid'] = $this->uri->segment(4);
+			$data['fang'] = $this->mpublic->getRow('fang','',array('id'=>$data['fangid']));
 			$this->load->view('web/fang/price.php',$data);
 		}
 

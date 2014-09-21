@@ -136,12 +136,32 @@
 	<!-- 底部 -->
 
 		<!-- 主体下部 -->
-		<div class="g-bd-ft" style="width:980px;height:200px;border:1px solid #ccc;text-align:center">
+		<div class="g-bd-ft" style="width:980px;height:440px;border:1px solid #ccc;text-align:center">
 			<!-- 模块7 -->
-			<!-- <div class="g-item g-wh5" style="padding-top:70px;"> -->
-				<div style="height:100px;">我出价：</span><input type="text" id="jia"  style="margin-top:50px;width:300px;height:30px" /></div>
-				<div style="height:100px;"><input type="button" value="确定" onclick="dojia()" style="width:150px;height:35px"></div>
-		</div>	
+			<div style="width:980px">
+				<div style="width:480px;float:left;height:220px;text-align:left;margin-top:20px;margin-bottom:20px;border:1px solid #ccc">
+
+
+				<span style="font-size:20px">房源简介：</span><br>
+				<?php echo $fang['desc']?></div>
+				<div style="width:480px;margin-left:15px;float:left;height:220px;text-align:left;margin-top:20px;margin-bottom:20px;border:1px solid #ccc">						
+				<span style="font-size:20px">房源内容：</span><br>	
+				    		<p><span>建筑面积：</span><?php echo  $fang['builtarea']?>平方</p>
+							<p><span>土地面积：</span><?php echo $fang['landarea']?>平方</p>
+							<p><span>卧室数量：</span><?php echo $fang['bedrooms']?>间</p>
+							<p><span>卫生间数量：</span><?php echo $fang['toilets']?>间</p>
+							<p><span>住宅类型：</span><?php echo $fang['housetype']?></p>
+							<p><span>楼层：</span><?php echo $fang['floor']?>楼</p>
+							<p><span>绿化率：</span><?php echo $fang['pgreen']?>%</p>
+							<p><span>周边：</span><?php echo $fang['nearby']?></p>
+							<p><span>其他：</span>内容</p>
+				</div>
+
+			</div>						
+				<div style="height:100px;">
+				<span style="margin-right:80px">均价：<?php echo $fang['displayprice']?>元/平方米</span>
+				<span>我出价：<input type="text" id="jia"  style="margin-top:50px;width:300px;height:30px" /></span></div>
+				<div style="height:100px;position: absolute;top: 1070px;left: 670px;"><input type="button" value="确定" onclick="dojia()" style="width:150px;height:35px"></div>
 	</div>
 	<script type="text/javascript">
 	function dojia() {
