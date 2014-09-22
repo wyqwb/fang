@@ -83,8 +83,17 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
             <div class="tel">
              </div>
             <div class="lxfs">
-                您好：<span class="vipname">某某 </span> , 欢迎来到本站！
-                <span class="vipred"><a href="/member/outlogin">[退出]</a></span>
+              <?php  if(isset($islogin)&&($islogin)) { ?>
+              <div class="lxfs">
+                      您好：<span class="vipname"><a href="/member/"><?php echo $member['account'];?></a></span> , 欢迎来到本站！
+                      <span class="vipred"><a href="/member/outlogin">[退出]</a></span>
+                  </div>
+                  <?php } else{ ?>
+                    <a href="/reg/">注册</a> 
+                    <a href="/login/">登陆</a>
+                    <a href=""><img src="<?php  echo WEB_IMAGES_PATH?>qqicon.gif" alt=""></a>
+                  <a href=""><img src="<?php  echo WEB_IMAGES_PATH?>wxicon.gif" alt=""></a>     
+                  <?php }?>
             </div>
         </div>
     </div>
@@ -171,18 +180,18 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
         <td>
             <div class="img-list">
                 <a class="img-box" target="_blank" href="#">
-                    <img width="50" height="50" src="" title="">
+                    <img width="50" height="50" src="<?php  echo WEB_IMAGES_PATH?><?php echo  $fangtuan['previewimg']?>" title="看房团图片">
                 </a>
             </div>
         </td>        
         <td>
 			   <div class="al fl">			
-				    <a class="flk13" target="_blank" href="#" clstag="click|keycount|orderinfo|product_name">某某 看房团 ，某某 看房团某某 看房团，某某 看房团</a>	
+				    <a class="flk13" target="_blank" href="/fang/tuandetail/<?php echo $fangtuan['id']?>" ><?php echo $fangtuan['title']?></a>	
 					</div>
           <div class="clr"></div>
           <div id="coupon_178627" class="fl"></div>
 		    </td>		
-        <td><span class="ftx04"> ￥4500.00</span>
+        <td><span class="ftx04"> ￥<?php echo $fangtuan['displayCost']?></span>
         </td>			
         <!-- <td>0</td>				 -->
         <td>1</td>
@@ -219,7 +228,7 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
                <b></b>
         </ul>
         <!-- <span class="clr">ad</span> <span style="color:#EDEDED;"></span> -->
-        <div class="extra">应付总额：<span class="ftx04"><b>￥4500.00</b></span>
+        <div class="extra">应付总额：<span class="ftx04"><b>￥<?php echo $fangtuan['displayCost']?></b></span>
 
 
         </div>
@@ -229,10 +238,8 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
 
 </div>
 <script type="text/javascript">
-  function dopay (argument) {
-
-                window.location.href = '/member/pay/';
-
+  function dopay () {
+                window.location.href = '/member/pay/'+<?php echo $fangtuan['id']?>;
   }
 </script>
 

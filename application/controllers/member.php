@@ -370,9 +370,43 @@ class Member extends FrontMember_Controller {
 
 	//
 	function pay(){
+		$seg=$this->uri->segment(3);
+		$user_id = $this->session->userdata('userid');
+		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
+	
+		$tuan_displayCost = $this->mpublic->getRow('fangtuan','displayCost',array('id'=>$seg));
 
-		$this->load->view('web/member/pay.php');
-		//$this->front_footer();	
+		//写入流水
+		$dataInfo = array(					
+				'mid'=>$user_id,
+				'tuanid'=>$seg,
+				'cost'=>$tuan_displayCost['displayCost'],	
+				'joins'=>1,	
+				'createtime'=>date('Y-m-d G:i:s')
+			);
+		$this->mpublic->db->insert('orders',$dataInfo);
+		$this->load->view('web/member/pay.php',$data);
+	}
+
+
+	public	function jointuan(){
+		$user_id = $this->session->userdata('userid');
+		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
+		$this->front_header(get_cookie("username"));
+
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal") {$this->front_left_normal();}
+		else {$this->front_left();}
+		$this->load->view('web/member/jointuan.php',$data);
+		$this->front_footer();
+	}
+
+	public function orders(){
+
+
+
+		
 	}
 
 	

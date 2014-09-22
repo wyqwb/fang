@@ -83,8 +83,17 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
             <div class="tel">
              </div>
             <div class="lxfs">
-                您好：<span class="vipname">某某 </span> , 欢迎来到本站！
-                <span class="vipred"><a href="/member/outlogin">[退出]</a></span>
+              <?php  if(isset($islogin)&&($islogin)) { ?>
+              <div class="lxfs">
+                      您好：<span class="vipname"><a href="/member/"><?php echo $member['account'];?></a></span> , 欢迎来到本站！
+                      <span class="vipred"><a href="/member/outlogin">[退出]</a></span>
+                  </div>
+                  <?php } else{ ?>
+                    <a href="/reg/">注册</a> 
+                    <a href="/login/">登陆</a>
+                    <a href=""><img src="<?php  echo WEB_IMAGES_PATH?>qqicon.gif" alt=""></a>
+                  <a href=""><img src="<?php  echo WEB_IMAGES_PATH?>wxicon.gif" alt=""></a>     
+                  <?php }?>
             </div>
         </div>
     </div>

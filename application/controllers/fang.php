@@ -222,6 +222,9 @@ class Fang extends Front_Controller {
 	{
 
 		$tuanid=$this->uri->segment(3);
+		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
+		$data['fangtuan'] = $this->mpublic->getRow('fangtuan','',array('id'=>$tuanid));
 		$data['tuanid']=$tuanid;
 		$this->load->view('web/fang/join_tuan.php',$data);
 	}
