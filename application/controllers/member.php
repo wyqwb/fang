@@ -393,8 +393,21 @@ class Member extends FrontMember_Controller {
 	public	function jointuan(){
 		$user_id = $this->session->userdata('userid');
 		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
-		$this->front_header(get_cookie("username"));
 
+		//获取参加的看房团订单
+
+		$data['orders_list']=$this->mpublic->getList("orders","",array('mid' => $user_id));
+		if(count($data['orders_list'])>0){
+			foreach ($data['orders_list'] as $key => $value) {
+				$tuan_title = $this->mpublic->getRow('fangtuan','title',array('id'=>$value['tuanid']));
+				if(count($tuan_title)>0)
+				{
+					$data['orders_list'][$key]["tuan_title"]=$tuan_title['title'];
+				}
+			}
+		}
+
+		$this->front_header(get_cookie("username"));
 		$accoutype=get_cookie('accountype');
 		if($accoutype=="normal") {$this->front_left_normal();}
 		else {$this->front_left();}
@@ -403,8 +416,8 @@ class Member extends FrontMember_Controller {
 	}
 
 	public function orders(){
-
-
+		$seg=$this->uri->segment(3);
+		$this->load->view('web/member/order.php');
 
 		
 	}

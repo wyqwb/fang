@@ -166,7 +166,6 @@
 	<script type="text/javascript">
 	function dojia() {
             var jia = $("#jia").val();
-
             if (jia == "") {
             alert("出价不能为空");
             $("#jia").focus();
@@ -189,7 +188,6 @@
             });
             if (resault.responseText == "-1") {
             	alert("账号和密码错误");
-                //$("#check").html("验证码错误或过期!");
                 //window.location.reload();
                 return false;
             }

@@ -1,0 +1,467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<base href="<?php echo base_url();?>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" href="/css/common.css" rel="stylesheet" />
+    <link type="text/css" href="/css/vipstyle.css" rel="stylesheet" />
+    <link type="text/css" href="/css/style.css" rel="stylesheet" />
+  
+
+
+<script charset="utf-8" type="text/javascript" src="/javascript/jquery-1.8.3.min.js" ></script>
+<script charset="utf-8" type="text/javascript" src="/javascript/Validform_v5.3.2.js" ></script>
+<script charset="utf-8" type="text/javascript" src="/javascript/jquery.form.min.js" ></script>
+
+
+    <title>会员中心</title>
+    
+  <style type="text/css">
+  /*==========以下部分是Validform必须的===========*/
+.Validform_checktip{
+  margin-left:8px;
+  line-height:20px;
+  height:20px;
+  overflow:hidden;
+  color:#999;
+  font-size:12px;
+}
+.Validform_right{
+  color:#71b83d;
+  padding-left:20px;
+  background:url(images/right.png) no-repeat left center;
+}
+.Validform_wrong{
+  color:red;
+  padding-left:20px;
+  white-space:nowrap;
+  background:url(images/error.png) no-repeat left center;
+}
+.Validform_loading{
+  padding-left:20px;
+  background:url(images/onLoad.gif) no-repeat left center;
+}
+.Validform_error{
+  background-color:#ffe7e7;
+}
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999'); box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);}
+#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
+#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#999;
+background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-gradient(linear, 0 0, 0 100%, from(#999), to(#666)); filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#666666');}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#ccc;}
+#Validform_msg .Validform_info{padding:8px;border:1px solid #bbb; border-top:none; text-align:left;}
+.msg-block{color:red;}
+
+/* foot part*/
+.g-ft {
+  height: 50px;
+}
+.g-ft .g-ft-wrap {
+  position: relative;
+  margin: 0 auto;
+  color: #fff;
+  line-height: 50px;
+}
+.g-ft .connects {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.g-bg1 {
+  background: #28a7e1;
+}
+
+  </style>
+</head>
+
+<body>
+<div id="header_bg">
+    <div id="header">
+        <a href="/"><img src="/images/logo.jpg" width="140" height="59" style="margin-top:10px" alt="用户中心" /></a>
+        <div class="fr">
+            <div class="tel">
+             </div>
+            <div class="lxfs">
+              <?php  if(isset($islogin)&&($islogin)) { ?>
+              <div class="lxfs">
+                      您好：<span class="vipname"><a href="/member/"><?php echo $member['account'];?></a></span> , 欢迎来到本站！
+                      <span class="vipred"><a href="/member/outlogin">[退出]</a></span>
+                  </div>
+                  <?php } else{ ?>
+                    <a href="/reg/">注册</a> 
+                    <a href="/login/">登陆</a>
+                    <a href=""><img src="<?php  echo WEB_IMAGES_PATH?>qqicon.gif" alt=""></a>
+                  <a href=""><img src="<?php  echo WEB_IMAGES_PATH?>wxicon.gif" alt=""></a>     
+                  <?php }?>
+            </div>
+        </div>
+    </div>
+</div> 
+  
+
+
+<div class="w">
+	<div class="breadcrumb"><strong><a href="http://home.jd.com/">我的订单</a></strong><span>&nbsp;&gt;&nbsp;<a href="http://jd2008.jd.com/JdHome/OrderList.aspx">订单中心</a>&nbsp;&gt;&nbsp;订单：496891929<span></span></span></div>
+	<!--变量-->
+	<span id="pay-button-order" style="display:none"></span>
+	<!--状态、提示-->
+			<style type="text/css">
+.icon-box {
+    position: relative;
+}
+.icon-box .warn-icon {
+    background-position: -96px 0;
+}
+.icon-box .m-icon {
+    background: url("http://misc.360buyimg.com/myjd/skin/2014/i/icon48.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 48px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 48px;
+}
+.icon-box .item-fore {
+    margin-left: 58px;
+}
+.tip-box .item-fore {
+    overflow: hidden;
+}
+.tip-box h3 {
+    font-family: "microsoft yahei";
+    font-size: 16px;
+    line-height: 30px;
+}
+.tip-box .ftx04, .tip-box .ftx-04 {
+    color: #FF8A15;
+}
+.tip-box .ftx03, .tip-box .ftx-03 {
+    color: #999999;
+}
+.tip-box .op-btns {
+    margin-top: 20px;
+}
+.tip-box .btn-9:link, .tip-box .btn-9:visited, .tip-box .btn-10:link, .tip-box .btn-10:visited, .tip-box .btn-11:link, .tip-box .btn-11:visited, .tip-box .btn-12:link, .tip-box .btn-12:visited {
+    color: #323333;
+    text-decoration: none;
+}
+.tip-box a {
+    color: #005EA7;
+}
+.tip-box .btn-9, .tip-box .btn-10, .tip-box .btn-11, .tip-box .btn-12 {
+    background-color: #F7F7F7;
+    background-image: linear-gradient(to top, #F7F7F7 0px, #F3F2F2 100%);
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;
+    color: #323333;
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    padding: 2px 14px 3px;
+}
+.tip-box a {
+    color: #005EA7;
+}
+.tip-box .ml10 {
+    margin-left: 10px;
+}
+</style>
+<div class="m" id="orderstate">
+  <div class="mt">
+          <strong>订单号：496891929&nbsp;&nbsp;&nbsp;&nbsp;状态：<span class="ftx14">完成</span><span id="pay-button-496891929"></span>
+              			            </strong>
+          <div class="fr">
+              <div class="toolbar"><input type="button" clstag="click|keycount|orderinfo|btn_Print" class="btn-img btn-inst" onclick="window.open('http://order.jd.com/normal/print.action?orderid=496891929&amp;PassKey=7AB6A0D1CDC4630E4623D2556DDA8127')" id="btn_Print" value="订单打印"><input type="button" class="btn-img btn" clstag="click|keycount|orderinfo|btn_Comment" onclick="javascript:location.href='http://club.jd.com/JdVote/TradeComment.aspx?ruleid=496891929&amp;ot=25&amp;payid=1'" id="btn_Comment" value="评价"></div>
+          </div>
+  </div>
+
+  <div class="mc" style="display:show">
+      
+				订单已经完成，感谢您在订单商城购物，欢迎您对本次交易及所购商品进行评价。<span class="flk13"><a href="http://club.jd.com/JdVote/TradeComment.aspx?ruleid=496891929&amp;ot=25&amp;payid=1">发表评价</a></span>
+            
+  </div>
+
+  <div class="mc" id="zxzf" style="display:none">
+      <div>
+          <p style="text-align:left;">
+            尊敬的客户，您的订单商品已经从库房发出，请您做好收货准备。
+          </p>
+          <p style="text-align:left;">
+              <span class="ftx-01">由订单提供</span>
+              <s class="icon-bao"></s>
+              <a target="_blank" href="http://help.jd.com/help/question-56.html#help1995">在线交易保障</a>
+              <span>如果您已收到货，请确认收货，订单将与卖家结算。如果您对购买的商品不满意，您可在确认收货后发起返修/退换货申请!</span>
+          </p>
+      </div>
+   </div>
+</div>
+
+<div id="hbdd" class="Tip360" style="width: 600px;">
+    <div class="Tip_Title">
+        <em><img src="http://www.360buy.com/images/tip_close.jpg" class="Tip_Close" width="14" height="13"></em>
+		合并订单
+    </div>
+    <div class="Tip_Content">
+        <div id="combin_main">
+        </div>
+        <div class="align_Left" style="padding: 15px 0 5px;">
+				请选择要合并到主订单的订单：</div>
+        <div id="combin_item">
+        </div>
+        <div class="Tip_Submit" style="background: none; border: 0; padding: 20px 250px 20px 0;">
+            <a id="combinBtn" href="javascript:alert('请选择要合并的订单！');"><span>合并订单</span></a></div>
+        <div class="align_Left">
+            <font color="#FF6600">提示</font>：订单合并后，收货人信息、支付方式、配送方式等都将以主订单为准。</div>
+    </div>
+</div>
+
+<div id="ddyq" class="Tip360" style="width: 360px;">
+    <div class="Tip_Title">
+        <em>
+            <img src="http://www.360buy.com/images/tip_close.jpg" class="Tip_Close" id="defercloseBtn" width="14" height="13">
+        </em>订单延期
+    </div>
+    <div class="Tip_Content">
+        <div class="align_Left" style="padding: 5px 0 5px;">
+				订单自提时间将延长至： <span id="defer_item"></span>
+        </div>
+        <div class="align_Left" style="padding: 5px 0 5px;">
+				注：超过自提日期，您的订单商品将退库
+        </div>
+    </div>
+</div>
+
+	
+	<!--进度条-->
+	
+            <div id="process" class="section3">
+		            <div class="node fore ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">提交订单</li><li id="track_time_0" class="tx3">2013-03-17 <br> 17:46:15</li></ul></div>
+        		    <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>
+        		    <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">商品出库</li><li id="track_time_1" class="tx3"></li></ul></div>
+        		    <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>
+        		    <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">等待收货</li><li id="track_time_5" class="tx3">2013-03-19 <br> 23:40:48</li></ul></div>		
+        		    <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>		
+        		    <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">完成</li><li id="track_time_6" class="tx3">2013-03-20 <br> 11:13:56</li></ul></div>
+		            </div>
+            
+	<!--跟踪、付款信息、gis-->
+	<div class="m" id="ordertrack">
+  <ul class="tab">
+    <li class="curr" clstag="click|keycount|orderinfo|ordertrack">
+      <h2> 订单跟踪</h2>
+    </li>
+		
+    <li clstag="click|keycount|orderinfo|btn_payinfo">
+      <h2> 付款信息</h2>
+    </li>
+    <li id="orderlocustab" style="display:none;" clstag="click|keycount|orderinfo|btn_gis">
+      <h2> 订单轨迹</h2>
+    </li>
+  </ul>
+  <div class="clr"></div>
+  <div class="mc tabcon">
+    <!--订单跟踪-->
+    <input type="hidden" value="2013-03-17 17:46:15" id="datesubmit-496891929">
+<table cellpadding="0" cellspacing="0" width="100%">
+  <tbody id="tbody_track">
+    <tr>
+      <th width="15%"><strong>处理时间</strong></th>
+      <th width="50%"><strong>处理信息</strong></th>
+      <th width="35%"><strong>操作人</strong></th>
+    </tr>
+    
+  </tbody><tbody><tr><td>2013-03-17 17:46:15</td><td>您提交了订单，请等待系统确认</td><td>客户</td></tr><tr><td>2013-03-18 09:35:19</td><td>第三方卖家已经开始拣货，订单不能修改</td><td>时间之城</td></tr><tr><td>2013-03-18 09:36:04</td><td>您的订单已经出库，正在发往上海分拨中心</td><td>时间之城</td></tr><tr><td>2013-03-19 20:55:54</td><td>货物已完成分拣，等待送往滨江站</td><td>相红萍</td></tr><tr><td>2013-03-19 23:40:48</td><td>上车扫描，送往滨江站途中</td><td>赵慧</td></tr><tr><td>2013-03-20 07:29:59</td><td>您的货物已分配，等待配送</td><td>郑仲</td></tr><tr><td>2013-03-20 08:45:50</td><td>配送员已经从站点出发，请您准备收货，姓名：吴东海，手机号：15372030982</td><td>吴东海</td></tr><tr><td>2013-03-20 11:13:56</td><td>已完成配送，感谢您在订单商城购物，欢迎您再次光临！</td><td>吴东海</td></tr></tbody>
+</table>
+
+<div class="extra"> 
+  <span id="jdshfs"> 送货方式：普通快递 </span>
+</div> </div>
+	
+		
+  <div class="mc tabcon hide">
+    <!--付款信息-->
+    <table cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td width="30%" id="daiFuName"> 付款方式：货到付款</td>
+    <td width="70%" id="daiFuPeople">
+							    </td>
+  </tr>
+  <tr>
+    <td> 商品金额：￥380.00</td>
+    <td> 运费金额：￥0.00</td>
+  </tr>
+  <tr>
+    <td> 优惠金额：￥0.00</td>
+    <td> 实际运费：￥0.00</td>
+  </tr>
+  <tr>
+	        <td> 应支付金额：￥380.00</td>
+    <td> 交易余额：￥0.00</td>
+      </tr>
+  <tr>
+    <td>
+		</td>
+  </tr>
+</tbody></table>
+<div class="tb-ul"></div> </div>
+  <div class="mc tabcon hide">
+		    		<iframe id="gisFrame" src="" frameborder="0" height="710px" scrolling="no" width="100%"></iframe>
+    		<div id="gis"><strong>备注：</strong>受天气、gps信号、运营商等各类因素影响，您看到的包裹位置和实际位置有时可能会有一些差别。请您谅解！</div>
+		  </div>
+    <div class="i-ordertrack"><s></s><a href="http://app.jd.com/" target="_blank" clstag="click|keycount|orderinfo|i-ordertrack">手机查订单，更方便</a></div>
+    <div id="im" title="时间之城在线客服" style="display: block;"><s>在线客服</s></div>
+</div>	<!--留言-->
+		<!--订单信息-->
+	<div class="m" id="orderinfo">
+    <div class="mt">
+        <strong>订单信息</strong></div>
+    <div class="mc">
+	<!-- 节能补贴信息 -->	
+		
+    <!--顾客信息-->
+    <dl class="fore">
+	          <dt>收货人信息</dt>
+		  <dd>
+    <ul>
+		          <li>收&nbsp;货&nbsp;人：某某</li>
+		      <li>地&nbsp;&nbsp;&nbsp;&nbsp;址：xxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+      <li>手机号码：151xxxxxxx</li>
+                </ul>
+  </dd>
+</dl>    
+    <!-- 礼品购订单展示送礼人信息 -->
+        
+    <!--配送、支付方式-->
+    <dl>
+  <dt>支付及配送方式</dt>
+  <dd>
+    <ul>
+    
+      <li>支付方式：货到付款</li>
+      
+            
+      <li>运&nbsp;&nbsp;&nbsp;&nbsp;费：￥0.00</li>
+      
+      	  
+	  
+	  	      
+	  
+    </ul>
+  </dd>
+</dl>
+    <!--发票-->
+    <dl>
+  <dt>发票信息</dt>
+  <dd> 
+  	  		
+				            <ul>
+	                <li>发票类型：普通发票</li>
+	                <li>发票抬头：个人</li>
+	                <li>发票内容：明细</li>
+	                
+	                	                
+	            </ul>
+			        	   </dd>
+</dl>
+    <!-- 礼品购订单展示寄语信息 -->
+        
+    <!--备注-->
+    	
+    <!--商品-->
+			 <dl>
+  <dt>
+	<span class="i-mt">商品清单</span>
+  
+	<div id="fquan" class="fquan">
+          <div id="eventName" onmouseover="showCoupon()" onmouseout="hideCoupon()">
+          </div>
+          
+          <div class="prompt p-fquan" id="couponListShow">
+              <div class="pc" id="couponList">
+              </div>
+          </div>
+      </div>
+  
+      <div class="clr"></div>
+      
+  </dt>
+  
+  <dd class="p-list">
+    <table cellpadding="0" cellspacing="0" width="100%">
+      <tbody><tr>
+        <th width="10%"> 商品编号 </th>
+        <th width="12%"> 商品图片 </th>
+        <th width="42%"> 商品名称 </th>
+        <th width="10%"> 订单价 </th>
+        <th width="8%"> 参团数量 </th>
+        <th width="11%"> 
+			          操作
+                  </th>
+      </tr>
+                  <tr>
+        <td>1010910562</td>
+        
+        <td>
+            <div class="img-list">
+                <a class="img-box" target="_blank" href="">
+                    <img width="50" height="50" src="" title="">
+                </a>
+            </div>
+        </td>
+        
+        <td>
+			<div class="al fl">
+			
+							<a class="flk13" target="_blank" href="#" clstag="click|keycount|orderinfo|product_name"> 某某看房团</a>	
+							
+			          </div>
+          <div class="clr"></div>
+          <div id="coupon_1010910562" class="fl"></div>
+		</td>
+		
+        <td><span class="ftx04"> ￥380.00</span></td>
+			
+        		
+				
+        <td>1</td>
+        <td>
+		                				<span id="iwo1010910562" class="flk13">
+				  <br>
+                  <a href="" target="_blank" clstag="click|keycount|orderinfo|product_repair">申请返修/退换货</a>
+				</span>
+                
+          </td>
+      </tr>
+                </tbody></table>
+  </dd>
+</dl>
+		
+  
+
+<!-- 商家运费险  -->
+    <input type="hidden" id="venderIdListStr" value="18844">
+
+<div id="yunFeiXian">
+</div>	</div>
+    <!--金额-->
+			 <div class="total">
+  <ul>
+    <li><span>总商品金额：</span>￥380.00</li>
+    <li><span>- 返现：</span>￥0.00</li>
+			<li><span>+ 运费：</span>￥0.00</li>
+	    
+                    
+    	  </ul>
+  <span class="clr">ad</span> <span style="color:#EDEDED;"></span>
+  <div class="extra">
+                  应付总额：<span class="ftx04"><b>￥380.00</b></span>
+  </div>
+    </div>
+<link type="text/css" rel="stylesheet" href="http://misc.360buyimg.com/jd2008/201010/skin/orderdetail2012.css">	    
+</div>
+	</div>
+
+
+  </body>
+</html>

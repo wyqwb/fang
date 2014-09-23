@@ -1,25 +1,27 @@
 
         <div class="content fr">            
             <!-- 横栏概览 -->
-            <div class="userSum"><h2>我参与的看房团列表</h2></div>
+            <div class="userSum"><h2>我的订单列表</h2></div>
 
-            <!-- 看房团列表 -->
+            <!-- 参加的看房团列表 -->
             <div class="userSum">
 
-            <?php //if (isset($comments_list)&&count($comments_list)>0) {
-               // foreach ($comments_list as $key => $value) {                
+            <?php if (isset($orders_list)&&count($orders_list)>0) {
+               foreach ($orders_list as $key => $value) {                
             ?>
                 <div class="bd clearfix">
                     <dl class="fl clearfix info">
                         <dt class="fl">
                         <!-- <a href=""><img src="<?php echo base_url(); ?>images/ewm.png" width="80" height="80" alt="" /></a> -->
                         </dt>
-                        <dd class="fl"><a href="/member/orders/1" target="_blank">某某看房团</a></dd>
+                        <dd class="fl"><a href="/member/orders/<?php echo $value['id']?>" target="_blank"><?php echo $value['tuan_title']?></a></dd>
+                        <dd class="fl" >已支付:<?php echo $value['cost']?>元</dd>
+
                     </dl>
-                    <div class="fl about" style="float:right">2014/09/23 23:00</div>
+                    <div class="fl about" style="float:right"><?php echo substr($value['createtime'], 0,10)?></div>
                 </div>
 
-            <?php // } } ?>
+            <?php } } ?>
 
             </div>
         </div>
@@ -57,14 +59,6 @@ $('select').each(function(){
 })
 
 
-function deletefangtuan(id){
-    var resault = $.ajax({
-            url: "/fang/fuang_tuan_over/"+id,
-                data: {},
-                async: false,
-                type: 'post'
-            });
-    location.reload();
-    return;
+
 }
 </script>
