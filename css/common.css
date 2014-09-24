@@ -85,7 +85,7 @@ _html .fixed { height: 1%; }
 #footer .jiathis_style .jiathis_separator{ margin:0;}
 
 
-.w{width:990px;margin:0 auto}
+.w{width:990px;margin:0 auto;margin-top: 20px}
 .breadcrumb{height:20px;padding:0 0 4px 6px;margin-bottom:10px;overflow:hidden;line-height:20px;vertical-align:baseline}
 .breadcrumb strong,.breadcrumb h1{display:inline;font-weight:700;line-height:20px;font-size:18px;font-family:"microsoft yahei"}
 .breadcrumb span{font-family:"\5b8b\4f53"}

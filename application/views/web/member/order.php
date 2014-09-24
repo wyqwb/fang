@@ -9,16 +9,16 @@
   
 
 
-<script charset="utf-8" type="text/javascript" src="/javascript/jquery-1.8.3.min.js" ></script>
-<script charset="utf-8" type="text/javascript" src="/javascript/Validform_v5.3.2.js" ></script>
-<script charset="utf-8" type="text/javascript" src="/javascript/jquery.form.min.js" ></script>
+<!-- <script charset="utf-8" type="text/javascript" src="/javascript/jquery-1.8.3.min.js" ></script> -->
+<!-- <script charset="utf-8" type="text/javascript" src="/javascript/Validform_v5.3.2.js" ></script> -->
+<!-- <script charset="utf-8" type="text/javascript" src="/javascript/jquery.form.min.js" ></script> -->
 
 
     <title>会员中心</title>
     
   <style type="text/css">
   /*==========以下部分是Validform必须的===========*/
-.Validform_checktip{
+/*.Validform_checktip{
   margin-left:8px;
   line-height:20px;
   height:20px;
@@ -70,7 +70,7 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
 }
 .g-bg1 {
   background: #28a7e1;
-}
+}*/
 
   </style>
 </head>
@@ -172,14 +172,16 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
           <strong>订单号：496891929&nbsp;&nbsp;&nbsp;&nbsp;状态：<span class="ftx14">完成</span><span id="pay-button-496891929"></span>
               			            </strong>
           <div class="fr">
-              <div class="toolbar"><input type="button" clstag="click|keycount|orderinfo|btn_Print" class="btn-img btn-inst" onclick="window.open('http://order.jd.com/normal/print.action?orderid=496891929&amp;PassKey=7AB6A0D1CDC4630E4623D2556DDA8127')" id="btn_Print" value="订单打印"><input type="button" class="btn-img btn" clstag="click|keycount|orderinfo|btn_Comment" onclick="javascript:location.href='http://club.jd.com/JdVote/TradeComment.aspx?ruleid=496891929&amp;ot=25&amp;payid=1'" id="btn_Comment" value="评价"></div>
+<!--               <div class="toolbar">
+              <input type="button" class="btn-img btn-inst" onclick="window.open('')" id="btn_Print" value="订单打印">
+              <input type="button" class="btn-img btn" clstag="click|keycount|orderinfo|btn_Comment" onclick="javascript:location.href='http://club.jd.com/JdVote/TradeComment.aspx?ruleid=496891929&amp;ot=25&amp;payid=1'" id="btn_Comment" value="评价">
+              </div> -->
           </div>
   </div>
 
-  <div class="mc" style="display:show">
-      
-				订单已经完成，感谢您在订单商城购物，欢迎您对本次交易及所购商品进行评价。<span class="flk13"><a href="http://club.jd.com/JdVote/TradeComment.aspx?ruleid=496891929&amp;ot=25&amp;payid=1">发表评价</a></span>
-            
+  <div class="mc" style="display:show">      
+				订单已经完成，感谢您在订单商城购物，欢迎您对本次交易及所购商品进行评价。
+        <span class="flk13"><a href="#">发表评价</a></span>            
   </div>
 
   <div class="mc" id="zxzf" style="display:none">
@@ -189,8 +191,8 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
           </p>
           <p style="text-align:left;">
               <span class="ftx-01">由订单提供</span>
-              <s class="icon-bao"></s>
-              <a target="_blank" href="http://help.jd.com/help/question-56.html#help1995">在线交易保障</a>
+              <!-- <s class="icon-bao"></s> -->
+              <a target="_blank" href="#">在线交易保障</a>
               <span>如果您已收到货，请确认收货，订单将与卖家结算。如果您对购买的商品不满意，您可在确认收货后发起返修/退换货申请!</span>
           </p>
       </div>
@@ -199,8 +201,8 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
 
 <div id="hbdd" class="Tip360" style="width: 600px;">
     <div class="Tip_Title">
-        <em><img src="http://www.360buy.com/images/tip_close.jpg" class="Tip_Close" width="14" height="13"></em>
-		合并订单
+        <em><img src="/images/tip_close.jpg" class="Tip_Close" width="14" height="13"></em>
+		    合并订单
     </div>
     <div class="Tip_Content">
         <div id="combin_main">
@@ -219,7 +221,7 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
 <div id="ddyq" class="Tip360" style="width: 360px;">
     <div class="Tip_Title">
         <em>
-            <img src="http://www.360buy.com/images/tip_close.jpg" class="Tip_Close" id="defercloseBtn" width="14" height="13">
+            <img src="/images/tip_close.jpg" class="Tip_Close" id="defercloseBtn" width="14" height="13">
         </em>订单延期
     </div>
     <div class="Tip_Content">
@@ -235,29 +237,29 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
 	
 	<!--进度条-->
 	
-            <div id="process" class="section3">
-		            <div class="node fore ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">提交订单</li><li id="track_time_0" class="tx3">2013-03-17 <br> 17:46:15</li></ul></div>
-        		    <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>
-        		    <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">商品出库</li><li id="track_time_1" class="tx3"></li></ul></div>
-        		    <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>
-        		    <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">等待收货</li><li id="track_time_5" class="tx3">2013-03-19 <br> 23:40:48</li></ul></div>		
-        		    <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>		
-        		    <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">完成</li><li id="track_time_6" class="tx3">2013-03-20 <br> 11:13:56</li></ul></div>
-		            </div>
+    <div id="process" class="section3">
+		    <div class="node fore ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">提交订单</li><li id="track_time_0" class="tx3">2013-03-17 <br> 17:46:15</li></ul></div>
+        <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>
+        <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">商品出库</li><li id="track_time_1" class="tx3"></li></ul></div>
+        <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>
+        <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">等待收货</li><li id="track_time_5" class="tx3">2013-03-19 <br> 23:40:48</li></ul></div>		
+        <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>		
+        <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">完成</li><li id="track_time_6" class="tx3">2013-03-20 <br> 11:13:56</li></ul></div>
+		</div>
             
 	<!--跟踪、付款信息、gis-->
 	<div class="m" id="ordertrack">
   <ul class="tab">
-    <li class="curr" clstag="click|keycount|orderinfo|ordertrack">
+    <li class="curr" clstag="#">
       <h2> 订单跟踪</h2>
     </li>
 		
-    <li clstag="click|keycount|orderinfo|btn_payinfo">
+<!--     <li clstag="#">
       <h2> 付款信息</h2>
     </li>
     <li id="orderlocustab" style="display:none;" clstag="click|keycount|orderinfo|btn_gis">
       <h2> 订单轨迹</h2>
-    </li>
+    </li> -->
   </ul>
   <div class="clr"></div>
   <div class="mc tabcon">
@@ -282,10 +284,10 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
   <div class="mc tabcon hide">
     <!--付款信息-->
     <table cellpadding="0" cellspacing="0" width="100%">
-  <tbody><tr>
+  <tbody>
+  <tr>
     <td width="30%" id="daiFuName"> 付款方式：货到付款</td>
-    <td width="70%" id="daiFuPeople">
-							    </td>
+    <td width="70%" id="daiFuPeople"></td>
   </tr>
   <tr>
     <td> 商品金额：￥380.00</td>
@@ -296,22 +298,22 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
     <td> 实际运费：￥0.00</td>
   </tr>
   <tr>
-	        <td> 应支付金额：￥380.00</td>
+	  <td> 应支付金额：￥380.00</td>
     <td> 交易余额：￥0.00</td>
-      </tr>
+  </tr>
   <tr>
     <td>
 		</td>
   </tr>
 </tbody></table>
-<div class="tb-ul"></div> </div>
+ </div>
   <div class="mc tabcon hide">
-		    		<iframe id="gisFrame" src="" frameborder="0" height="710px" scrolling="no" width="100%"></iframe>
-    		<div id="gis"><strong>备注：</strong>受天气、gps信号、运营商等各类因素影响，您看到的包裹位置和实际位置有时可能会有一些差别。请您谅解！</div>
+    		<div id="gis">
+        <strong>备注：</strong>
+        受天气、gps信号、运营商等各类因素影响，您看到的包裹位置和实际位置有时可能会有一些差别。请您谅解！</div>
 		  </div>
-    <div class="i-ordertrack"><s></s><a href="http://app.jd.com/" target="_blank" clstag="click|keycount|orderinfo|i-ordertrack">手机查订单，更方便</a></div>
-    <div id="im" title="时间之城在线客服" style="display: block;"><s>在线客服</s></div>
-</div>	<!--留言-->
+</div>	
+<!--留言-->
 		<!--订单信息-->
 	<div class="m" id="orderinfo">
     <div class="mt">
@@ -320,14 +322,12 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
 	<!-- 节能补贴信息 -->	
 		
     <!--顾客信息-->
-    <dl class="fore">
-	          <dt>收货人信息</dt>
-		  <dd>
+    <dl class="fore"><dt>收货人信息</dt><dd>
     <ul>
-		          <li>收&nbsp;货&nbsp;人：某某</li>
-		      <li>地&nbsp;&nbsp;&nbsp;&nbsp;址：xxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+		  <li>收&nbsp;货&nbsp;人：某某</li>
+		  <li>地&nbsp;&nbsp;&nbsp;&nbsp;址：xxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
       <li>手机号码：151xxxxxxx</li>
-                </ul>
+    </ul>
   </dd>
 </dl>    
     <!-- 礼品购订单展示送礼人信息 -->
@@ -336,40 +336,25 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
     <dl>
   <dt>支付及配送方式</dt>
   <dd>
-    <ul>
-    
-      <li>支付方式：货到付款</li>
-      
-            
-      <li>运&nbsp;&nbsp;&nbsp;&nbsp;费：￥0.00</li>
-      
-      	  
-	  
-	  	      
-	  
+    <ul>    
+      <li>支付方式：货到付款</li>           
+      <li>运&nbsp;&nbsp;&nbsp;&nbsp;费：￥0.00</li>  	  
     </ul>
   </dd>
 </dl>
-    <!--发票-->
-    <dl>
+
+<!--发票-->
+<dl>
   <dt>发票信息</dt>
-  <dd> 
-  	  		
-				            <ul>
-	                <li>发票类型：普通发票</li>
-	                <li>发票抬头：个人</li>
-	                <li>发票内容：明细</li>
-	                
-	                	                
-	            </ul>
-			        	   </dd>
+  <dd> 	  		
+		<ul>
+	     <li>发票类型：普通发票</li>
+	     <li>发票抬头：个人</li>
+	     <li>发票内容：明细</li>                
+	  </ul>
+	</dd>
 </dl>
-    <!-- 礼品购订单展示寄语信息 -->
-        
-    <!--备注-->
-    	
-    <!--商品-->
-			 <dl>
+<dl>
   <dt>
 	<span class="i-mt">商品清单</span>
   

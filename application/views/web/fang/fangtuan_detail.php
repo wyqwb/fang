@@ -91,7 +91,7 @@
 									<p><span>显示价格：</span><?php echo $fangtuan['displayCost']?></p>
 
 									
-									<input type="button" onclick="jointuan()" value="参加看房团" style="width:119px;height:30px;background-color:red;border:none;margin-top:80px;cursor:pointer;">
+									<input type="button" onclick="jointuan(<?php echo $islogin?>)" value="参加看房团" style="width:119px;height:30px;background-color:red;border:none;margin-top:80px;cursor:pointer;">
 								</div>
 
 
@@ -230,11 +230,11 @@
 
 			<div class="g-m2-tab g-wh8">
 				<ul class="btns">
-					<li class="z-on">全部评价<a href="">(677)</a></li>
-					<li>好评(630)</li>
+					<li class="z-on">点评<a href="">(677)</a></li>
+<!-- 					<li>好评(630)</li>
 					<li>中评(17)</li>
-					<li>差评(30)</li>
-					<li>有晒单的评价(64)</li>
+					<li>差评(30)</li> -->
+					<li>看房团点评(64)</li>
 				</ul>
 				<div class="cnts">
 			
@@ -312,8 +312,8 @@
 		</div>
 
 	<script type="text/javascript">
-	function jointuan() {
-
+	function jointuan(islogin) {
+			if(!islogin){alert("请登录");return;}
    			window.location.href = '/fang/jointuan/<?php echo $fangtuan["id"]?>';
 			return ;
 

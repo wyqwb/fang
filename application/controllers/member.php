@@ -417,7 +417,11 @@ class Member extends FrontMember_Controller {
 
 	public function orders(){
 		$seg=$this->uri->segment(3);
-		$this->load->view('web/member/order.php');
+		$user_id = $this->session->userdata('userid');
+		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
+
+		$this->load->view('web/member/order.php',$data);
 
 		
 	}
