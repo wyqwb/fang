@@ -17,41 +17,7 @@
     <title>会员中心</title>
     
   <style type="text/css">
-  /*==========以下部分是Validform必须的===========*/
-/*.Validform_checktip{
-  margin-left:8px;
-  line-height:20px;
-  height:20px;
-  overflow:hidden;
-  color:#999;
-  font-size:12px;
-}
-.Validform_right{
-  color:#71b83d;
-  padding-left:20px;
-  background:url(images/right.png) no-repeat left center;
-}
-.Validform_wrong{
-  color:red;
-  padding-left:20px;
-  white-space:nowrap;
-  background:url(images/error.png) no-repeat left center;
-}
-.Validform_loading{
-  padding-left:20px;
-  background:url(images/onLoad.gif) no-repeat left center;
-}
-.Validform_error{
-  background-color:#ffe7e7;
-}
-#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999'); box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);}
-#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
-#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#999;
-background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-gradient(linear, 0 0, 0 100%, from(#999), to(#666)); filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#666666');}
-#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
-#Validform_msg a.Validform_close:hover{color:#ccc;}
-#Validform_msg .Validform_info{padding:8px;border:1px solid #bbb; border-top:none; text-align:left;}
-.msg-block{color:red;}
+
 
 /* foot part*/
 .g-ft {
@@ -237,7 +203,7 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
 	
 	<!--进度条-->
 	
-    <div id="process" class="section3">
+<!--     <div id="process" class="section3">
 		    <div class="node fore ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">提交订单</li><li id="track_time_0" class="tx3">2013-03-17 <br> 17:46:15</li></ul></div>
         <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>
         <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">商品出库</li><li id="track_time_1" class="tx3"></li></ul></div>
@@ -245,7 +211,7 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
         <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">等待收货</li><li id="track_time_5" class="tx3">2013-03-19 <br> 23:40:48</li></ul></div>		
         <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>		
         <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">完成</li><li id="track_time_6" class="tx3">2013-03-20 <br> 11:13:56</li></ul></div>
-		</div>
+		</div> -->
             
 	<!--跟踪、付款信息、gis-->
 	<div class="m" id="ordertrack">
@@ -276,14 +242,16 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
   </tbody><tbody><tr><td>2013-03-17 17:46:15</td><td>您提交了订单，请等待系统确认</td><td>客户</td></tr><tr><td>2013-03-18 09:35:19</td><td>第三方卖家已经开始拣货，订单不能修改</td><td>时间之城</td></tr><tr><td>2013-03-18 09:36:04</td><td>您的订单已经出库，正在发往上海分拨中心</td><td>时间之城</td></tr><tr><td>2013-03-19 20:55:54</td><td>货物已完成分拣，等待送往滨江站</td><td>相红萍</td></tr><tr><td>2013-03-19 23:40:48</td><td>上车扫描，送往滨江站途中</td><td>赵慧</td></tr><tr><td>2013-03-20 07:29:59</td><td>您的货物已分配，等待配送</td><td>郑仲</td></tr><tr><td>2013-03-20 08:45:50</td><td>配送员已经从站点出发，请您准备收货，姓名：吴东海，手机号：15372030982</td><td>吴东海</td></tr><tr><td>2013-03-20 11:13:56</td><td>已完成配送，感谢您在订单商城购物，欢迎您再次光临！</td><td>吴东海</td></tr></tbody>
 </table>
 
-<div class="extra"> 
+<!-- <div class="extra"> 
   <span id="jdshfs"> 送货方式：普通快递 </span>
-</div> </div>
+</div>  -->
+
+</div>
 	
 		
-  <div class="mc tabcon hide">
+  <!-- <div class="mc tabcon hide"> -->
     <!--付款信息-->
-    <table cellpadding="0" cellspacing="0" width="100%">
+<!--     <table cellpadding="0" cellspacing="0" width="100%">
   <tbody>
   <tr>
     <td width="30%" id="daiFuName"> 付款方式：货到付款</td>
@@ -305,8 +273,10 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
     <td>
 		</td>
   </tr>
-</tbody></table>
- </div>
+</tbody>
+</table>
+ </div> -->
+ 
   <div class="mc tabcon hide">
     		<div id="gis">
         <strong>备注：</strong>

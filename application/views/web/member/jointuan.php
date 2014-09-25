@@ -9,17 +9,62 @@
             <?php if (isset($orders_list)&&count($orders_list)>0) {
                foreach ($orders_list as $key => $value) {                
             ?>
-                <div class="bd clearfix">
+
+
+
+ <!--                <div class="bd clearfix">
                     <dl class="fl clearfix info">
                         <dt class="fl">
-                        <!-- <a href=""><img src="<?php echo base_url(); ?>images/ewm.png" width="80" height="80" alt="" /></a> -->
+                        <a href=""><img src="<?php echo base_url(); ?>images/tuan.png" width="80" height="80" alt="" /></a>
                         </dt>
-                        <dd class="fl"><a href="/member/orders/<?php echo $value['id']?>" target="_blank"><?php echo $value['tuan_title']?></a></dd>
+                        <dd class="fl"><?php echo $value['tuan_title']?></dd>
                         <dd class="fl" >已支付:<?php echo $value['cost']?>元</dd>
 
                     </dl>
-                    <div class="fl about" style="float:right"><?php echo substr($value['createtime'], 0,10)?></div>
-                </div>
+                    <div class="fl about" style="float:right">
+                    <?php echo substr($value['createtime'], 0,10)?>
+                    <a href="/member/orders/<?php echo $value['id']?>" target="_blank">订单详情</a>
+                    </div>
+                </div> -->
+
+<div class="bd clearfix">
+<dd class="p-list">
+    <table cellpadding="0" cellspacing="0" width="100%">
+      <tbody>
+      <tr>
+        <th width="10%"> 商品编号 </th>
+        <th width="12%"> 商品图片 </th>
+        <th width="42%"> 商品名称 </th>
+        <th width="10%"> 订单价 </th>
+        <th width="8%"> 参团数量 </th>
+        <th width="11%"> </th>
+      </tr>
+     <tr>
+        <td>1010910562</td>        
+        <td>
+            <div class="img-list">
+                <a class="img-box" target="_blank" href="">
+                    <img width="50" height="50" src="<?php echo base_url(); ?>images/tuan.png" title="">
+                </a>
+            </div>
+        </td>        
+        <td>
+            <div class="al fl">            
+                <a class="flk13" target="_blank" href="#" > <?php echo $value['tuan_title']?></a> 
+            </div>
+          <div class="clr"></div>
+          <!-- <div id="coupon_1010910562" class="fl"></div> -->
+        </td>        
+        <td><span class="ftx04"> ￥<?php echo $value['cost']?></span></td>
+        <td>1</td>
+        <td><span id="iwo1010910562" class="flk13">
+            <br><a href="/member/orders/<?php echo $value['id']?>" target="_blank" >订单详情</a></span>
+          </td>
+      </tr>
+    </tbody>
+    </table>
+  </dd>
+ </div>
 
             <?php } } ?>
 
