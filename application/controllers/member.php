@@ -163,6 +163,7 @@ class Member extends FrontMember_Controller {
 					'title'=>$params['title'],
 					'attention'=>$params['attention'],
 					'Travelinfo'=>$params['Travelinfo'],
+					'des'=>$params['content'],
 					'godate'=>$params['godate'],
 					'gotime'=>$params['gotime'],										
 					'normalCost'=>$params['normalCost'],
@@ -265,6 +266,7 @@ class Member extends FrontMember_Controller {
             $postdata['lowerprice'] = $this->input->post('lowerprice');
             $postdata['highprice'] = $this->input->post('highprice');
             $postdata['desc'] = $this->input->post('desc');
+            $postdata['content'] = $this->input->post('content');
             $postdata['createtime'] = date('Y-m-d G:i:s');
 
             if($fang_modif==1){
@@ -417,6 +419,14 @@ class Member extends FrontMember_Controller {
 		$user_id = $this->session->userdata('userid');
 		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
+
+
+		$orderinfo=$this->mpublic->getRow('orders','tuanid,cost',array('id'=>$seg));
+		
+		if(count($orderinfo)>0){
+			$data['fangtuan']=$this->mpublic->getRow('fangtuan','',array('id'=>$orderinfo['tuanid']));
+			$data['fangtuan']['cost']=$orderinfo['cost'];
+		}
 		$this->load->view('web/member/order.php',$data);	
 	}
 
@@ -436,13 +446,13 @@ class Member extends FrontMember_Controller {
 		if(count($mytuanids)>0){
 			foreach ($mytuanids as $key => $value) {
 				$isorders=$this->mpublic->getList("orders","",array('tuanid' => $value['id']));	
-				//print_r($value);die;
 				if(count($isorders)>0){
 					$userinfo = $this->mpublic->getRow('member','Id,account',array('Id'=>$isorders[0]['mid']));
-					//print_r($userinfo);die;
+					if(count($userinfo)>0){
 					$data['orderlist'][$key]=$isorders[0];
-					$data['orderlist'][$key]['tuan_title']=$value['title'];					
+					$data['orderlist'][$key]['tuan_title']=$value['title'];
 					$data['orderlist'][$key]['account']=$userinfo['account'];
+					}
 				}
 			}
 		}

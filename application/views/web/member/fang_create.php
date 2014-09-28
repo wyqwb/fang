@@ -138,7 +138,10 @@
                             <tr>
                                 <td class="tit">房屋介绍：</td>
                                 <td class="input" colspan="2">
-                                <textarea class="text" name="desc" style="margin: 0px; width: 450px; height: 180px;resize: none;" datatype="*" nullmsg="请输入房屋介绍！"><?php if (isset($fang['desc'])) {echo $fang['desc'];}?></textarea>
+                                <textarea name="content" id="ueditor" style="width:500px;"><?php if (isset($fang['content'])) {echo $fang['content'];}?></textarea>
+                                <!-- <textarea class="text" name="desc" style="margin: 0px; width: 450px; height: 180px;resize: none;" datatype="*" nullmsg="请输入房屋介绍！"> -->
+                                 <?php //if (isset($fang['desc'])) {echo $fang['desc'];}?>
+                                <!-- </textarea> -->
                                 <div class="Validform_checktip"></div></td>
                             </tr>  
                             <br>    
@@ -186,4 +189,21 @@ $('select').each(function(){
 		$(this).find('option[value='+dataval+']').attr('selected',true);
 	}
 })
+</script>
+
+
+    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script>
+    var editor = UE.getEditor('ueditor');
+    $('#jsSelect').change(function () {
+        var vals = $(this).val();
+        if (vals == 1 || vals == 2 || vals == 3 || vals == 4 || vals == 5) {
+            $('#jsOrder').css('display','none');
+        } else {
+            $('#jsOrder').css('display','block');
+        }
+    });
+    
 </script>

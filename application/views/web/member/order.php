@@ -383,7 +383,7 @@
         <td>
 		                				<span id="iwo1010910562" class="flk13">
 				  <br>
-                  <a href="" target="_blank" >查看</a>
+                  <a href="#" target="_blank" >查看</a>
 				</span>
                 
           </td>
@@ -408,7 +408,6 @@
 	    
                     
     	  </ul>
-  <span class="clr">ad</span> <span style="color:#EDEDED;"></span>
   <div class="extra">
                   应付总额：<span class="ftx04"><b>￥<?php echo $fangtuan['cost']?></b></span>
   </div>

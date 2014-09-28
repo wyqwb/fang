@@ -69,7 +69,12 @@
                                 <textarea class="text" name="attention" style="margin: 0px; width: 448px; height: 100px;resize: none;"><?php if (isset($fangtuan['attention'])){echo $fangtuan['attention'];}?></textarea>
                                </td>
                             </tr>
-
+                           <tr>
+                                <td class="tit">房屋介绍：</td>
+                                <td class="input" colspan="2">
+                                <textarea name="content" id="ueditor" style="width:500px;"><?php if (isset($fang['desc'])) {echo $fang['desc'];}?></textarea>
+                                <div class="Validform_checktip"></div></td>
+                            </tr>  
                             <tr>
                                 <td class="tit">&nbsp;</td>
                                 <td class="input"><input class="ui-btn-submit" name="sub"  type="submit" value="提交" /></td>
@@ -153,3 +158,18 @@ $((function($){
         $('#gotime').datepicker();
     });
  </script>
+    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script>
+    var editor = UE.getEditor('ueditor');
+    $('#jsSelect').change(function () {
+        var vals = $(this).val();
+        if (vals == 1 || vals == 2 || vals == 3 || vals == 4 || vals == 5) {
+            $('#jsOrder').css('display','none');
+        } else {
+            $('#jsOrder').css('display','block');
+        }
+    });
+    
+</script>

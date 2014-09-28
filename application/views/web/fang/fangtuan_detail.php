@@ -110,8 +110,10 @@
 		<?php }	?>
 
 		<!-- 模块3 -->
-		<div class="g-item g-wh7">			
-			<div class="g-m3-l">
+		<div class="g-item g-wh7">	
+
+				<?php echo $fangtuan['des']?>
+<!-- 			<div class="g-m3-l">
 				<img src="<?php  echo WEB_IMAGES_PATH?>city.gif" alt="">
 				<h2 class="m3-til">尊享城市发展机遇鼎力助推城市国际化</h2>
 				<ul class="m3-list1">
@@ -163,7 +165,9 @@
 					</li>
 				</ul>
 				<img src="<?php  echo WEB_IMAGES_PATH?>nice.gif" alt="">
-			</div>
+			</div> -->
+
+
 			<div class="clear"></div>
 		</div>
 		<!-- 模块4 -->
