@@ -90,3 +90,14 @@ _html .fixed { height: 1%; }
 .breadcrumb strong,.breadcrumb h1{display:inline;font-weight:700;line-height:20px;font-size:18px;font-family:"microsoft yahei"}
 .breadcrumb span{font-family:"\5b8b\4f53"}
 
+#orderinfo .mt,#ordermess .mt{padding:0 8px;height:30px;line-height:30px;font-size:14px;}
+#orderinfo .mc,#ordermess .mc{padding:5px 8px;background:#fff;overflow:visible;}
+#orderinfo .mc dl{padding:10px 5px;border-top:1px solid #EDEDED;}
+#orderinfo .mc dl.fore{border-top:0;}
+#orderinfo .mc dt{margin-bottom:4px;font-weight:bold;}
+#orderinfo .p-list{overflow:hidden;margin-right:-1px;border-left:1px solid #DEDEDE;}
+#orderinfo .p-list table{border-collapse:collapse;margin-left:-1px;border:solid #DEDEDE;border-width:0 1px;}
+#orderinfo .p-list th{padding:5px;background:#F0F0F0;border-top:1px solid #DEDEDE;border-bottom:1px solid #DEDEDE;border-left:1px solid #F0F0F0;font-weight:normal;}
+#orderinfo .p-list td{padding:5px;background:#fff;border-top:1px solid #DEDEDE;border-bottom:1px solid #DEDEDE;border-left:1px solid #F0F0F0;text-align:center;}
+#barcode{position:relative;height:20px;padding:0 5px;}
+.p-list td a {text-decoration:underline;}

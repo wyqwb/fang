@@ -6,8 +6,8 @@
             <!-- 参加的看房团列表 -->
             <div class="userSum">
 
-            <?php if (isset($orders_list)&&count($orders_list)>0) {
-               foreach ($orders_list as $key => $value) {                
+            <?php if (isset($orderlist)&&count($orderlist)>0) {
+               foreach ($orderlist as $key => $value) {                
             ?>
 
 
@@ -19,10 +19,11 @@
       <tr>
         <th width="10%"> 商品编号 </th>
         <th width="12%"> 商品图片 </th>
-        <th width="42%"> 商品名称 </th>
+        <th width="32%"> 商品名称 </th>
         <th width="10%"> 订单价 </th>
+        <th width="10%"> 参团客户 </th>
         <th width="10%"> 参团人数</th>
-        <th width="11%"> </th>
+        <th width="11%">操作管理 </th>
       </tr>
      <tr>
         <td>1010910562</td>        
@@ -40,10 +41,13 @@
           <!-- <div class="clr"></div> -->
         </td>        
         <td><span class="ftx04"> ￥<?php echo $value['cost']?></span></td>
+        <td><?php echo $value['account']?></td>
         <td>1</td>
         <td>
+            <a href="/member/orders/<?php echo $value['id']?>" style="" target="_blank" >编辑订单</a></span>
+            <br>
             <a href="/member/orders/<?php echo $value['id']?>" style="" target="_blank" >订单详情</a></span>
-          </td>
+        </td>
       </tr>
     </tbody>
     </table>

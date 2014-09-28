@@ -2,6 +2,11 @@
             <!-- 侧边导航栏 -->
             <div class="sideNav">
                     <div class="bd">
+                    <dl class="J_nav">
+                        <dt><a><b class="icon-money"></b>订单专区</a></dt>
+                        <dd><a href="<?php echo base_url();?>member/orderlist">订单列表</a></dd>
+                        <!-- <dd><a href="<?php echo base_url();?>member/forcostlist">出价列表</a></dd> -->
+                    </dl>
                 	<dl class="J_nav">
                         <dt><a><b class="icon-logo"></b>房产专区</a></dt>
                         <dd><a href="<?php echo base_url();?>member/fangtuan_create">创建看房团</a></dd>

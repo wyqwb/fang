@@ -374,6 +374,7 @@ table {
 
 
 .icon-logo,
+.icon-money,
 .icon-user,
 .icon-u1,
 .icon-email,
@@ -405,6 +406,7 @@ table {
 }
 
 .icon-logo,
+.icon-money,
 .icon-user,
 .icon-u1,
 .icon-email,
@@ -496,6 +498,9 @@ table {
     background-image: url("../images/n_icon_logo.png");
 }
 
+.icon-money {
+    background-image: url("../images/n_icon_money.png");
+}
 .icon-user {
     background-image: url("../images/n_icon_user.png");
 }

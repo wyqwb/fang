@@ -1,49 +1,49 @@
 
         <div class="content fr">            
             <!-- 横栏概览 -->
-            <div class="userSum"><h2>我的订单列表</h2></div>
+            <div class="userSum"><h2>我的出价列表</h2></div>
 
             <!-- 参加的看房团列表 -->
             <div class="userSum">
 
-            <?php if (isset($orders_list)&&count($orders_list)>0) {
-               foreach ($orders_list as $key => $value) {                
+            <?php if (isset($forcost_list)&&count($forcost_list)>0) {
+               foreach ($forcost_list as $key => $value) {                
             ?>
 
 
 <div class="m" id="orderinfo">
 <div class="bd clearfix">
 <dd class="p-list">
-    <table cellpadding="0" cellspacing="0" width="100%">
+    <table cellpadding="0" cellspacing="0" width="100%" >
       <tbody>
       <tr>
         <th width="10%"> 商品编号 </th>
-        <th width="12%"> 商品图片 </th>
-        <th width="42%"> 商品名称 </th>
-        <th width="10%"> 订单价 </th>
-        <th width="10%"> 参团人数</th>
-        <th width="11%"> </th>
+        <th width="12%"> 房源图片 </th>
+        <th width="42%"> 房源名称 </th>
+        <th width="10%"> 出价 </th>
+        <!-- <th width="10%"> 参团人数</th> -->
+        <!-- <th width="11%"> </th> -->
       </tr>
      <tr>
         <td>1010910562</td>        
         <td>
             <div class="img-list">
                 <a class="img-box" target="_blank" href="">
-                    <img width="50" height="50" src="<?php echo base_url(); ?>images/tuan.png" title="">
+                    <img width="50" height="50" src="<?php echo base_url(); ?>images/fang.jpg" title="">
                 </a>
             </div>
         </td>        
         <td>
             <div class="al fl">            
-                <a class="flk13" target="_blank" href="/fang/tuandetail/<?php echo $value['tuanid']?>" > <?php echo $value['tuan_title']?></a> 
+                <a class="flk13" target="_blank" href="/fang/detail/<?php echo $value['fid']?>" > <?php echo $value['fang_title']?></a> 
             </div>
           <!-- <div class="clr"></div> -->
         </td>        
         <td><span class="ftx04"> ￥<?php echo $value['cost']?></span></td>
-        <td>1</td>
-        <td>
+        <!-- <td>1</td> -->
+<!--         <td>
             <a href="/member/orders/<?php echo $value['id']?>" style="" target="_blank" >订单详情</a></span>
-          </td>
+        </td> -->
       </tr>
     </tbody>
     </table>
