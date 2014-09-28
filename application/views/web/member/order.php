@@ -359,8 +359,8 @@
         
         <td>
             <div class="img-list">
-                <a class="img-box" target="_blank" href="">
-                    <img width="50" height="50" src="" title="">
+                <a class="img-box" target="_blank" href="/fang/tuandetail/<?php echo $fangtuan['id']?>">
+                    <img width="50" height="50" src="<?php echo base_url(); ?>images/tuan.png" title="">
                 </a>
             </div>
         </td>
@@ -368,14 +368,14 @@
         <td>
 			<div class="al fl">
 			
-							<a class="flk13" target="_blank" href="#" clstag="click|keycount|orderinfo|product_name"> 某某看房团</a>	
+							<a class="flk13" target="_blank" href="/fang/tuandetail/<?php echo $fangtuan['id']?>" > <?php echo $fangtuan['title']?></a>	
 							
 			          </div>
           <div class="clr"></div>
-          <div id="coupon_1010910562" class="fl"></div>
+          <!-- <div id="coupon_1010910562" class="fl"></div> -->
 		</td>
 		
-        <td><span class="ftx04"> ￥380.00</span></td>
+        <td><span class="ftx04"> ￥<?php echo $fangtuan['cost']?></span></td>
 			
         		
 				
@@ -383,7 +383,7 @@
         <td>
 		                				<span id="iwo1010910562" class="flk13">
 				  <br>
-                  <a href="" target="_blank" clstag="click|keycount|orderinfo|product_repair">申请返修/退换货</a>
+                  <a href="" target="_blank" >查看</a>
 				</span>
                 
           </td>
@@ -402,7 +402,7 @@
     <!--金额-->
 			 <div class="total">
   <ul>
-    <li><span>总商品金额：</span>￥380.00</li>
+    <li><span>总商品金额：</span>￥<?php echo $fangtuan['cost']?></li>
     <li><span>- 返现：</span>￥0.00</li>
 			<li><span>+ 运费：</span>￥0.00</li>
 	    
@@ -410,10 +410,10 @@
     	  </ul>
   <span class="clr">ad</span> <span style="color:#EDEDED;"></span>
   <div class="extra">
-                  应付总额：<span class="ftx04"><b>￥380.00</b></span>
+                  应付总额：<span class="ftx04"><b>￥<?php echo $fangtuan['cost']?></b></span>
   </div>
     </div>
-<link type="text/css" rel="stylesheet" href="http://misc.360buyimg.com/jd2008/201010/skin/orderdetail2012.css">	    
+<link type="text/css" rel="stylesheet" href="/css/jd.css">	    
 </div>
 	</div>
 

@@ -16,9 +16,5 @@ ERROR - 2014-09-11 13:00:12 --> 404 Page Not Found --> favicon.ico
 ERROR - 2014-09-11 13:00:12 --> Severity: Warning  --> chmod() has been disabled for security reasons /home/www/web/sdsa.com_2QW6s6Pvg7h9fhTfBpQP/wwwroot/system/libraries/Log.php 108
 ERROR - 2014-09-11 22:03:40 --> 404 Page Not Found --> favicon.ico
 ERROR - 2014-09-11 22:03:40 --> Severity: Warning  --> chmod() has been disabled for security reasons /home/www/web/sdsa.com_2QW6s6Pvg7h9fhTfBpQP/wwwroot/system/libraries/Log.php 108
-ERROR - 2014-09-11 22:29:58 --> Severity: Notice  --> Undefined index: floor D:\AMP\ROOT\FANG\application\views\web\fang\fang_detail.php 86
-ERROR - 2014-09-11 22:29:58 --> Severity: Notice  --> Undefined index: pgreen D:\AMP\ROOT\FANG\application\views\web\fang\fang_detail.php 87
-ERROR - 2014-09-11 22:29:58 --> Severity: Notice  --> Undefined index: nearby D:\AMP\ROOT\FANG\application\views\web\fang\fang_detail.php 88
-ERROR - 2014-09-11 22:45:40 --> 404 Page Not Found --> css
-ERROR - 2014-09-11 23:31:35 --> Severity: Notice  --> Undefined variable: links D:\AMP\ROOT\FANG\application\views\web\public\footer_list.php 50
-ERROR - 2014-09-11 23:31:35 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\public\footer_list.php 50
+ERROR - 2014-09-11 23:42:07 --> 404 Page Not Found --> favicon.ico
+ERROR - 2014-09-11 23:42:07 --> Severity: Warning  --> chmod() has been disabled for security reasons /home/www/web/sdsa.com_2QW6s6Pvg7h9fhTfBpQP/wwwroot/system/libraries/Log.php 108

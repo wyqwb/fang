@@ -420,12 +420,14 @@ class Member extends FrontMember_Controller {
 		$this->load->view('web/member/order.php',$data);	
 	}
 
+
 	public function orderlist(){
 		//商家的订单列表
 		$seg=$this->uri->segment(3);
 		$user_id = $this->session->userdata('userid');
 		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
+
 
 		//获取商家的看房团
 		$mytuanids=$this->mpublic->getList("fangtuan","id,title",array('mid' => $user_id));
@@ -479,22 +481,28 @@ class Member extends FrontMember_Controller {
 		$this->front_footer();		
 	}
 
+
 	public function forcostlist(){
 		//商户获取名下的房源出价列表
+
 		$seg=$this->uri->segment(3);
 		$user_id = $this->session->userdata('userid');
 		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
+
 		//获取参加的出价订单
 		$data['forcost_list']=$this->mpublic->getList("forcost","",array('mid' => $user_id));
 		if(count($data['forcost_list'])>0){
 			foreach ($data['forcost_list'] as $key => $value) {
 				$fang_title = $this->mpublic->getRow('fang','title',array('id'=>$value['fid']));
-				if(count($fang_title)>0){
+
+				if(count($fang_title)>0)
+				{
 					$data['forcost_list'][$key]["fang_title"]=$fang_title['title'];
 				}
 			}
 		}
+
 		$this->front_header(get_cookie("username"));
 		$accoutype=get_cookie('accountype');
 		if($accoutype=="normal") {$this->front_left_normal();}
@@ -502,7 +510,6 @@ class Member extends FrontMember_Controller {
 		$this->load->view('web/member/forcost.php',$data);
 		$this->front_footer();		
 	}
-
 
 
 
