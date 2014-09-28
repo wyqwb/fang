@@ -69,7 +69,7 @@
                                 </div>
                                 
                                 <div class="frm_control_group">
-                                    <label for="" class="frm_label">邮箱(必填)</label>
+                                    <label for="" class="frm_label">邮箱(可选)</label>
                                     <div class="frm_controls">
                                         <span class="frm_input_box">
                                             <input id="email" name="email" type="text" placeholder="" class="frm_input">
@@ -304,23 +304,10 @@ $(document).ready(function(e) {
 //---------------------------------------------------------
 
 function dogoon(){
-        var email = $("#email").val();
-        if (email == "") {
-            alert("邮箱不能为空");
-            $("#email").focus();
-            return false;
-        }
-        if(!$("#email").val().match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)) { 
-        alert("邮箱格式不正确"); 
-        $("#email").focus(); 
-        return false; 
-        } 
-
-    
         //选填项
         var otherregstr="";
         if($("#realname").val()!=""){otherregstr+="|realname="+$("#realname").val()}
-        // if($("#email").val()!=""){otherregstr+="|email="+$("#email").val()}
+        if($("#email").val()!=""){otherregstr+="|email="+$("#email").val()}
         if($("#QQ").val()!=""){otherregstr+="|QQ="+$("#QQ").val()}
         if($('input:radio:checked').val()!=null){otherregstr+="|gender="+$('input:radio:checked').val()}
         if($("#weibo").val()!=""){otherregstr+="|weibo="+$("#weibo").val()}

@@ -161,10 +161,11 @@
 				<div style="height:100px;">
 				<span style="margin-right:80px">均价：<?php echo $fang['displayprice']?>元/平方米</span>
 				<span>我出价：<input type="text" id="jia"  style="margin-top:50px;width:300px;height:30px" /></span></div>
-				<div style="height:100px;position: absolute;top: 1070px;left: 670px;"><input type="button" value="确定" onclick="dojia()" style="width:150px;height:35px"></div>
+				<div style="height:100px;position: absolute;top: 1070px;left: 670px;">
+				<input type="button" value="确定" onclick="forcost()" style="width:150px;height:35px"></div>
 	</div>
 	<script type="text/javascript">
-	function dojia() {
+	function forcost() {
             var jia = $("#jia").val();
             if (jia == "") {
             alert("出价不能为空");
@@ -172,28 +173,29 @@
             return false;
         	}
 
-
-   			window.location.href = '/fang/tuandetail/<?php echo $tuanid?>';
-
-			return ;
-
             var resault = $.ajax({
-                url: "/login/act/",
+                url: "/fang/forcost/",
                 data: {
-                    'username': username,
-                    'password': password
+                    'jia': jia,
+                    'fangid': "<?php echo $fangid?>"
                 },
                 async: false,
                 type: 'post'
             });
+            //alert(resault.responseText);
             if (resault.responseText == "-1") {
-            	alert("账号和密码错误");
-                //window.location.reload();
+            	alert("您已经出过价");
+            	window.location.href = '/fang/tuandetail/<?php echo $tuanid?>';
+                return ;
+            }
+            if (resault.responseText == "-2") {
+            	alert("您的出价过低");
+            	$("#jia").focus();
                 return false;
             }
             if (resault.responseText == "1") {
-                window.location.href = '/member/';
-                return false;
+   				window.location.href = '/fang/tuandetail/<?php echo $tuanid?>';
+                return ;
             }
         }
 

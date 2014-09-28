@@ -208,7 +208,7 @@ class Fang extends Front_Controller {
 				exit();
 			}
 
-			$this->user_data = $this->session->userdata('userid');
+			//$this->user_data = $this->session->userdata('userid');
 			$data['tuanid']=$this->uri->segment(3);
 			$data['fangid'] = $this->uri->segment(4);
 			$data['fang'] = $this->mpublic->getRow('fang','',array('id'=>$data['fangid']));
@@ -220,7 +220,6 @@ class Fang extends Front_Controller {
 	
 	public function jointuan()
 	{
-
 		$tuanid=$this->uri->segment(3);
 		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
@@ -229,5 +228,38 @@ class Fang extends Front_Controller {
 		$this->load->view('web/fang/join_tuan.php',$data);
 	}
 
+	public function forcost(){
+
+		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		if($data['islogin']){
+
+			$params = $_POST;
+			$user_id = $this->session->userdata('userid');
+
+			//判断是否出过价
+			$isforcost = $this->mpublic->getRow('forcost','',array('mid'=>$user_id,'fid'=>$params['fangid']));
+			if(count($isforcost)>0){ exit("-1"); }
+
+			//判断价格是在范围之内
+			$fanginfo = $this->mpublic->getRow('fang','lowerprice,highprice',array('id'=>$params['fangid']));
+		
+			if(($params['jia']>=$fanginfo['lowerprice'])&&($params['jia']<=$fanginfo['highprice'])){	
+				$forcostinfo = array(					
+							'mid'=>$user_id,
+							'fid'=>$params['fangid'],
+							'cost'=>$params['jia'],
+							'createtime'=>date('Y-m-d G:i:s')
+				);
+				$result = $this->mpublic->db->insert('forcost',$forcostinfo);
+				exit("1"); //出价成功
+			}elseif($params['jia']<$fanginfo['lowerprice']){
+				exit("-2"); //出价低于最低价
+			}
+
+		}else{
+			exit("0");
+		}
+
+	}
 
 } 

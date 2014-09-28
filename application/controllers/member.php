@@ -395,7 +395,6 @@ class Member extends FrontMember_Controller {
 		$data['member'] = $this->mpublic->getRow('member','',array('Id'=>$user_id));
 
 		//获取参加的看房团订单
-
 		$data['orders_list']=$this->mpublic->getList("orders","",array('mid' => $user_id));
 		if(count($data['orders_list'])>0){
 			foreach ($data['orders_list'] as $key => $value) {
@@ -421,10 +420,51 @@ class Member extends FrontMember_Controller {
 		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
 
-		$this->load->view('web/member/order.php',$data);
+		$order = $this->mpublic->getRow('orders','',array('id'=>$seg));
+		if(count($order)>0){
+			$fangtuan = $this->mpublic->getRow('fangtuan','',array('id'=>$order['tuanid']));
+			$data['fangtuan']=$fangtuan;
+			$data['fangtuan']['cost']=$order['cost'];
+			$this->load->view('web/member/order.php',$data);
+		}else{
+			show_404();
+		}
+
 
 		
 	}
+
+
+	public function forcost(){
+		$seg=$this->uri->segment(3);
+		$user_id = $this->session->userdata('userid');
+		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
+
+
+		//获取参加的出价订单
+		$data['forcost_list']=$this->mpublic->getList("forcost","",array('mid' => $user_id));
+		if(count($data['forcost_list'])>0){
+			foreach ($data['forcost_list'] as $key => $value) {
+				$fang_title = $this->mpublic->getRow('fang','title',array('id'=>$value['fid']));
+				if(count($fang_title)>0)
+				{
+					$data['forcost_list'][$key]["fang_title"]=$fang_title['title'];
+				}
+			}
+		}
+
+
+		$this->front_header(get_cookie("username"));
+		$accoutype=get_cookie('accountype');
+		if($accoutype=="normal") {$this->front_left_normal();}
+		else {$this->front_left();}
+		$this->load->view('web/member/forcost.php',$data);
+		$this->front_footer();
+
+		
+	}
+
 
 	
 	//退出
