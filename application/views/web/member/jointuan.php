@@ -11,22 +11,7 @@
             ?>
 
 
-
- <!--                <div class="bd clearfix">
-                    <dl class="fl clearfix info">
-                        <dt class="fl">
-                        <a href=""><img src="<?php echo base_url(); ?>images/tuan.png" width="80" height="80" alt="" /></a>
-                        </dt>
-                        <dd class="fl"><?php echo $value['tuan_title']?></dd>
-                        <dd class="fl" >已支付:<?php echo $value['cost']?>元</dd>
-
-                    </dl>
-                    <div class="fl about" style="float:right">
-                    <?php echo substr($value['createtime'], 0,10)?>
-                    <a href="/member/orders/<?php echo $value['id']?>" target="_blank">订单详情</a>
-                    </div>
-                </div> -->
-
+<div class="m" id="orderinfo">
 <div class="bd clearfix">
 <dd class="p-list">
     <table cellpadding="0" cellspacing="0" width="100%">
@@ -36,7 +21,7 @@
         <th width="12%"> 商品图片 </th>
         <th width="42%"> 商品名称 </th>
         <th width="10%"> 订单价 </th>
-        <th width="8%"> 参团数量 </th>
+        <th width="10%"> 参团人数</th>
         <th width="11%"> </th>
       </tr>
      <tr>
@@ -50,23 +35,27 @@
         </td>        
         <td>
             <div class="al fl">            
-                <a class="flk13" target="_blank" href="#" > <?php echo $value['tuan_title']?></a> 
+                <a class="flk13" target="_blank" href="/fang/tuandetail/<?php echo $value['tuanid']?>" > <?php echo $value['tuan_title']?></a> 
             </div>
-          <div class="clr"></div>
-          <!-- <div id="coupon_1010910562" class="fl"></div> -->
+          <!-- <div class="clr"></div> -->
         </td>        
         <td><span class="ftx04"> ￥<?php echo $value['cost']?></span></td>
         <td>1</td>
-        <td><span id="iwo1010910562" class="flk13">
-            <br><a href="/member/orders/<?php echo $value['id']?>" target="_blank" >订单详情</a></span>
+        <td>
+            <a href="/member/orders/<?php echo $value['id']?>" style="" target="_blank" >订单详情</a></span>
           </td>
       </tr>
     </tbody>
     </table>
   </dd>
  </div>
+</div>
+
 
             <?php } } ?>
+
+
+
 
             </div>
         </div>
