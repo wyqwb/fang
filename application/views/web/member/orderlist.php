@@ -44,7 +44,7 @@
         <td><?php echo $value['account']?></td>
         <td>1</td>
         <td>
-            <a href="/member/orders/<?php echo $value['id']?>" style="" target="_blank" >编辑订单</a></span>
+            <a href="/member/modorder/<?php echo $value['id']?>" style="" target="_blank" >编辑订单</a></span>
             <br>
             <a href="/member/orders/<?php echo $value['id']?>" style="" target="_blank" >订单详情</a></span>
         </td>

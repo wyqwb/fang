@@ -91,19 +91,27 @@ class Reg extends Front_Controller {
 			$user_id = $this->session->userdata('userid');
 			$userinfo=$this->mpublic->getRow("member","",array('Id' => $user_id));
 			if(count($userinfo) >1){
+
+				//产生随机码32
+				$actcode=self::random_str(32);
+
 				if(isset($params['accountype'])&&($params['accountype']=='business')){
+					//商户用户注册
 					$dataInfo = array(
 					'realname'=>$params['realname'],
 					'idcard'=>$params['idcard'],
 					'city'=>$params['city'],
 					'company'=>$params['company'],
 					'job'=>$params['job'],
+					'activecode'=>$actcode,
 					'createtime'=>date('Y-m-d G:i:s'),
 					'isenable'=>1
 					);
 				}else{
+					//普通用户注册
 					$dataInfo = array(
 					'createtime'=>date('Y-m-d G:i:s'),
+					'activecode'=>$actcode,
 					'isenable'=>1
 					);
 				}	
@@ -117,8 +125,12 @@ class Reg extends Front_Controller {
 				        $dataInfo[$data[0]]=$data[1];
 			    	}
 		    	}
-				$this->mpublic->update('member',$dataInfo,array("Id"=>$user_id));
-				exit("1");
+				$result=$this->mpublic->update('member',$dataInfo,array("Id"=>$user_id));
+				if($result){
+					set_cookie("email",$dataInfo['email'],300);
+					set_cookie("activecode",$actcode,300);
+		    		exit("1");	/*注册成功*/	
+	    		}
 			}
 			exit("-1");  /*注册失败*/
 		}
@@ -143,14 +155,100 @@ class Reg extends Front_Controller {
 
 
 
-	function activemail(){
+	// function activemail(){
 			
+	// 	$this->normal_front_header();
+
+	// 	$this->load->view('web/reg/activemail.php');
+			
+	// 	$this->load->view('web/member/footer.php');
+
+	// }
+
+
+public function activemail(){
+	
+		 $email=get_cookie("email");
+		 $activecode=get_cookie("activecode");
+		 $this->load->library('email');
+		 $this->email->IsSMTP();
+		 //$this->email->Host='smtp.126.com';
+		 //$this->email->Username='Enstylement@126.com';
+		 //$this->email->Password='3320216';
+		 //$this->email->SetFrom('Enstylement@126.com', 'Enstylement');
+
+		// $this->email->Host='smtp.global-mail.cn';
+		$this->email->Host='smtp.enstylement.com';
+		 $this->email->Username='info@enstylement.com';
+		 $this->email->Password='q12345';
+		 $this->email->SetFrom('info@enstylement.com', 'fang');
+
+		 $this->email->Subject="XXXXXXX邮件激活";
+
+		$msg="感谢您关注XXXXXXX.com<br><p>
+
+			如果上面不是链接形式，请将以下地址手工粘贴到浏览器地址栏再访问。<br>
+			http://sdsa.com.id39527.aliasl3.doctoryun.net/reg/chksuccess/?register=".$activecode."<br><p>
+
+			此致<br><p>
+			XXXXXXX.com管理团队<br><p>
+			http://www.XXXXXXX.com<br><p><br><p>
+
+			----------------------------------------------------------------------<br><p>
+			这封信是由fang发送的。您收到这封邮件，是由于在fang.com进行新用户注册时填写了这个邮箱地址。<br><p>
+			如果您并没有访问过fang.com，或没有进行上述操作，请忽略这封邮件。<br><p>
+			您不需要回复次邮件或进行其他进一步的操作。<br><p>";
+
+		 $this->email->MsgHTML($msg);
+		 $this->email->AddAddress($email);
+		 //$this->email->AddAddress("anslem.zhao@adsidd.com");
+		 $this->email->Send(); 
+		 delete_cookie("email");
+		 delete_cookie("activecode");
+	
 		$this->normal_front_header();
-
-		$this->load->view('web/reg/activemail.php');
-			
+		$this->load->view('web/reg/activemail.php');			
 		$this->load->view('web/member/footer.php');
+	}
 
+
+	public function chksuccess(){
+		if (isset($_REQUEST['register'])) {
+			$chkcode=$_REQUEST['register'];
+	
+			$where ="activecode = '{$chkcode}'";
+			$result = $this->mpublic->getRow('member',$fields = "Id",$where);
+
+			if(count($result)>0){
+				$login_session = array('islogin'=>1,'userid'=>$result['Id']);
+				$this->session->set_userdata($login_session);
+				$this->mpublic->update('member',array('activecode' =>""),array('Id' => $result['Id'] ));
+
+				$this->front_header();
+				$this->load->view('web/reg/chksuccess.php');
+				$this->load->view('web/member/footer.php');
+			}else{				
+				echo "<script>alert('请输入正确的注册码')</script>";
+				echo "<script>window.location.href='/'</script>";
+			}
+		}else{
+			echo "<script>alert('请重新注册')</script>";
+			echo "<script>window.location.href='/reg/'</script>";
+		}
+	}
+
+	private function random_str($length)
+	{
+	    //生成一个包含 大写英文字母, 小写英文字母, 数字 的数组
+	    $arr = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));	 
+	    $str = '';
+	    $arr_len = count($arr);
+	    for ($i = 0; $i < $length; $i++)
+	    {
+	        $rand = mt_rand(0, $arr_len-1);
+	        $str.=$arr[$rand];
+	    }	 
+	    return $str;
 	}
 
 

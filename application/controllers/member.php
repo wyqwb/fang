@@ -413,6 +413,28 @@ class Member extends FrontMember_Controller {
 		$this->front_footer();
 	}
 
+	public function modorder(){
+		//商家订单修改页		
+		$seg=$this->uri->segment(3);
+		$user_id = $this->session->userdata('userid');
+		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
+
+
+		$orderinfo=$this->mpublic->getRow('orders','',array('id'=>$seg));
+		
+		if(count($orderinfo)>0){
+			$data['fangtuan']=$this->mpublic->getRow('fangtuan','',array('id'=>$orderinfo['tuanid']));
+			$data['fangtuan']['cost']=$orderinfo['cost'];
+			$data['fangtuan']['state']=$orderinfo['state'];
+		}
+		$this->load->view('web/member/modorder.php',$data);	
+	}
+
+
+
+
+
 	public function orders(){
 		//普通会员的订单详情页		
 		$seg=$this->uri->segment(3);

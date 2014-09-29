@@ -429,3 +429,8 @@ $config['perpage'] = 10;
 $config['normal'] ="普通会员";
 $config['business'] = "企业会员";
 
+
+//订单状态
+$config['1']='进行中';
+$config['0']='完成';
+
