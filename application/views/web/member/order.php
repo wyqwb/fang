@@ -199,19 +199,6 @@
         </div>
     </div>
 </div>
-
-	
-	<!--进度条-->
-	
-<!--     <div id="process" class="section3">
-		    <div class="node fore ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">提交订单</li><li id="track_time_0" class="tx3">2013-03-17 <br> 17:46:15</li></ul></div>
-        <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>
-        <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">商品出库</li><li id="track_time_1" class="tx3"></li></ul></div>
-        <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>
-        <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">等待收货</li><li id="track_time_5" class="tx3">2013-03-19 <br> 23:40:48</li></ul></div>		
-        <div class="proce ready"><ul><li class="tx1">&nbsp;</li></ul></div>		
-        <div class="node ready"><ul><li class="tx1">&nbsp;</li><li class="tx2">完成</li><li id="track_time_6" class="tx3">2013-03-20 <br> 11:13:56</li></ul></div>
-		</div> -->
             
 	<!--跟踪、付款信息、gis-->
 	<div class="m" id="ordertrack">
@@ -219,13 +206,6 @@
     <li class="curr" clstag="#">
       <h2> 订单跟踪</h2>
     </li>
-		
-<!--     <li clstag="#">
-      <h2> 付款信息</h2>
-    </li>
-    <li id="orderlocustab" style="display:none;" clstag="click|keycount|orderinfo|btn_gis">
-      <h2> 订单轨迹</h2>
-    </li> -->
   </ul>
   <div class="clr"></div>
   <div class="mc tabcon">
@@ -239,43 +219,20 @@
       <th width="35%"><strong>操作人</strong></th>
     </tr>
     
-  </tbody><tbody><tr><td>2013-03-17 17:46:15</td><td>您提交了订单，请等待系统确认</td><td>客户</td></tr><tr><td>2013-03-18 09:35:19</td><td>第三方卖家已经开始拣货，订单不能修改</td><td>时间之城</td></tr><tr><td>2013-03-18 09:36:04</td><td>您的订单已经出库，正在发往上海分拨中心</td><td>时间之城</td></tr><tr><td>2013-03-19 20:55:54</td><td>货物已完成分拣，等待送往滨江站</td><td>相红萍</td></tr><tr><td>2013-03-19 23:40:48</td><td>上车扫描，送往滨江站途中</td><td>赵慧</td></tr><tr><td>2013-03-20 07:29:59</td><td>您的货物已分配，等待配送</td><td>郑仲</td></tr><tr><td>2013-03-20 08:45:50</td><td>配送员已经从站点出发，请您准备收货，姓名：吴东海，手机号：15372030982</td><td>吴东海</td></tr><tr><td>2013-03-20 11:13:56</td><td>已完成配送，感谢您在订单商城购物，欢迎您再次光临！</td><td>吴东海</td></tr></tbody>
-</table>
-
-<!-- <div class="extra"> 
-  <span id="jdshfs"> 送货方式：普通快递 </span>
-</div>  -->
-
-</div>
-	
-		
-  <!-- <div class="mc tabcon hide"> -->
-    <!--付款信息-->
-<!--     <table cellpadding="0" cellspacing="0" width="100%">
+  </tbody>
   <tbody>
-  <tr>
-    <td width="30%" id="daiFuName"> 付款方式：货到付款</td>
-    <td width="70%" id="daiFuPeople"></td>
-  </tr>
-  <tr>
-    <td> 商品金额：￥380.00</td>
-    <td> 运费金额：￥0.00</td>
-  </tr>
-  <tr>
-    <td> 优惠金额：￥0.00</td>
-    <td> 实际运费：￥0.00</td>
-  </tr>
-  <tr>
-	  <td> 应支付金额：￥380.00</td>
-    <td> 交易余额：￥0.00</td>
-  </tr>
-  <tr>
-    <td>
-		</td>
-  </tr>
-</tbody>
+    <?php if(count($orders_state)>0){
+        foreach ($orders_state as $key => $value) {        
+  ?>
+    <tr>
+    <td><?php echo $value['createtime']?></td>
+    <td><?php echo $value['content']?></td>
+    <td><?php echo $value['username']?></td>
+    </tr>
+  <?php } }?>
+  </tbody>
 </table>
- </div> -->
+</div>
  
   <div class="mc tabcon hide">
     		<div id="gis">

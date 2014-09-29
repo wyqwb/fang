@@ -164,7 +164,7 @@
             var username = $("#regName").val();
             var pwd = $("#password").val();
             var accountype = $("input:hidden").val();
-            //alert(accountype);
+            //alert(username);
             var resault = $.ajax({
                 url: "/reg/act/",
                 data: {

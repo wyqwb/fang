@@ -6,10 +6,7 @@
     <link type="text/css" href="/css/common.css" rel="stylesheet" />
     <link type="text/css" href="/css/vipstyle.css" rel="stylesheet" />
     <link type="text/css" href="/css/style.css" rel="stylesheet" />
-  
-
-
-<!-- <script charset="utf-8" type="text/javascript" src="/javascript/jquery-1.8.3.min.js" ></script> -->
+<script charset="utf-8" type="text/javascript" src="/javascript/jquery-1.8.3.min.js" ></script>
 <!-- <script charset="utf-8" type="text/javascript" src="/javascript/Validform_v5.3.2.js" ></script> -->
 <!-- <script charset="utf-8" type="text/javascript" src="/javascript/jquery.form.min.js" ></script> -->
 
@@ -213,15 +210,23 @@
     
   </tbody>
   <tbody>
-  <tr><td>2013-03-17 17:46:15</td><td>您提交了订单，请等待系统确认</td><td>客户</td></tr>
-  <tr><td>2013-03-18 09:35:19</td><td>第三方卖家已经开始拣货，订单不能修改</td><td>时间之城</td></tr>
+  <?php if(count($orders_state)>0){
+        foreach ($orders_state as $key => $value) {        
+  ?>
+    <tr>
+    <td><?php echo $value['createtime']?></td>
+    <td><?php echo $value['content']?></td>
+    <td><?php echo $value['username']?></td>
+    </tr>
+  <?php } }?>
+  <!-- <tr><td>2013-03-18 09:35:19</td><td>第三方卖家已经开始拣货，订单不能修改</td><td>时间之城</td></tr>
   <tr><td>2013-03-18 09:36:04</td><td>您的订单已经出库，正在发往上海分拨中心</td><td>时间之城</td></tr>
   <tr><td>2013-03-19 20:55:54</td><td>货物已完成分拣，等待送往滨江站</td><td>相红萍</td></tr>
   <tr><td>2013-03-19 23:40:48</td><td>上车扫描，送往滨江站途中</td><td>赵慧</td></tr>
   <tr><td>2013-03-20 07:29:59</td><td>您的货物已分配，等待配送</td><td>郑仲</td></tr>
   <tr><td>2013-03-20 08:45:50</td><td>配送员已经从站点出发，请您准备收货，姓名：吴东海，手机号：15372030982</td><td>吴东海</td></tr>
   <tr><td>2013-03-20 11:13:56</td><td>已完成配送，感谢您在订单商城购物，欢迎您再次光临！</td><td>吴东海</td></tr>
-  </tbody>
+ -->  </tbody>
 </table>
 </div>
   <div class="mc tabcon hide">
@@ -230,7 +235,13 @@
         受天气、gps信号、运营商等各类因素影响，您看到的包裹位置和实际位置有时可能会有一些差别。请您谅解！</div>
 		  </div>
 </div>	
-<!--留言-->
+
+
+  <div style="margin: 10px 0 10px 0">
+    <input id="content"  name="content" type="text" style="border: 1px solid #ccc;width:790px;height:30px;" > <input  type="button" value="确定" style="width:158px;height:30px;margin-left:25px;"  onclick="dochangestat()" />
+  </div>
+
+
 		<!--订单信息-->
 	<div class="m" id="orderinfo">
     <div class="mt">
@@ -272,22 +283,7 @@
 	</dd>
 </dl>
 <dl>
-  <dt>
-	<span class="i-mt">商品清单</span>
-  
-	<div id="fquan" class="fquan">
-          <div id="eventName" onmouseover="showCoupon()" onmouseout="hideCoupon()">
-          </div>
-          
-          <div class="prompt p-fquan" id="couponListShow">
-              <div class="pc" id="couponList">
-              </div>
-          </div>
-      </div>
-  
-      <div class="clr"></div>
-      
-  </dt>
+  <dt><span class="i-mt">商品清单</span></dt>
   
   <dd class="p-list">
     <table cellpadding="0" cellspacing="0" width="100%">
@@ -297,9 +293,7 @@
         <th width="42%"> 商品名称 </th>
         <th width="10%"> 订单价 </th>
         <th width="8%"> 参团数量 </th>
-        <th width="11%"> 
-			          操作
-                  </th>
+        <th width="11%"> 操作 </th>
       </tr>
                   <tr>
         <td>1010910562</td>
@@ -362,6 +356,21 @@
 <link type="text/css" rel="stylesheet" href="/css/jd.css">	    
 </div>
 	</div>
+<script type="text/javascript">
+  function dochangestat(){
+    var content = $("#content").val();
+    var resault = $.ajax({
+                url: "/member/modorderact/",
+                data: {'content': content,'oid':"<?php echo $fangtuan['orderid']?>"},
+                async: false,
+                type: 'post'
+            });
+    //alert(resault.responseText);
+    if (resault.responseText == "1") {
+        window.location.reload();
+    }
+  }
+</script>
 
 
   </body>

@@ -420,19 +420,37 @@ class Member extends FrontMember_Controller {
 		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
 
+		//获取订单状态信息
+		$data['orders_state']=$this->mpublic->getList("ordertracing","",array('oid'=>$seg));
 
+
+		//获取订单信息
 		$orderinfo=$this->mpublic->getRow('orders','',array('id'=>$seg));
 		
 		if(count($orderinfo)>0){
 			$data['fangtuan']=$this->mpublic->getRow('fangtuan','',array('id'=>$orderinfo['tuanid']));
 			$data['fangtuan']['cost']=$orderinfo['cost'];
 			$data['fangtuan']['state']=$orderinfo['state'];
+			$data['fangtuan']['orderid']=$orderinfo['id'];
 		}
 		$this->load->view('web/member/modorder.php',$data);	
 	}
 
+	public function modorderact(){
+		$user_id = $this->session->userdata('userid');
+		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
+		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
+		$params=$_POST;
+		$dataInfo = array(
+				'content'=>$params['content'],
+				'username'=>$data["member"]['account'],
+				'oid'=>$params['oid'],
+				'createtime'=>date('Y-m-d G:i:s')
+		);
+		$result = $this->mpublic->db->insert('ordertracing',$dataInfo);
+		if($result){exit("1");}
 
-
+	}
 
 
 	public function orders(){
@@ -444,6 +462,10 @@ class Member extends FrontMember_Controller {
 
 
 		$orderinfo=$this->mpublic->getRow('orders','tuanid,cost',array('id'=>$seg));
+
+		//获取订单状态信息
+		$data['orders_state']=$this->mpublic->getList("ordertracing","",array('oid'=>$seg));
+
 		
 		if(count($orderinfo)>0){
 			$data['fangtuan']=$this->mpublic->getRow('fangtuan','',array('id'=>$orderinfo['tuanid']));

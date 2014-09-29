@@ -58,3 +58,30 @@ ERROR - 2014-09-29 15:04:45 --> Severity: Notice  --> Undefined index: email D:\
 ERROR - 2014-09-29 15:05:03 --> Severity: Notice  --> Undefined index: email D:\AMP\ROOT\FANG\application\controllers\reg.php 130
 ERROR - 2014-09-29 15:12:18 --> 404 Page Not Found --> favicon.ico
 ERROR - 2014-09-29 15:32:12 --> 404 Page Not Found --> favicon.ico
+ERROR - 2014-09-29 15:49:26 --> 404 Page Not Found --> favicon.ico
+ERROR - 2014-09-29 15:49:31 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 15:49:31 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 15:49:31 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-09-29 15:49:31 --> 404 Page Not Found --> images
+ERROR - 2014-09-29 15:49:33 --> 404 Page Not Found --> images
+ERROR - 2014-09-29 15:49:38 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 15:49:38 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 15:49:38 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-09-29 16:03:59 --> 404 Page Not Found --> favicon.ico
+ERROR - 2014-09-29 16:28:07 --> Query error: Unknown column 'mid' in 'where clause'
+ERROR - 2014-09-29 16:53:23 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 16:53:23 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 16:53:23 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-09-29 16:54:04 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 16:54:04 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 16:54:04 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-09-29 16:57:18 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 16:57:18 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 16:57:18 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-09-29 16:57:41 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 16:57:41 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 16:57:41 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-09-29 17:14:33 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 17:14:33 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 17:14:33 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-09-29 17:14:33 --> 404 Page Not Found --> images

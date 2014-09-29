@@ -42,7 +42,8 @@ class Reg extends Front_Controller {
 
 	public function act()
 	{
-		$params=$_REQUEST;
+		$params=$_POST;
+		//print_r($params);
 		$expiration = time()-7200; // 2小时限制
 		$this->db->query("DELETE FROM captcha WHERE captcha_time < ".$expiration); 
 		// 然后再看是否有验证码存在:
@@ -50,14 +51,11 @@ class Reg extends Front_Controller {
 		$binds = array($_REQUEST['captcha'], $this->input->ip_address(), $expiration);
 		$query = $this->db->query($sql, $binds);
 		$row = $query->row();
-		if ($row->count == 0)
-		{
-    		exit("-1"); /*验证码过期或错误*/
-		}
+		if ($row->count == 0) { exit("-1"); /*验证码过期或错误*/ }
 
-		$table = 'member';
-		$where ="account = '{$params['username']}'";
-		$result = $this->mpublic->getRow($table,$fields = "",$where);
+		//print_r($params['username']);
+		$result=$this->mpublic->getRow("member","",array('account' => $params['username']));
+		//print_r($result);
 		if(count($result) >1){
 			exit("-2");  /*用户名已经存在*/
 		}	
