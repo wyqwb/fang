@@ -241,3 +241,17 @@ ERROR - 2014-09-29 22:57:45 --> Severity: Notice  --> Undefined variable: value 
 ERROR - 2014-09-29 22:57:51 --> Severity: Notice  --> Undefined variable: value D:\AMP\ROOT\FANG\application\views\web\member\qq_list.php 35
 ERROR - 2014-09-29 23:18:18 --> Severity: Notice  --> Undefined index: account D:\AMP\ROOT\FANG\application\views\web\member\userpasswd.php 9
 ERROR - 2014-09-29 23:18:18 --> Severity: Notice  --> Undefined index: point D:\AMP\ROOT\FANG\application\views\web\member\userpasswd.php 14
+ERROR - 2014-09-29 23:36:59 --> 404 Page Not Found --> favicon.ico
+ERROR - 2014-09-29 23:37:00 --> 404 Page Not Found --> favicon.ico
+ERROR - 2014-09-29 23:37:08 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 23:37:08 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 23:37:08 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-09-29 23:37:08 --> 404 Page Not Found --> images
+ERROR - 2014-09-29 23:45:29 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 23:45:29 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 23:45:29 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-09-29 23:45:29 --> 404 Page Not Found --> images
+ERROR - 2014-09-29 23:51:46 --> 404 Page Not Found --> favicon.ico
+ERROR - 2014-09-29 23:51:46 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 23:51:46 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-09-29 23:51:46 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38

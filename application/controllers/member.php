@@ -375,16 +375,19 @@ class Member extends FrontMember_Controller {
 		$seg=$this->uri->segment(3);
 		$user_id = $this->session->userdata('userid');
 		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
-		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
-	
+		$data["member"] = $this->mpublic->getRow('member','Id,email,account',array('Id'=>$this->session->userdata('userid')));
 		$tuan_displayCost = $this->mpublic->getRow('fangtuan','displayCost',array('id'=>$seg));
 
-		//写入流水
+		$customercode=self::random_str(5);	
+		self::mysendmail($data["member"]['email'],$customercode);	
+
+		//写入流水		
 		$dataInfo = array(					
 				'mid'=>$user_id,
 				'tuanid'=>$seg,
 				'cost'=>$tuan_displayCost['displayCost'],	
-				'joins'=>1,	
+				'joins'=>1,
+				'customercode'=>$customercode,	
 				'createtime'=>date('Y-m-d G:i:s')
 			);
 		$this->mpublic->db->insert('orders',$dataInfo);
@@ -611,6 +614,33 @@ class Member extends FrontMember_Controller {
 		}
 	}
 
+public function consumercode(){
+		$user_id = $this->session->userdata('userid');
+		$this->front_header(get_cookie("username"));
+        $accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){$this->front_left_normal();}
+		else{$this->front_left();}			
+		$this->load->view('web/member/consumercode.php');
+		$this->front_footer();
+
+}
+
+public function consumercodeact(){
+	$params=$_POST;
+
+	$iscustomercode = $this->mpublic->getRow('orders','id,state',array('customercode'=>$params['customercode']));
+	if(count($iscustomercode)>0){
+		if($iscustomercode['state']==2){
+			$this->mpublic->update('orders',array('state'=>1),array('id' => $iscustomercode['id']));
+			exit("1"); //成功消费
+		}elseif($iscustomercode['state']==1){
+			exit("-1"); //已经消费过
+		}
+	}else{
+
+		exit("-2"); //消费码不存在
+	}
+}
 
 	
 	//退出
@@ -620,6 +650,37 @@ class Member extends FrontMember_Controller {
 		delete_cookie("accountype");
 		echo "<script>window.location.href='/login/'</script>";
 	}
+
+	private function random_str($length)
+	{
+	    //生成一个包含 大写英文字母, 小写英文字母, 数字 的数组
+	    $arr = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));	 
+	    $str = '';
+	    $arr_len = count($arr);
+	    for ($i = 0; $i < $length; $i++)
+	    {
+	        $rand = mt_rand(0, $arr_len-1);
+	        $str.=$arr[$rand];
+	    }	 
+	    return $str;
+	}
+
+
+	public function mysendmail($email,$newpwd){
+		 $email=$email;
+		 $this->load->library('email');
+		 $this->email->IsSMTP();
+  		 $this->email->Host='smtp.enstylement.com';
+		 $this->email->Username='info@enstylement.com';
+		 $this->email->Password='q12345';
+		 $this->email->SetFrom('info@enstylement.com', 'fang');
+		 $this->email->Subject="fang消费码发送邮件";
+		 $msg="您的消费码是".$newpwd;
+		 $this->email->MsgHTML($msg);
+		 $this->email->AddAddress($email);
+		 $this->email->Send();
+	}
+
 
 	
 	public static function  clear_dir($dir){

@@ -152,38 +152,17 @@ class Reg extends Front_Controller {
 	}
 
 
-
-	// function activemail(){
-			
-	// 	$this->normal_front_header();
-
-	// 	$this->load->view('web/reg/activemail.php');
-			
-	// 	$this->load->view('web/member/footer.php');
-
-	// }
-
-
 public function activemail(){
-	
 		 $email=get_cookie("email");
 		 $activecode=get_cookie("activecode");
 		 $this->load->library('email');
 		 $this->email->IsSMTP();
-		 //$this->email->Host='smtp.126.com';
-		 //$this->email->Username='Enstylement@126.com';
-		 //$this->email->Password='3320216';
-		 //$this->email->SetFrom('Enstylement@126.com', 'Enstylement');
-
-		// $this->email->Host='smtp.global-mail.cn';
-		$this->email->Host='smtp.enstylement.com';
+  		 $this->email->Host='smtp.enstylement.com';
 		 $this->email->Username='info@enstylement.com';
 		 $this->email->Password='q12345';
 		 $this->email->SetFrom('info@enstylement.com', 'fang');
-
 		 $this->email->Subject="XXXXXXX邮件激活";
-
-		$msg="感谢您关注XXXXXXX.com<br><p>
+		 $msg="感谢您关注XXXXXXX.com<br><p>
 
 			如果上面不是链接形式，请将以下地址手工粘贴到浏览器地址栏再访问。<br>
 			http://sdsa.com.id39527.aliasl3.doctoryun.net/reg/chksuccess/?register=".$activecode."<br><p>
@@ -196,14 +175,11 @@ public function activemail(){
 			这封信是由fang发送的。您收到这封邮件，是由于在fang.com进行新用户注册时填写了这个邮箱地址。<br><p>
 			如果您并没有访问过fang.com，或没有进行上述操作，请忽略这封邮件。<br><p>
 			您不需要回复次邮件或进行其他进一步的操作。<br><p>";
-
 		 $this->email->MsgHTML($msg);
 		 $this->email->AddAddress($email);
-		 //$this->email->AddAddress("anslem.zhao@adsidd.com");
 		 $this->email->Send(); 
 		 delete_cookie("email");
-		 delete_cookie("activecode");
-	
+		 delete_cookie("activecode");	
 		$this->normal_front_header();
 		$this->load->view('web/reg/activemail.php');			
 		$this->load->view('web/member/footer.php');
