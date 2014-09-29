@@ -71,8 +71,15 @@
 				<div class="g-m2-right">
 					<!-- 咨询 -->
 					<div class="m-con">
-						<span class="qq"><img src="<?php  echo WEB_IMAGES_PATH?>qq1.gif" alt=""></span>
-						<span class="qq2"><img src="<?php  echo WEB_IMAGES_PATH?>qq2.gif" alt=""></span>
+						<span class="qq">
+						<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $online_qq['customer_qq1']?>&site=qq&menu=yes"><img src="<?php  echo WEB_IMAGES_PATH?>qq1.gif" alt="">
+						</a>
+						</span>
+						<span class="qq2">
+						<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $online_qq['customer_qq2']?>&site=qq&menu=yes">
+						<img src="<?php  echo WEB_IMAGES_PATH?>qq2.gif" alt="">
+						</a>
+						</span>
 					</div>	
 					<div class="g-m2-tab">
 						<ul class="btns">

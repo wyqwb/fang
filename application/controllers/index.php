@@ -21,8 +21,7 @@ class Index extends Front_Controller {
 		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
 		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
 		
-		$data['shareurl']=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-
+		$data['shareurl']=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."fang/detail/";
 		$data['recomment']=$this->mfang->get_recomment_default();
 
 		$data['toplist']=$this->mfang->get_top_default();

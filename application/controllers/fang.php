@@ -67,6 +67,10 @@ class Fang extends Front_Controller {
 				$data['comments_list']=$this->mpublic->getList("reviewlist","",array('aid' => $seg,'type'=>1));
 				//print_r($data['comments_list']);die;
 
+				//获取该房源所属商户的在线QQ 
+				$onlineQQ=$this->mpublic->getRow('member','customer_qq1,customer_qq2',array('Id'=>$data['fang']['mid']));
+				$data['online_qq']=$onlineQQ;
+
 				$tuanid=$data['fang']['tuanid'];
 				$data['fangtuan_info']=$this->mpublic->getRow('fangtuan','id,previewimg',array('id'=>$tuanid));
 				$this->front_header();

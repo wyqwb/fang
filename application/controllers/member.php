@@ -566,6 +566,51 @@ class Member extends FrontMember_Controller {
 	}
 
 
+	public function qq_list(){
+
+		$user_id = $this->session->userdata('userid');
+		$this->front_header(get_cookie("username"));
+
+        $qq_list=$this->mpublic->getList('member','Id,customer_qq1,customer_qq2',array('Id' => $user_id ));
+        $data['qq_list']=$qq_list[0];
+
+        $accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){$this->front_left_normal();}
+		else{$this->front_left();}			
+		$this->load->view('web/member/qq_list.php',$data);
+		$this->front_footer();
+
+	}
+
+
+	public function mod_qq(){
+
+		$user_id = $this->session->userdata('userid');
+		$this->front_header(get_cookie("username"));
+
+        $qq_list=$this->mpublic->getList('member','Id,customer_qq1,customer_qq2',array('Id' => $user_id ));
+        $data['qq_list']=$qq_list[0];
+
+        $accoutype=get_cookie('accountype');
+		if($accoutype=="normal"){$this->front_left_normal();}
+		else{$this->front_left();}			
+		$this->load->view('web/member/qq_list_edit.php',$data);
+		$this->front_footer();
+	}
+
+	public function mod_qq_act(){
+		$user_id = $this->session->userdata('userid');
+		$params=$_POST;
+		if(isset($params['action'])&&($params['action']=='domod')){
+			if(isset($params['customer_qq1'])){
+ 				$this->db->update('member',array('customer_qq1' =>$params['customer_qq1']),array('Id' =>$user_id)); 
+			}
+			if(isset($params['customer_qq2'])){
+ 				$this->db->update('member',array('customer_qq2' =>$params['customer_qq2']),array('Id' =>$user_id)); 
+			}
+		}
+	}
+
 
 	
 	//退出

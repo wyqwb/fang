@@ -15,10 +15,11 @@
                         <dd><a href="<?php echo base_url();?>member/fanglist">房源列表</a></dd>
                     </dl>
                     <dl class="J_nav">
-                        <dt><a><b class="icon-user"></b>个人信息</a></dt>
+                        <dt><a><b class="icon-user"></b>综合信息</a></dt>
                         <dd><a href="<?php echo base_url();?>member/userinfo">个人信息</a></dd>
                         <dd><a href="<?php echo base_url();?>member/point">积分信息</a></dd>
                         <dd><a href="<?php echo base_url();?>member/userpasswd">修改密码</a></dd>
+                        <dd><a href="<?php echo base_url();?>member/qq_list">我的客服</a></dd>
                     </dl>
                 </div>
             </div>

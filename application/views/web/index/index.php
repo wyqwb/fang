@@ -307,7 +307,7 @@
 						
 						<span class="say">
 
-						<a target="_blank" href="http://s.share.baidu.com/mshare?click=1&url=http%3A%2F%2F<?php echo $shareurl?>%2F&uid=0&to=mshare&type=text&pic=&title=%E9%A6%96%E9%A1%B5&key=&desc=&comment=&relateUid=&searchPic=0&sign=on&l=190ll2tau190ll2ua6190ll33sm&linkid=hzi5n1em9m0&firstime=1409476035549" >
+						<a target="_blank" href="http://s.share.baidu.com/mshare?click=1&url=http%3A%2F%2F<?php echo $shareurl.$value['id']?>%2F&uid=0&to=mshare&type=text&pic=&title=http%3A%2F%2F<?php echo $shareurl.$value['id']?>&key=&desc=&comment=&relateUid=&searchPic=0&sign=on&l=190ll2tau190ll2ua6190ll33sm&linkid=hzi5n1em9m0&firstime=1409476035549" >
 
 						<img src="<?php echo WEB_IMAGES_PATH?>share.png?>" ></span></a>
 						<img src="<?php  echo WEB_IMAGES_PATH?>m4img.jpg" alt="" class="m4-img"></a>
