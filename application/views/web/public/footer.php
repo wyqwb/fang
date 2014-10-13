@@ -52,31 +52,7 @@
                     <span class="place">[开发区]广和.奥海城</span><br>
                     <span class="price"><font class="red">10500</font>元/m <sup>2</sup></span>
                                     </li>
-                <li>
-                    <img src="<?php  echo WEB_IMAGES_PATH?>house2.gif" alt="">
-                    <span class="place">[开发区]广和.奥海城</span><br>
-                    <span class="price"><font class="red">10500</font>元/m <sup>2</sup></span>
-                                    </li>
-                <li>
-                    <img src="<?php  echo WEB_IMAGES_PATH?>house2.gif" alt="">
-                    <span class="place">[开发区]广和.奥海城</span><br>
-                    <span class="price"><font class="red">10500</font>元/m <sup>2</sup></span>
-                                    </li>
-                <li>
-                    <img src="<?php  echo WEB_IMAGES_PATH?>house2.gif" alt="">
-                    <span class="place">[开发区]广和.奥海城</span><br>
-                    <span class="price"><font class="red">10500</font>元/m <sup>2</sup></span>
-                                    </li>
-                <li>
-                    <img src="<?php  echo WEB_IMAGES_PATH?>house2.gif" alt="">
-                    <span class="place"><a href="">[开发区]广和.奥海城</a></span><br>
-                    <span class="price"><font class="red">10500</font>元/m <sup>2</sup></span>
-                                    </li>
-                <li>
-                    <img src="<?php  echo WEB_IMAGES_PATH?>house2.gif" alt="">
-                    <span class="place"><a href="">[开发区]广和.奥海城</a></span><br>
-                    <span class="price"><font class="red">10500</font>元/m <sup>2</sup></span>
-                                    </li>
+
                 </ul>                    
             <div class="clear"></div>
         </div>

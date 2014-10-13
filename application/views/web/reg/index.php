@@ -20,8 +20,8 @@
     <div class="g-bd">
         <div class="m-tab">
             <div class="tab-btns">
-                <span class="on" user-type="normal">个人用户</span>
-                <span user-type="business">企业用户</span>
+                <span class="on" user-type="normal" >个人用户</span>
+                <span user-type="business" >企业用户</span>
                  <input type="hidden" name="regtype" id="regtype" value="normal" />
                 <div class="login-user">我已经注册，现在就<a href="/login/">登录</a><a href="">English</a></div>
             </div>

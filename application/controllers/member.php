@@ -375,13 +375,12 @@ class Member extends FrontMember_Controller {
 		$seg=$this->uri->segment(3);
 		$user_id = $this->session->userdata('userid');
 		$data['islogin'] = $this->session->userdata('islogin')?$this->session->userdata('islogin'):0;
-		$data["member"] = $this->mpublic->getRow('member','Id,email,account',array('Id'=>$this->session->userdata('userid')));
+		$data["member"] = $this->mpublic->getRow('member','Id,account',array('Id'=>$this->session->userdata('userid')));
+	
 		$tuan_displayCost = $this->mpublic->getRow('fangtuan','displayCost',array('id'=>$seg));
 
+		//写入流水
 		$customercode=self::random_str(5);	
-		self::mysendmail($data["member"]['email'],$customercode);	
-
-		//写入流水		
 		$dataInfo = array(					
 				'mid'=>$user_id,
 				'tuanid'=>$seg,
@@ -664,23 +663,6 @@ public function consumercodeact(){
 	    }	 
 	    return $str;
 	}
-
-
-	public function mysendmail($email,$newpwd){
-		 $email=$email;
-		 $this->load->library('email');
-		 $this->email->IsSMTP();
-  		 $this->email->Host='smtp.enstylement.com';
-		 $this->email->Username='info@enstylement.com';
-		 $this->email->Password='q12345';
-		 $this->email->SetFrom('info@enstylement.com', 'fang');
-		 $this->email->Subject="fang消费码发送邮件";
-		 $msg="您的消费码是".$newpwd;
-		 $this->email->MsgHTML($msg);
-		 $this->email->AddAddress($email);
-		 $this->email->Send();
-	}
-
 
 	
 	public static function  clear_dir($dir){

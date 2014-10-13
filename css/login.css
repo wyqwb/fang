@@ -242,6 +242,8 @@ body {
 }
 .tab-btns span.on {
   background: #fff;
+  background-color:#FF6100;
+  cursor: pointer;
 }
 .login-user {
   position: absolute;
