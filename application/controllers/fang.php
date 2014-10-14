@@ -116,6 +116,11 @@ class Fang extends Front_Controller {
 				//获取该房的评论
 				$data['comments_list']=$this->mpublic->getList("reviewlist","",array('aid' => $seg,'type'=>2));
 			
+				//获取该房源所属商户的在线QQ 
+				$onlineQQ=$this->mpublic->getRow('member','customer_qq1,customer_qq2',array('Id'=>$data['fangtuan']['mid']));
+				$data['online_qq']=$onlineQQ;
+
+
 				$this->front_header();
 				$this->load->view('web/fang/fangtuan_detail.php',$data);
 				$this->front_footer();						

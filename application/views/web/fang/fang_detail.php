@@ -241,60 +241,6 @@
 		<!-- 模块3 -->
 		<div class="g-item g-wh7">	
 		<?php  echo $fang['content'];?>		
-<!-- 			<div class="g-m3-l">
-				<img src="<?php  echo WEB_IMAGES_PATH?>city.gif" alt="">
-				<h2 class="m3-til">尊享城市发展机遇鼎力助推城市国际化</h2>
-				<ul class="m3-list1">
-					<li>
-						<div class="til">一核四成.高新区CBD问鼎未来</div>
-						<div class="cnt">作为一种客观存在的物质形态，房地产是指房产和地产的总称，包括土地和土地上永久建筑物及其所衍生的权利。房产是指建筑在土地上的各种房屋，包括住宅、厂房、仓库和商业、服务、文化、教育、卫生、体育以及办公用房等。地产是指土地及其上下一定的空间，包括地下的各种基础设施、地面道路等。</div>
-					</li>
-					<li>
-						<div class="til">一核四成.高新区CBD问鼎未来</div>
-						<div class="cnt">
-							作为一种客观存在的物质形态，房地产是指房产和地产的总称，包括土地和土地上永久建筑物及其所衍生的权利。房产是指建筑在土地上的各种房屋，包括住宅、厂房、仓库和商业、服务、文化、教育、卫生、体育以及办公用房等。地产是指土地及其上下一定的空间，包括地下的各种基础设施、地面道路等。
-						</div>
-					</li>
-					<li>
-						<div class="til">一核四成.高新区CBD问鼎未来</div>
-						<div class="cnt">
-							作为一种客观存在的物质形态，房地产是指房产和地产的总称，包括土地和土地上永久建筑物及其所衍生的权利。房产是指建筑在土地上的各种房屋，包括住宅、厂房、仓库和商业、服务、文化、教育、卫生、体育以及办公用房等。地产是指土地及其上下一定的空间，包括地下的各种基础设施、地面道路等。
-						</div>
-					</li>
-				</ul>
-				<img src="<?php  echo WEB_IMAGES_PATH?>map.gif" alt="" class="map">
-			</div>
-			<div class="g-m3-r">
-				<ul class="m3-list2">
-					<li>
-						<div class="til">一核四成.高新区CBD问鼎未来</div>
-						<div class="cnt">作为一种客观存在的物质形态，房地产是指房产和地产的总称，包括土地和土地上永久建筑物及其所衍生的权利。房产是指建筑在土地上的各种房屋，包括住宅、厂房、仓库和商业、服务、文化、教育、卫生、体育以及办公用房等。地产是指土地及其上下一定的空间，包括地下的各种基础设施、地面道路等。
-						</div>
-					</li>
-					<li>
-						<div class="til">一核四成.高新区CBD问鼎未来</div>
-						<div class="cnt">作为一种客观存在的物质形态，房地产是指房产和地产的总称，包括土地和土地上永久建筑物及其所衍生的权利。房产是指建筑在土地上的各种房屋，包括住宅、厂房、仓库和商业、服务、文化、教育、卫生、体育以及办公用房等。地产是指土地及其上下一定的空间，包括地下的各种基础设施、地面道路等。
-						</div>
-					</li>
-					<li>
-						<div class="til">一核四成.高新区CBD问鼎未来</div>
-						<div class="cnt">作为一种客观存在的物质形态，房地产是指房产和地产的总称，包括土地和土地上永久建筑物及其所衍生的权利。房产是指建筑在土地上的各种房屋，包括住宅、厂房、仓库和商业、服务、文化、教育、卫生、体育以及办公用房等。地产是指土地及其上下一定的空间，包括地下的各种基础设施、地面道路等。
-						</div>
-					</li>
-					<li>
-						<div class="til">一核四成.高新区CBD问鼎未来</div>
-						<div class="cnt">作为一种客观存在的物质形态，房地产是指房产和地产的总称，包括土地和土地上永久建筑物及其所衍生的权利。房产是指建筑在土地上的各种房屋，包括住宅、厂房、
-						</div>
-					</li>
-					<li>
-						<div class="til">一核四成.高新区CBD问鼎未来</div>
-						<div class="cnt">作为一种客观存在的物质形态，房地产是指房产和地产的总称，包括土地和土地上永久建筑物及其所衍生的权利。房产是指建筑在土地上的各种房屋，包括住宅、厂房、
-						</div>
-					</li>
-				</ul>
-				<img src="<?php  echo WEB_IMAGES_PATH?>nice.gif" alt="">
-			</div> -->
-
 
 			<div class="clear"></div>
 		</div>
@@ -307,12 +253,12 @@
 
 
 			  <div id="comment" class="m m2"> 
-			   <div class="mt"> 
+			   <div class="mt" > 
 			    <h2>房源评价</h2> 
 			   </div> 
 			   <div class="mc">
 			    <div id="i-comment"> 
-			     <div class="rate"> 
+			     <!-- <div class="rate"> 
 			      <strong>94<span>%</span></strong> 
 			      <br /> 
 			      <span>好评度</span> 
@@ -346,8 +292,8 @@
 			        <div style="width: 1%;"> 
 			        </div>
 			       </dd> 
-			      </dl> 
-			     </div> 
+			      </dl>  -->
+			     <!-- </div>  -->
 
 			     <div class="btns"> 
 			      <div>
@@ -362,11 +308,11 @@
 
 			<div class="g-m2-tab g-wh8">
 				<ul class="btns">
-					<li class="z-on">全部评价<a href="">(677)</a></li>
-					<li>好评(630)</li>
+					<li class="z-on">全部评价<a href=""></a></li>
+<!-- 					<li>好评(630)</li>
 					<li>中评(17)</li>
-					<li>差评(30)</li>
-					<li>看房团评论(64)</li>
+					<li>差评(30)</li> -->
+					<li>房源评论</li>
 				</ul>
 
 
@@ -380,16 +326,17 @@
 				?>
 
 					<div class="u-cnt">
-						<div class="user-info">
-							<span class="uimg"><img src="<?php  echo WEB_IMAGES_PATH?>user.gif" alt=""></span>
+						<!-- <div class="user-info"> -->
+<!-- 							<span class="uimg"><img src="<?php  echo WEB_IMAGES_PATH?>user.gif" alt=""></span>
 							<br>
 							<span class="uname">
 								s***驹<br>
 								银牌会员上海
-							</span>
-						</div>
+							</span> -->
+						<!-- </div> -->
 						<div class="user-comments">
-							<div class="star"><img src="<?php  echo WEB_IMAGES_PATH?>stars.gif" alt="">
+							<div class="star">
+								<!-- <img src="<?php  echo WEB_IMAGES_PATH?>stars.gif" alt=""> -->
 								<div class="time"><?php echo $value['createtime']?></div>
 							</div>
 							<dl class="labels">
@@ -400,10 +347,10 @@
 								<dt>心得：</dt>
 								<dd><?php echo $value['content']?></dd>
 							</dl>
-							<div class="btn">
+<!-- 							<div class="btn">
 								<a href="" class="gray-btn">有用(10)</a>
 								<a href="" class="gray-btn">回复(0)</a>
-							</div>
+							</div> -->
 						</div>
 						<div class="clear"></div>
 					</div>
