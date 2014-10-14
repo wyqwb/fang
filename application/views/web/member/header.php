@@ -78,7 +78,7 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
 <body>
 <div id="header_bg">
     <div id="header">
-        <a href="/"><img src="/images/logo.jpg" width="140" height="59" style="margin-top:10px" alt="用户中心" /></a>
+        <a href="/"><img src="/images/logo_new.png" width="140" height="59" style="margin-top:10px" alt="用户中心" /></a>
         <div class="fr">
             <div class="tel">
              <!-- <img src="/images/tel.jpg" width="192" height="32" alt="联系方式" /> -->

@@ -14,7 +14,7 @@
 	<!-- 头部 -->
 	<div class="g-hd-wrap">
 		<div class="g-hd g-wh">
-			<div class="m-logo"><a href="/"><img src="<?php  echo WEB_IMAGES_PATH?>logo.png" alt="logo"></a></div>
+			<div class="m-logo"><a href="/"><img src="<?php  echo WEB_IMAGES_PATH?>logo_login.png" alt="logo"></a></div>
 			<div class="m-language"><a href="#">[English]</a></div>
 		</div>
 	</div>

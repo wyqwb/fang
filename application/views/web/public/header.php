@@ -21,7 +21,7 @@
 		<div class="g-item g-bg1">
 			<div class="g-info">
 				<div class="m-logo"><a href="/">
-				<img src="<?php  echo WEB_IMAGES_PATH?>logo.gif" alt="">
+				<img src="<?php  echo WEB_IMAGES_PATH?>logo_new.png" alt="">
 				</a>
 				</div>
 				<div class="m-search">

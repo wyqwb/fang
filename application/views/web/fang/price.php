@@ -136,7 +136,7 @@
 	<!-- 底部 -->
 
 		<!-- 主体下部 -->
-		<div class="g-bd-ft" style="width:980px;height:440px;border:1px solid #ccc;text-align:center">
+		<div class="g-bd-ft" style="width:980px;height:640px;border:1px solid #ccc;text-align:center">
 			<!-- 模块7 -->
 			<div style="width:980px">
 				<div style="width:480px;float:left;height:220px;text-align:left;margin-top:20px;margin-bottom:20px;border:1px solid #ccc">
@@ -157,12 +157,42 @@
 							<p><span>其他：</span>内容</p>
 				</div>
 
-			</div>						
+			</div>	
+			<div style="margin-top:260px;width:980px;height:200px;background-color:#ccc;overflow: hidden;">
+				<div class="jia_fang_item" style="margin-left: 12px">	
+				<img src="<?php  echo WEB_IMAGES_PATH?>item.png">			
+				</div>
+				
+				<div class="jia_fang_item">
+				<img src="<?php  echo WEB_IMAGES_PATH?>item.png">					
+				</div>	
+
+				<div class="jia_fang_item">
+				<img src="<?php  echo WEB_IMAGES_PATH?>item.png">					
+				</div>	
+
+				<div class="jia_fang_item">
+				<img src="<?php  echo WEB_IMAGES_PATH?>item.png">					
+				</div>		
+
+				<div class="jia_fang_item">
+				<img src="<?php  echo WEB_IMAGES_PATH?>item.png">					
+				</div>	
+
+				<div class="jia_fang_item">
+				<img src="<?php  echo WEB_IMAGES_PATH?>item.png">					
+				</div>	
+			</div>
+
+
+
 				<div style="height:100px;">
-				<span style="margin-right:80px">均价：<?php echo $fang['displayprice']?>元/平方米</span>
-				<span>我出价：<input type="text" id="jia"  style="margin-top:50px;width:300px;height:30px" /></span></div>
-				<div style="height:100px;position: absolute;top: 1070px;left: 670px;">
-				<input type="button" value="确定" onclick="forcost()" style="width:150px;height:35px"></div>
+				<span style="margin-right:80px">均价：<?php echo $fang['displayprice']?></span>
+				<span>我出价：<input type="text" id="jia"  style="margin-top:50px;width:300px;height:30px" /></span>
+				</div>
+				<div style="height:100px;position: absolute;top: 1270px;left: 670px;">
+				<input type="button" value="确定" onclick="forcost()" style="width:150px;height:35px">
+				</div>
 	</div>
 	<script type="text/javascript">
 	function forcost() {
@@ -189,9 +219,12 @@
                 return ;
             }
             if (resault.responseText == "-2") {
-            	alert("您的出价过低");
-            	$("#jia").focus();
-                return false;
+            	// alert("您的出价过低");
+            	// $("#jia").focus();
+                // return false;
+                window.location.href = '/fang/tuandetail/<?php echo $tuanid?>';
+                return;
+
             }
             if (resault.responseText == "1") {
    				window.location.href = '/fang/tuandetail/<?php echo $tuanid?>';

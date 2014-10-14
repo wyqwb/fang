@@ -660,3 +660,8 @@ h1 {
 .longin_cg{ text-align:center; padding-top:80px;}
 .longin_cg h3{ font-size:20px; line-height:68px;}
 .longin_cg p{ font-size:14px; color:#646464; margin-bottom:16px;}
+
+
+
+.jia_fang_item{width:180px;height:180px;background-color:green;margin-top:10px;float: left;margin-right: 12px;overflow: hidden;}
+.jia_fang_item img{width: 180px;height: 180px}

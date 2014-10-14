@@ -47,7 +47,7 @@
                             </tr> 
                             <tr>
                                 <td class="tit">显示价格：</td>
-                                <td class="input"><input class="text"  name="displayCost" type="text" datatype="n" nullmsg="请输入正确的费用(数字)！" value="<?php if (isset($fangtuan['displayCost'])) {echo $fangtuan['displayCost'];}?>" /></td>
+                                <td class="input"><input class="text"  name="displayCost" type="text" datatype="*" nullmsg="请输入正确的费用！" value="<?php if (isset($fangtuan['displayCost'])) {echo $fangtuan['displayCost'];}?>" /></td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">请输入正确的费用(数字)！</div></td>
                             </tr>
                             <tr>
