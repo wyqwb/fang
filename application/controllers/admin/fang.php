@@ -58,7 +58,6 @@ class Fang extends AD_Controller
 
         //显示搜索框
         $data['search'] = $this->load->module('/admin/frames/search',$search,true);
-        //print_r($data['search']);die;
         $this->load->module('/admin/frames/header');
         $this->load->module('/admin/frames/left',array('type'=>'article'));
         $this->load->module('/admin/frames/tools',array('article'=>true,'images'=>false));
@@ -70,13 +69,15 @@ class Fang extends AD_Controller
 			array('data'=>'房源名称','class'=>'tt','width'=>'25%'),
             array('data'=>'发布者','class'=>'tt','width'=>'25%'),
 			array('data'=>'发布时间','class'=>'tt','width'=>'15%'),
+            array('data'=>'是否推广','class'=>'tt','width'=>'15%'),
 			array('data'=>'操作','class'=>'operate','width'=>'20%')
 		);
 		$tabledata['rules']['order']= array(
 			'order'=>array('class'=>'xx','dd'=>'bb'),
 			'title'=>array('class'=>'xx','dd'=>'bb'),
             'name'=>array('class'=>'xx','dd'=>'bb'),
-			'createtime'=>array('class'=>'xx','dd'=>'bb')
+			'createtime'=>array('class'=>'xx','dd'=>'bb'),
+            'selected'=>array('class'=>'xx','dd'=>'bb')
 		);
         if($this->input->post('searchsub'))
         {
@@ -93,7 +94,7 @@ class Fang extends AD_Controller
             //print_r($data['lists']);die;
             $tabledata['data'] = $data['lists']['result'];
             //$tabledata['rules']['operate']=array('look'=>array('url'=>'admin/article/article_view/article_lists/','id'=>'id'),'modify'=>array('url'=>'admin/article/modify_article/article_lists/','id'=>'id'),'delete'=>array('action'=>'admin/article/article_delete/','id'=>'id'));
-            $tabledata['rules']['operate']=array('look'=>array('url'=>'admin/fang/fang_view','id'=>'id'),'delete'=>array('action'=>'admin/fang/fang_delete/','id'=>'id'));
+            $tabledata['rules']['operate']=array('look'=>array('url'=>'admin/fang/fang_view','id'=>'id'),'delete'=>array('action'=>'admin/fang/fang_delete/','id'=>'id'),'modify'=>array('url'=>'admin/fang/fang_modify/lists','id'=>'id'));
             $tabledata['foot']= $data['lists']['page'];
             $this->formdebris->initialize($tabledata);
             $data['table'] = $this->formdebris->packing_table($tabledata);
@@ -128,5 +129,63 @@ class Fang extends AD_Controller
         }
     }
     
+    public function  fang_modify(){
+        $tip = intval($this->uri->segment(4));
+        $id = intval($this->uri->segment(5));
+        $this->load->helper('resource');
+        if ($this->input->post('sub')) {
+            $aid = $this->input->post('id');
+            // $config['upload_path'] = FCPATH.'uploads/';
+            // $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            // $config['max_size'] = '20000';
+            // $config['overwrite'] = FALSE;
+            // $config['encrypt_name'] = TRUE;
+            // $this->load->library('upload',$config);
+            //第1张图
+            // if(!empty($_FILES['addphoto']['name'])){
+            //     $this->upload->do_upload('addphoto');
+            //     $str = $this->upload->data();
+            //     $previewimg = $str['file_name'];
+            //     $data['previewimg'] = $previewimg;
+            // }
+
+            $data['title'] = $this->input->post('title');
+            // $data['subtitle'] = $this->input->post('subtitle');
+            $data['order'] = $this->input->post('order');
+            // $data['pid'] = $this->input->post('pid');
+            $data['content'] = $this->input->post('content');
+            $data['modifytime'] = date('Y-m-d G:i:s');
+            //$data['modifier'] = $_SESSION['id'];
+            // $data['published'] = date('Y-m-d G:i:s');
+            $data['selected'] = intval($this->input->post('selected'));
+            $this->db->where('id', $aid);
+            $res = $this->db->update('fang', $data);
+            if ($res) {
+                $this->load->module('/admin/frames/header');
+                $this->load->module('/admin/frames/left',array('type'=>'article','segpos'=>3));
+                $this->load->module('/admin/frames/tools',array('article'=>false,'images'=>false));
+                $this->load->module('/admin/frames/returnTip',array('tip'=>'修改成功！','onurl'=>base_url()."index.php/admin/fang/fang_modify/lists/".$aid,'reurl'=>base_url()."index.php/admin/fang/lists"));
+                //echo "<script>alert('修改成功！');location.href='".base_url()."index.php/admin/article/article_lists';</script>";
+            } else {
+                $this->load->module('/admin/frames/header');
+                $this->load->module('/admin/frames/left',array('type'=>'article','segpos'=>3));
+                $this->load->module('/admin/frames/tools',array('article'=>false,'images'=>false));
+                $this->load->module('/admin/frames/returnTip',array('tip'=>'修改失败！','onurl'=>base_url()."index.php/admin/fang/fang_modify/lists/".$aid,'reurl'=>base_url()."index.php/admin/fang/lists"));
+                // echo "<script>alert('修改失败！');location.href='".base_url()."index.php/admin/article/article_lists';</script>";
+            }
+        } else {
+            $data['actUrl'] = "./index.php/admin/fang/fang_modify";
+            $data['artcon'] = $this->mpub->getRow('fang','',array( 'id'=>$id));
+           // $data['article_tree'] = $this->marticle->get_sort_tree($data['artcon']['pid']);
+            $this->load->module('/admin/frames/header');
+            $this->load->module('/admin/frames/left',array('type'=>'article','segpos'=>4));
+            $this->load->module('/admin/frames/tools',array('article'=>false,'images'=>false));
+            //$data['title'] = $this->load->module('/admin/frames/content_title',array('title'=>'房源修改'),true);
+            //$data['search'] = $this->load->module('admin/frames/search',array(),true);
+            $this->load->view('admin/fang/fang_modify.php',$data);       
+
+        }
+    }
+
     
 }

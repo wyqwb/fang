@@ -23,7 +23,6 @@ class Index extends Front_Controller {
 		
 		$data['shareurl']=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."fang/detail/";
 		$data['recomment']=$this->mfang->get_recomment_default();
-
 		$data['toplist']=$this->mfang->get_top_default();
 		$data['list2']=$this->mfang->get_fang_by_default();	
 

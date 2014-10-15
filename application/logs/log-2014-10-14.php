@@ -57,3 +57,4 @@ ERROR - 2014-10-14 14:39:28 --> 404 Page Not Found --> images
 ERROR - 2014-10-14 14:39:39 --> Severity: Notice  --> Undefined index: previewimg D:\AMP\ROOT\FANG\application\views\web\fang\fang_detail.php 102
 ERROR - 2014-10-14 14:39:39 --> Severity: Notice  --> Undefined index: id D:\AMP\ROOT\FANG\application\views\web\fang\fang_detail.php 103
 ERROR - 2014-10-14 14:39:39 --> Severity: Notice  --> Undefined index: id D:\AMP\ROOT\FANG\application\views\web\fang\fang_detail.php 134
+ERROR - 2014-10-14 17:00:47 --> 404 Page Not Found --> favicon.ico

@@ -33,7 +33,7 @@ class Mfang extends CI_Model {
 
     public function get_recomment_default()
     {
-        $sql = "SELECT * FROM `fang` where selected=1  order by `createtime` limit 3 ";
+        $sql = "SELECT * FROM `fang` where selected=1  order by `modifytime` desc limit 3 ";
         $query = $this->db->query($sql);        
         return $query->result_array();
     }

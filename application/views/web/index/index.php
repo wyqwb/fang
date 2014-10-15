@@ -173,13 +173,17 @@
 			<!-- 模块1 -->
 			<div class="g-item g-wh">
 				<div class="g-m1">
-
 				<?php if(count($recomment)>0){
-					
+					foreach ($recomment as $key => $value) {								
 				?>
+					<div class="g-pic-box">
+				    <img src="<?php  echo CUSTOM_IMAGES_PATH.$value['img1'];?>" alt=""  width="377px" height="212px">
+					<div class="g-m1-btns">
+					<span class="btn-gray"><a href="/fang/detail/<?php echo $value['id']?>"><?php echo $value['title']?></a></span>
+					</div>					
+					</div>
 
-
-				<? }else{ ?>
+				<? } }else{ ?>
 
 					<div class="g-pic-box">
 					<img src="<?php  echo WEB_IMAGES_PATH?>index_page_26.gif" alt="">
