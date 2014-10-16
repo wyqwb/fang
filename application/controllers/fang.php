@@ -217,10 +217,10 @@ class Fang extends Front_Controller {
 				exit();
 			}
 
-			//$this->user_data = $this->session->userdata('userid');
 			$data['tuanid']=$this->uri->segment(3);
 			$data['fangid'] = $this->uri->segment(4);
 			$data['fang'] = $this->mpublic->getRow('fang','',array('id'=>$data['fangid']));
+			$data['other_fang_lists'] = $this->mpublic->getList("fang","",array('tuanid' => $data['tuanid']));
 			$this->load->view('web/fang/price.php',$data);
 		}
 

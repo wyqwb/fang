@@ -286,3 +286,13 @@ ERROR - 2014-10-16 14:57:18 --> Severity: Notice  --> Undefined offset: 0 D:\AMP
 ERROR - 2014-10-16 15:07:23 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
 ERROR - 2014-10-16 15:07:26 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
 ERROR - 2014-10-16 15:07:28 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\modules\admin\controllers\frames.php 202
+ERROR - 2014-10-16 15:24:20 --> 404 Page Not Found --> favicon.ico
+ERROR - 2014-10-16 15:24:24 --> 404 Page Not Found --> favicon.ico
+ERROR - 2014-10-16 15:27:21 --> Severity: Notice  --> Undefined variable: product D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-10-16 15:27:21 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\AMP\ROOT\FANG\application\views\web\member\index.php 25
+ERROR - 2014-10-16 15:27:21 --> Severity: Notice  --> Undefined variable: page D:\AMP\ROOT\FANG\application\views\web\member\index.php 38
+ERROR - 2014-10-16 15:27:22 --> 404 Page Not Found --> images
+ERROR - 2014-10-16 15:38:22 --> 404 Page Not Found --> images
+ERROR - 2014-10-16 15:38:22 --> 404 Page Not Found --> images
+ERROR - 2014-10-16 15:38:23 --> 404 Page Not Found --> images
+ERROR - 2014-10-16 15:39:18 --> 404 Page Not Found --> favicon.ico

@@ -159,11 +159,14 @@
 
 			</div>	
 			<div style="margin-top:260px;width:980px;height:200px;background-color:#ccc;overflow: hidden;">
-				<div class="jia_fang_item" style="margin-left: 12px">	
-				<img src="<?php  echo WEB_IMAGES_PATH?>item.png">			
-				</div>
 				
-				<div class="jia_fang_item">
+			<?php if(isset($other_fang_lists)&&(count($other_fang_lists)>0)){
+				 	foreach ($other_fang_lists as $key => $value) {
+			?>	<div class="jia_fang_item" style="margin-left: 12px">	
+				<a href="/fang/detail/<?php echo $value['id']?>"><img src="<?php  echo CUSTOM_IMAGES_PATH.$value['img1']?>">	</a>		
+				</div>				
+			<?php } }?>	
+<!-- 				<div class="jia_fang_item">
 				<img src="<?php  echo WEB_IMAGES_PATH?>item.png">					
 				</div>	
 
@@ -181,7 +184,8 @@
 
 				<div class="jia_fang_item">
 				<img src="<?php  echo WEB_IMAGES_PATH?>item.png">					
-				</div>	
+				</div>	 -->
+
 			</div>
 
 
