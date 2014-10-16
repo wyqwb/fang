@@ -193,6 +193,8 @@ class Article extends AD_Controller
     //文章列表
     public function article_lists()
     {
+        $tip = $this->uri->segment(4);
+        //print_r($tip);die;
         $this->load->helper('resource');
         $search = array(
             'uri'=>'',
@@ -225,8 +227,14 @@ class Article extends AD_Controller
             $data['table'] = $this->formdebris->packing_table($tabledata);
         }
         else
-        {
-            $data['lists'] = $this->mpub->get_dates(base_url().'index.php/admin/article/article_lists','4','article','','',$this->perpage);
+        {   
+            if($tip=="pic"){
+                $data['lists'] = $this->mpub->get_dates(base_url().'index.php/admin/article/article_lists/pic','4','article','',array('type' =>1 ,'pid'=>15),$this->perpage);
+            }else if($tip=="country"){
+                $data['lists'] = $this->mpub->get_dates(base_url().'index.php/admin/article/article_lists/country','4','article','',array('type' =>1 ,'pid'=>16),$this->perpage);
+            }else{
+                 $data['lists'] = $this->mpub->get_dates(base_url().'index.php/admin/article/article_lists','4','article','',array('type' =>1 ,'pid'=>2),$this->perpage);
+            }
             $tabledata['data'] = $data['lists']['result'];
             $tabledata['rules']['operate']=array('look'=>array('url'=>'admin/article/article_view/article_lists','id'=>'id'),'modify'=>array('url'=>'admin/article/modify_article/article_lists','id'=>'id'),'delete'=>array('action'=>'admin/article/article_delete/','id'=>'id'));
             $tabledata['foot']= $data['lists']['page'];
@@ -398,8 +406,8 @@ class Article extends AD_Controller
     //客户评论列表
     public function reviewlist()
     {
-        $tabledata['head'] = '评论标题_15%,评论内容_40%,评论文章_15%,评论人_15%,操作_15%';
-        $tabledata['rules']['order']=array('title','content','atitle','account');
+        $tabledata['head'] = '评论类型_15%,评论内容_40%,被评论文章id_15%,评论人_15%,操作_15%';
+        $tabledata['rules']['order']=array('type','content','aid','account');
         $result = $this->marticle->get_review_bypage();
         $tabledata['data'] = $result['result'];
         $tabledata['rules']['operate']=array(

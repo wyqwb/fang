@@ -98,6 +98,7 @@ class Mpub extends CI_Model {
 			$this->load->library('pagination');
 			$config['base_url'] = $url;
 			$config['total_rows'] = $this->mpub->get_no($table,$where);
+			//print_r($config['total_rows']);die;
 			$config['uri_segment'] = $uri_segment;
 			$config['total_switch'] = true;
 			$config['per_page'] = $limit != "" ? $limit : 10;
@@ -119,6 +120,7 @@ class Mpub extends CI_Model {
 			$config['cur_tag_open'] = '<li class="curr">';
 			$config['cur_tag_close'] = '</li>';
 			$this->pagination->initialize($config);
+
 			if($table=="fangtuan"){
 				$data['result'] = $this->mpub->get_fangtuan_bypage($table,$fields,$where,$order,$config['per_page'],$this->uri->segment($uri_segment) ? $this->uri->segment($uri_segment) : 0);
 			}elseif($table=="article"){
@@ -126,6 +128,7 @@ class Mpub extends CI_Model {
 			}else{
 				$data['result'] = $this->mpub->get_fang_bypage($table,$fields,$where,$order,$config['per_page'],$this->uri->segment($uri_segment) ? $this->uri->segment($uri_segment) : 0);
 			}
+
 			$data['page'] = $this->pagination->create_links();
 		}
 		else
@@ -147,28 +150,28 @@ class Mpub extends CI_Model {
 		return $row['no'];
 	}
 	
-	/*
-	 * 获取数据信息
-	 * */
 	public function get_fangtuan_bypage($table,$fields="*",$where="",$order="",$perpage,$pageno) {
-		$sql = "select ft.*,m.account name from member m,  fangtuan ft  where ft.isenable=1 and ft.mid=m.Id  order by createtime desc  limit ".$pageno.",".$perpage."";
+		$sql = "select ft.*,m.account name from member m, fangtuan ft  where ft.isenable=1 and ft.mid=m.Id order by createtime desc  limit ".$pageno.",".$perpage."";
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
-
-	/*
-	 * 获取数据信息
-	 * */
 	public function get_fang_bypage($table,$fields="*",$where="",$order="",$perpage,$pageno) {
 		$sql = "select f.*,m.account name from fang f,member m  where f.isenable=1 and f.mid=m.Id  order by createtime desc  limit ".$pageno.",".$perpage."";
 		$query = $this->db->query($sql);
 		return $query->result_array();
-	}	
-
+	}
 	public function get_article_bypage($table,$fields="*",$where="",$order="",$perpage,$pageno) {
-		$sql = "select *  from article  where type=1 and pid=2  order by createtime desc  limit ".$pageno.",".$perpage."";
-		//print_r($sql);die;
-		$query = $this->db->query($sql);
-		return $query->result_array();
+		if ($fields != "") {
+			$this->db->select($fields);
+		}
+		if ($where != "") {
+			$this->db->where($where);
+		}
+		$query = $this->db->get($table);
+		$result = $query->result_array();
+		return $result;
+		// $sql = "select *  from article where type=1 and pid=2  order by createtime desc  limit ".$pageno.",".$perpage."";
+		// $query = $this->db->query($sql);
+		// return $query->result_array();
 	}	
 }

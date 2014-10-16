@@ -26,6 +26,9 @@ class Index extends Front_Controller {
 		$data['toplist']=$this->mfang->get_top_default();
 		$data['list2']=$this->mfang->get_fang_by_default();	
 
+		$data['popular_country']=$this->marticle->get_popular_country();
+		$data['popular_pic']=$this->marticle->get_popular_pic();
+
 		$ads=$this->mad->get_index_ad();
 		if(count($ads)!=0){
 			$data['ads']=$ads;	

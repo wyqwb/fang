@@ -6,7 +6,7 @@
             <div class="Aadd_ititle"><a href="#" class="cur">内容</a></div>
             	<input type="hidden" name="id" value="<?php if (isset($artcon['id'])) {echo $artcon['id'];}?>" />
                 <div class="clear"><label>账    号：</label><input type="text" name="account" value="<?php echo $artcon['account'];?>" disabled="disabled"/></div>
-                <div class="clear"><label>姓    名：</label><input type="text" name="fullname" value="<?php echo $artcon['fullname'];?>" disabled="disabled"/></div>
+                <div class="clear"><label>姓    名：</label><input type="text" name="realname" value="<?php echo $artcon['realname'];?>" disabled="disabled"/></div>
                 <div class="clear"><label>性    别：</label><input type="text" name="gender" value="<?php echo $artcon['gender'];?>" disabled="disabled"/></div>
                 <!-- <div class="clear"><label>身份证号：</label><input type="text" name="idcard" value="<?php echo $artcon['idcard'];?>" disabled="disabled"/></div> -->
                 <div class="clear" id = "jsOrder"><label>手    机：</label><input type="text" name="mobile" value="<?php echo $artcon['mobile'];?>" disabled="disabled"/></div>

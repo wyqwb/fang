@@ -434,3 +434,7 @@ $config['business'] = "企业会员";
 $config['1']='进行中';
 $config['0']='完成';
 
+
+//最受欢迎的
+$config['popular_country']='16';
+$config['popular_pic']='15';

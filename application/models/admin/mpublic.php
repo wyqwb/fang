@@ -144,8 +144,8 @@ class Mpublic extends CI_Model {
 	/*
 	 * 获取数据信息
 	 * */
-	public function get_data_bypage($sql,$perpage,$pageno) {
-		$sql = "SELECT * FROM ($sql) t LIMIT $pageno,$perpage";
+	public function get_data_bypage($table,$perpage,$pageno) {
+		$sql = "SELECT * FROM ($table) t LIMIT $pageno,$perpage";
 		log_message("debug","---***--->".$sql);
 		$query = $this->db->query($sql);
 		return $query->result_array();

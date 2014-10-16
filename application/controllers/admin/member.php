@@ -57,7 +57,7 @@ class Member extends AD_Controller
         $this->load->module('/admin/frames/tools');
         $data['title'] = $this->load->module('/admin/frames/content_title',array('title'=>'会员管理'),true);
         $tabledata['head'] = '编号_5%,账号_10%,姓名_10%,手机_10%,城市_10%,积分_10%,状态_10%,操作_10%';
-        $tabledata['rules']['order']=array('Id','account','fullname','mobile','city','point','status');
+        $tabledata['rules']['order']=array('Id','account','realname','mobile','city','point','status');
         $tabledata['rules']['operate']=
             array(
                 'look'=>array(
@@ -125,15 +125,15 @@ class Member extends AD_Controller
         $this->load->module('/admin/frames/tools');
         $data['title'] = $this->load->module('/admin/frames/content_title',array('title'=>'会员管理'),true);
         $tabledata['head'] = '编号_5%,账号_10%,姓名_10%,手机_10%,城市_10%,积分_10%,状态_10%,操作_10%';
-        $tabledata['rules']['order']=array('Id','account','fullname','mobile','city','point','status');
+        $tabledata['rules']['order']=array('Id','account','realname','mobile','city','point','status');
         $tabledata['rules']['operate']=
             array(
 	            'look'=>array(
-	            'url'=>'admin/member/member_view/member_lists/',
+	            'url'=>'admin/member/member_view/member_lists',
 	            'id'=>'Id' ),
-	            'modify'=>array(
-	            'url'=>'admin/member/modify_member/member_lists/',
-	            'id'=>'Id'),
+	            // 'modify'=>array(
+	            // 'url'=>'admin/member/modify_member/member_lists/',
+	            // 'id'=>'Id'),
 	            'check'=>array(
 	            'url'=>'admin/member/member_check/',
             	'checkfield'=>'status',
@@ -191,15 +191,15 @@ class Member extends AD_Controller
         $this->load->module('/admin/frames/tools');
         $data['title'] = $this->load->module('/admin/frames/content_title',array('title'=>'会员管理'),true);
         $tabledata['head'] = '编号_5%,账号_10%,姓名_10%,手机_10%,城市_10%,积分_10%,状态_10%,操作_10%';
-        $tabledata['rules']['order']=array('Id','account','fullname','mobile','city','point','status');
+        $tabledata['rules']['order']=array('Id','account','realname','mobile','city','point','status');
         $tabledata['rules']['operate']=
             array(
                 'look'=>array(
-                'url'=>'admin/member/member_view/member_lists/',
+                'url'=>'admin/member/member_view/member_lists',
                 'id'=>'Id' ),
-                'modify'=>array(
-                'url'=>'admin/member/modify_member/member_lists/',
-                'id'=>'Id'),
+                // 'modify'=>array(
+                // 'url'=>'admin/member/modify_member/member_lists/',
+                // 'id'=>'Id'),
                 'check'=>array(
                 'url'=>'admin/member/member_check/',
                 'checkfield'=>'status',
@@ -290,7 +290,7 @@ class Member extends AD_Controller
         $this->load->module('/admin/frames/header');
         $this->load->module('/admin/frames/left',array('type'=>'member','segpos'=>4));
         $this->load->module('/admin/frames/tools');
-        $data['title'] = $this->load->module('/admin/frames/content_title',array('title'=>'文章分类'),true);
+        $data['title'] = $this->load->module('/admin/frames/content_title',array('title'=>'会员信息'),true);
         $this->load->view('admin/member/member_view.php',$data);
     }
     

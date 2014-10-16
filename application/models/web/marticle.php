@@ -23,6 +23,20 @@ class Marticle extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_popular_country()
+    {
+        $sql = "SELECT `id`,`previewimg`,`title`,`content` FROM `article` where pid=".$this->config->item("popular_country")."  order by createtime desc";
+        $query = $this->db->query($sql);        
+        return $query->result_array();
+    }
+
+    public function get_popular_pic()
+    {
+        $sql = "SELECT `id`,`previewimg`,`title`,`content` FROM `article` where pid=".$this->config->item("popular_pic")."  order by createtime desc";
+        $query = $this->db->query($sql);        
+        return $query->result_array();
+    }
+
     public function get_title_id_by_default($pageno,$perpage)
     {
         $sql = "SELECT `id`,`title` FROM `article` where type=1 and pid=2 order by createtime  desc LIMIT $pageno,$perpage";

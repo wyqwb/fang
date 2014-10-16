@@ -21,9 +21,18 @@ $config['admin_menu']['cn']['left']['article'][]=array('title'=>'信息中心','
     'child'=>array(
         array('title'=>'信息分类','action'=>'admin/article/article_sort','type'=>'default','icon'=>'icon_articlelist.png'),
         array('title'=>'创建分类','action'=>'admin/article/article_sort_create','type'=>'default','icon'=>'icon_articlecreate.png'),
-        array('title'=>'信息列表','action'=>'admin/article/article_lists','type'=>'default','icon'=>'icon_articlelist.png'),
-        array('title'=>'创建信息','action'=>'admin/article/article_create','type'=>'default','icon'=>'icon_articlecreate.png'),
-        array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
+
+        array('title'=>'新闻列表','action'=>'admin/article/article_lists','type'=>'default','icon'=>'icon_articlelist.png'),
+        array('title'=>'创建新闻','action'=>'admin/article/article_create','type'=>'default','icon'=>'icon_articlecreate.png'),
+        
+        array('title'=>'最受欢迎图片','action'=>'admin/article/article_lists/pic','type'=>'default','icon'=>'icon_articlelist.png'),
+        array('title'=>'创建欢迎图片','action'=>'admin/article/article_create','type'=>'default','icon'=>'icon_articlecreate.png'),
+
+        array('title'=>'最受欢迎目标国家','action'=>'admin/article/article_lists/country','type'=>'default','icon'=>'icon_articlelist.png'),
+        array('title'=>'创建欢迎目标国家','action'=>'admin/article/article_create','type'=>'default','icon'=>'icon_articlecreate.png')
+       
+
+
     ));
 
 $config['admin_menu']['cn']['left']['ad'][]=array('title'=>'广告中心','type'=>'default',
@@ -39,6 +48,7 @@ $config['admin_menu']['cn']['left']['article'][]=array('title'=>'房产中心','
     'child'=>array(
         array('title'=>'看房团列表','action'=>'admin/fangtuan/lists','type'=>'default','icon'=>'icon_articlelist.png'),
         array('title'=>'房源信息列表','action'=>'admin/fang/lists','type'=>'default','icon'=>'icon_articlelist.png'),
+            array('title'=>'评论列表','action'=>'admin/article/reviewlist','type'=>'default','icon'=>'icon_articlelist.png')
     ));
 
 
@@ -64,7 +74,7 @@ $config['admin_menu']['cn']['left']['member'][]=array('title'=>'会员中心','t
     'child'=>array(
         array('title'=>'普通会员','action'=>'admin/member/normal_member_lists','type'=>'default','icon'=>'icon_articlelist.png'),
         array('title'=>'商户会员','action'=>'admin/member/business_member_lists','type'=>'default','icon'=>'icon_articlelist.png'),
-        array('title'=>'积分管理','action'=>'admin/member/point_lists','type'=>'default','icon'=>'icon_articlelist.png'),
+        // array('title'=>'积分管理','action'=>'admin/member/point_lists','type'=>'default','icon'=>'icon_articlelist.png'),
         // array('title'=>'意见反馈','action'=>'admin/question/lists','type'=>'default','icon'=>'icon_articlelist.png'),
     ));
 

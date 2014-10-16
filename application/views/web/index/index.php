@@ -220,6 +220,19 @@
 					</div>
 					<div class="g-box-bd">
 						<div class="m-pic-scroll2" id="m-pic-scroll2">
+						<?php if(isset($popular_pic)&&(count($popular_pic)>0)){
+							foreach ($popular_pic as $key => $value) {
+						?> 
+
+						   	<div class="img-box">
+								<a href="/fang/listfang/5"><img src="<?php  echo CUSTOM_IMAGES_PATH.$value['previewimg']?>" alt="" width="216px" height="158px"></a>
+								<span class="stitle"><a href="/fang/listfang/5"><?php echo $value['title']?></a></span><br>
+								<span class="describe">
+									<?php echo mb_strcut($value['content'], 0, 80, 'utf-8');?>									
+								</span>
+							</div>
+						<?php } }else{?>	
+
 							<div class="img-box">
 								<a href="/fang/listfang/1"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_48.gif" alt=""></a>
 								<span class="stitle"><a href="/fang/listfang/1">分类1</a></span><br>
@@ -245,6 +258,9 @@
 								<span class="stitle"><a href="/fang/listfang/2">分类5</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
+
+							<?php }?>
+
 							<div class="clear"></div>
 							<span class="btn-left2"></span>
 							<span class="btn-right2"></span>
@@ -262,11 +278,17 @@
 					</div>
 					<div class="g-box-bd">
 						<div class="m-pic-scroll2" id="m-pic-scroll3">
-							<div class="img-box">
-								<a href="/fang/listfang/5"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt=""></a>
-								<span class="stitle"><a href="/fang/listfang/5">分类1</a></span><br>
-								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
+						<?php if(isset($popular_country)&&(count($popular_country)>0)){
+							foreach ($popular_country as $key => $value) {
+						?>  
+						   	<div class="img-box">
+								<a href="/fang/listfang/5"><img src="<?php  echo CUSTOM_IMAGES_PATH.$value['previewimg']?>" alt="" width="217px" height="157px"></a>
+								<span class="stitle"><a href="/fang/listfang/5"><?php echo $value['title']?></a></span><br>
+								<span class="describe">
+									<?php echo mb_strcut($value['content'], 0, 100, 'utf-8');?>									
+								</span>
 							</div>
+						<?php } }else{?>	
 							<div class="img-box">
 								<a href="/fang/listfang/5"><img src="<?php  echo WEB_IMAGES_PATH?>index_page_52.gif" alt=""></a>
 								<span class="stitle"><a href="/fang/listfang/5">分类2</a></span><br>
@@ -287,6 +309,8 @@
 								<span class="stitle"><a href="/fang/listfang/5">分类5</a></span><br>
 								<span class="describe">Lorem ipsum dolor sit amet, coctetu adipiscing elit.</span>
 							</div>
+							<?php }?>
+
 							<div class="clear"></div>
 							<span class="btn-left2"></span>
 							<span class="btn-right2"></span>
