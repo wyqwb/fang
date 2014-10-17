@@ -72,4 +72,10 @@ class Mfang extends CI_Model {
         return $result;
     }
 
+
+   public function delete($table, $where) {
+      $result =  $this->db->delete($table, $where);
+       return $result;
+   }
+
 }

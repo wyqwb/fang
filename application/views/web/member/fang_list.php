@@ -59,14 +59,18 @@ $('select').each(function(){
 })
 
 function deletefang(id){
-    var resault = $.ajax({
-            url: "/fang/fuang_over/"+id,
-                data: {},
-                async: false,
-                type: 'post'
-            });
-    location.reload();
-    return;
+  var r=confirm("确定删除该房源吗？")
+  if (r==true){
+
+        var resault = $.ajax({
+                url: "/fang/fuang_over/"+id,
+                    data: {},
+                    async: false,
+                    type: 'post'
+                });
+        location.reload();
+        return;
+    }
 }
 
 </script>

@@ -1,4 +1,4 @@
-/* 宋体 */
+﻿/* 宋体 */
 /* 微软雅黑 */
 body,
 dl,
@@ -329,6 +329,13 @@ body {
   margin-bottom: 16px;
   cursor:pointer;
 
+}
+.g-m4 .coment .top span{
+  display: block;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
 }
 .g-m4 .coment .say {
   display: block;

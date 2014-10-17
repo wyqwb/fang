@@ -78,7 +78,7 @@
                             <tr>
                                 <td class="tit">绿化率：</td>
                                 <td class="input">
-                                <input class="text"  name="pgreen" type="text"  value="<?php if (isset($fang['pgreen'])) {echo $fang['pgreen'];}?>"   datatype="n" nullmsg="楼层：" errormsg="" />
+                                <input class="text"  name="pgreen" type="text"  value="<?php if (isset($fang['pgreen'])) {echo $fang['pgreen'];}?>"   datatype="n" nullmsg="绿化率" errormsg="" />
                                 </td>
                                 <td><div class="Validform_checktip">单位：%</div></td>                                
                             </tr> 
@@ -86,7 +86,7 @@
                             <tr>
                                 <td class="tit">周边：</td>
                                 <td class="input">
-                                <input class="text"  name="nearby" type="text"  value="<?php if (isset($fang['nearby'])) {echo $fang['nearby'];}?>"   datatype="*" nullmsg="楼层：" errormsg="" />
+                                <input class="text"  name="nearby" type="text"  value="<?php if (isset($fang['nearby'])) {echo $fang['nearby'];}?>"   datatype="*" nullmsg="周边配套设施" errormsg="" />
                                 </td>
                                 <td><div class="Validform_checktip">周边配套设施</div></td>                                
                             </tr> 
@@ -122,26 +122,39 @@
                             <tr>
                                 <td class="tit">最低价格：</td>
                                 <td class="input">
-                                <input class="text"  name="lowerprice" type="text"  value="<?php if (isset($fang['lowerprice'])) {echo $fang['lowerprice'];}?>" datatype="n" nullmsg="请输入显示价格！" />
+                                <input class="text"  name="lowerprice" type="text"  value="<?php if (isset($fang['lowerprice'])) {echo $fang['lowerprice'];}?>" datatype="*" nullmsg="请输入显示价格！" />
                                 </td>
-                                <td><div class="Validform_checktip">单位：万元</div></td>
+                                <td><div class="Validform_checktip">单位：自定义</div></td>
                             </tr>  
 
                             <tr>
                                 <td class="tit">最高价格：</td>
                                 <td class="input">
-                                <input class="text"  name="highprice" type="text"  value="<?php if (isset($fang['highprice'])) {echo $fang['highprice'];}?>" datatype="n" nullmsg="请输入显示价格！" />
+                                <input class="text"  name="highprice" type="text"  value="<?php if (isset($fang['highprice'])) {echo $fang['highprice'];}?>" datatype="*" nullmsg="请输入显示价格！" />
                                 </td>
-                                <td><div class="Validform_checktip">单位：万元</div></td>
+                                <td><div class="Validform_checktip">单位：自定义</div></td>
                             </tr> 
+                            <tr>
+                                <td class="tit">显示价格：</td>
+                                <td class="input">
+                                <input class="text"  name="displayprice" type="text"  value="<?php if (isset($fang['displayprice'])) {echo $fang['displayprice'];}?>" datatype="*" nullmsg="请输入显示价格" />
+                                </td>
+                                <td><div class="Validform_checktip">单位：自定义</div></td>
+                            </tr>                              
 
                             <tr>
-                                <td class="tit">房屋介绍：</td>
+                                <td class="tit">房屋简介：</td>
+                                <td class="input" colspan="2">
+                                <textarea class="text" name="desc" style="width:500px; height:100px;resize: none;" datatype="*" nullmsg="请输入房屋介绍！">
+                                <?php if (isset($fang['desc'])) {echo $fang['desc'];}?>
+                                </textarea>
+                                <div class="Validform_checktip"></div></td>
+                            </tr>  
+
+                            <tr>
+                                <td class="tit">详细介绍：</td>
                                 <td class="input" colspan="2">
                                 <textarea name="content" id="ueditor" style="width:500px;"><?php if (isset($fang['content'])) {echo $fang['content'];}?></textarea>
-                                <!-- <textarea class="text" name="desc" style="margin: 0px; width: 450px; height: 180px;resize: none;" datatype="*" nullmsg="请输入房屋介绍！"> -->
-                                 <?php //if (isset($fang['desc'])) {echo $fang['desc'];}?>
-                                <!-- </textarea> -->
                                 <div class="Validform_checktip"></div></td>
                             </tr>  
                             <br>    

@@ -70,9 +70,10 @@ class Fang extends Front_Controller {
 				//获取该房源所属商户的在线QQ 
 				$onlineQQ=$this->mpublic->getRow('member','customer_qq1,customer_qq2',array('Id'=>$data['fang']['mid']));
 				$data['online_qq']=$onlineQQ;
-
+				//print_r($data['fang']['tuanid']);
 				$tuanid=$data['fang']['tuanid'];
 				$data['fangtuan_info']=$this->mpublic->getRow('fangtuan','id,previewimg',array('id'=>$tuanid));
+				//print_r($data['fangtuan_info']);die;
 				$this->front_header();
 				$this->load->view('web/fang/fang_detail.php',$data);
 				$this->front_footer();
@@ -184,14 +185,20 @@ class Fang extends Front_Controller {
 	{
 		$seg=$this->uri->segment(3);
 		if($seg){
-		$this->mpublic->exc_sql('delete from fangtuan where id='.$seg);		
+			$tuanids=$this->mpublic->getList("fang","id",array('tuanid' => $seg));
+			if(count($tuanids)>0){
+				foreach ($tuanids as $key => $value) {
+					$this->mfang->delete("fang",array('id' => $value['id']));
+				}
+			}
+			$this->mfang->delete("fangtuan",array('id' => $seg));
 		}
 	}
 	public function fuang_over()
 	{
 		$seg=$this->uri->segment(3);
 		if($seg){
-		$this->mpublic->exc_sql('delete from fang where id='.$seg);		
+			$this->mfang->delete("fang",array('id' => $seg));		
 		}
 	}
 		

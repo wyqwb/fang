@@ -60,13 +60,17 @@ $('select').each(function(){
 
 
 function deletefangtuan(id){
-    var resault = $.ajax({
-            url: "/fang/fuang_tuan_over/"+id,
-                data: {},
-                async: false,
-                type: 'post'
-            });
-    location.reload();
-    return;
-}
+  var r=confirm("确定删除该看房团吗？会删除该看房团下面的房源！")
+  if (r==true)
+    {
+        var resault = $.ajax({
+                url: "/fang/fuang_tuan_over/"+id,
+                    data: {},
+                    async: false,
+                    type: 'post'
+                });
+        location.reload();
+        return;
+    }
+  }
 </script>

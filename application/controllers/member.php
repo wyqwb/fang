@@ -262,7 +262,7 @@ class Member extends FrontMember_Controller {
             $postdata['pgreen'] = $this->input->post('pgreen');
             $postdata['nearby'] = $this->input->post('nearby');
             $postdata['housetype']= $this->input->post('housetype');
-            $postdata['displayprice'] = $this->input->post('lowerprice');
+            $postdata['displayprice'] = $this->input->post('displayprice');
             $postdata['lowerprice'] = $this->input->post('lowerprice');
             $postdata['highprice'] = $this->input->post('highprice');
             $postdata['desc'] = $this->input->post('desc');
