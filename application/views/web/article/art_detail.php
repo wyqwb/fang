@@ -1,7 +1,7 @@
 
 	<!-- 主体 -->
-	<div class="g-bd">
-		<div class="bd-wrap g-wh5">
+<div class="g-bd">
+	<div class="bd-wrap g-wh5">
 		<!-- 模块1 -->
 		<div class="g-item g-wh7">
 				<div class="m-infobox">
@@ -51,59 +51,56 @@
 				</div>
 		</div>
 		<!-- 模块2 -->
-					<div class="g-item g-wh7">
-						<div class="g-m2-left" style="width:100%">
-							<div class="ad-title" style="text-align: center;">
-								<span class="til"><?php echo $art['title']?></span><br>
-								<span class="ti2">发表时间：<?php echo $art['published']?></span>
-								<!-- <img src="<?php  echo WEB_IMAGES_PATH?>price.gif" alt="" class="price"> -->
-							</div>
-							<div class="ad-img" style="text-align: center;"><img src="<?php  echo WEB_IMAGES_PATH?>adimg.gif" alt=""></div>
-							<div class="ad-cnt" style="width:100%">
-								<h2>文章内容</h2>
-							
-								<?php echo $art['content']?>
-						
-								<div class="clear"></div>
-							</div>
-						</div>
-						<div class="g-m2-right">
-						</div>
-						<div class="clear"></div>
-						<!-- <div class="g-m2-bottom">
-							<div class="customerlist">
-								<ul>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-									<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
-								</ul>			
-							</div>	
-							<div class="bottom-btns">
-								<img src="<?php  echo WEB_IMAGES_PATH?>btnblue.gif" alt=""><br>
-								<img src="<?php  echo WEB_IMAGES_PATH?>btnred.gif" alt="">
-							</div>	
-							<div class="clear"></div>
-							<a href="">>>已出价会员：350名</a>
-						</div> -->
-					</div>
-
-		
-
+		<div class="g-item g-wh7">
+			<div class="g-m2-left" style="width:100%">
+				<div class="ad-title" style="text-align: center;">
+					<span class="til"><?php echo $art['title']?></span><br>
+					<span class="ti2">发表时间：<?php echo $art['published']?></span>
+					<!-- <img src="<?php  echo WEB_IMAGES_PATH?>price.gif" alt="" class="price"> -->
+				</div>
+				<div class="ad-img" style="text-align: center;"><img src="<?php  echo WEB_IMAGES_PATH?>adimg.gif" alt=""></div>
+				<div class="ad-cnt">
+					<h2>文章内容</h2>
+				
+					<?php echo $art['content']?>
+			
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="g-m2-right">
+			</div>
+			<div class="clear"></div>
+			<!-- <div class="g-m2-bottom">
+				<div class="customerlist">
+					<ul>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+						<li><img src="<?php  echo WEB_IMAGES_PATH?>person.gif" alt=""></li>
+					</ul>			
+				</div>	
+				<div class="bottom-btns">
+					<img src="<?php  echo WEB_IMAGES_PATH?>btnblue.gif" alt=""><br>
+					<img src="<?php  echo WEB_IMAGES_PATH?>btnred.gif" alt="">
+				</div>	
+				<div class="clear"></div>
+				<a href="">>>已出价会员：350名</a>
+			</div> -->
+		</div>
 		<!-- 模块3 -->
 		<div class="g-item g-wh7">			
 			<div class="g-m3-l">
@@ -167,10 +164,9 @@
 		</div>
 		<!-- 模块5 -->
 		<div class="g-item g-wh7">
-			<div class="g-m2-tab g-wh8">
+			<div class="g-m2-tab g-wh8" id="tab">
 				<ul class="btns">
 					<li class="z-on">全部评价<a href=""></a></li>
-
 					<li>有晒单的评价</li>
 				</ul>
 				<div class="cnts">
@@ -190,7 +186,23 @@
 						</div>
 						<div class="clear"></div>
 					</div>
+					<div class="u-cnt" style="display:none;">
+						2222
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+<script src="/javascript/jquery.js"></script>
+<script>
+	$(function(){
+		    var contents=$("#tab .u-cnt");
+      		$("#tab ul").find("li").each(function(i){
+      			$(this).click(function(){
+      				$(this).addClass("z-on").siblings().removeClass("z-on");
+      				contents.hide();
+      				contents.eq(i).show();
+      			});
+      		})
+	})
+</script>

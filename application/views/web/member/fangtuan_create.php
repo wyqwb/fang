@@ -34,7 +34,7 @@
                                 </td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">选择您的行程时间</div></td>
                             </tr> 
-                            <tr>
+<!--                             <tr>
                                 <td class="tit">普通费用：</td>
                                 <td class="input"><input class="text"  name="normalCost" type="text" value="<?php if(isset($fangtuan['normalCost'])){echo $fangtuan['normalCost'];}?>" datatype="n"  nullmsg="请输入正确的费用(数字)！" errormsg="" /></td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">请输入正确的费用(数字)！</div></td>
@@ -44,7 +44,7 @@
                                 <td class="input"><input class="text"  name="vipCost" type="text" datatype="n" nullmsg="请输入正确的费用(数字)！" 
                                 value="<?php if (isset($fangtuan['vipCost'])) {echo $fangtuan['vipCost'];}?>" /></td>
                                 <td><b class="icon-"></b><div class="Validform_checktip">请输入正确的费用(数字)！</div></td>
-                            </tr> 
+                            </tr> --> 
                             <tr>
                                 <td class="tit">显示价格：</td>
                                 <td class="input"><input class="text"  name="displayCost" type="text" datatype="*" nullmsg="请输入正确的费用！" value="<?php if (isset($fangtuan['displayCost'])) {echo $fangtuan['displayCost'];}?>" /></td>
@@ -72,7 +72,7 @@
                            <tr>
                                 <td class="tit">房屋介绍：</td>
                                 <td class="input" colspan="2">
-                                <textarea name="content" id="ueditor" style="width:500px;"><?php if (isset($fang['desc'])) {echo $fang['desc'];}?></textarea>
+                                <textarea name="content" id="ueditor" style="width:500px;"><?php if (isset($fangtuan['des'])) {echo $fangtuan['des'];}?></textarea>
                                 <div class="Validform_checktip"></div></td>
                             </tr>  
                             <tr>

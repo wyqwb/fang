@@ -166,8 +166,8 @@ class Member extends FrontMember_Controller {
 					'des'=>$params['content'],
 					'godate'=>$params['godate'],
 					'gotime'=>$params['gotime'],										
-					'normalCost'=>$params['normalCost'],
-					'vipCost'=>$params['vipCost'],
+					// 'normalCost'=>$params['normalCost'],
+					// 'vipCost'=>$params['vipCost'],
 					'displayCost'=>$params['displayCost'],
 					'createtime'=>date('Y-m-d G:i:s')
 			);
@@ -251,6 +251,36 @@ class Member extends FrontMember_Controller {
                     $postdata['img2'] = $previewimg;
                 }
             }
+                        //第3张图
+            if(!empty($_FILES['homeimg3']['name'])){
+                if($this->upload->do_upload('homeimg3'))
+                {
+                    $str = $this->upload->data();
+                    $previewimg = $str['file_name'];
+                    $postdata['img3'] = $previewimg;
+                }
+            }
+
+                        //第4张图
+            if(!empty($_FILES['homeimg4']['name'])){
+                if($this->upload->do_upload('homeimg4'))
+                {
+                    $str = $this->upload->data();
+                    $previewimg = $str['file_name'];
+                    $postdata['img4'] = $previewimg;
+                }
+            }
+
+                        //第5张图
+            if(!empty($_FILES['homeimg5']['name'])){
+                if($this->upload->do_upload('homeimg5'))
+                {
+                    $str = $this->upload->data();
+                    $previewimg = $str['file_name'];
+                    $postdata['img5'] = $previewimg;
+                }
+            }
+    
             $postdata['mid'] = $user_id;
             $postdata['title'] = $this->input->post('title');
             $postdata['tuanid'] = $this->input->post('fangtuan');
@@ -268,6 +298,8 @@ class Member extends FrontMember_Controller {
             $postdata['desc'] = $this->input->post('desc');
             $postdata['content'] = $this->input->post('content');
             $postdata['createtime'] = date('Y-m-d G:i:s');
+
+
 
             if($fang_modif==1){
 	        	//设置防止刷新重复提交开关

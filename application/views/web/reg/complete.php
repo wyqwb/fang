@@ -71,9 +71,10 @@
             </div>
         </div>
         <div class="upload_tips_block" id="register_form">
-        <fieldset class="frm_fieldset no_legend">          
+        <fieldset class="frm_fieldset no_legend"> 
+
             <div class="frm_control_group">
-                <label for="" class="frm_label">身份证姓名</label>
+                <label for="" class="frm_label">身份证姓名(必选)</label>
                 <div class="frm_controls">
                     <span class="frm_input_box">
                         <input id="name"  type="text" placeholder="" class="frm_input">
@@ -82,6 +83,16 @@
                 </div>
             </div>
             
+            <div class="frm_control_group">
+                                    <label for="" class="frm_label">邮箱(必选)</label>
+                                    <div class="frm_controls">
+                                        <span class="frm_input_box">
+                                            <input id="email" name="email" type="text" placeholder="" class="frm_input">
+                                        </span>
+                                        <p class="frm_tips">请填写您电子邮箱地址，可选填</p>
+                                    </div>
+            </div>
+
             <div class="frm_control_group">
                               <label for="" class="frm_label">身份证号码</label>
                               <div class="frm_controls">
@@ -127,8 +138,6 @@
                         </form>
 
                         </span>
-                        <!-- <div></div> -->
-                        <!-- <p id="idcard_copy_id_preview" class="upload_preview"></p> -->
                     </div>
                 </div>
             </div>           
@@ -154,7 +163,7 @@
                 </div>
             </div>
             <div class="frm_control_group no_cut">
-                <label for="" class="frm_label">城市</label>
+                <label for="" class="frm_label">城市(必选)</label>
                 <div class="frm_controls">
                 <div id="location">
                      <select id="pro" name="pro" class="dropdown_data_item " >
@@ -215,7 +224,7 @@
             </div>
             
             <div class="frm_control_group">
-                <label for="" class="frm_label">单位名称</label>
+                <label for="" class="frm_label">单位名称(必选)</label>
                 <div class="frm_controls">
                     <span class="frm_input_box">
                         <input id="company" name="company" type="text" placeholder="" class="frm_input">
@@ -225,7 +234,7 @@
             </div>
 
             <div class="frm_control_group">
-                <label for="" class="frm_label">职务</label>
+                <label for="" class="frm_label">职务(必选)</label>
                 <div class="frm_controls">
                     <span class="frm_input_box">
                         <input id="job" name="job" type="text" placeholder="" class="frm_input">
@@ -535,6 +544,17 @@ function dogoon(){
     if(chkfiled()){
         if(checkEnergyCard()){
 
+        var email = $("#email").val();
+        if (email == "") {
+        alert("邮箱不能为空");
+          return false;
+        }
+        if(!$("#email").val().match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)) { 
+          alert("邮箱不能为空");
+          return false; 
+        } 
+
+
         //必填项    
         var realname=$("#name").val();
         var idcard=$("#identity_card").val();
@@ -551,6 +571,7 @@ function dogoon(){
                 url: "/reg/docompleteact/",
                 data: {
                     'accountype':'business',
+                    'email':email,
                     'realname': realname,
                     'idcard': idcard,
                     'city': city,
@@ -566,9 +587,13 @@ function dogoon(){
                 alert("注册失败，请重新完成");
                 return false;
             }
-            if (resault.responseText == "1") {
-                window.location.href = '/member/';
-            }
+
+        if (resault.responseText == "1") {
+                window.location.href = '/reg/activemail/';
+            }    
+        // if (resault.responseText == "1") {
+        //         window.location.href = '/member/';
+        //     }
         }
     }
 }

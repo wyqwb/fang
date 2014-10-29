@@ -87,8 +87,9 @@ html {
 }
 .g-m2-left .ad-cnt {
   margin-top: 10px;
-  padding-top: 5px;
   background: #f3f3f3;
+  height: 151px;
+  padding: 5px 10px 0;
 }
 .g-m2-left .ad-cnt .list5 {
   max-width: 300px;
@@ -337,10 +338,12 @@ html {
 .m6-list li .price {
   position: absolute;
   left: 5px;
+  bottom: 10px;
 }
 .m6-list li .tg {
   position: absolute;
   right: 5px;
+  bottom: 10px;
   background: #cc0000;
   padding: 2px 3px;
   border-radius: 3px;

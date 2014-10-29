@@ -106,16 +106,38 @@
                                 <td><div class="Validform_checktip"></div></td>
                             </tr> 
                             <tr>
-                                <td class="tit">房屋照片上传：</td>
+                                <td class="tit">房屋照片1：</td>
                                 <td class="input">
                                 <input type="file" class='text' data-container="body" data-trigger="focus" data-placement="right" data-content="预览图"  name="homeimg1" value="" />
                                 </td>
                                 <td><div class="Validform_checktip"></div></td>
                             </tr> 
                             <tr>
-                                <td class="tit">房屋照片上传：</td>
+                                <td class="tit">房屋照片2：</td>
                                 <td class="input">
-                                <input type="file" class='text' data-container="body" data-trigger="focus" data-placement="right" data-content="预览图" data-original-title="" name="homeimg2" value="" /> 
+                                <input type="file" class='text' data-container="body" data-trigger="focus" data-placement="right" data-content="预览图"  name="homeimg2" value="" /> 
+                                </td>
+                                <td><div class="Validform_checktip"></div></td>
+                            </tr>
+                                                        <tr>
+                                <td class="tit">房屋照片3：</td>
+                                <td class="input">
+                                <input type="file" class='text' data-container="body" data-trigger="focus" data-placement="right" data-content="预览图"  name="homeimg3" value="" /> 
+                                </td>
+                                <td><div class="Validform_checktip"></div></td>
+                            </tr>
+                                                        <tr>
+                                <td class="tit">房屋照片4：</td>
+                                <td class="input">
+                                <input type="file" class='text' data-container="body" data-trigger="focus" data-placement="right" data-content="预览图" name="homeimg4" value="" /> 
+                                </td>
+                                <td><div class="Validform_checktip"></div></td>
+                            </tr>
+
+                                                        <tr>
+                                <td class="tit">房屋照片5：</td>
+                                <td class="input">
+                                <input type="file" class='text' data-container="body" data-trigger="focus" data-placement="right" data-content="预览图"  name="homeimg5" value="" /> 
                                 </td>
                                 <td><div class="Validform_checktip"></div></td>
                             </tr>
@@ -145,9 +167,7 @@
                             <tr>
                                 <td class="tit">房屋简介：</td>
                                 <td class="input" colspan="2">
-                                <textarea class="text" name="desc" style="width:500px; height:100px;resize: none;" datatype="*" nullmsg="请输入房屋介绍！">
-                                <?php if (isset($fang['desc'])) {echo $fang['desc'];}?>
-                                </textarea>
+                                <textarea class="text" name="desc" style="width:500px; height:100px;resize: none;" datatype="*" nullmsg="请输入房屋介绍！"><?php if (isset($fang['desc'])) {echo $fang['desc'];}?></textarea>
                                 <div class="Validform_checktip"></div></td>
                             </tr>  
 

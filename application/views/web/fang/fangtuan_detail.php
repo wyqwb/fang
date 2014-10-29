@@ -54,13 +54,15 @@
 		<?php if(isset($fangtuan)&&(count($fangtuan)>0)) {  ?> 			
 
 					<div class="g-item g-wh7">
-						<div class="g-m2-left">
-							<div class="ad-title">
+						<div class="g-m2-left" style="margin-left:20px;">
+							<div class="ad-title" style="min-height:60px;">
 								<span class="til"><?php echo $fangtuan['title']?></span><br>
 								<span class="ti2">CBD核心，有轨电车1号线，诺贝尔湖，世界级综合体！</span>
-								<span style="margin-left:320px">售价</span>
-								<span style="font-size:20px;color:red;float:right;line-height:20px"><?php echo $fangtuan['displayCost']?></span>
-								<img src="<?php  echo WEB_IMAGES_PATH?>price.gif" alt="" class="price">
+								
+								<span class="price">
+									<span style="font-size:14px;font-weight:bold;vertical-align: middle">售价</span>
+									<span style="color:#e41717;font-size:22px;font-weight:bold;vertical-align: middle"><?php echo $fangtuan['displayCost']?></span>
+								</span>
 							</div>
 							<div class="ad-img">
 								<?php if($fangtuan['previewimg']==""){ ?>
@@ -69,7 +71,7 @@
 									<img src="<?php  echo CUSTOM_IMAGES_PATH.$fangtuan['previewimg']?>" width="581px" height="301px" alt="">
 								<?php }?>				
 							</div>
-							<div class="ad-cnt">
+							<div class="ad-cnt" style="margin-bottom:10px;">
 								<h2>行程信息</h2>							
 									<?php echo $fangtuan['Travelinfo']?>						
 								<div class="clear"></div>
@@ -98,9 +100,7 @@
 									<p><span>普通费用：</span><?php echo $fangtuan['normalCost']?></p>
 									<p><span>Vip费用：</span><?php echo $fangtuan['vipCost']?></p>
 									<p><span>显示价格：</span><?php echo $fangtuan['displayCost']?></p>
-
-									
-									<input type="button" onclick="jointuan(<?php echo $islogin?>)" value="参加看房团" style="width:119px;height:30px;background-color:red;border:none;margin-top:80px;cursor:pointer;">
+									<input type="button" onclick="jointuan(<?php echo $islogin?>)" value="参加看房团" style="width:130px;height:35px;font-size:18px;background-color:#c72929;border:none;margin-top:80px;cursor:pointer;color:#fff;">
 								</div>
 
 
@@ -130,33 +130,33 @@
 		<!-- 模块5 -->
 		<div class="g-item g-wh7">
 
-			  <div id="comment" class="m m2"> 
+			  <div id="comment" class="m m2" style="padding:0 20px;position:relative"> 
 			   <div class="mt"> 
-			    <h2>看房团评价</h2> 
+			    <h2 style="color:#ccc">看房团评价</h2> 
 			   </div> 
-			   <div class="mc">
-			    <div id="i-comment"> 
+			   <textarea class="mc" cols="162" rows="8">
+			   </textarea> 
+			   	<div id="i-comment" style="position:absolute;right:10px;top:104px;width:150px;"> 
 			     <div class="btns"> 
-			      <div>
+			      <div style="color:#ccc">
 			       您可对看房团进行评价
 			      </div> 
-			      <a href="/fang/dotuancomments/<?php echo $fangtuan['id']?>" class="btn-comment" target="_blank">我要评论</a> 
+			      <a href="/fang/dotuancomments/<?php echo $fangtuan['id']?>" class="btn-comment" target="_blank" style="color:#fff;border:none;font-size:18px;">我要评论</a> 
 			     </div>
 			    </div>
-			   </div> 
 			  </div>
-			<div class="g-m2-tab g-wh8">
+			<div class="g-m2-tab g-wh8" id="fangtuanTab">
 				<ul class="btns">
-					<li class="z-on">点评<a href=""></a></li>
+					<li class="on">点评<a href=""></a></li>
 					<li>看房团点评</li>
 				</ul>
 				<div class="cnts">
 			
-				<?php if(count($comments_list)>0){
-					foreach ($comments_list as $key => $value) {
-				
+					<?php if(count($comments_list)>0){
+						foreach ($comments_list as $key => $value) {
 					
-				?>
+						
+					?>
 
 					<div class="u-cnt">
 						<div class="user-comments">
@@ -200,11 +200,11 @@
 					</div>
 
 				<?php }?>
-
+					<div class="u-cnt" style="display:none">222</div>
 				</div>
 			</div>
 		</div>
-
+	<script src="/javascript/jquery.js"></script>
 	<script type="text/javascript">
 	function jointuan(islogin) {
 			if(!islogin){alert("请登录");return;}
@@ -230,4 +230,14 @@
                 return false;
             }
         }
+      $(function(){
+      		var contents=$("#fangtuanTab .u-cnt");
+      		$("#fangtuanTab ul").find("li").each(function(i){
+      			$(this).click(function(){
+      				$(this).addClass("on").siblings().removeClass("on");
+      				contents.hide();
+      				contents.eq(i).show();
+      			});
+      		})
+      })
 	</script>

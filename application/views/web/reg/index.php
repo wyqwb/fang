@@ -58,7 +58,7 @@
                         <p>
                             <span class="left">&nbsp;</span>
                             <span class="right">
-                                <input type="checkbox" id="protocal" name="protocal" checked="checked"  style="vertical-align:middle;">我已阅读并同意<a href="">《用户注册协议》<span class='red' id="admint"></span></a>
+                                <input type="checkbox" id="protocal" name="protocal" checked="checked"  style="vertical-align:middle;">我已阅读并同意<a href="/reg/agreement">《用户注册协议》<span class='red' id="admint"></span></a>
                             </span>
                         </p>
                         <p>

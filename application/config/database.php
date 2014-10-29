@@ -48,8 +48,8 @@
 $active_group = 'default';
 $active_record = TRUE;
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '888888';
+$db['default']['username'] = 'fangmgr';
+$db['default']['password'] = 'fangadmin';
 $db['default']['database'] = 'fang';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

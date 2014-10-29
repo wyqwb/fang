@@ -82,7 +82,7 @@ class Reg extends Front_Controller {
 		}
 	}
 
-	function docompleteact()
+	public	function docompleteact()
 	{	
 		if($this->session->userdata('islogin')){
 			$params=$_REQUEST;		
@@ -97,6 +97,7 @@ class Reg extends Front_Controller {
 					//商户用户注册
 					$dataInfo = array(
 					'realname'=>$params['realname'],
+					'email'=>$params['email'],
 					'idcard'=>$params['idcard'],
 					'city'=>$params['city'],
 					'company'=>$params['company'],
@@ -140,7 +141,7 @@ class Reg extends Front_Controller {
 	}
 
 
-	function docomplete(){
+	public	function docomplete(){
 		$seg = $this->uri->segment(3);
 		$data["username"]=get_cookie("username");
 		if($seg=="business"){
@@ -151,8 +152,11 @@ class Reg extends Front_Controller {
 		}
 	}
 
+	public	function agreement(){
+		$this->load->view('web/reg/agreement.php');
+	}
 
-public function activemail(){
+	public function activemail(){
 		 $email=get_cookie("email");
 		 $activecode=get_cookie("activecode");
 		 $this->load->library('email');

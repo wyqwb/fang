@@ -73,7 +73,7 @@ class Fang extends Front_Controller {
 				//print_r($data['fang']['tuanid']);
 				$tuanid=$data['fang']['tuanid'];
 				$data['fangtuan_info']=$this->mpublic->getRow('fangtuan','id,previewimg',array('id'=>$tuanid));
-				//print_r($data['fangtuan_info']);die;
+				//print_r($data['fang']);die;
 				$this->front_header();
 				$this->load->view('web/fang/fang_detail.php',$data);
 				$this->front_footer();

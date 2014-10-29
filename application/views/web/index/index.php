@@ -331,7 +331,7 @@
             	?> 	
 				<div class="g-m4">
 					<div class="coment">
-						<a href="#"><span class="top">赞</span></a>
+						<a href="#"><span class="top">赞<span class="num">(10)</span></span></a>
 						
 						<span class="say">
 

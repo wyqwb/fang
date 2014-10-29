@@ -54,14 +54,14 @@
 		<?php if(isset($fang)&&(count($fang)>0)) { //print_r($fang) ; ?> 			
 
 			<div class="g-item g-wh7">
-				<div class="g-m2-left">
+				<div class="g-m2-left" style="margin-left:20px;">
 					<div class="ad-title">
-						<span class="til"><?php echo $fang['title']; ?>
-						<span style="margin-left:320px">售价</span>
-						<span style="font-size:20px;color:red;float:right;line-height:20px">
-						<?php echo $fang['displayprice']?></span>
+						<div class="til" style="position:relative"><?php echo $fang['title']; ?>
+						<span style="position:absolute;right:0">售价
+							<span style="font-size:20px;color:red;margin-left:20px;">
+							<?php echo $fang['displayprice']?></span>
 						</span>
-						<br>
+						</div>
 						<span class="ti2">CBD核心，有轨电车1号线，诺贝尔湖，世界级综合体！</span>
 						
 						<!-- <img src="<?php  echo WEB_IMAGES_PATH?>price.gif" alt="" class="price"> -->
@@ -105,9 +105,9 @@
 					</div>		
 					<div class="m2-img2">
 						<?php if($fangtuan_info['previewimg']==""){ ?>
-							<a href="/fang/tuandetail/<?php echo $fangtuan_info['id']?>"><img src="<?php  echo WEB_IMAGES_PATH?>welgo.gif" alt=""></a>
+							<a href="/fang/tuandetail/<?php echo $fangtuan_info['id']?>"><img src="<?php  echo WEB_IMAGES_PATH?>welgo.gif" width="393px" height="156px" alt=""></a>
 						<?php }else{?>
-							<a href="/fang/tuandetail/<?php echo $fangtuan_info['id']?>"><img src="<?php  echo CUSTOM_IMAGES_PATH.$fangtuan_info['previewimg']?>" alt=""></a>
+							<a href="/fang/tuandetail/<?php echo $fangtuan_info['id']?>"><img src="<?php  echo CUSTOM_IMAGES_PATH.$fangtuan_info['previewimg']?>" width="393px" height="156px"  alt=""></a>
 						<?php }?>
 					</div>
 				</div>
@@ -142,7 +142,7 @@
 						</a>
 						</div>	
 					<div class="clear"></div>
-							<!-- <a href="">>>已出价会员：350名</a> -->
+							<a href="">>>已出价会员：350名</a>
 				</div>
 			</div>
 		<?php } ?>
@@ -161,17 +161,17 @@
 		<div class="g-item g-wh7">
 
 
-			  <div id="comment" class="m m2"> 
+			  <div id="comment" class="m m2" style="padding:0 20px;"> 
 			   <div class="mt" > 
-			    <h2>房源评价</h2> 
+			    <h2 style="color:#ccc">房源评价</h2> 
 			   </div> 
 			   <div class="mc">
-			    <div id="i-comment"> 
+			    <div id="i-comment" style="position:absolute;right:0;bottom:0;width:150px;"> 
 			     <div class="btns"> 
-			      <div>
+			      <div style="color:#ccc;">
 			       您可对房源进行评价
 			      </div> 
-			      <a href="/fang/docomments/<?php echo $fang['id']?>" class="btn-comment" target="_blank">我要评论</a> 
+			      <a href="/fang/docomments/<?php echo $fang['id']?>" class="btn-comment" style="color:#fff;border:none;" target="_blank">我要评论</a> 
 			     </div>
 			    </div>
 			   </div> 
